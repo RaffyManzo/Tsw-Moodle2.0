@@ -3,4 +3,13 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd"
          version="5.0">
+    <servlet>
+        <servlet-name>check-cookies</servlet-name>
+        <servlet-class>com.tswmoodle2.controller.CheckCookies</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>check-cookies</servlet-name>
+        <url-pattern>/check-cookies</url-pattern>
+    </servlet-mapping>
+
 </web-app>

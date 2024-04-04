@@ -1,0 +1,72 @@
+/*
+Header banner on top of each pages
+*/
+.header {
+    background-color: #92A0FF;
+    position: sticky;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.header-main-info, .header-links {
+    width: fit-content;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-content: center;
+    align-items: center;
+}
+
+#header-logo-image {
+    max-height: 100%;
+    margin-left: 40px;
+}
+
+.site-name {
+    font-family: "Jura", serif;
+    font-size: 25px;
+
+    font-weight: 700;
+    font-style: normal;
+
+    text-align: center;
+    margin-left: 15px;
+}
+
+.link-container {
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+    width: 170px !important;
+
+    margin-right: 15px;
+}
+
+.vertical-separator {
+    background-color: #515151;
+    height: 80%;
+    width: 1px;
+}
+
+.header-redirect-btn {
+    border: none;
+    background: transparent;
+    font-family: "Jura", serif;
+    font-size: 20px;
+
+    font-weight: 700;
+    font-style: normal;
+
+    text-align: center;
+}
