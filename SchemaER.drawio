@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2024-04-05T16:26:20.174Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:124.0) Gecko/20100101 Firefox/124.0" etag="038zT3NObCz3RRm4X6jn" version="24.0.7" type="github">
+<mxfile host="app.diagrams.net" modified="2024-04-05T16:27:20.977Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:124.0) Gecko/20100101 Firefox/124.0" etag="FLo_0z3JHpwKRw56Z7k1" version="24.0.7" type="github">
   <diagram name="Pagina-1" id="3-wD7Ra--ZW9C04c_IBh">
-    <mxGraphModel dx="1993" dy="2069" grid="1" gridSize="12" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
+    <mxGraphModel dx="3231" dy="2744" grid="1" gridSize="12" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -888,7 +888,7 @@
             <mxRectangle width="150" height="30" as="alternateBounds" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="DrERIsDQeM2z2awhUm8h-256" value="Effettua" style="shape=rhombus;perimeter=rhombusPerimeter;whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
+        <mxCell id="DrERIsDQeM2z2awhUm8h-256" value="Tramite" style="shape=rhombus;perimeter=rhombusPerimeter;whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
           <mxGeometry x="-360" y="-368" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="DrERIsDQeM2z2awhUm8h-257" value="Possiede" style="shape=rhombus;perimeter=rhombusPerimeter;whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
@@ -971,6 +971,15 @@
         </mxCell>
         <mxCell id="DrERIsDQeM2z2awhUm8h-285" value="Docente" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=24;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;" vertex="1" parent="1">
           <mxGeometry x="530" y="-348" width="160" height="56" as="geometry" />
+        </mxCell>
+        <mxCell id="DrERIsDQeM2z2awhUm8h-293" value="Data di pagamento" style="ellipse;whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="34" y="-276" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="DrERIsDQeM2z2awhUm8h-294" value="" style="endArrow=none;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="DrERIsDQeM2z2awhUm8h-293" target="DrERIsDQeM2z2awhUm8h-7">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="228" y="-120" as="sourcePoint" />
+            <mxPoint x="388" y="-120" as="targetPoint" />
+          </mxGeometry>
         </mxCell>
       </root>
     </mxGraphModel>
