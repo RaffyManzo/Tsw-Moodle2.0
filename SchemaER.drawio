@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2024-04-05T15:36:27.289Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:124.0) Gecko/20100101 Firefox/124.0" etag="ip9Zou8jsBA1_0pvOYKJ" version="24.0.7" type="github">
+<mxfile host="app.diagrams.net" modified="2024-04-05T15:37:19.693Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:124.0) Gecko/20100101 Firefox/124.0" etag="uk4xSF0lWOu2rqNRKxFm" version="24.0.7" type="github">
   <diagram name="Pagina-1" id="3-wD7Ra--ZW9C04c_IBh">
-    <mxGraphModel dx="1499" dy="1218" grid="1" gridSize="12" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
+    <mxGraphModel dx="2220" dy="1393" grid="1" gridSize="12" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -222,6 +222,15 @@
               <mxPoint x="228" y="-56" />
             </Array>
           </mxGeometry>
+        </mxCell>
+        <mxCell id="DrERIsDQeM2z2awhUm8h-15" value="" style="endArrow=none;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="DrERIsDQeM2z2awhUm8h-16" target="DrERIsDQeM2z2awhUm8h-7">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-112" y="-76.59" as="sourcePoint" />
+            <mxPoint x="48" y="-76.59" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DrERIsDQeM2z2awhUm8h-16" value="&lt;div&gt;Pagamenti&lt;/div&gt;" style="rounded=1;arcSize=10;whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="-204" y="-96" width="100" height="40" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
