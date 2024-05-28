@@ -10,18 +10,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aaf64b38-f287-423c-9dbc-41a4353826d6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/CheckCookies.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/images/Logo.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/css/delete-margin.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/css/header.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/login.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/DisplayFieldTestServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/ImageServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/LoginControllerServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/test.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/testImage.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/users-file/images/d001/img.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/images/Vector.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/images/graduation.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/images/school.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/css/login.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/css/reg.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/registrazione.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/script/PhoneNumberValidation.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/script/afterAccountChoice.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/HelloServlet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/CheckCookies.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/delete-margin.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/delete-margin.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/header.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/header.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/login.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,6 +44,9 @@
       <list>
         <option value="HTML File" />
         <option value="CSS File" />
+        <option value="JavaScript File" />
+        <option value="Class" />
+        <option value="Jsp File" />
       </list>
     </option>
   </component>
@@ -78,7 +92,10 @@
       <recent name="C:\Users\raffa\IdeaProjects\Tsw-Moodle2.0\src\main\webapp\assets\images" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\raffa\IdeaProjects\Tsw-Moodle2.0\src\main\webapp\WEB-INF" />
+      <recent name="C:\Users\raffa\IdeaProjects\Tsw-Moodle2.0\src\main\webapp\WEB-INF\users-file\images\d001" />
+      <recent name="C:\Users\raffa\IdeaProjects\Tsw-Moodle2.0\src\main\webapp\WEB-INF\users-file\images" />
+      <recent name="C:\Users\raffa\IdeaProjects\Tsw-Moodle2.0\src\main\webapp\assets\images" />
+      <recent name="C:\Users\raffa\IdeaProjects\Tsw-Moodle2.0\src\main\webapp\assets" />
       <recent name="C:\Users\raffa\IdeaProjects\Tsw-Moodle2.0\src\main\webapp" />
     </key>
   </component>
@@ -112,6 +129,54 @@
       <predefined_log_file id="Tomcat Manager" />
       <predefined_log_file id="Tomcat Host Manager" />
       <predefined_log_file id="Tomcat Localhost Access" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="62957" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Profile">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
       <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
         <option name="USE_ENV_VARIABLES" value="true" />
         <STARTUP>
@@ -145,6 +210,15 @@
       <updated>1712148960251</updated>
       <workItem from="1712148961404" duration="6366000" />
       <workItem from="1712155834462" duration="1200000" />
+      <workItem from="1712320875185" duration="1031000" />
+      <workItem from="1712912459352" duration="11845000" />
+      <workItem from="1713123650795" duration="115000" />
+      <workItem from="1713274732646" duration="1806000" />
+      <workItem from="1713874956857" duration="420000" />
+      <workItem from="1713959895944" duration="2483000" />
+      <workItem from="1716545707050" duration="16258000" />
+      <workItem from="1716717151260" duration="21682000" />
+      <workItem from="1716931371225" duration="4501000" />
     </task>
     <servers />
   </component>

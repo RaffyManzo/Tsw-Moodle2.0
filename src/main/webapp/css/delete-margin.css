@@ -1,6 +1,10 @@
 html, body {
     margin: 0 !important;
     padding: 0;
+    width: 100%;
+    align-content: center;
+
+
 }
 
 h1 {

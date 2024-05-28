@@ -1,0 +1,464 @@
+
+
+:root {
+    --scale-percentage: 1.1;
+}
+
+html,body {
+    overflow: hidden;
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-content: center;
+    overflow: visible;
+    padding-top: 45px;
+}
+
+.center-div {
+    position: absolute;
+    left: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 200px;
+
+    width: 50%;
+    height: 55%;
+
+    transition: width .5s;;
+}
+
+.account-type {
+    position: relative;
+    left: -50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding: 0 50px 0 50px;
+
+    background-color: white;
+
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.25), 4px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+
+    transition: width 1s;
+}
+
+.label-container-in-choice {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+label {
+    font-family: "Jura", sans-serif;
+    color: black;
+}
+
+
+#account-type-text {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+#choice-box-text {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.choices-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+
+}
+
+.choice-box {
+    width: 250px;
+    height: 200px;
+    background-color: #e9ecff;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.25));
+
+    cursor: pointer;
+}
+
+[type=radio] + img {
+    cursor: pointer;
+}
+
+/* HIDE RADIO */
+[type=radio] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* CHECKED STYLES */
+.choice-box:has([type=radio]:checked + img) {
+    outline: 3px solid #4e5690;
+}
+
+
+.blur {
+    filter: blur(3px);
+    z-index: -10
+}
+
+.blur > .center-div {
+    z-index: 10;
+}
+
+.choice-box > img {
+    width: 80%;
+    height: 80%;
+    object-fit: contain;
+}
+
+
+.choice-box > img:hover {
+    /*Ingrandisce l'immagine quando passa il mouse*/
+    transition: .5s ease-in-out;
+    -ms-transform: scale(var(--scale-percentage));
+    -moz-transform: scale(var(--scale-percentage));
+    -webkit-transform: scale(var(--scale-percentage));
+    -o-transform: scale(var(--scale-percentage));
+    transform: scale(var(--scale-percentage));
+}
+
+.message-for-login {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.message-for-login > * {
+    font-family: "Jura", sans-serif;
+    font-size: 25px;
+    font-weight: bold;
+    margin: 5px;
+}
+
+/*
+------------------------------------------------------------
+FORM FIELD STYLE
+-----------------------------------------------------------
+*/
+
+.master-form-label {
+    color: black;
+    font-family: "Jura", sans-serif;
+    font-size: 26px;
+    font-weight: bold;
+    text-align: left;
+    height: 80px;
+    margin: 50px 50px 0 50px;
+}
+
+.form {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    margin: 25px 0 25px 0 !important;
+}
+
+fieldset {
+    border: none;
+
+}
+
+fieldset > legend {
+    color: black;
+    font-family: "Jura", sans-serif;
+    font-size: 23px;
+    font-weight: bold;
+    text-align: left;
+    height: 80px;
+}
+
+.form-fields {
+    display: flex;
+    width: 60%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 25px;
+}
+
+.field-set-personal-data {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+    overflow: inherit;
+}
+
+.input-box {
+    height: 80px;
+    position: relative;
+    width: 40%;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 5px 20px 5px 20px;
+
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.25), 4px 4px 4px rgba(0, 0, 0, 0.25);
+    background-color: white;
+    border-radius: 12px;
+
+
+}
+
+.field-input-box-container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.field-input-box-container > label {
+    color: #797974;
+    font-family: "Jura", sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+}
+
+.input-field {
+    border: none;
+    color: black;
+    font-family: "Jura", sans-serif;
+    font-size: 23px;
+    font-weight: normal;
+    text-align: left;
+    height: 32px;
+    width: 100%;
+
+    background-color: white;
+}
+
+.input-field:focus {
+    outline: none;
+}
+
+.field-row-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 30px auto;
+    width: 100%;
+}
+
+.phone-fields {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.phone-fields > select {
+    width: 15%;
+}
+
+.phone-fields > input {
+    margin-left: 20px;
+    width: 80%;
+}
+
+.input-box-extended {
+    width: 55%;
+}
+.input-box-shortened {
+    width: 30%;
+}
+
+/*Separatore*/
+hr {
+    border: 0;
+    border-top: 1px solid #000000;
+    margin: 40px 0;
+    width: 100%;
+}
+
+.password-message > *{
+    font-family: "Jura", sans-serif;
+    color: black;
+    font-weight: normal;
+}
+
+.password-message > h3 {
+    font-weight: bold;
+    font-size: 23px;
+}
+
+.password-message > p {
+    font-size: 16px;
+}
+
+.button-field {
+    background-color: #4E569F;
+    color: white;
+    font-family: "Jura", sans-serif;
+    height: 80px;
+    width: fit-content;
+    padding: 5px 25px;
+    font-weight: bold;
+    font-size: 18px;
+    border-radius: 12px;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+
+}
+
+    /*
+    ------------------------------------------------------------
+    ANIMATION
+    -----------------------------------------------------------
+
+
+    */
+
+@keyframes expand {
+    from {
+        width: 50%;
+        left: 50%;
+
+        top: 200px;
+        height: 55%;
+    }
+
+    to {
+        width: 100%;
+        left: 0;
+        top: 100px;
+        height: 80%;
+    }
+}
+
+
+@keyframes disappear {
+    from {
+        width: 50%;
+    }
+    to {
+        width: 0;
+        height: 0;
+    }
+}
+
+/*
+------------------------------------------------------------
+MEDIA QUERIES
+-----------------------------------------------------------
+*/
+
+/* Landscape phones and down */
+@media (max-width: 1500px) {
+    .center-div {
+        width: 70%;
+    }
+}
+
+@media (max-width: 1070px) {
+    .center-div {
+        width: 85%;
+    }
+
+    .field-row-container {
+        flex-direction: column;
+        justify-content: space-between;
+        margin: 10px;
+    }
+
+    .field-row-container > * {
+        width: 100%;
+        margin: 10px;
+    }
+}
+
+/* Landscape phone to portrait tablet */
+@media (max-width: 890px) {
+
+
+    .center-div {
+        animation: expand .5s ease-in-out;
+        width: 100%;
+        height: 80%;
+        left: 0;
+
+        top: 100px;
+    }
+
+    .account-type {
+        left: 0;
+        border-radius: 0;
+        justify-content: center;
+        padding: 0;
+    }
+
+
+    #choice-box-text {
+        font-size: 16px;
+        font-weight: bold;
+    }
+
+    #account-type-text {
+        text-align: center;
+    }
+
+    .message-for-login {
+        justify-content: center;
+    }
+
+
+    .account-type > * {
+        padding: 20px;
+        width: 100%;
+    }
+
+    .choices-container {
+        flex-direction: column;
+        width: 100%;
+        padding: 20px;
+        overflow: clip;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .choices-container > * {
+        margin: 20px auto 20px auto;
+        width: 60%;
+    }
+
+
+    #account-type-text {
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    .message-for-login > * {
+        font-size: 18px;
+    }
+}
