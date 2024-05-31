@@ -17,7 +17,7 @@ public class LoginControllerServlet extends HttpServlet {
                 if ("username".equals(cookie.getName())) {
                     if(!cookie.getValue().isEmpty()) {
                         request.setAttribute("username", cookie.getValue());
-                        RequestDispatcher rd = request.getRequestDispatcher("login.html");
+                        RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/results/testImage.jsp");
                         rd.forward(request, response);
                     }
                 }
@@ -25,7 +25,7 @@ public class LoginControllerServlet extends HttpServlet {
         }
 
         //Utente non trovato nei cookie, registrazione
-        RequestDispatcher rd = request.getRequestDispatcher("registrazione.html");
+        RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/results/testImage.jsp");
         rd.forward(request, response);
     }
 

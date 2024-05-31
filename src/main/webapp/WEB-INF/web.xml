@@ -3,6 +3,11 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd"
          version="5.0">
+
+    <context-param>
+        <param-name>upload-path</param-name>
+        <param-value>${catalina.home}/upload</param-value>
+    </context-param>
     <servlet>
         <servlet-name>LoginControllerServlet</servlet-name>
         <servlet-class>com.tswmoodle2.controller.LoginControllerServlet</servlet-class>
@@ -22,11 +27,11 @@
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>ImageServlet</servlet-name>
-        <servlet-class>com.tswmoodle2.controller.ImageServlet</servlet-class>
+        <servlet-name>UserFileServlet</servlet-name>
+        <servlet-class>com.tswmoodle2.controller.UserFileServlet</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>ImageServlet</servlet-name>
-        <url-pattern>/getImage</url-pattern>
+        <servlet-name>UserFileServlet</servlet-name>
+        <url-pattern>/file</url-pattern>
     </servlet-mapping>
 </web-app>

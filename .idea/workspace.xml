@@ -9,7 +9,28 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aaf64b38-f287-423c-9dbc-41a4353826d6" name="Changes" comment="Added registration form&#10;Added image picker servlet&#10;Added css and some fix" />
+    <list default="true" id="aaf64b38-f287-423c-9dbc-41a4353826d6" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/UserFileServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/model/DBManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/model/DBManagerException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/model/beans/Corso.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/model/dao/AbstractDataAccessObject.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/model/dao/CorsoDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/model/dao/CorsoDaoImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/home.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashchuk-manzo_pj/src/main/java/com/tswmoodle2/controller/ImageServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/dashchuk-manzo_pj/src/main/java/com/tswmoodle2/controller/ImageServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashchuk-manzo_pj/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/dashchuk-manzo_pj/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/ImageServlet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/LoginControllerServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/LoginControllerServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/testImage.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/testImage.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/users-file/images/d001/img.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -21,13 +42,44 @@
         <option value="HTML File" />
         <option value="CSS File" />
         <option value="JavaScript File" />
-        <option value="Class" />
         <option value="Jsp File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;RaffyManzo&quot;
+  }
+}</component>
+  <component name="GitLabMergeRequestFiltersHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPENED&quot;,
+    &quot;assignee&quot;: {
+      &quot;type&quot;: &quot;org.jetbrains.plugins.gitlab.mergerequest.ui.filters.GitLabMergeRequestsFiltersValue.MergeRequestsMemberFilterValue.MergeRequestsAssigneeFilterValue&quot;,
+      &quot;username&quot;: &quot;RaffyManzo&quot;,
+      &quot;fullname&quot;: &quot;RaffyManzo&quot;
+    }
+  }
+}</component>
+  <component name="GitLabMergeRequestsSettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;first&quot;: &quot;https://gitlab.com/g4660/tsw_progetti/tsw23_24/dashchuk-manzo_pj.git&quot;,
+    &quot;second&quot;: &quot;60792cb6-f271-4f7e-9f2b-62689181ba11&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="db7cf639-89de-4e38-ae8e-147d81b0f9f6" />
+        <option name="url" value="https://github.com/RaffyManzo/Tsw-Moodle2.0.git" />
+      </UrlAndAccount>
+    </option>
   </component>
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
@@ -35,6 +87,9 @@
     <option name="FILTER_INFO" value="true" />
     <option name="FILTER_DEBUG" value="true" />
     <option name="CUSTOM_FILTER" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 7
@@ -45,34 +100,35 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/raffa/IdeaProjects/MVCDatabase&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "C:/Users/raffa/IdeaProjects/Tsw-Moodle2.0/src/main/webapp/WEB-INF",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\raffa\IdeaProjects\Tsw-Moodle2.0\src\main\webapp\WEB-INF" />
       <recent name="C:\Users\raffa\IdeaProjects\Tsw-Moodle2.0\src\main\webapp\assets\images" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\raffa\IdeaProjects\Tsw-Moodle2.0\upload\images" />
+      <recent name="C:\Users\raffa\IdeaProjects\Tsw-Moodle2.0\dashchuk-manzo_pj" />
       <recent name="C:\Users\raffa\IdeaProjects\Tsw-Moodle2.0\src\main\webapp\WEB-INF\users-file\images\d001" />
       <recent name="C:\Users\raffa\IdeaProjects\Tsw-Moodle2.0\src\main\webapp\WEB-INF\users-file\images" />
       <recent name="C:\Users\raffa\IdeaProjects\Tsw-Moodle2.0\src\main\webapp\assets\images" />
-      <recent name="C:\Users\raffa\IdeaProjects\Tsw-Moodle2.0\src\main\webapp\assets" />
-      <recent name="C:\Users\raffa\IdeaProjects\Tsw-Moodle2.0\src\main\webapp" />
     </key>
   </component>
   <component name="RunManager">
@@ -194,7 +250,8 @@
       <workItem from="1713959895944" duration="2483000" />
       <workItem from="1716545707050" duration="16258000" />
       <workItem from="1716717151260" duration="21682000" />
-      <workItem from="1716931371225" duration="4808000" />
+      <workItem from="1716931371225" duration="6660000" />
+      <workItem from="1717162880960" duration="15144000" />
     </task>
     <task id="LOCAL-00001" summary="Added registration form&#10;Added image picker servlet&#10;Added css and some fix">
       <option name="closed" value="true" />
