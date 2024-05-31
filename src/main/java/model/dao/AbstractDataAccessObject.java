@@ -59,7 +59,7 @@ public abstract class  AbstractDataAccessObject <T> {
      * @return List<T>
      * @throws SQLException
      */
-    protected List<T> getResultAsList(ResultSet rs) throws SQLException {
+    protected ArrayList<T> getResultAsList(ResultSet rs) throws SQLException {
         ArrayList<T> resultList = new ArrayList<>();
         while (rs.next())
             resultList.add(extractFromResultSet(rs));
@@ -97,4 +97,6 @@ public abstract class  AbstractDataAccessObject <T> {
     protected abstract void insertInto (T t) throws SQLException;
 
     protected abstract <E> void update(E e);
+
+    protected abstract void delete(int id);
 }

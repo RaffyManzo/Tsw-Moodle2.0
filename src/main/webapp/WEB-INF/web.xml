@@ -9,12 +9,12 @@
         <param-value>${catalina.home}/upload</param-value>
     </context-param>
     <servlet>
-        <servlet-name>LoginControllerServlet</servlet-name>
-        <servlet-class>com.tswmoodle2.controller.LoginControllerServlet</servlet-class>
+        <servlet-name>HomeServlet</servlet-name>
+        <servlet-class>com.tswmoodle2.controller.HomeServlet</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>LoginControllerServlet</servlet-name>
-        <url-pattern>/check</url-pattern>
+        <servlet-name>HomeServlet</servlet-name>
+        <url-pattern>/home</url-pattern>
     </servlet-mapping>
 
     <servlet>

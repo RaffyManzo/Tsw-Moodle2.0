@@ -13,7 +13,7 @@ Header banner on top of each pages
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    z-index: 10;
+    z-index: 1;
 }
 
 .header-main-info, .header-links {
@@ -107,7 +107,7 @@ Header banner on top of each pages
     padding: 0px 10px;
     box-sizing: border-box;
     border-radius: 0 0 0 5px ;
-    z-index: 10;
+    z-index: 1;
 
     transition: 0.3s;
 }
@@ -154,8 +154,10 @@ Header banner on top of each pages
     display: none;
 }
 
+
+
 /* Landscape phone to portrait tablet */
-@media (max-width: 800px) {
+@media (max-width: 1000px) {
 
     .header-links {
         display: none;

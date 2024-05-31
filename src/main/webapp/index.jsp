@@ -7,7 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
-    request.getRequestDispatcher("/check").forward(request, response);
+    request.getRequestDispatcher("/home").forward(request, response);
 
     // request.getRequestDispatcher("/WEB-INF/results/testImage.jsp").forward(request, response);
 %>
