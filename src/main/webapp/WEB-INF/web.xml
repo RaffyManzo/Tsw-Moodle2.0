@@ -27,11 +27,21 @@
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>UserFileServlet</servlet-name>
-        <servlet-class>com.tswmoodle2.controller.UserFileServlet</servlet-class>
+        <servlet-name>FileServlet</servlet-name>
+        <servlet-class>com.tswmoodle2.controller.FileServlet</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>UserFileServlet</servlet-name>
+        <servlet-name>FileServlet</servlet-name>
         <url-pattern>/file</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>HomeRequestHandler</servlet-name>
+        <servlet-class>com.tswmoodle2.controller.HomeRequestHandler</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>HomeRequestHandler</servlet-name>
+        <url-pattern>/courses</url-pattern>
+    </servlet-mapping>
+
 </web-app>

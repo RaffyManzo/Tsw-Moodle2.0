@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CorsoDaoImpl extends AbstractDataAccessObject<Corso> implements CorsoDao{
+
+    ArrayList<Corso> courses = new ArrayList<>();
     @Override
     public void insertInto(Corso corso)  {
         try (Connection connection = getConnection();
@@ -27,7 +29,7 @@ public class CorsoDaoImpl extends AbstractDataAccessObject<Corso> implements Cor
     public <E> void update(E e)  {
         Corso corso = (Corso) e;
         try (Connection connection = getConnection();
-             PreparedStatement ps = connection.prepareStatement(getQuery("UPADATE_CORSO"))) {
+             PreparedStatement ps = connection.prepareStatement(getQuery("UPDATE_CORSO"))) {
             ps.setString(1, corso.getNomeCategoria());
             ps.setString(2, corso.getNome());
             ps.setString(3, corso.getDescrizione());
@@ -53,11 +55,12 @@ public class CorsoDaoImpl extends AbstractDataAccessObject<Corso> implements Cor
     }
 
     @Override
-    public ArrayList<Corso> findAll()  {
+    public ArrayList<Corso> getAllCourses()  {
         try (Connection connection = getConnection();
              PreparedStatement ps = connection.prepareStatement(getQuery("FIND_ALL_CORSI"));
              ResultSet rs = ps.executeQuery()) {
-            return getResultAsList(rs);
+            courses.addAll(getResultAsList(rs));
+            return courses;
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

@@ -8,7 +8,7 @@ import java.sql.Date;
 import java.util.List;
 
 public interface CorsoDao {
-    ArrayList<Corso> findAll() throws SQLException;
+    ArrayList<Corso> getAllCourses() throws SQLException;
     Corso findByID(int id) throws SQLException;
     ArrayList<Corso> findByCategoria(String categoria) throws SQLException;
     ArrayList<Corso> searchByName(String nome) throws SQLException;

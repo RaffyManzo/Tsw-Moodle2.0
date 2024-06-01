@@ -11,6 +11,6 @@
     <title>Title</title>
 </head>
 <body>
-<a href="file?file=file.txt&id=test"> Get Image </a>
+<a href="file?file=db.properties&c=app"> Get Image </a>
 </body>
 </html>

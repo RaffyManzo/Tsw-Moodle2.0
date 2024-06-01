@@ -22,6 +22,8 @@ public abstract class  AbstractDataAccessObject <T> {
             // DBmanagerException is generated on IOException
         } catch (DBManagerException e) {
             System.err.println("AbstractDAO:" + e.getMessage());
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
         }
     }
 

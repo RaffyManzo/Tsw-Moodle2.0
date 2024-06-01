@@ -15,6 +15,10 @@
     <link href="https://fonts.googleapis.com" rel="preconnect">
     <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
     <link href="https://fonts.googleapis.com/css2?family=Jura:wght@300..700&display=swap" rel="stylesheet">
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="${pageContext.request.contextPath}/script/slider.js"></script>
 </head>
 <body>
 <div class="header" id="header">
@@ -86,6 +90,21 @@
 
         <div class="link-container">
             <a href="" class="header-redirect-btn" id="header-redirect-to-cart"><img src="${pageContext.request.contextPath}/assets/images/shopping-cart%201.png" alt=""></a>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="courses-section">
+        <div class="courses-section-header">
+            <img src="${pageContext.request.contextPath}/file?file=flame%201.png&c=app" alt="">
+            <label> Corsi di tendenza: il meglio selezionato per te</label>
+        </div>
+        <div class="slider" id="trend-courses">
+            <button class="move-slider-button" id="move-slider-left"></button>
+            <div class="slider-element-container">
+
+            </div>
+            <button class="move-slider-button" id="move-slider-right"></button>
         </div>
     </div>
 </div>

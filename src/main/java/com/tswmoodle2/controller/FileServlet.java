@@ -8,13 +8,13 @@ import java.io.*;
 import java.nio.file.Files;
 
 
-@WebServlet(name = "UserFileServlet", urlPatterns = {"/file"})
-public class UserFileServlet extends HttpServlet {
+@WebServlet(name = "FileServlet", urlPatterns = {"/file"})
+public class FileServlet extends HttpServlet {
 
     private String UPLOAD_FOLDER;
 
     public void init() {
-        UPLOAD_FOLDER = getServletContext().getInitParameter("upload-path") + "/user-files/";
+        UPLOAD_FOLDER = getServletContext().getInitParameter("upload-path");
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -25,6 +25,8 @@ public class UserFileServlet extends HttpServlet {
         String fileName = request.getParameter("file");
         String userID = request.getParameter("id");
 
+        String contest = request.getParameter("c");
+
         // Leggo la risorsa utilizzando il servletContext
 
         /*
@@ -32,7 +34,9 @@ public class UserFileServlet extends HttpServlet {
          * Prende un percorso a un file come argomento e restituisce un InputStream per leggere il file.
          * Il file deve essere nel percorso del contesto dell’applicazione web
          * */
-        File f = new File(UPLOAD_FOLDER + userID + "/" + fileName);
+        File f = userID == null ?
+                    new File(UPLOAD_FOLDER + "/" + contest + "/" + fileName) :
+                    new File(UPLOAD_FOLDER + "/" + contest + "/" + userID + "/" + fileName);
         String contentType = Files.probeContentType(f.toPath());
         InputStream file = f.toURI().toURL().openStream();
         OutputStream os = response.getOutputStream();
