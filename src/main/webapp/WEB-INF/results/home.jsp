@@ -12,6 +12,7 @@
     <meta charset="UTF-8">
     <link href="${pageContext.request.contextPath}/css/header.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/css/delete-margin.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/css/slider.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com" rel="preconnect">
     <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
     <link href="https://fonts.googleapis.com/css2?family=Jura:wght@300..700&display=swap" rel="stylesheet">
@@ -97,14 +98,18 @@
     <div class="courses-section">
         <div class="courses-section-header">
             <img src="${pageContext.request.contextPath}/file?file=flame%201.png&c=app" alt="">
-            <label> Corsi di tendenza: il meglio selezionato per te</label>
+            <label>Corsi di tendenza: il meglio selezionato per te</label>
         </div>
         <div class="slider" id="trend-courses">
-            <button class="move-slider-button" id="move-slider-left"></button>
+            <button class="move-slider-button" id="move-slider-left">
+                <img src="${pageContext.request.contextPath}/file?file=leftarr.png&c=app" alt="">
+            </button>
             <div class="slider-element-container">
 
             </div>
-            <button class="move-slider-button" id="move-slider-right"></button>
+            <button class="move-slider-button" id="move-slider-right">
+                <img src="${pageContext.request.contextPath}/file?file=rightarr.png&c=app" alt="">
+            </button>
         </div>
     </div>
 </div>

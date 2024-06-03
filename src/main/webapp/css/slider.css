@@ -1,0 +1,126 @@
+.courses-section {
+    display: flex;
+    margin: 30px;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-direction: column;
+    overflow: hidden;
+    position: relative;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.courses-section-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.courses-section-header > label{
+    color: black;
+    font-family: "Jura", sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    height: 25px;
+
+    margin: 0 15px;
+    text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.slider {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex: 1;
+    flex-direction: row;
+    margin: 20px 0;
+    width: 100%;
+    box-sizing: content-box;
+}
+
+.slider-element-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    box-sizing: content-box;
+    overflow: scroll;
+    transition: transform 0.3s ease;
+    max-width: 95%;
+    flex: 1 0 10%;
+}
+
+.course-box {
+
+    box-sizing: border-box;
+    height: 250px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+
+    background-color: #efefef;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 12px;
+    margin: 30px;
+}
+
+.master-course-info {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    height: 160px;
+
+    justify-content: space-between;
+    align-items: center;
+}
+
+.master-course-info > img {
+    height: 120px;
+    width: 100%;
+
+    border-radius: 12px;
+}
+
+.master-course-info > label {
+    color: black;
+    font-family: "Jura", sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: left;
+    height: 30px;
+
+    text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+
+}
+
+.sub-course-info {
+    color: #515151;
+    font-family: "Jura", sans-serif;
+    font-size: 11px;
+    font-weight: normal;
+    text-align: left;
+    height: 16px;
+}
+
+.move-slider-button {
+    width: 33px;
+    height: 25px;
+    background: none;
+    outline: none;
+    border: none;
+
+    position: relative;
+    cursor: pointer;
+}
+
+#move-slider-right {
+    right: 30px;
+}
+
+#move-slider-left {
+    left: 30px;
+}
