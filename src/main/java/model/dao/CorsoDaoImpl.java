@@ -4,7 +4,6 @@ import model.beans.Corso;
 
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.List;
 
 public class CorsoDaoImpl extends AbstractDataAccessObject<Corso> implements CorsoDao{
 
@@ -12,7 +11,7 @@ public class CorsoDaoImpl extends AbstractDataAccessObject<Corso> implements Cor
     @Override
     public void insertInto(Corso corso)  {
         try (Connection connection = getConnection();
-             PreparedStatement ps = connection.prepareStatement(getQuery("INSERT_CORSO"))) {
+             PreparedStatement ps = prepareStatement(connection, "INSERT_CORSO")) {
             ps.setString(1, corso.getNomeCategoria());
             ps.setString(2, corso.getNome());
             ps.setString(3, corso.getDescrizione());
@@ -29,7 +28,7 @@ public class CorsoDaoImpl extends AbstractDataAccessObject<Corso> implements Cor
     public <E> void update(E e)  {
         Corso corso = (Corso) e;
         try (Connection connection = getConnection();
-             PreparedStatement ps = connection.prepareStatement(getQuery("UPDATE_CORSO"))) {
+             PreparedStatement ps = prepareStatement(connection,"UPDATE_CORSO")) {
             ps.setString(1, corso.getNomeCategoria());
             ps.setString(2, corso.getNome());
             ps.setString(3, corso.getDescrizione());
@@ -46,7 +45,7 @@ public class CorsoDaoImpl extends AbstractDataAccessObject<Corso> implements Cor
     @Override
     public void delete(int id) {
         try (Connection connection = getConnection();
-             PreparedStatement ps = connection.prepareStatement(getQuery("DELETE_CORSO"))) {
+             PreparedStatement ps = prepareStatement(connection, "DELETE_CORSO")) {
             ps.setInt(1, id);
             ps.executeUpdate();
         } catch (SQLException e) {
@@ -57,7 +56,7 @@ public class CorsoDaoImpl extends AbstractDataAccessObject<Corso> implements Cor
     @Override
     public ArrayList<Corso> getAllCourses()  {
         try (Connection connection = getConnection();
-             PreparedStatement ps = connection.prepareStatement(getQuery("FIND_ALL_CORSI"));
+             PreparedStatement ps = prepareStatement(connection, "FIND_ALL_CORSI");
              ResultSet rs = ps.executeQuery()) {
             courses.addAll(getResultAsList(rs));
             return courses;
@@ -69,11 +68,11 @@ public class CorsoDaoImpl extends AbstractDataAccessObject<Corso> implements Cor
     @Override
     public Corso findByID(int id)  {
         try (Connection connection = getConnection();
-             PreparedStatement ps = connection.prepareStatement(getQuery("FIND_CORSO_BY_ID"))) {
+             PreparedStatement ps = prepareStatement(connection, "FIND_CORSO_BY_ID")) {
             ps.setInt(1, id);
             try (ResultSet rs = ps.executeQuery()) {
                 if (rs.next()) {
-                    return getResultAsObject(rs, 0);
+                    return getResultAsObject(rs);
                 }
             }
         } catch (SQLException e) {
@@ -85,7 +84,7 @@ public class CorsoDaoImpl extends AbstractDataAccessObject<Corso> implements Cor
     @Override
     public ArrayList<Corso> findByCategoria(String categoria)  {
         try (Connection connection = getConnection();
-             PreparedStatement ps = connection.prepareStatement(getQuery("FIND_CORSI_BY_CATEGORIA"))) {
+             PreparedStatement ps = prepareStatement(connection, "FIND_CORSI_BY_CATEGORIA")) {
             ps.setString(1, categoria);
             try (ResultSet rs = ps.executeQuery()) {
                 return getResultAsList(rs);
@@ -98,7 +97,7 @@ public class CorsoDaoImpl extends AbstractDataAccessObject<Corso> implements Cor
     @Override
     public ArrayList<Corso> searchByName(String nome)  {
         try (Connection connection = getConnection();
-             PreparedStatement ps = connection.prepareStatement(getQuery("SEARCH_CORSI_BY_NOME"))) {
+             PreparedStatement ps = prepareStatement(connection, "SEARCH_CORSI_BY_NOME")) {
             ps.setString(1, "%" + nome + "%");
             try (ResultSet rs = ps.executeQuery()) {
                 return getResultAsList(rs);
@@ -111,7 +110,7 @@ public class CorsoDaoImpl extends AbstractDataAccessObject<Corso> implements Cor
     @Override
     public ArrayList<Corso> findByDateRange(Date startDate, Date endDate)  {
         try (Connection connection = getConnection();
-             PreparedStatement ps = connection.prepareStatement(getQuery("FIND_CORSI_BY_DATE_RANGE"))) {
+             PreparedStatement ps = prepareStatement(connection, "FIND_CORSI_BY_DATE_RANGE")) {
             ps.setDate(1, startDate);
             ps.setDate(2, endDate);
             try (ResultSet rs = ps.executeQuery()) {
@@ -125,7 +124,7 @@ public class CorsoDaoImpl extends AbstractDataAccessObject<Corso> implements Cor
     @Override
     public ArrayList<Corso> findByCertificazione(String certificazione)  {
         try (Connection connection = getConnection();
-             PreparedStatement ps = connection.prepareStatement(getQuery("FIND_CORSI_BY_CERTIFICAZIONE"))) {
+             PreparedStatement ps = prepareStatement(connection, "FIND_CORSI_BY_CERTIFICAZIONE")) {
             ps.setString(1, certificazione);
             try (ResultSet rs = ps.executeQuery()) {
                 return getResultAsList(rs);

@@ -9,26 +9,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aaf64b38-f287-423c-9dbc-41a4353826d6" name="Changes" comment="Start HomeServlet.java">
-      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/json-simple-1.1.1.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/mysql-connector-j-8.1.0.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/HomeRequestHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/script/slider.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+    <list default="true" id="aaf64b38-f287-423c-9dbc-41a4353826d6" name="Changes" comment="01-06">
+      <change afterPath="$PROJECT_DIR$/src/main/java/model/QueryPool.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/xml/query.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dashchuk-manzo_pj/src/main/java/com/tswmoodle2/controller/ImageServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/dashchuk-manzo_pj/src/main/java/com/tswmoodle2/controller/ImageServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dashchuk-manzo_pj/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/dashchuk-manzo_pj/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/json-simple-1.1.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/mysql-connector-j-8.1.0.jar" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/HomeServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/HomeServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/UserFileServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/FileServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/DBManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/DBManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/dao/AbstractDataAccessObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/dao/AbstractDataAccessObject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/dao/CorsoDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/dao/CorsoDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/dao/CorsoDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/dao/CorsoDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/home.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/home.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/testImage.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/testImage.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,27 +89,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "C:/Users/raffa/IdeaProjects/Tsw-Moodle2.0/.mvn/wrapper/json-simple-1.1.1.jar",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.4586207",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/raffa/IdeaProjects/Tsw-Moodle2.0/.mvn/wrapper/json-simple-1.1.1.jar&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.4586207&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\raffa\IdeaProjects\Tsw-Moodle2.0\.mvn\wrapper" />
@@ -134,7 +123,20 @@
       <recent name="C:\Users\raffa\IdeaProjects\Tsw-Moodle2.0\src\main\webapp\WEB-INF\users-file\images" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Tomcat Server.Tomcat 10.1.19">
+    <configuration name="QueryPool" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="model.QueryPool" />
+      <module name="Tsw-Moodle2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="JetRunConfigurationType">
       <module name="Tsw-Moodle2.0" />
       <method v="2">
@@ -235,6 +237,11 @@
         </option>
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.QueryPool" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -257,7 +264,8 @@
       <workItem from="1716931371225" duration="6660000" />
       <workItem from="1717162880960" duration="18867000" />
       <workItem from="1717237904839" duration="388000" />
-      <workItem from="1717248115847" duration="13060000" />
+      <workItem from="1717248115847" duration="13514000" />
+      <workItem from="1717405793609" duration="8579000" />
     </task>
     <task id="LOCAL-00001" summary="Added registration form&#10;Added image picker servlet&#10;Added css and some fix">
       <option name="closed" value="true" />
@@ -291,7 +299,15 @@
       <option name="project" value="LOCAL" />
       <updated>1717186828775</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="01-06">
+      <option name="closed" value="true" />
+      <created>1717262558968</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1717262558968</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -312,6 +328,7 @@
     <MESSAGE value="Added registration form&#10;Added image picker servlet&#10;Added css and some fix" />
     <MESSAGE value="Fixed imageServlet and convert it to FileServlet&#10;Begin DAOpattern" />
     <MESSAGE value="Start HomeServlet.java" />
-    <option name="LAST_COMMIT_MESSAGE" value="Start HomeServlet.java" />
+    <MESSAGE value="01-06" />
+    <option name="LAST_COMMIT_MESSAGE" value="01-06" />
   </component>
 </project>

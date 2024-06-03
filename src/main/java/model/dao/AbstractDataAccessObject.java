@@ -1,30 +1,17 @@
 package model.dao;
 
 import model.DBManager;
-import model.DBManagerException;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.List;
 
 public abstract class  AbstractDataAccessObject <T> {
-    private DBManager dbManager;
 
 
     public AbstractDataAccessObject() {
-        try {
-            // try to get instance of db manager
-            dbManager = DBManager.getInstance();
-
-            // DBmanagerException is generated on IOException
-        } catch (DBManagerException e) {
-            System.err.println("AbstractDAO:" + e.getMessage());
-        } catch (ClassNotFoundException e) {
-            throw new RuntimeException(e);
-        }
     }
 
     /**
@@ -34,10 +21,7 @@ public abstract class  AbstractDataAccessObject <T> {
      * @throws SQLException
      */
     protected Connection getConnection() throws SQLException {
-        if (dbManager != null) {
-            return dbManager.getConnection();
-        }
-        return null;
+        return DBManager.getConnection();
     }
 
 
@@ -45,12 +29,16 @@ public abstract class  AbstractDataAccessObject <T> {
      * Prepare a statement for a param query
      *
      * @param conn Connection to database
-     * @param queryId a String to identify the query
+     * @param queryId a query id
      * @return PreparedStatement
      * @throws SQLException
      */
-    protected PreparedStatement prepareStatement(Connection conn, String queryId) throws SQLException {
-        return conn.prepareStatement(dbManager.getQuery(queryId));
+    protected PreparedStatement prepareStatement(Connection conn, String queryId) throws SQLException{
+        String sql = DBManager.requestToGetQueryString(queryId);
+        if (sql == null) {
+            throw new SQLException("SQL query for query ID " + queryId + " is null");
+        }
+        return conn.prepareStatement(sql);
     }
 
 
@@ -68,24 +56,14 @@ public abstract class  AbstractDataAccessObject <T> {
         return resultList;
     }
 
-    protected T getResultAsObject(ResultSet rs, int index) throws SQLException {
+    protected T getResultAsObject(ResultSet rs) throws SQLException {
         int current = 0;
         while (rs.next()) {
-            if (current == index)
+            if (current == 0)
                 return (extractFromResultSet(rs));
             current++;
         }
         return null;
-    }
-
-    /**
-     * Return the query with queryId
-     *
-     * @param queryId
-     * @return
-     */
-    protected String getQuery(String queryId) {
-        return dbManager.getQuery(queryId);
     }
 
     /**
