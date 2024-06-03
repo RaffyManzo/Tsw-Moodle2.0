@@ -49,6 +49,14 @@
     transition: transform 0.3s ease;
     max-width: 95%;
     flex: 1 0 10%;
+
+    /* Make scrollbar invisible*/
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+.slider-element-container::-webkit-scrollbar {
+    display: none; /* Hide scrollbar for Chrome, Safari and Opera */
 }
 
 .course-box {
@@ -117,10 +125,10 @@
     cursor: pointer;
 }
 
-#move-slider-right {
-    right: 30px;
+.move-slider-right {
+    right: 0;
 }
 
-#move-slider-left {
-    left: 30px;
+.move-slider-left {
+    left: 0;
 }

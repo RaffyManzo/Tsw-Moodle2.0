@@ -9,10 +9,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aaf64b38-f287-423c-9dbc-41a4353826d6" name="Changes" comment="Load query from XMl, and fixed DBManager and DAO element">
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/css/slider.css" afterDir="false" />
+    <list default="true" id="aaf64b38-f287-423c-9dbc-41a4353826d6" name="Changes" comment="slider.js finished and fixed">
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/css/home.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/script/sliderClass.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/home.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/home.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/slider.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/slider.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/script/slider.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/script/slider.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -25,9 +27,9 @@
       <list>
         <option value="HTML File" />
         <option value="Jsp File" />
-        <option value="JavaScript File" />
         <option value="Class" />
         <option value="CSS File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -260,7 +262,7 @@
       <workItem from="1717162880960" duration="18867000" />
       <workItem from="1717237904839" duration="388000" />
       <workItem from="1717248115847" duration="13514000" />
-      <workItem from="1717405793609" duration="22500000" />
+      <workItem from="1717405793609" duration="28115000" />
     </task>
     <task id="LOCAL-00001" summary="Added registration form&#10;Added image picker servlet&#10;Added css and some fix">
       <option name="closed" value="true" />
@@ -310,7 +312,15 @@
       <option name="project" value="LOCAL" />
       <updated>1717414679290</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="slider.js finished and fixed">
+      <option name="closed" value="true" />
+      <created>1717432914409</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1717432914409</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -333,6 +343,7 @@
     <MESSAGE value="Start HomeServlet.java" />
     <MESSAGE value="01-06" />
     <MESSAGE value="Load query from XMl, and fixed DBManager and DAO element" />
-    <option name="LAST_COMMIT_MESSAGE" value="Load query from XMl, and fixed DBManager and DAO element" />
+    <MESSAGE value="slider.js finished and fixed" />
+    <option name="LAST_COMMIT_MESSAGE" value="slider.js finished and fixed" />
   </component>
 </project>
