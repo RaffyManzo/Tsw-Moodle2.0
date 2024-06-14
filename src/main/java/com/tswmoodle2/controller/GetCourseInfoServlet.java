@@ -4,16 +4,14 @@ import jakarta.servlet.annotation.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.*;
 import model.beans.Corso;
-import model.dao.CorsoDao;
 import model.dao.CorsoDaoImpl;
 import org.json.simple.*;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
 
-@WebServlet(name = "HomeRequestHandler", value = "/courses")
-public class HomeRequestHandler extends HttpServlet {
+@WebServlet(name = "GetCourseInfoServlet", value = "/courses")
+public class GetCourseInfoServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("application/json");

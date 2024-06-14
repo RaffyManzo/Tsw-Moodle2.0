@@ -37,7 +37,7 @@
 
     <servlet>
         <servlet-name>HomeRequestHandler</servlet-name>
-        <servlet-class>com.tswmoodle2.controller.HomeRequestHandler</servlet-class>
+        <servlet-class>com.tswmoodle2.controller.GetCourseInfoServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>HomeRequestHandler</servlet-name>

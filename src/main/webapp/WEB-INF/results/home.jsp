@@ -21,6 +21,8 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="${pageContext.request.contextPath}/script/sliderClass.js"></script>
+    <script src="${pageContext.request.contextPath}/script/bannerSize.js"></script>
+    <script src="${pageContext.request.contextPath}/script/someDisplayFix.js" defer></script>
 
     <script>
         $(document).ready(function () {
@@ -90,26 +92,32 @@
     </label>
     <div class="header-links" id="header-links">
         <span class="vertical-separator"></span>
-        <div class="link-container">
+        <div class="link-container header-button login-button">
             <a href="${pageContext.request.contextPath}/login.html" class="header-redirect-btn" id="header-redirect-to-login">Login</a>
         </div>
         <span class="vertical-separator"></span>
-        <div class="link-container">
+        <div class="link-container header-button registration-button">
             <a href="${pageContext.request.contextPath}/registrazione.html" class="header-redirect-btn" id="header-redirect-to-registration">Registrati</a>
         </div>
         <span class="vertical-separator" id="vertical-bar-tofix"></span>
 
         <div class="link-container">
-            <a href="" class="header-redirect-btn" id="header-redirect-to-cart"><img src="${pageContext.request.contextPath}/assets/images/shopping-cart%201.png" alt=""></a>
+            <a href="" class="header-redirect-btn" id="header-redirect-to-cart"><img src="${pageContext.request.contextPath}/assets/images/shopping-basket.png" alt=""></a>
         </div>
     </div>
 </div>
+<div class="banner">
+    <div class="banner-rect-slider" id="banner-rect-slider">
+        <div class="banner-rect-slider-overlay"></div>
+        <div id="banner-rect-slider-content"></div>
+    </div>
+</div>
 <div class="container">
+    <div class="section-header">
+        <img src="${pageContext.request.contextPath}/file?file=flame%201.png&c=app" alt="">
+        <label>Corsi di tendenza: il meglio selezionato per te</label>
+    </div>
     <div class="courses-section">
-        <div class="courses-section-header">
-            <img src="${pageContext.request.contextPath}/file?file=flame%201.png&c=app" alt="">
-            <label>Corsi di tendenza: il meglio selezionato per te</label>
-        </div>
         <div class="slider" id="trend-courses">
             <button class="move-slider-button move-slider-left">
                 <img src="${pageContext.request.contextPath}/file?file=leftarr.png&c=app" alt="">
@@ -123,12 +131,13 @@
             </button>
         </div>
     </div>
-    <h6></h6>
-    <div class="courses-section">
-        <div class="courses-section-header">
-            <img src="${pageContext.request.contextPath}/file?file=star.png&c=app" alt="">
-            <label>Corsi che potrebbero piacerti: in categoria preferita</label>
-        </div>
+    <h6 class="line-divider"></h6>
+    <div class="section-header">
+        <img src="${pageContext.request.contextPath}/file?file=star.png&c=app" alt="">
+        <label>Corsi che potrebbero piacerti: in categoria preferita</label>
+    </div>
+    <div class="courses-section" id="course-section">
+
         <div class="slider" id="your-courses">
             <button class="move-slider-button move-slider-left">
                 <img src="${pageContext.request.contextPath}/file?file=leftarr.png&c=app" alt="">
@@ -142,6 +151,57 @@
         </div>
     </div>
     <h6></h6>
+
+    <div class="section-header">
+        <img src="${pageContext.request.contextPath}/assets/images/list.png" alt="">
+        <label>Categorie principali</label>
+    </div>
+    <div class="categories-container" id="categories-container">
+        <div class="categories-inner-row-container">
+            <div class="category-circle-box">
+                <a href="">
+                    <img src="${pageContext.request.contextPath}/assets/images/sc.png" alt="">
+                </a>
+            </div>
+            <div class="category-circle-box">
+                <a href="">
+                    <img src="${pageContext.request.contextPath}/assets/images/sviluppoweb.png" alt="">
+                </a>
+            </div>
+            <div class="category-circle-box">
+                <a href="">
+                    <img src="${pageContext.request.contextPath}/assets/images/sviluppoGiochi.png" alt="">
+                </a>
+            </div>
+            <div class="category-circle-box">
+                <a href="">
+                    <img src="${pageContext.request.contextPath}/assets/images/backend.png" alt="">
+                </a>
+            </div>
+        </div>
+        <div class="categories-inner-row-container">
+            <div class="category-circle-box">
+                <a href="">
+                    <img src="${pageContext.request.contextPath}/assets/images/foto.png" alt="">
+                </a>
+            </div>
+            <div class="category-circle-box">
+                <a href="">
+                    <img src="${pageContext.request.contextPath}/assets/images/trading.png" alt="">
+                </a>
+            </div>
+            <div class="category-circle-box">
+                <a href="">
+                    <img src="${pageContext.request.contextPath}/assets/images/marketing.png" alt="">
+                </a>
+            </div>
+            <div class="category-circle-box">
+                <a href="">
+                    <img src="${pageContext.request.contextPath}/assets/images/musica.png" alt="">
+                </a>
+            </div>
+        </div>
+    </div>
 </div>
 </body>
 </html>

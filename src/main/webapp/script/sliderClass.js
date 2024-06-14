@@ -2,7 +2,7 @@ class CourseSlider {
     constructor(containerSelector, url, itemsPerPage = 5) {
         this.container = $(containerSelector);
         this.sliderEl =
-            "<div class='course-box'> " +
+            "<a class='course-box' href='openCourse?id={6}'> " +
             "<div class='master-course-info'>" +
             "<img src='file?file={0}&c={1}' alt=''>" +
             "<label>{2} - {3}</label>" +
@@ -10,7 +10,7 @@ class CourseSlider {
             "<div class='sub-course-info'>" +
             "<label>{4} - {5}</label>" +
             "</div>" +
-            "</div>";
+            "</a>";
         this.containerSelector = containerSelector
         this.courseList = [];
         this.currentIndex = 0;
@@ -33,7 +33,7 @@ class CourseSlider {
 
             // Gestione dei pulsanti di scorrimento
             this.container.parent().find(" .move-slider-left").click(() => {
-                console.log("Pressed left")
+                //console.log("Pressed left")
                 if (this.currentIndex > 0) {
                     this.currentIndex--;
                     this.updateSlider();
@@ -41,7 +41,7 @@ class CourseSlider {
             });
 
             this.container.parent().find(".move-slider-right").click(() => {
-                console.log("Pressed right")
+                //console.log("Pressed right")
                 if (this.currentIndex < this.courseList.length - this.itemsPerPage) {
                     this.currentIndex++;
                     this.updateSlider();
@@ -65,7 +65,7 @@ class CourseSlider {
             success: (courses) => {
                 this.courseList = courses; // Sovrascrive la lista di corsi con quella ottenuta dalla risposta
                 this.renderCourses(); // Chiama la funzione per renderizzare i corsi
-                console.log(this.courseList)
+                //console.log(this.courseList)
             },
             error: (xhr, status, error) => {
                 // Gestione degli errori
@@ -81,7 +81,8 @@ class CourseSlider {
         this.container.empty(); // Svuota il container prima di aggiungere i nuovi corsi
         $.each(this.courseList, (index, course) => {
             let pathImg = "course/" + course.name;
-            let formattedSliderEl = this.formatString(this.sliderEl, [course.image, pathImg, course.name, course.description, course.creationDate, course.category]);
+            let formattedSliderEl = this.formatString(this.sliderEl, [course.image, pathImg, course.name, course.description,
+                course.creationDate, course.category, course.id]);
             this.container.append(formattedSliderEl);
         });
 
@@ -103,7 +104,7 @@ class CourseSlider {
         if (this.itemsPerPage <= 0) {
             this.itemsPerPage = 1;
         }
-        console.log("Items per page:", this.itemsPerPage);
+        //console.log("Items per page:", this.itemsPerPage);
     }
 
     // Funzione per aggiornare la visibilità degli elementi
@@ -114,9 +115,9 @@ class CourseSlider {
             $(elements[i]).show(); // Mostra solo gli elementi nella finestra visibile
         }
 
-        console.log(this.currentIndex);
-        console.log(this.itemsPerPage);
-        console.log(this.courseList.length);
+        //console.log(this.currentIndex);
+        //console.log(this.itemsPerPage);
+        //console.log(this.courseList.length);
     }
 }
 

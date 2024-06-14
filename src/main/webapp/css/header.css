@@ -13,7 +13,7 @@ Header banner on top of each pages
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    z-index: 1;
+    z-index: 2;
 }
 
 .header-main-info, .header-links {
@@ -154,6 +154,20 @@ Header banner on top of each pages
     display: none;
 }
 
+
+.header-button {
+    border-radius: 12px;
+    color: white;
+    height: 60%;
+}
+
+.registration-button {
+    background-color: #596cff;
+}
+
+.login-button {
+    background-color: #92A0FF;
+}
 
 
 /* Landscape phone to portrait tablet */
