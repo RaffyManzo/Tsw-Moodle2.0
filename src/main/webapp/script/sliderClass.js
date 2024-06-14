@@ -58,7 +58,9 @@ class CourseSlider {
 
     // Funzione per caricare i corsi
     loadCourses() {
-        $.ajax({
+
+
+        /*$.ajax({
             url: this.url, // Endpoint URL
             method: 'GET',
             dataType: 'json',
@@ -71,8 +73,23 @@ class CourseSlider {
                 // Gestione degli errori
                 alert('Errore nel recupero dei dati: ' + error);
             }
-        });
+        });*/
 
+        fetch(this.url)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Errore nel recupero dei dati: ' + response.statusText);
+                }
+                return response.json();
+            })
+            .then(courses => {
+                this.courseList = courses; // Sovrascrive la lista di corsi con quella ottenuta dalla risposta
+                this.renderCourses(); // Chiama la funzione per renderizzare i corsi
+            })
+            .catch(error => {
+                // Gestione degli errori
+                alert('Errore nel recupero dei dati: ' + error.message);
+            });
 
     }
 

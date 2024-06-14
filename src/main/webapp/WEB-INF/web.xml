@@ -36,11 +36,11 @@
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>HomeRequestHandler</servlet-name>
+        <servlet-name>GetCourseInfoServlet</servlet-name>
         <servlet-class>com.tswmoodle2.controller.GetCourseInfoServlet</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>HomeRequestHandler</servlet-name>
+        <servlet-name>GetCourseInfoServlet</servlet-name>
         <url-pattern>/courses</url-pattern>
     </servlet-mapping>
 

@@ -9,27 +9,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aaf64b38-f287-423c-9dbc-41a4353826d6" name="Changes" comment="deleted slider.js file, and added sliderClass.js">
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/images/backend.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/images/banner.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/images/foto.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/images/list.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/images/marketing.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/images/musica.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/images/sc.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/images/shopping-basket.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/images/sviluppoGiochi.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/images/sviluppoweb.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/images/trading.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/script/bannerSize.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/script/someDisplayFix.js" afterDir="false" />
+    <list default="true" id="aaf64b38-f287-423c-9dbc-41a4353826d6" name="Changes" comment="Add categories to home, fix some bug">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/HomeRequestHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/GetCourseInfoServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/home.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/home.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/header.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/header.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/home.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/home.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/slider.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/slider.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/script/sliderClass.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/script/sliderClass.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -281,7 +263,7 @@
       <workItem from="1717405793609" duration="31069000" />
       <workItem from="1717496208277" duration="6375000" />
       <workItem from="1717758785921" duration="847000" />
-      <workItem from="1718358121832" duration="11887000" />
+      <workItem from="1718358121832" duration="13397000" />
     </task>
     <task id="LOCAL-00001" summary="Added registration form&#10;Added image picker servlet&#10;Added css and some fix">
       <option name="closed" value="true" />
@@ -347,7 +329,15 @@
       <option name="project" value="LOCAL" />
       <updated>1717456363610</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Add categories to home, fix some bug">
+      <option name="closed" value="true" />
+      <created>1718377072403</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1718377072403</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -372,6 +362,7 @@
     <MESSAGE value="Load query from XMl, and fixed DBManager and DAO element" />
     <MESSAGE value="slider.js finished and fixed" />
     <MESSAGE value="deleted slider.js file, and added sliderClass.js" />
-    <option name="LAST_COMMIT_MESSAGE" value="deleted slider.js file, and added sliderClass.js" />
+    <MESSAGE value="Add categories to home, fix some bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add categories to home, fix some bug" />
   </component>
 </project>
