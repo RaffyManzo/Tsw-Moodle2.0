@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
 <properties>
+    <!-- Corso -->
     <entry key="INSERT_CORSO">INSERT INTO Corso (NomeCategoria, Nome, Descrizione, Immagine, Certificazione, DataCreazione) VALUES (?, ?, ?, ?, ?, ?)</entry>
     <entry key="UPDATE_CORSO">UPDATE Corso SET NomeCategoria = ?, Nome = ?, Descrizione = ?, Immagine = ?, Certificazione = ?, DataCreazione = ? WHERE IDCorso = ?</entry>
     <entry key="DELETE_CORSO">DELETE FROM Corso WHERE IDCorso = ?</entry>
@@ -10,4 +11,18 @@
     <entry key="SEARCH_CORSI_BY_NOME">SELECT * FROM Corso WHERE Nome LIKE ?</entry>
     <entry key="FIND_CORSI_BY_DATE_RANGE">SELECT * FROM Corso WHERE DataCreazione BETWEEN ? AND ?</entry>
     <entry key="FIND_CORSI_BY_CERTIFICAZIONE">SELECT * FROM Corso WHERE Certificazione = ?</entry>
+
+    <!-- Utenza -->
+    <entry key="INSERT_UTENZA">INSERT INTO Utenza (Nome, Cognome, DataNascita, Indirizzo, Citta, Telefono, Email, Password, DataCreazioneAccount, Username, Tipo) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)</entry>
+    <entry key="UPDATE_UTENZA">UPDATE Utenza SET Nome = ?, Cognome = ?, DataNascita = ?, Indirizzo = ?, Citta = ?, Telefono = ?, Email = ?, Password = ?, DataCreazioneAccount = ?, Username = ?, Tipo = ? WHERE IDUtente = ?</entry>
+    <entry key="DELETE_UTENZA">DELETE FROM Utenza WHERE IDUtente = ?</entry>
+    <entry key="FIND_ALL_UTENZA">SELECT * FROM Utenza</entry>
+    <entry key="FIND_UTENZA_BY_ID">SELECT * FROM Utenza WHERE IDUtente = ?</entry>
+    <entry key="FIND_UTENZA_BY_NOME">SELECT * FROM Utenza WHERE Nome = ?</entry>
+    <entry key="FIND_UTENZA_BY_COGNOME">SELECT * FROM Utenza WHERE Cognome = ?</entry>
+    <entry key="FIND_UTENZA_BY_DATE_RANGE">SELECT * FROM Utenza WHERE DataCreazioneAccount BETWEEN ? AND ?</entry>
+    <entry key="FIND_UTENZA_BY_EMAIL">SELECT * FROM Utenza WHERE Email = ?</entry>
+    <entry key="FIND_UTENZA_BY_USERNAME">SELECT * FROM Utenza WHERE Username = ?</entry>
+    <entry key="FIND_UTENZA_BY_TIPO">SELECT * FROM Utenza WHERE Tipo = ?</entry>
+    <entry key="FIND_UTENZA_BY_CITTA">SELECT * FROM Utenza WHERE Citta = ?</entry>
 </properties>

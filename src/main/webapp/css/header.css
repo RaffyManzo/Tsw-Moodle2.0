@@ -27,8 +27,18 @@ Header banner on top of each pages
 }
 
 #header-logo-image {
-    max-height: 100%;
+    height: 100px;
     margin-left: 40px;
+}
+
+#header-logo-image > img{
+    transform: scale(2);
+    height: 100px;
+}
+
+#header-redirect-to-cart {
+    margin: 0;
+
 }
 
 #vertical-bar-tofix {

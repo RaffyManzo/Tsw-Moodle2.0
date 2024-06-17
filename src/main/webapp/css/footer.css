@@ -1,0 +1,115 @@
+.footer {
+    background-color: #4e569f;
+    color: white;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+
+}
+
+.footer * {
+    font-family: "Jura", serif;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 50%;
+}
+.footer .logo {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: flex-start;
+    height: 200px;
+    width: 100%;
+}
+
+.logo label {
+    font-size: 35px;
+    width: max-content;
+    text-align: center;
+    font-weight: bold;
+}
+
+.footer .logo img {
+    width: max-content;
+    height: initial;
+    object-fit: contain;
+}
+.footer .contact-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 30px;
+}
+
+.contact-info strong {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.contact-info > li{
+    margin: 5px 0;
+    font-size: 20px;
+    font-weight: normal;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.footer .newsletter {
+    display: flex;
+    align-items: center;
+}
+.footer input[type="email"] {
+    padding: 10px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+}
+.footer button {
+    padding: 10px 20px;
+    background-color: #7A7AB7;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+}
+
+.footer a {
+    border-radius: 100%;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+a .social-icons {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    flex-direction: row;
+}
+a .social-icons img {
+    width: 30px;
+    height: auto;
+    margin-left: 10px;
+}
+@media (max-width: 1000px) {
+    .footer {
+        flex-direction: column;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+    }
+    .footer-container {
+        width: 100%;
+    }
+}

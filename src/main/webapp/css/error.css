@@ -1,0 +1,136 @@
+* {
+    font-family: 'Jura', sans-serif;
+
+}
+
+body,html {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+
+    background-color: #ffffff;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100vh;
+}
+.header {
+    margin-top: 50px;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: fit-content;
+}
+
+.header > label {
+    font-size: 45px;
+    color: #ff5252;
+    margin-bottom: 20px;
+    text-align: center;
+    text-justify: distribute-center-last;
+}
+
+.error-box {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25), 4px 4px 4px rgba(0, 0, 0, 0.25);
+    background-color: #ffe6e6;
+    border: 1px solid #ff5252;
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 40%;
+    min-height: 250px;
+}
+.error-box img {
+    width: 30%;
+    height: auto;
+    border-radius: 100%;
+    margin: 0px 10px 10px;
+
+    background-color: #92A0FF;
+}
+.error-list {
+    color: #333;
+    text-align: left;
+    width: 50%;
+    height: auto;
+    margin: 0 10px 10px;
+}
+
+.error-list > label {
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.error-list ul {
+    padding: 0;
+    list-style-position: inside;
+}
+
+.error-list ul > li{
+    font-weight: normal;
+    font-size: 20px;
+}
+.buttons {
+    margin-top: 5%;
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+}
+.button {
+    background-color: #6a89cc;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.button:hover {
+    background-color: #4a69bd;
+}
+
+@media (max-width: 750px) {
+    .buttons {
+        flex-direction: column;
+        justify-content: space-evenly;
+        width: 60%;
+        margin: 10px;
+        height: 20%;
+    }
+
+    .error-box {
+        width: 80%;
+        min-height: 200px;
+    }
+
+    .button {
+        font-size: 16px;
+    }
+
+    .error-list > label {
+        font-size: 20px;
+    }
+
+    .error-list ul > li{
+        font-size: 16px;
+    }
+
+    .header > label {
+        font-size: 35px;
+    }
+}
