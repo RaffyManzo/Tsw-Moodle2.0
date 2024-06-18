@@ -9,14 +9,14 @@ public class Utenza {
     private final Date dataNascita;
     private final String indirizzo;
     private final String citta;
-    private final int telefono;
+    private final String telefono;
     private final String email;
     private final String password;
     private final Date dataCreazioneAccount;
     private final String username;
     private final String tipo;
 
-    public Utenza(int idUtente, String nome, String cognome, Date dataNascita, String indirizzo, String citta, int telefono, String email, String password, Date dataCreazioneAccount, String username, String tipo) {
+    public Utenza(int idUtente, String nome, String cognome, Date dataNascita, String indirizzo, String citta, String telefono, String email, String password, Date dataCreazioneAccount, String username, String tipo) {
         this.idUtente = idUtente;
         this.nome = nome;
         this.cognome = cognome;
@@ -56,7 +56,7 @@ public class Utenza {
         return citta;
     }
 
-    public int getTelefono() {
+    public String getTelefono() {
         return telefono;
     }
 

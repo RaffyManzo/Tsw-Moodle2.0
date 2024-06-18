@@ -11,13 +11,28 @@ import model.dao.UtenzaDaoImpl;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
-import java.util.List;
+import java.util.regex.Pattern;
 
 @WebServlet(name = "LoginServlet", urlPatterns = {"/login"})
 public class LoginServlet extends HttpServlet {
 
     RequestDispatcher errorDispatcher;
+
+    public static boolean isEmail(String email) {
+        String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\." +
+                "[a-zA-Z0-9_+&*-]+)*@" +
+                "(?:[a-zA-Z0-9-]+\\.)+[a-z" +
+                "A-Z]{2,7}$";
+
+        Pattern pat = Pattern.compile(emailRegex);
+        if (email == null)
+            return false;
+        return pat.matcher(email).matches();
+    }
+
     @Override
     public void init() {
         errorDispatcher = getServletContext().getRequestDispatcher("/WEB-INF/results/public/error.jsp");
@@ -37,62 +52,66 @@ public class LoginServlet extends HttpServlet {
         System.out.println(username);
         Utenza user;
         UtenzaDaoImpl utenza = new UtenzaDaoImpl();
-        List<String> errors = new ArrayList<>();
+        ArrayList<String> errors = new ArrayList<>();
         if (username == null || username.trim().isEmpty()) {
             errors.add("Il campo username non può essere vuoto!");
         }
         if (password == null || password.trim().isEmpty()) {
             errors.add("Il campo password non può essere vuoto!");
         }
-        //restituisce gli errori
-        if (!errors.isEmpty()) {
-            request.setAttribute("errors", errors);
-            errorDispatcher.forward(request, response);
-            return;
-        }
+
+        errorOccurs(errors, request, response);
 
         username = username.trim();
         password = password.trim();
         String hashPassword = toHash(password);
 
+        System.out.println(isEmail(username));
 
-        if (username.contains("@"))
+        if (isEmail(username))
             user = utenza.findByEmail(username);
         else
             user = utenza.findByUsername(username);
-        if (user != null && hashPassword.equals(user.getPassword())) {
-            RequestDispatcher dispatcher = request.getRequestDispatcher("home");
-            request.getSession().setAttribute("isAdmin", user.getTipo().contentEquals("A")
-                    ? Boolean.TRUE :
-                    Boolean.FALSE); // inserisco il token nella sessione
-            request.getSession().setAttribute("User", user);
-            dispatcher.forward(request, response);
 
+
+
+        if (user != null) {
+            if (hashPassword.equals(user.getPassword())) {
+                RequestDispatcher dispatcher = request.getRequestDispatcher("home");
+                request.getSession().setAttribute("isAdmin", user.getTipo().contentEquals("A")
+                        ? Boolean.TRUE :
+                        Boolean.FALSE); // inserisco il token nella sessione
+                request.getSession().setAttribute("User", user);
+                dispatcher.forward(request, response);
+            } else {
+                errors.add("Username e password non corrispondono");
+            }
         } else {
-            errors.add("Username o password non validi!");
-            request.setAttribute("errors", errors);
-            //errorDispatcher.forward(request, response);
-
-            response.sendRedirect("get");
+            errors.add("Utenza non trovata");
         }
 
+        errorOccurs(errors, request,response);
     }
 
+    public void errorOccurs(ArrayList<String> errors, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        //restituisce gli errori
+        if (!errors.isEmpty()) {
+            request.setAttribute("errors", errors);
+            errorDispatcher.forward(request, response);
+        }
+    }
 
     private String toHash(String password) {
-        String hashString = null;
+        StringBuilder hashString = new StringBuilder();
         try {
-            java.security.MessageDigest digest
-                    =
-                    java.security.MessageDigest.getInstance("SHA-512");
+            MessageDigest digest = MessageDigest.getInstance("SHA-512");
             byte[] hash = digest.digest(password.getBytes(StandardCharsets.UTF_8));
-            hashString = "";
             for (byte b : hash) {
-                hashString += Integer.toHexString((b & 0xFF) | 0x100).substring(1, 3);
+                hashString.append(String.format("%02x", b));
             }
-        } catch (java.security.NoSuchAlgorithmException e) {
+        } catch (NoSuchAlgorithmException e) {
             System.err.println(e);
         }
-        return hashString;
+        return hashString.toString();
     }
 }

@@ -21,21 +21,26 @@ public class AccessControlFilter implements Filter {
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
             throws IOException, ServletException {
 
-        // Convertiamo la richiesta e la risposta in oggetti HTTP
         HttpServletRequest httpServletRequest = (HttpServletRequest) request;
         HttpServletResponse httpServletResponse = (HttpServletResponse) response;
 
-        // Recuperiamo l'attributo "isAdmin" dalla sessione
-        Boolean isAdmin = (Boolean) httpServletRequest.getSession().getAttribute("isAdmin");
+        // Recuperiamo l'attributo "isAdmin" dalla sessione, senza creare una nuova sessione
+        HttpSession session = httpServletRequest.getSession(false);
+        Boolean isAdmin = (session != null) ? (Boolean) session.getAttribute("isAdmin") : null;
 
         // Recuperiamo il percorso della richiesta
-        String path = httpServletRequest.getServletPath();
-        System.out.println(path);  // Stampa il percorso della richiesta (utile per il debugging)
+        String path = httpServletRequest.getRequestURI().substring(httpServletRequest.getContextPath().length());
+        System.out.println("Request path: " + path);  // Stampa il percorso della richiesta per il debugging
 
         // Verifica se il percorso è una risorsa pubblica
         boolean isPublicResource = path.contains("/WEB-INF/results/public") || !path.startsWith("/WEB-INF/results/private");
-
+        boolean isALoginRequest = path.endsWith("login.html") || path.endsWith("registration.html");
         boolean isAdminResource = path.contains("/admin");
+
+        if (isAdmin != null && isALoginRequest) {
+            httpServletRequest.getRequestDispatcher("/WEB-INF/results/public/home.jsp").forward(request, response);
+            return;
+        }
 
         // Se l'utente non è autenticato e sta tentando di accedere a una risorsa protetta
         if (isAdmin == null && !isPublicResource) {

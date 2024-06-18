@@ -57,13 +57,7 @@ public abstract class  AbstractDataAccessObject <T> {
     }
 
     protected T getResultAsObject(ResultSet rs) throws SQLException {
-        int current = 0;
-        while (rs.next()) {
-            if (current == 0)
-                return (extractFromResultSet(rs));
-            current++;
-        }
-        return null;
+        return extractFromResultSet(rs);
     }
 
     /**

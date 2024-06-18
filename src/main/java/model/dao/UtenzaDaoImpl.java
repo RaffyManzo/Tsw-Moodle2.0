@@ -18,7 +18,7 @@ public class UtenzaDaoImpl extends AbstractDataAccessObject<Utenza> implements U
             ps.setDate(3, utenza.getDataNascita());
             ps.setString(4, utenza.getIndirizzo());
             ps.setString(5, utenza.getCitta());
-            ps.setInt(6, utenza.getTelefono());
+            ps.setString(6, utenza.getTelefono());
             ps.setString(7, utenza.getEmail());
             ps.setString(8, utenza.getPassword());
             ps.setDate(9, utenza.getDataCreazioneAccount());
@@ -40,7 +40,7 @@ public class UtenzaDaoImpl extends AbstractDataAccessObject<Utenza> implements U
             ps.setDate(3, utenza.getDataNascita());
             ps.setString(4, utenza.getIndirizzo());
             ps.setString(5, utenza.getCitta());
-            ps.setInt(6, utenza.getTelefono());
+            ps.setString(6, utenza.getTelefono());
             ps.setString(7, utenza.getEmail());
             ps.setString(8, utenza.getPassword());
             ps.setDate(9, utenza.getDataCreazioneAccount());
@@ -137,6 +137,8 @@ public class UtenzaDaoImpl extends AbstractDataAccessObject<Utenza> implements U
         try (Connection connection = getConnection();
              PreparedStatement ps = prepareStatement(connection, "FIND_UTENZA_BY_EMAIL")) {
             ps.setString(1, email);
+
+
             try (ResultSet rs = ps.executeQuery()) {
                 if (rs.next()) {
                     return getResultAsObject(rs);
@@ -153,6 +155,7 @@ public class UtenzaDaoImpl extends AbstractDataAccessObject<Utenza> implements U
         try (Connection connection = getConnection();
              PreparedStatement ps = prepareStatement(connection, "FIND_UTENZA_BY_USERNAME")) {
             ps.setString(1, username);
+
             try (ResultSet rs = ps.executeQuery()) {
                 if (rs.next()) {
                     return getResultAsObject(rs);
@@ -169,6 +172,22 @@ public class UtenzaDaoImpl extends AbstractDataAccessObject<Utenza> implements U
         try (Connection connection = getConnection();
              PreparedStatement ps = prepareStatement(connection, "FIND_UTENZA_BY_TIPO")) {
             ps.setString(1, tipo);
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    return getResultAsList(rs);
+                }
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return null;
+    }
+
+    @Override
+    public ArrayList<Utenza> findByTelefono(String telefono) {
+        try (Connection connection = getConnection();
+             PreparedStatement ps = prepareStatement(connection, "FIND_UTENZA_BY_TELEFONO")) {
+            ps.setString(1, telefono);
             try (ResultSet rs = ps.executeQuery()) {
                 if (rs.next()) {
                     return getResultAsList(rs);
@@ -204,7 +223,7 @@ public class UtenzaDaoImpl extends AbstractDataAccessObject<Utenza> implements U
         Date dataNascita = rs.getDate("DataNascita");
         String indirizzo = rs.getString("Indirizzo");
         String citta = rs.getString("Citta");
-        int telefono = rs.getInt("Telefono");
+        String telefono = rs.getString("Telefono");
         String email = rs.getString("Email");
         String password = rs.getString("Password");
         Date dataCreazioneAccount = rs.getDate("DataCreazioneAccount");

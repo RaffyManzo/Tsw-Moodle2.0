@@ -16,5 +16,6 @@ public interface UtenzaDao {
     Utenza findByEmail(String email)  ;
     Utenza findByUsername(String username)  ;
     ArrayList<Utenza> findByTipo(String tipo)  ;
+    ArrayList<Utenza> findByTelefono(String telefono)  ;
     ArrayList<Utenza> findByCitta(String citta)  ;
 }

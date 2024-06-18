@@ -24,5 +24,6 @@
     <entry key="FIND_UTENZA_BY_EMAIL">SELECT * FROM Utenza WHERE Email = ?</entry>
     <entry key="FIND_UTENZA_BY_USERNAME">SELECT * FROM Utenza WHERE Username = ?</entry>
     <entry key="FIND_UTENZA_BY_TIPO">SELECT * FROM Utenza WHERE Tipo = ?</entry>
+    <entry key="FIND_UTENZA_BY_TELEFONO">SELECT * FROM Utenza WHERE Telefono LIKE ?</entry>
     <entry key="FIND_UTENZA_BY_CITTA">SELECT * FROM Utenza WHERE Citta = ?</entry>
 </properties>

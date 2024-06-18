@@ -9,19 +9,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aaf64b38-f287-423c-9dbc-41a4353826d6" name="Changes" comment="Error page, login servelt, fix to db">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/AccessControlFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/images/facebook 1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/images/instagram 1.png" afterDir="false" />
+    <list default="true" id="aaf64b38-f287-423c-9dbc-41a4353826d6" name="Changes" comment="finished footer">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/RegistrationServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/FileServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/FileServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/GetCourseInfoServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/GetCourseInfoServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/HomeServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/HomeServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/AccessControlFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/AccessControlFilter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/LoginServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/LoginServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/NotFound.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/public/error.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/home.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/public/home.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/test.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/private/test.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/footer.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/footer.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/beans/Utenza.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/beans/Utenza.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/dao/AbstractDataAccessObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/dao/AbstractDataAccessObject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/dao/UtenzaDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/dao/UtenzaDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/dao/UtenzaDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/dao/UtenzaDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/xml/query.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/xml/query.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -276,7 +274,7 @@
       <workItem from="1717758785921" duration="847000" />
       <workItem from="1718358121832" duration="18873000" />
       <workItem from="1718400469499" duration="500000" />
-      <workItem from="1718632892647" duration="17434000" />
+      <workItem from="1718632892647" duration="24613000" />
     </task>
     <task id="LOCAL-00001" summary="Added registration form&#10;Added image picker servlet&#10;Added css and some fix">
       <option name="closed" value="true" />
@@ -366,7 +364,15 @@
       <option name="project" value="LOCAL" />
       <updated>1718640108581</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="finished footer">
+      <option name="closed" value="true" />
+      <created>1718700835043</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1718700835043</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -394,6 +400,7 @@
     <MESSAGE value="Add categories to home, fix some bug" />
     <MESSAGE value="fetch api instead JQuery AJAX" />
     <MESSAGE value="Error page, login servelt, fix to db" />
-    <option name="LAST_COMMIT_MESSAGE" value="Error page, login servelt, fix to db" />
+    <MESSAGE value="finished footer" />
+    <option name="LAST_COMMIT_MESSAGE" value="finished footer" />
   </component>
 </project>
