@@ -5,13 +5,14 @@
     <link href="css/header.css" rel="stylesheet">
     <link href="css/reg.css" rel="stylesheet">
     <link href="css/delete-margin.css" rel="stylesheet">
-    <link href="css/togglePin.scss" rel="stylesheet">
+    <link href="css/togglePin.css" rel="stylesheet">
     <link rel="preload" href="https://fonts.googleapis.com" >
     <link rel="preload" crossorigin href="https://fonts.gstatic.com" >
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Jura:wght@300..700&display=swap">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="script/PhoneNumberValidation.js"></script>
+    <script src="script/toggle.js"></script>
 
     <title>Registrazione</title>
 </head>
@@ -86,22 +87,19 @@
 </div>
 
 <div class="container">
-    <label class="master-form-label blur">Compila i seguenti campi per completare la registrazione:</label>
+    <label class="master-form-label">Compila i seguenti campi per completare la registrazione:</label>
     <form class="form" action="print" method="get">
-        <div class="form-fields blur">
-            <div class="toggle-wrapper">
-                <label>Seleziona il tipo di account</label>
-                <input class="toggle-input" type="checkbox" name="account-type" id="pin-toggle"/>
-                <label class="toggle-container" for="pin-toggle">
-                    <div class="toggle-circle">
-                        <div class="pin-icon">
-                            <span class="pin-top"></span>
-                            <span class="pin-middle"></span>
-                            <span class="pin-bottom"></span>
-                        </div>
-                    </div>
+        <div class="form-fields">
+            <label for="toggle-switch" class="form-label">Seleziona tipo di account:</label>
+            <div class="toggle-container">
+                <input type="checkbox" id="toggle-switch" class="toggle-switch">
+                <label for="toggle-switch" class="toggle-label">
+                    <span class="toggle-inner"></span>
+                    <span class="toggle-docente">Studente</span>
+                    <span class="toggle-studente">Docente</span>
                 </label>
             </div>
+            <input type="hidden" name="account-type" id="accountType" value="S">
             <fieldset class="field-set-personal-data">
                 <legend>Dati anagrafici</legend>
                 <div class="field-row-container">
@@ -523,27 +521,6 @@
             <hr>
             <input type="submit" name="submit" class="button-field" value="Inoltra la registrazione">
 
-        </div>
-        <div class="center-div">
-            <div class="account-type">
-                <label id="account-type-text">Sei uno studente o un docente?</label>
-                <div class="choices-container">
-                    <label class="choice-box">
-                        <input class="account-type-radio-choice" name="account-type" type="radio" value="Studente">
-                        <img alt="Studente" for="account-type" src="assets/images/graduation.png">
-                    </label>
-                    <div class="label-container-in-choice">
-                        <label id="choice-box-text">oppure</label>
-                    </div>
-                    <label class="choice-box">
-                        <input class="account-type-radio-choice" name="account-type" type="radio" value="Docente">
-                        <img alt="Docente" for="account-type" src="assets/images/school.png">
-                    </label>
-                </div>
-                <div class="message-for-login">
-                    <label>Se hai gia un account</label> <a href="login.html">accedi qui</a>
-                </div>
-            </div>
         </div>
 
     </form>

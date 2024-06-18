@@ -9,18 +9,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aaf64b38-f287-423c-9dbc-41a4353826d6" name="Changes" comment="Fix getResultAsObject and LoginServlet.java">
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/css/togglePin.scss" afterDir="false" />
+    <list default="true" id="aaf64b38-f287-423c-9dbc-41a4353826d6" name="Changes" comment="try to add toggle">
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/css/togglePin.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/AccessControlFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/AccessControlFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/LoginServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/LoginServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/QueryPool.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/QueryPool.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/header.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/header.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/home.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/home.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/login.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/login.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/DisplayFieldTestServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/DisplayFieldTestServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/css/reg.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/reg.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/togglePin.scss" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/registrazione.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/registrazione.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/script/afterAccountChoice.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/script/toggle.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -276,7 +272,7 @@
       <workItem from="1717758785921" duration="847000" />
       <workItem from="1718358121832" duration="18873000" />
       <workItem from="1718400469499" duration="500000" />
-      <workItem from="1718632892647" duration="34321000" />
+      <workItem from="1718632892647" duration="35979000" />
     </task>
     <task id="LOCAL-00001" summary="Added registration form&#10;Added image picker servlet&#10;Added css and some fix">
       <option name="closed" value="true" />
@@ -382,7 +378,15 @@
       <option name="project" value="LOCAL" />
       <updated>1718708027839</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="try to add toggle">
+      <option name="closed" value="true" />
+      <created>1718720341232</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1718720341232</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -412,6 +416,7 @@
     <MESSAGE value="Error page, login servelt, fix to db" />
     <MESSAGE value="finished footer" />
     <MESSAGE value="Fix getResultAsObject and LoginServlet.java" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix getResultAsObject and LoginServlet.java" />
+    <MESSAGE value="try to add toggle" />
+    <option name="LAST_COMMIT_MESSAGE" value="try to add toggle" />
   </component>
 </project>

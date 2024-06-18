@@ -1,11 +1,13 @@
-
+* {
+    font-family: "Jura", sans-serif;
+}
 
 :root {
     --scale-percentage: 1.1;
 }
 
 html,body {
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
 .container {
@@ -161,7 +163,7 @@ FORM FIELD STYLE
 
 .master-form-label {
     color: black;
-    font-family: "Jura", sans-serif;
+
     font-size: 26px;
     font-weight: bold;
     text-align: left;
@@ -278,7 +280,7 @@ fieldset > legend {
 }
 
 .phone-fields > select {
-    width: 15%;
+    width: 35%;
 }
 
 .phone-fields > input {

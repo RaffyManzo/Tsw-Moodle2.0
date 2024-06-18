@@ -1,0 +1,64 @@
+.toggle-container {
+  position: relative;
+  width: 80%;
+  max-width: 400px;
+  height: 50px;
+  margin: 30px;
+}
+
+.toggle-switch {
+  display: none;
+}
+
+.form-label {
+  font-size: 22px;
+}
+
+.toggle-label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: #ccc;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.toggle-label .toggle-inner {
+  position: absolute;
+  left: 5px;
+  top: 5px;
+  width: calc(50% - 10px);
+  height: 40px;
+  background-color: #fff;
+  border-radius: 20px;
+  transition: left 0.3s, background-color 0.3s;
+}
+
+.toggle-docente,
+.toggle-studente {
+  width: 50%;
+  text-align: center;
+  z-index: 1;
+  transition: color 0.3s;
+}
+
+.toggle-switch:checked + .toggle-label {
+  background-color: #92A0FF;
+}
+
+.toggle-switch:checked + .toggle-label .toggle-inner {
+  left: calc(50% + 5px);
+  background-color: #fff;
+}
+
+.toggle-switch:checked + .toggle-label .toggle-docente {
+  color: #fff;
+}
+
+.toggle-switch:not(:checked) + .toggle-label .toggle-studente {
+  color: #fff;
+}

@@ -33,6 +33,6 @@ public class DisplayFieldTestServlet extends HttpServlet {
         request.setAttribute("accountType", accountType);
 
         // Inoltrare la richiesta al file JSP
-        request.getRequestDispatcher("/WEB-INF/results/test.jsp").forward(request, response);
+        request.getRequestDispatcher("/WEB-INF/results/private/test.jsp").forward(request, response);
     }
 }
