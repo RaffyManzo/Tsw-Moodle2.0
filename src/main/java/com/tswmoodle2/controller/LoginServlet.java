@@ -6,6 +6,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import model.beans.Utenza;
 import model.dao.UtenzaDaoImpl;
 
@@ -77,12 +78,14 @@ public class LoginServlet extends HttpServlet {
 
         if (user != null) {
             if (hashPassword.equals(user.getPassword())) {
-                RequestDispatcher dispatcher = request.getRequestDispatcher("home");
-                request.getSession().setAttribute("isAdmin", user.getTipo().contentEquals("A")
-                        ? Boolean.TRUE :
-                        Boolean.FALSE); // inserisco il token nella sessione
-                request.getSession().setAttribute("User", user);
-                dispatcher.forward(request, response);
+                // Creazione o recupero della sessione
+                HttpSession session = request.getSession(true);
+                session.setAttribute("User", user);
+                session.setAttribute("isAdmin", user.getTipo().contentEquals("A") ? Boolean.TRUE : Boolean.FALSE);
+
+                // Reindirizzamento alla home
+                response.sendRedirect("home");
+                return;
             } else {
                 errors.add("Username e password non corrispondono");
             }

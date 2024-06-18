@@ -17,7 +17,8 @@ public class QueryPool {
                 if (queries.isEmpty()) {
                     System.out.println("Properties queries not loaded");
                 } else {
-                    queries.forEach((key, value) -> System.out.println(key + ": " + value));
+                    //queries.forEach((key, value) -> System.out.println(key + ": " + value));
+                    System.out.println("Properties queries loaded successfully");
                 }
             } catch (IOException e) {
                 e.printStackTrace();

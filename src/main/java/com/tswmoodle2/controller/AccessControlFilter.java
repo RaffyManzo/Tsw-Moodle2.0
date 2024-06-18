@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @WebFilter(filterName = "AccessControlFilter", urlPatterns = "/*")
-public class AccessControlFilter implements Filter {
+public class AccessControlFilter extends HttpFilter implements Filter {
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
@@ -26,19 +26,33 @@ public class AccessControlFilter implements Filter {
 
         // Recuperiamo l'attributo "isAdmin" dalla sessione, senza creare una nuova sessione
         HttpSession session = httpServletRequest.getSession(false);
+
+
         Boolean isAdmin = (session != null) ? (Boolean) session.getAttribute("isAdmin") : null;
 
+        if(session == null)
+            System.out.println("Session not found");
+        else
+            System.out.println("Session found");
+        if(isAdmin == null)
+            System.out.println("isAdmin attribute not found");
+        else
+            System.out.println("isAdmin attribute found");
+
         // Recuperiamo il percorso della richiesta
-        String path = httpServletRequest.getRequestURI().substring(httpServletRequest.getContextPath().length());
+        String path = httpServletRequest.getServletPath();
         System.out.println("Request path: " + path);  // Stampa il percorso della richiesta per il debugging
 
         // Verifica se il percorso è una risorsa pubblica
-        boolean isPublicResource = path.contains("/WEB-INF/results/public") || !path.startsWith("/WEB-INF/results/private");
-        boolean isALoginRequest = path.endsWith("login.html") || path.endsWith("registration.html");
+        boolean isPublicResource = path.startsWith("/WEB-INF/results/public") || !path.startsWith("/WEB-INF/results/private");
+        boolean isALoginRequest = path.endsWith("login.html") || path.endsWith("registrazione.html");
         boolean isAdminResource = path.contains("/admin");
 
+
+        // Se l'utente è autenticato e sta cercando di accedere alla pagina di login o registrazione, reindirizzalo alla home
         if (isAdmin != null && isALoginRequest) {
-            httpServletRequest.getRequestDispatcher("/WEB-INF/results/public/home.jsp").forward(request, response);
+            httpServletResponse.sendRedirect(httpServletRequest.getContextPath() + "/home");
+
             return;
         }
 
@@ -61,7 +75,8 @@ public class AccessControlFilter implements Filter {
         }
 
 
-        chain.doFilter(request, response);
+
+        chain.doFilter(httpServletRequest, httpServletResponse);
 
     }
 

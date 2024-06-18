@@ -23,6 +23,10 @@ h6 {
     background-size: contain;
     background-repeat: no-repeat;
     background-position: top;
+
+    /*Essendo l'header fixed non prende spazio e cosí lo aggiusto*/
+    top: 100px;
+    margin-bottom: 100px;
 }
 
 .banner-rect-slider {

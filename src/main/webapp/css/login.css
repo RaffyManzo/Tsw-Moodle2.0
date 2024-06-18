@@ -162,7 +162,7 @@ input:focus{
 
 
 /* Landscape phone to portrait tablet */
-@media (max-width: 800px) {
+@media (max-width: 800px) or (max-height: 715px) {
 
 
     .blob-container {
@@ -192,7 +192,7 @@ input:focus{
 }
 
 /* Landscape phones and down */
-@media (max-width: 400px) {
+@media (max-width: 400px) or (max-height: 715px) {
     body {
         background-color: #92A0FF;
     }

@@ -3,7 +3,7 @@ Header banner on top of each pages
 */
 .header {
     background-color: #4E5690;
-    position: sticky;
+    position: fixed;
     top: 0;
     left: 0;
 
@@ -157,6 +157,12 @@ Header banner on top of each pages
 #hamburger-input:checked + #hamburger-menu #sidebar-menu {
     visibility: visible;
     right: 0;
+}
+
+.header + * {
+    position: relative;
+    top: 100px;
+    margin-bottom: 100px;
 }
 
 

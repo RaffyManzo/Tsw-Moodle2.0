@@ -9,17 +9,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aaf64b38-f287-423c-9dbc-41a4353826d6" name="Changes" comment="finished footer">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/RegistrationServlet.java" afterDir="false" />
+    <list default="true" id="aaf64b38-f287-423c-9dbc-41a4353826d6" name="Changes" comment="Fix getResultAsObject and LoginServlet.java">
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/css/togglePin.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/AccessControlFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/AccessControlFilter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/LoginServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/LoginServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/beans/Utenza.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/beans/Utenza.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/dao/AbstractDataAccessObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/dao/AbstractDataAccessObject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/dao/UtenzaDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/dao/UtenzaDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/dao/UtenzaDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/dao/UtenzaDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/xml/query.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/xml/query.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/QueryPool.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/QueryPool.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/header.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/header.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/home.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/home.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/login.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/login.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/reg.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/reg.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/registrazione.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/registrazione.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,6 +35,7 @@
         <option value="Jsp File" />
         <option value="CSS File" />
         <option value="Class" />
+        <option value="SCSS File" />
       </list>
     </option>
   </component>
@@ -98,7 +100,7 @@
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "master",
     "last_opened_file_path": "C:/Users/raffa/IdeaProjects/Tsw-Moodle2.0/src/main/java/com/tswmoodle2/controller",
-    "list.type.of.created.stylesheet": "CSS",
+    "list.type.of.created.stylesheet": "SCSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -120,11 +122,11 @@
       <recent name="C:\Users\raffa\IdeaProjects\Tsw-Moodle2.0\src\main\webapp\WEB-INF" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\raffa\IdeaProjects\Tsw-Moodle2.0\src\main\resources" />
       <recent name="C:\Users\raffa\IdeaProjects\Tsw-Moodle2.0\src\main\webapp\assets\images" />
       <recent name="C:\Users\raffa\IdeaProjects\Tsw-Moodle2.0\src\main\webapp\WEB-INF\results\private" />
       <recent name="C:\Users\raffa\IdeaProjects\Tsw-Moodle2.0\src\main\webapp\WEB-INF\results\public" />
       <recent name="C:\Users\raffa\IdeaProjects\Tsw-Moodle2.0\upload\images" />
-      <recent name="C:\Users\raffa\IdeaProjects\Tsw-Moodle2.0\dashchuk-manzo_pj" />
     </key>
   </component>
   <component name="RunManager" selected="Tomcat Server.Tomcat 10.1.19">
@@ -274,7 +276,7 @@
       <workItem from="1717758785921" duration="847000" />
       <workItem from="1718358121832" duration="18873000" />
       <workItem from="1718400469499" duration="500000" />
-      <workItem from="1718632892647" duration="24613000" />
+      <workItem from="1718632892647" duration="34321000" />
     </task>
     <task id="LOCAL-00001" summary="Added registration form&#10;Added image picker servlet&#10;Added css and some fix">
       <option name="closed" value="true" />
@@ -372,7 +374,15 @@
       <option name="project" value="LOCAL" />
       <updated>1718700835043</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Fix getResultAsObject and LoginServlet.java">
+      <option name="closed" value="true" />
+      <created>1718708027839</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1718708027839</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -401,6 +411,7 @@
     <MESSAGE value="fetch api instead JQuery AJAX" />
     <MESSAGE value="Error page, login servelt, fix to db" />
     <MESSAGE value="finished footer" />
-    <option name="LAST_COMMIT_MESSAGE" value="finished footer" />
+    <MESSAGE value="Fix getResultAsObject and LoginServlet.java" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix getResultAsObject and LoginServlet.java" />
   </component>
 </project>

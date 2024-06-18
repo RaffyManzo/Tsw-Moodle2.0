@@ -25,10 +25,9 @@ html,body {
     display: flex;
     justify-content: center;
     align-items: center;
-    top: 200px;
 
     width: 50%;
-    height: 55%;
+    height: 30%;
 
     transition: width .5s;;
 }
@@ -177,7 +176,6 @@ FORM FIELD STYLE
     justify-content: flex-start;
     align-items: center;
     flex-direction: column;
-    margin: 25px 0 25px 0 !important;
 }
 
 fieldset {
