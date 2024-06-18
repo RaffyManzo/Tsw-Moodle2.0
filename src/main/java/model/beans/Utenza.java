@@ -16,7 +16,10 @@ public class Utenza {
     private final String username;
     private final String tipo;
 
-    public Utenza(int idUtente, String nome, String cognome, Date dataNascita, String indirizzo, String citta, String telefono, String email, String password, Date dataCreazioneAccount, String username, String tipo) {
+    private final String img;
+
+
+    public Utenza(int idUtente, String nome, String cognome, Date dataNascita, String indirizzo, String citta, String telefono, String email, String password, Date dataCreazioneAccount, String username, String tipo, String img) {
         this.idUtente = idUtente;
         this.nome = nome;
         this.cognome = cognome;
@@ -29,6 +32,7 @@ public class Utenza {
         this.dataCreazioneAccount = dataCreazioneAccount;
         this.username = username;
         this.tipo = tipo;
+        this.img = img;
     }
 
     // Getters
@@ -96,5 +100,9 @@ public class Utenza {
                 ", username='" + username + '\'' +
                 ", tipo='" + tipo + '\'' +
                 '}';
+    }
+
+    public String getImg() {
+        return img;
     }
 }

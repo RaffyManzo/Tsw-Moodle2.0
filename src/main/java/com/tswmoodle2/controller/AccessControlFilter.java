@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-@WebFilter(filterName = "AccessControlFilter", urlPatterns = "/*")
+@WebFilter(filterName = "AccessControlFilter", urlPatterns = "/new")
 public class AccessControlFilter extends HttpFilter implements Filter {
 
     @Override

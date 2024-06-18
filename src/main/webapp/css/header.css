@@ -181,10 +181,48 @@ Header banner on top of each pages
     background-color: #596cff;
 }
 
-.login-button {
+.dashboard-button, .login-button {
     background-color: #92A0FF;
 }
 
+.link-container.header-button.account-button {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60%;
+    width: auto;
+    max-width: 60px; /* Assicura che la larghezza non superi un certo limite */
+    aspect-ratio: 1 / 1; /* Mantiene l'elemento quadrato */
+    border-radius: 50%; /* Rende l'elemento circolare */
+    overflow: hidden;
+    background-color: #ccc; /* Colore di sfondo predefinito */
+}
+
+.link-container.header-button.account-button img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    object-fit: cover; /* Assicura che l'immagine copra tutto lo spazio disponibile */
+    border-radius: 50%; /* Assicura che l'immagine sia circolare */
+}
+
+.link-container.header-button.account-button .initials {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    width: 100%;
+    font-size: 90%; /* Ingrandisce il testo per coprire meglio l'area */
+    color: #fff;
+    background-color: #596cff; /* Colore di sfondo quando l'immagine non è disponibile */
+    border-radius: 50%; /* Assicura che il div sia circolare */
+    text-transform: uppercase; /* Trasforma le iniziali in maiuscolo */
+    text-align: center; /* Allinea il testo al centro */
+    line-height: 1; /* Assicura che il testo sia verticalmente centrato */
+}
 
 /* Landscape phone to portrait tablet */
 @media (max-width: 1000px) {

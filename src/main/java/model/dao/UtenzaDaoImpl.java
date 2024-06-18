@@ -229,7 +229,8 @@ public class UtenzaDaoImpl extends AbstractDataAccessObject<Utenza> implements U
         Date dataCreazioneAccount = rs.getDate("DataCreazioneAccount");
         String username = rs.getString("Username");
         String tipo = rs.getString("Tipo");
+        String img = rs.getString("Immagine");
 
-        return new Utenza(idUtente, nome, cognome, dataNascita, indirizzo, citta, telefono, email, password, dataCreazioneAccount, username, tipo);
+        return new Utenza(idUtente, nome, cognome, dataNascita, indirizzo, citta, telefono, email, password, dataCreazioneAccount, username, tipo, img);
     }
 }

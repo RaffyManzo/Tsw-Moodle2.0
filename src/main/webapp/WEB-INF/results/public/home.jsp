@@ -1,10 +1,16 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: raffa
-  Date: 31/05/2024
-  Time: 18:19
-  To change this template use File | Settings | File Templates.
---%>
+<%@ page import="model.beans.Utenza" %>
+<%
+    Utenza user = (Utenza) session.getAttribute("User");
+%>
+
+<%-- Debugging --%>
+<%
+    if (user != null) {
+        System.out.println("User found: " + user.getNome() + " " + user.getCognome());
+    } else {
+        System.out.println("User not found in session");
+    }
+%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -32,9 +38,24 @@
             const courseSliderYour = new CourseSlider("#your-course-slider-container", 'courses');
 
         })
+
+        document.addEventListener("DOMContentLoaded", function() {
+            const img = document.querySelector('.account-button img');
+            const initialsDiv = document.querySelector('.account-button .initials');
+
+            img.addEventListener('error', function() {
+                img.style.display = 'none';
+                initialsDiv.style.display = 'flex';
+            });
+
+            if (img.complete && img.naturalHeight === 0) {
+                img.dispatchEvent(new Event('error'));
+            }
+        });
     </script>
 </head>
 <body>
+
 <div class="header" id="header">
     <div class="header-main-info" id="header-main-info">
         <a href="${pageContext.request.contextPath}/home" class="logo-image" id="header-logo-image">
@@ -55,12 +76,26 @@
         <nav id="sidebar-menu">
             <div class="ul">
                 <div class="link-container">
-                    <a href="${pageContext.request.contextPath}/login.html" class="header-redirect-btn"
-                       id="li-header-redirect-to-login">Login</a>
+                    <% if (user != null) {
+                    %>
+                <a href="${pageContext.request.contextPath}/dashboard" class="header-redirect-btn"
+                   id="header-redirect-to-dashboard">Vai alla tua dashboard</a>
+
+                <% } else { %>
+                <a href="${pageContext.request.contextPath}/login.html" class="header-redirect-btn"
+                   id="header-redirect-to-login">Login</a> <%}%>
+                    <% %>
                 </div>
                 <div class="link-container">
-                    <a href="${pageContext.request.contextPath}/registrazione.html" class="header-redirect-btn"
-                       id="li-header-redirect-to-registration">Registrati</a>
+                    <% if (user != null) {
+                    %>
+                <a href="${pageContext.request.contextPath}/account" class="header-redirect-btn"
+                   id="header-redirect-to-profile">My account</a>
+
+                <% } else { %>
+                <a href="${pageContext.request.contextPath}/registrazione.html" class="header-redirect-btn"
+                   id="header-redirect-to-registration">Registrati</a><%}%>
+                    <% %>
                 </div>
                 <div class="link-container">
                     <a href="" class="header-redirect-btn" id="li-header-redirect-to-cart">Carrello</a>
@@ -69,15 +104,41 @@
         </nav>
     </label>
     <div class="header-links" id="header-links">
+
         <span class="vertical-separator"></span>
-        <div class="link-container header-button login-button">
-            <a href="${pageContext.request.contextPath}/login.html" class="header-redirect-btn"
-               id="header-redirect-to-login">Login</a>
+        <div class="link-container header-button dashboard-button">
+            <% if (user != null) {
+            %>
+        <a href="${pageContext.request.contextPath}/dashboard" class="header-redirect-btn"
+           id="header-redirect-to-dashboard">Vai alla tua dashboard</a>
+
+        <% } else { %>
+        <a href="${pageContext.request.contextPath}/login.html" class="header-redirect-btn"
+           id="header-redirect-to-login">Login</a> <%}%>
+            <% %>
+
         </div>
         <span class="vertical-separator"></span>
-        <div class="link-container header-button registration-button">
-            <a href="${pageContext.request.contextPath}/registrazione.html" class="header-redirect-btn"
-               id="header-redirect-to-registration">Registrati</a>
+        <% if (user != null) {
+            String initials = "";
+                if (user.getNome() != null && user.getCognome() != null) {
+                    initials = user.getNome().charAt(0) + "" + user.getCognome().charAt(0);
+                }
+
+        %>
+        <div class="link-container header-button account-button">
+
+        <a href="${pageContext.request.contextPath}/account" class="header-redirect-btn"
+           id="header-redirect-to-profile">
+            <img src="${pageContext.request.contextPath}/file?file=${user.getImg()}&id=${user.getIdUtente()}&c=user" alt="<%= initials %>">
+            <div class="initials" style="display: none;"><%= initials %></div></a>
+
+        <% } else { %>
+            <div class="link-container header-button registration-button">
+        <a href="${pageContext.request.contextPath}/registrazione.html" class="header-redirect-btn"
+           id="header-redirect-to-registration">Registrati</a><%}%>
+            <% %>
+
         </div>
         <span class="vertical-separator" id="vertical-bar-tofix"></span>
 
