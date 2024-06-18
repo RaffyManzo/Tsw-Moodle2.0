@@ -45,7 +45,7 @@
         </h1>
     </div>
     <!-- We add the checkbox -->
-    <input type="checkbox" id="hamburger-input" class="burger-shower" />
+    <input type="checkbox" id="hamburger-input" class="burger-shower"/>
 
     <!--
       We use a `label` element with the `for` attribute
@@ -55,10 +55,12 @@
         <nav id="sidebar-menu">
             <div class="ul">
                 <div class="link-container">
-                    <a href="${pageContext.request.contextPath}/login.html" class="header-redirect-btn" id="li-header-redirect-to-login">Login</a>
+                    <a href="${pageContext.request.contextPath}/login.html" class="header-redirect-btn"
+                       id="li-header-redirect-to-login">Login</a>
                 </div>
                 <div class="link-container">
-                    <a href="${pageContext.request.contextPath}/registrazione.html" class="header-redirect-btn" id="li-header-redirect-to-registration">Registrati</a>
+                    <a href="${pageContext.request.contextPath}/registrazione.html" class="header-redirect-btn"
+                       id="li-header-redirect-to-registration">Registrati</a>
                 </div>
                 <div class="link-container">
                     <a href="" class="header-redirect-btn" id="li-header-redirect-to-cart">Carrello</a>
@@ -69,16 +71,19 @@
     <div class="header-links" id="header-links">
         <span class="vertical-separator"></span>
         <div class="link-container header-button login-button">
-            <a href="${pageContext.request.contextPath}/login.html" class="header-redirect-btn" id="header-redirect-to-login">Login</a>
+            <a href="${pageContext.request.contextPath}/login.html" class="header-redirect-btn"
+               id="header-redirect-to-login">Login</a>
         </div>
         <span class="vertical-separator"></span>
         <div class="link-container header-button registration-button">
-            <a href="${pageContext.request.contextPath}/registrazione.html" class="header-redirect-btn" id="header-redirect-to-registration">Registrati</a>
+            <a href="${pageContext.request.contextPath}/registrazione.html" class="header-redirect-btn"
+               id="header-redirect-to-registration">Registrati</a>
         </div>
         <span class="vertical-separator" id="vertical-bar-tofix"></span>
 
         <div class="link-container">
-            <a href="" class="header-redirect-btn" id="header-redirect-to-cart"><img src="${pageContext.request.contextPath}/assets/images/shopping-basket.png" alt=""></a>
+            <a href="" class="header-redirect-btn" id="header-redirect-to-cart"><img
+                    src="${pageContext.request.contextPath}/assets/images/shopping-basket.png" alt=""></a>
         </div>
     </div>
 </div>
@@ -181,16 +186,32 @@
 </div>
 <footer class="footer">
     <div class="footer-container">
-    <div class="logo">
-        <img src="${pageContext.request.contextPath}/assets/images/logo.png" alt="Logo">
-        <label>Learn Hub</label>
-    </div>
-        <ul class="contact-info">
-            <li><strong>Indirizzo:</strong> Via Giuseppe Garibaldi 69, Prato (IT)</li>
-            <li><strong>Recapiti telefonici:</strong> +39 467 236 7722</li>
-            <li><strong>Email:</strong> assistenza@learnhub.com</li>
-        </ul>
-    </div>
+        <div class="logo">
+            <img src="${pageContext.request.contextPath}/assets/images/logo.png" alt="Logo">
+            <label>Learn Hub</label>
+        </div>
+        <div class="sub-footer-container">
+            <ul class="contact-info">
+                <li><strong>Indirizzo:</strong> Via Giuseppe Garibaldi 69, Prato (IT)</li>
+                <li><strong>Recapiti telefonici:</strong> +39 467 236 7722</li>
+                <li><strong>Email:</strong> assistenza@learnhub.com</li>
+            </ul>
+            <div class="newsletter">
+                <label>Iscriviti alla newsletter</label>
+                <form class="input-email-box-newsletter" action="${pageContext.request.contextPath}/sub">
+                    <input type="email" placeholder="latuamailpersonale@dominio.com">
+                    <button type="submit">Iscriviti</button>
+                </form>
+                <div class="social-icons">
+                    <a class="social-icon-box" href="https://www.instagram.com/learn._.hub/">
+                        <img src="${pageContext.request.contextPath}/assets/images/instagram%201.png" alt="Ig">
+                    </a>
+                    <a class="social-icon-box" href="https://www.facebook.com/search/top/?q=learn%20hub">
+                        <img src="${pageContext.request.contextPath}/assets/images/facebook%201.png" alt="Fb">
+                    </a>
+                </div>
+            </div>
+        </div>
     </div>
 
 </footer>

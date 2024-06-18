@@ -14,9 +14,7 @@ public class HomeServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        request.setAttribute("courseList", new CorsoDaoImpl().getAllCourses());
-
-        RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/results/home.jsp");
+        RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/results/public/home.jsp");
         rd.forward(request, response);
     }
 

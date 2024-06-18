@@ -13,7 +13,7 @@ import java.util.ArrayList;
 @WebServlet(name = "GetCourseInfoServlet", value = "/courses")
 public class GetCourseInfoServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws IOException {
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
 

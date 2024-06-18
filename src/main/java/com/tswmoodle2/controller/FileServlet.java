@@ -17,7 +17,7 @@ public class FileServlet extends HttpServlet {
         UPLOAD_FOLDER = getServletContext().getInitParameter("upload-path");
     }
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         ServletContext sc = getServletContext();
 
         // Nella request troveremo il nome del file e l'id dell'utente, ogni file relativo a quell'utente si trova

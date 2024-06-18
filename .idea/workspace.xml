@@ -9,25 +9,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aaf64b38-f287-423c-9dbc-41a4353826d6" name="Changes" comment="fetch api instead JQuery AJAX">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/LoginServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/beans/Utenza.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/dao/UtenzaDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/dao/UtenzaDaoImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/NotFound.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/images/error.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/images/logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/css/error.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/css/footer.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/8d1da4ce-79df-43f7-8a5f-0540fbbb02f0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/8d1da4ce-79df-43f7-8a5f-0540fbbb02f0.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/8d1da4ce-79df-43f7-8a5f-0540fbbb02f0/storage_v2/_src_/schema/learn_hub.elC1XA.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/8d1da4ce-79df-43f7-8a5f-0540fbbb02f0/storage_v2/_src_/schema/learn_hub.elC1XA.meta" afterDir="false" />
+    <list default="true" id="aaf64b38-f287-423c-9dbc-41a4353826d6" name="Changes" comment="Error page, login servelt, fix to db">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/AccessControlFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/images/facebook 1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/images/instagram 1.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/xml/query.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/xml/query.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/home.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/home.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/header.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/header.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/FileServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/FileServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/GetCourseInfoServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/GetCourseInfoServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/HomeServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/HomeServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/LoginServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/LoginServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/NotFound.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/public/error.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/home.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/public/home.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/test.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/private/test.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/footer.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/footer.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,10 +32,10 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
-        <option value="Class" />
         <option value="JavaScript File" />
         <option value="Jsp File" />
         <option value="CSS File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -129,10 +123,10 @@
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\raffa\IdeaProjects\Tsw-Moodle2.0\src\main\webapp\assets\images" />
+      <recent name="C:\Users\raffa\IdeaProjects\Tsw-Moodle2.0\src\main\webapp\WEB-INF\results\private" />
+      <recent name="C:\Users\raffa\IdeaProjects\Tsw-Moodle2.0\src\main\webapp\WEB-INF\results\public" />
       <recent name="C:\Users\raffa\IdeaProjects\Tsw-Moodle2.0\upload\images" />
       <recent name="C:\Users\raffa\IdeaProjects\Tsw-Moodle2.0\dashchuk-manzo_pj" />
-      <recent name="C:\Users\raffa\IdeaProjects\Tsw-Moodle2.0\src\main\webapp\WEB-INF\users-file\images\d001" />
-      <recent name="C:\Users\raffa\IdeaProjects\Tsw-Moodle2.0\src\main\webapp\WEB-INF\users-file\images" />
     </key>
   </component>
   <component name="RunManager" selected="Tomcat Server.Tomcat 10.1.19">
@@ -282,7 +276,7 @@
       <workItem from="1717758785921" duration="847000" />
       <workItem from="1718358121832" duration="18873000" />
       <workItem from="1718400469499" duration="500000" />
-      <workItem from="1718632892647" duration="6921000" />
+      <workItem from="1718632892647" duration="17434000" />
     </task>
     <task id="LOCAL-00001" summary="Added registration form&#10;Added image picker servlet&#10;Added css and some fix">
       <option name="closed" value="true" />
@@ -364,7 +358,15 @@
       <option name="project" value="LOCAL" />
       <updated>1718378348057</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Error page, login servelt, fix to db">
+      <option name="closed" value="true" />
+      <created>1718640108581</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1718640108581</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -391,6 +393,7 @@
     <MESSAGE value="deleted slider.js file, and added sliderClass.js" />
     <MESSAGE value="Add categories to home, fix some bug" />
     <MESSAGE value="fetch api instead JQuery AJAX" />
-    <option name="LAST_COMMIT_MESSAGE" value="fetch api instead JQuery AJAX" />
+    <MESSAGE value="Error page, login servelt, fix to db" />
+    <option name="LAST_COMMIT_MESSAGE" value="Error page, login servelt, fix to db" />
   </component>
 </project>

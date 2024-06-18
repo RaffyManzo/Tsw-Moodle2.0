@@ -20,7 +20,7 @@ public class LoginServlet extends HttpServlet {
     RequestDispatcher errorDispatcher;
     @Override
     public void init() {
-        errorDispatcher = getServletContext().getRequestDispatcher("/WEB-INF/results/NotFound.jsp");
+        errorDispatcher = getServletContext().getRequestDispatcher("/WEB-INF/results/public/error.jsp");
     }
 
     @Override
@@ -61,15 +61,19 @@ public class LoginServlet extends HttpServlet {
         else
             user = utenza.findByUsername(username);
         if (user != null && hashPassword.equals(user.getPassword())) {
-            RequestDispatcher dispatcher = request.getRequestDispatcher("HomeServlet");
-            request.getSession().setAttribute("Tipo", user.getTipo()); // inserisco il token nella sessione
-
+            RequestDispatcher dispatcher = request.getRequestDispatcher("home");
+            request.getSession().setAttribute("isAdmin", user.getTipo().contentEquals("A")
+                    ? Boolean.TRUE :
+                    Boolean.FALSE); // inserisco il token nella sessione
+            request.getSession().setAttribute("User", user);
             dispatcher.forward(request, response);
 
         } else {
             errors.add("Username o password non validi!");
             request.setAttribute("errors", errors);
-            errorDispatcher.forward(request, response);
+            //errorDispatcher.forward(request, response);
+
+            response.sendRedirect("get");
         }
 
     }
