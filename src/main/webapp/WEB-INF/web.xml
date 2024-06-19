@@ -8,6 +8,17 @@
         <param-name>upload-path</param-name>
         <param-value>${catalina.home}/upload</param-value>
     </context-param>
+
+    <filter>
+        <filter-name>AccessControlFilter</filter-name>
+        <filter-class>com.tswmoodle2.controller.AccessControlFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>AccessControlFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+
     <servlet>
         <servlet-name>HomeServlet</servlet-name>
         <servlet-class>com.tswmoodle2.controller.HomeServlet</servlet-class>

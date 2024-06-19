@@ -67,8 +67,10 @@ public class ShoppingServlet extends HttpServlet {
         if (session != null) {
             session.removeAttribute(KEY_CART);
             LOGGER.info("Cart emptied.");
+            // Aggiorna il conteggio degli oggetti nel carrello
+            updateCartCount(session);
         }
-        resp.sendRedirect("shop?action=viewCart");
+        display(req,resp);
     }
 
     @SuppressWarnings("unchecked")
@@ -97,9 +99,12 @@ public class ShoppingServlet extends HttpServlet {
                         LOGGER.log(Level.INFO, "Product removed from cart: {0}", product.getNome());
                     }
                 }
+                // Aggiorna il conteggio degli oggetti nel carrello
+                updateCartCount(session);
             }
+
         }
-        resp.sendRedirect("shop?action=viewCart");
+        display(req,resp);
     }
 
     @SuppressWarnings("unchecked")
@@ -119,10 +124,13 @@ public class ShoppingServlet extends HttpServlet {
             if (product != null) {
                 cart.put(product, cart.getOrDefault(product, 0) + 1);
                 session.setAttribute(KEY_CART, cart);
-                LOGGER.log(Level.INFO, "Product added to cart: {0}", product.getNome());
+                LOGGER.log(Level.INFO, "Product added to cart: {0}", product);
             }
+            // Aggiorna il conteggio degli oggetti nel carrello
+            updateCartCount(session);
         }
-        resp.sendRedirect("shop?action=viewCart");
+        display(req,resp);
+
     }
 
     @SuppressWarnings("unchecked")
@@ -149,7 +157,34 @@ public class ShoppingServlet extends HttpServlet {
             }
 
             session.setAttribute(KEY_CART, cart);
+            // Aggiorna il conteggio degli oggetti nel carrello
+            updateCartCount(session);
         }
-        resp.sendRedirect("shop?action=viewCart");
+        display(req,resp);
+    }
+
+    private void display(HttpServletRequest req, HttpServletResponse resp) throws IOException  {
+        // Usa l'header Referer per determinare la pagina di origine
+        String referer = req.getHeader("Referer");
+
+        if (referer != null && referer.contains("cart")) {
+            // Se il Referer contiene "cart", aggiorna la pagina del carrello
+            resp.sendRedirect("shop?action=viewCart");
+        } else {
+            // Altrimenti, reindirizza al Referer
+            resp.sendRedirect(referer);
+        }
+    }
+
+    private void updateCartCount(HttpSession session) {
+        @SuppressWarnings("unchecked")
+        Map<Corso, Integer> cart = (Map<Corso, Integer>) session.getAttribute(KEY_CART);
+        int itemCount = 0;
+        if (cart != null) {
+            for (int quantity : cart.values()) {
+                itemCount += quantity;
+            }
+        }
+        session.setAttribute("cartItemCount", itemCount);
     }
 }

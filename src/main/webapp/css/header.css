@@ -81,6 +81,10 @@ Header banner on top of each pages
     font-family: "Jura", serif;
     font-size: 20px;
 
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
     font-weight: 700;
     font-style: normal;
     width: 100%;
@@ -198,6 +202,28 @@ Header banner on top of each pages
     overflow: hidden;
     background-color: #ccc; /* Colore di sfondo predefinito */
 }
+
+/* Stile per l'indicatore del carrello */
+.header-redirect-btn p{
+    transform: translateY(-80%);
+    font-family: "Jura", sans-serif;
+    background: #ff5252;
+    color: white;
+    border-radius: 50%;
+    font-size: 55%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    text-anchor: middle;
+    text-justify: distribute-center-last;
+    width: 20px;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    font-weight: bolder;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+}
+
 
 .link-container.header-button.account-button img {
     position: absolute;

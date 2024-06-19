@@ -118,7 +118,7 @@ input[type="email"] {
     width: 80%;
 }
 
-button {
+.footer button {
     margin: 2px 10px 2px;
     background-color: #7A7AB7;
     border: none;

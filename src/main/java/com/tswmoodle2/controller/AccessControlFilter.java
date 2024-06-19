@@ -8,8 +8,10 @@ import java.io.IOException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
-@WebFilter(filterName = "AccessControlFilter", urlPatterns = "/new")
+@WebFilter(filterName = "AccessControlFilter", urlPatterns = "/*")
 public class AccessControlFilter extends HttpFilter implements Filter {
 
     @Override
@@ -20,7 +22,7 @@ public class AccessControlFilter extends HttpFilter implements Filter {
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
             throws IOException, ServletException {
-
+/*
         HttpServletRequest httpServletRequest = (HttpServletRequest) request;
         HttpServletResponse httpServletResponse = (HttpServletResponse) response;
 
@@ -76,8 +78,18 @@ public class AccessControlFilter extends HttpFilter implements Filter {
 
 
 
-        chain.doFilter(httpServletRequest, httpServletResponse);
+        HttpServletRequest req = (HttpServletRequest) request;
+        HttpSession session = req.getSession();
 
+        // Memorizza l'URL di origine se non è la pagina del negozio
+        String currentUrl = req.getRequestURL().toString();
+        Logger.getLogger(AccessControlFilter.class.getName()).log(Level.INFO, "Current url check: {0}", currentUrl);
+        if (currentUrl.contains("Home") || currentUrl.contains("file")) {
+            session.setAttribute("OriginURL", currentUrl);
+        }
+
+        // Passa la richiesta al prossimo filtro o alla destinazione finale*/
+        chain.doFilter(request, response);
     }
 
     @Override

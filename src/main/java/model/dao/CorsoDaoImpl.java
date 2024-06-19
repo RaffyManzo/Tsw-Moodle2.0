@@ -143,6 +143,19 @@ public class CorsoDaoImpl extends AbstractDataAccessObject<Corso> implements Cor
     }
 
     @Override
+    public ArrayList<Corso> findByPrezzo(double prezzo)  {
+        try (Connection connection = getConnection();
+             PreparedStatement ps = prepareStatement(connection, "FIND_CORSI_BY_PREZZO")) {
+            ps.setDouble(1, prezzo);
+            try (ResultSet rs = ps.executeQuery()) {
+                return getResultAsList(rs);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
     protected Corso extractFromResultSet(ResultSet rs) throws SQLException {
         int idCorso = rs.getInt("IDCorso");
         String nomeCategoria = rs.getString("NomeCategoria");
@@ -151,7 +164,8 @@ public class CorsoDaoImpl extends AbstractDataAccessObject<Corso> implements Cor
         String immagine = rs.getString("Immagine");
         String certificazione = rs.getString("Certificazione");
         java.sql.Date dataCreazione = rs.getDate("DataCreazione");
+        Double prezzo = rs.getDouble("prezzo");
 
-        return new Corso(idCorso, nomeCategoria, nome, descrizione, immagine, certificazione, dataCreazione);
+        return new Corso(idCorso, nomeCategoria, nome, descrizione, immagine, certificazione, dataCreazione, prezzo);
     }
 }

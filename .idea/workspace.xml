@@ -9,19 +9,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aaf64b38-f287-423c-9dbc-41a4353826d6" name="Changes" comment="home.jsp after login">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/ShoppingServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/public/cart.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/css/cart.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/script/headerAccessBehaviour.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/script/imageErrorDetect.js" afterDir="false" />
+    <list default="true" id="aaf64b38-f287-423c-9dbc-41a4353826d6" name="Changes" comment="Added ShoppingServlet.java and cart.jsp">
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/8d1da4ce-79df-43f7-8a5f-0540fbbb02f0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/8d1da4ce-79df-43f7-8a5f-0540fbbb02f0.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/8d1da4ce-79df-43f7-8a5f-0540fbbb02f0/storage_v2/_src_/schema/learn_hub.elC1XA.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/8d1da4ce-79df-43f7-8a5f-0540fbbb02f0/storage_v2/_src_/schema/learn_hub.elC1XA.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/AccessControlFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/AccessControlFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/GetCourseInfoServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/GetCourseInfoServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/ShoppingServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/ShoppingServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/beans/Corso.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/beans/Corso.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/dao/CorsoDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/dao/CorsoDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/dao/CorsoDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/dao/CorsoDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/xml/query.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/xml/query.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/public/cart.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/public/cart.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/public/home.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/public/home.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/home.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/home.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/cart.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/cart.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/footer.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/footer.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/header.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/header.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/slider.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/slider.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/script/imageErrorDetect.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/script/imageErrorDetect.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/script/sliderClass.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/script/sliderClass.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -279,7 +286,7 @@
       <workItem from="1718358121832" duration="18873000" />
       <workItem from="1718400469499" duration="500000" />
       <workItem from="1718632892647" duration="40071000" />
-      <workItem from="1718805891710" duration="17788000" />
+      <workItem from="1718805891710" duration="28796000" />
     </task>
     <task id="LOCAL-00001" summary="Added registration form&#10;Added image picker servlet&#10;Added css and some fix">
       <option name="closed" value="true" />
@@ -409,7 +416,15 @@
       <option name="project" value="LOCAL" />
       <updated>1718725758992</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Added ShoppingServlet.java and cart.jsp">
+      <option name="closed" value="true" />
+      <created>1718826584565</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1718826584565</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -442,7 +457,8 @@
     <MESSAGE value="try to add toggle" />
     <MESSAGE value="toggle added, choice account replaced" />
     <MESSAGE value="home.jsp after login" />
-    <option name="LAST_COMMIT_MESSAGE" value="home.jsp after login" />
+    <MESSAGE value="Added ShoppingServlet.java and cart.jsp" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added ShoppingServlet.java and cart.jsp" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

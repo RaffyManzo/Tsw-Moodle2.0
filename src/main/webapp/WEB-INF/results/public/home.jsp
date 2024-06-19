@@ -86,7 +86,7 @@
                 </div>
                 <div class="link-container">
                     <a href="${pageContext.request.contextPath}/shop?action=viewCart"
-                       class="header-redirect-btn" id="li-header-redirect-to-cart">Carrello</a>
+                       class="header-redirect-btn" id="li-header-redirect-to-cart">Carrello (${sessionScope.cartItemCount != null && sessionScope.cartItemCount > 0 ? sessionScope.cartItemCount : '0'})</a>
                 </div>
             </div>
         </nav>
@@ -131,8 +131,11 @@
         <span class="vertical-separator" id="vertical-bar-tofix"></span>
 
         <div class="link-container">
-            <a href="${pageContext.request.contextPath}/shop?action=viewCart" class="header-redirect-btn" id="header-redirect-to-cart"><img
-                    src="${pageContext.request.contextPath}/assets/images/shopping-basket.png" alt=""></a>
+            <a href="${pageContext.request.contextPath}/shop?action=viewCart" class="header-redirect-btn" id="header-redirect-to-cart">
+                <img
+                    src="${pageContext.request.contextPath}/assets/images/shopping-basket.png" alt="">
+                <p>${sessionScope.cartItemCount != null && sessionScope.cartItemCount > 0 ? sessionScope.cartItemCount : '0'}</p>
+            </a>
         </div>
     </div>
 </div>

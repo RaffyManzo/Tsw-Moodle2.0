@@ -13,8 +13,12 @@ public class Corso {
 
 
 
+    private final double prezzo;
+
+
+
     // Costruttore con argomenti
-    public Corso(int idCorso, String nomeCategoria, String nome, String descrizione, String immagine, String certificazione, Date dataCreazione) {
+    public Corso(int idCorso, String nomeCategoria, String nome, String descrizione, String immagine, String certificazione, Date dataCreazione, double prezzo) {
         this.idCorso = idCorso;
         this.nomeCategoria = nomeCategoria;
         this.nome = nome;
@@ -22,6 +26,7 @@ public class Corso {
         this.immagine = immagine;
         this.certificazione = certificazione;
         this.dataCreazione = dataCreazione;
+        this.prezzo = prezzo;
     }
 
     // Getter
@@ -51,6 +56,9 @@ public class Corso {
 
     public Date getDataCreazione() {
         return dataCreazione;
+    }
+    public double getPrezzo() {
+        return prezzo;
     }
 
     @Override

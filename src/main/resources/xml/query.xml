@@ -11,6 +11,7 @@
     <entry key="SEARCH_CORSI_BY_NOME">SELECT * FROM Corso WHERE Nome LIKE ?</entry>
     <entry key="FIND_CORSI_BY_DATE_RANGE">SELECT * FROM Corso WHERE DataCreazione BETWEEN ? AND ?</entry>
     <entry key="FIND_CORSI_BY_CERTIFICAZIONE">SELECT * FROM Corso WHERE Certificazione = ?</entry>
+    <entry key="FIND_CORSI_BY_CERTIFICAZIONE">SELECT * FROM Corso WHERE prezzo >= ?</entry>
 
     <!-- Utenza -->
     <entry key="INSERT_UTENZA">INSERT INTO Utenza (Nome, Cognome, DataNascita, Indirizzo, Citta, Telefono, Email, Password, DataCreazioneAccount, Username, Tipo) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)</entry>

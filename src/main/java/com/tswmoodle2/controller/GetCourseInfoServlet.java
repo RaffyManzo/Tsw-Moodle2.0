@@ -30,6 +30,7 @@ public class GetCourseInfoServlet extends HttpServlet {
             courseObject.put("image", course.getImmagine());
             courseObject.put("certification", course.getCertificazione());
             courseObject.put("creationDate", course.getDataCreazione().toString());
+            courseObject.put("price", course.getPrezzo());
             coursesArray.add(courseObject);
         }
 

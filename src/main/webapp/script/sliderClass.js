@@ -2,13 +2,13 @@ class CourseSlider {
     constructor(containerSelector, url, itemsPerPage = 5) {
         this.container = $(containerSelector);
         this.sliderEl =
-            "<a class='course-box' href='openCourse?id={6}'> " +
+            "<a class='course-box' href='shop?action=addToCart&productId={0}'> " +
             "<div class='master-course-info'>" +
-            "<img src='file?file={6}/{0}&c=course' alt=''>" +
-            "<label>{2} - {3}</label>" +
+            "<img src='file?file={0}/{2}&c=course' alt=''>" +
+            "<label>{1}</label>" +
             "</div>" +
             "<div class='sub-course-info'>" +
-            "<label>{4} - {5}</label>" +
+            "<label>{3} - {4}</label>" +
             "</div>" +
             "</a>";
         this.containerSelector = containerSelector
@@ -97,9 +97,8 @@ class CourseSlider {
     renderCourses() {
         this.container.empty(); // Svuota il container prima di aggiungere i nuovi corsi
         $.each(this.courseList, (index, course) => {
-            let pathImg = "course/" + course.name;
-            let formattedSliderEl = this.formatString(this.sliderEl, [course.image, pathImg, course.name, course.description,
-                course.creationDate, course.category, course.id]);
+            let formattedSliderEl = this.formatString(this.sliderEl, [ course.id, course.name, course.image,
+                course.creationDate, course.category,]);
             this.container.append(formattedSliderEl);
         });
 
