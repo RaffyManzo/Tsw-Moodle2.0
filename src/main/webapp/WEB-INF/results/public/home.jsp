@@ -30,6 +30,7 @@
     <script src="${pageContext.request.contextPath}/script/sliderClass.js"></script>
     <script src="${pageContext.request.contextPath}/script/bannerSize.js"></script>
     <script src="${pageContext.request.contextPath}/script/someDisplayFix.js" defer></script>
+    <script src="${pageContext.request.contextPath}/script/headerAccessBehaviour.js"></script>
 
     <script>
         $(document).ready(function () {
@@ -38,20 +39,6 @@
             const courseSliderYour = new CourseSlider("#your-course-slider-container", 'courses');
 
         })
-
-        document.addEventListener("DOMContentLoaded", function() {
-            const img = document.querySelector('.account-button img');
-            const initialsDiv = document.querySelector('.account-button .initials');
-
-            img.addEventListener('error', function() {
-                img.style.display = 'none';
-                initialsDiv.style.display = 'flex';
-            });
-
-            if (img.complete && img.naturalHeight === 0) {
-                img.dispatchEvent(new Event('error'));
-            }
-        });
     </script>
 </head>
 <body>
@@ -98,7 +85,8 @@
                     <% %>
                 </div>
                 <div class="link-container">
-                    <a href="" class="header-redirect-btn" id="li-header-redirect-to-cart">Carrello</a>
+                    <a href="${pageContext.request.contextPath}/shop?action=viewCart"
+                       class="header-redirect-btn" id="li-header-redirect-to-cart">Carrello</a>
                 </div>
             </div>
         </nav>
@@ -130,7 +118,7 @@
 
         <a href="${pageContext.request.contextPath}/account" class="header-redirect-btn"
            id="header-redirect-to-profile">
-            <img src="${pageContext.request.contextPath}/file?file=${user.getImg()}&id=${user.getIdUtente()}&c=user" alt="<%= initials %>">
+            <img src="${pageContext.request.contextPath}/file?file=${user.getImg()}&id=${user.getIdUtente()}&c=user" alt="<%= initials %>" id="profile-pic">
             <div class="initials" style="display: none;"><%= initials %></div></a>
 
         <% } else { %>
@@ -143,7 +131,7 @@
         <span class="vertical-separator" id="vertical-bar-tofix"></span>
 
         <div class="link-container">
-            <a href="" class="header-redirect-btn" id="header-redirect-to-cart"><img
+            <a href="${pageContext.request.contextPath}/shop?action=viewCart" class="header-redirect-btn" id="header-redirect-to-cart"><img
                     src="${pageContext.request.contextPath}/assets/images/shopping-basket.png" alt=""></a>
         </div>
     </div>
@@ -274,7 +262,6 @@
             </div>
         </div>
     </div>
-
 </footer>
 </body>
 </html>

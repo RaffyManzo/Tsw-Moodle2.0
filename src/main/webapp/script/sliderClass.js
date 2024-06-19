@@ -4,7 +4,7 @@ class CourseSlider {
         this.sliderEl =
             "<a class='course-box' href='openCourse?id={6}'> " +
             "<div class='master-course-info'>" +
-            "<img src='file?file={0}&c={1}' alt=''>" +
+            "<img src='file?file={6}/{0}&c=course' alt=''>" +
             "<label>{2} - {3}</label>" +
             "</div>" +
             "<div class='sub-course-info'>" +
@@ -110,6 +110,15 @@ class CourseSlider {
         courseBox.css("max-width", "300px");
         this.updateItemsPerPage();
         this.updateSlider();
+
+        // Aggiungi l'evento error qui, dopo che gli elementi img sono stati aggiunti al DOM
+        const images = $('img:not(#profile-pic)');
+        images.each(function(k) {
+            $(this).on("error", function() {
+                $(this).attr('src', 'file?file=default.png&c=course');
+                imageNotFound();
+            });
+        });
     }
 
     // Funzione per calcolare il numero di elementi per pagina

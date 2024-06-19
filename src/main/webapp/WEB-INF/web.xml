@@ -61,5 +61,14 @@
         <servlet-name>RegistrationServlet</servlet-name>
         <url-pattern>/new</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>shoppingServlet</servlet-name>
+        <servlet-class>com.tswmoodle2.controller.ShoppingServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>shoppingServlet</servlet-name>
+        <url-pattern>/shop</url-pattern>
+    </servlet-mapping>
 
 </web-app>

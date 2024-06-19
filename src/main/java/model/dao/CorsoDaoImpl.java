@@ -8,6 +8,14 @@ import java.util.ArrayList;
 public class CorsoDaoImpl extends AbstractDataAccessObject<Corso> implements CorsoDao{
 
     ArrayList<Corso> courses = new ArrayList<>();
+
+    public ArrayList<Corso> getCourses() {
+        if(courses.isEmpty())
+            return getAllCourses();
+        else
+            return courses;
+    }
+
     @Override
     public void insertInto(Corso corso)  {
         try (Connection connection = getConnection();
