@@ -175,8 +175,8 @@
         </div>
         <div class="checkout-container">
             <h4>Checkout</h4>
-            <h1><% double price = 0 ; for (Map.Entry<Corso, Integer> entry : cart.entrySet()){
-                price += entry.getKey().getPrezzo();}%> <%= Math.round(price * 100.0) / 100.0 %>$</h1>
+            <h1><% double price = 0 ; if (cart != null) { for (Map.Entry<Corso, Integer> entry : cart.entrySet()){
+                price += entry.getKey().getPrezzo();}%> <%}%><%= Math.round(price * 100.0) / 100.0 %> $</h1>
             <a href="${pageContext.request.contextPath}/checkout" class="checkout-btn">
                 Completa il pagamento
             </a>
