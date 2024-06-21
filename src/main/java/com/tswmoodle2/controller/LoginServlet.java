@@ -80,7 +80,7 @@ public class LoginServlet extends HttpServlet {
             if (hashPassword.equals(user.getPassword())) {
                 // Creazione o recupero della sessione
                 HttpSession session = request.getSession(true);
-                session.setAttribute("User", user);
+                session.setAttribute("user", user);
                 session.setAttribute("isAdmin", user.getTipo().contentEquals("A") ? Boolean.TRUE : Boolean.FALSE);
 
                 // Reindirizzamento alla home

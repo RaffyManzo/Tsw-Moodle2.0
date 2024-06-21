@@ -194,7 +194,7 @@ th, td {
     cursor: pointer;
     text-decoration: none;
 }
-.quantity-controller a:nth-child(1) {
+.quantity-controller a:first-child {
     border-radius: 5px 0 0 5px;
 
 }

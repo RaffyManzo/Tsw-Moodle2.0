@@ -36,7 +36,7 @@
         </div>
     </div>
     <div class="buttons">
-        <a href="${pageContext.request.contextPath}/login.html" class="button">Riprovare ad accedere</a>
+        <a href="${pageContext.request.contextPath}/login.html" class="button">Vai alla pagina di login</a>
         <a href="${pageContext.request.contextPath}/home" class="button">Vai alla Home senza login</a>
     </div>
 </div>

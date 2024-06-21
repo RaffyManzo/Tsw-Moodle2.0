@@ -80,20 +80,22 @@ class CourseSlider {
                 if (!response.ok) {
                     throw new Error('Errore nel recupero dei dati: ' + response.statusText);
                 }
+                console.log('Consuming response body...');
                 return response.json();
             })
             .then(courses => {
+                console.log('Courses received:', courses);
                 this.courseList = courses; // Sovrascrive la lista di corsi con quella ottenuta dalla risposta
                 this.renderCourses(); // Chiama la funzione per renderizzare i corsi
             })
             .catch(error => {
                 // Gestione degli errori
+                console.error('Errore nel recupero dei dati:', error.message);
                 alert('Errore nel recupero dei dati: ' + error.message);
             });
-
     }
 
-    // Funzione per renderizzare i corsi
+        // Funzione per renderizzare i corsi
     renderCourses() {
         this.container.empty(); // Svuota il container prima di aggiungere i nuovi corsi
         $.each(this.courseList, (index, course) => {
