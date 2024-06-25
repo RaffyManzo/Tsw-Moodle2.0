@@ -27,16 +27,14 @@ public class CustomHttpServletRequestWrapper extends HttpServletRequestWrapper {
             Utenza user = (session != null) ? (Utenza) session.getAttribute("user") : null;
 
             LOGGER.log(Level.INFO, "Sessione trovata: ", user);
-            LOGGER.log(Level.INFO, "Path before check : {0}", path);
 
 
             if (user == null) {
                 List<String> errors = new ArrayList<>();
-                errors.add("Non hai i permessi per accedere a questa risorsa");
+                errors.add("Non hai i permessi per accedere a questa risorsa, prova ad effettuare l'accesso");
                 getRequest().setAttribute("errors", errors);
                 path = "/WEB-INF/results/public/error.jsp";
             } else {
-                LOGGER.log(Level.INFO, "Path before check : {0}", path);
 
                 return super.getRequestDispatcher(path);
             }

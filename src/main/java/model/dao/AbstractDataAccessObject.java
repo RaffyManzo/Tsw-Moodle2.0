@@ -41,6 +41,14 @@ public abstract class  AbstractDataAccessObject <T> {
         return conn.prepareStatement(sql);
     }
 
+    protected PreparedStatement prepareStatement(Connection conn, String queryId, int other) throws SQLException{
+        String sql = DBManager.requestToGetQueryString(queryId);
+        if (sql == null) {
+            throw new SQLException("SQL query for query ID " + queryId + " is null");
+        }
+        return conn.prepareStatement(sql, other);
+    }
+
 
     /**
      * Return a List of <T> element.
@@ -70,7 +78,7 @@ public abstract class  AbstractDataAccessObject <T> {
     protected abstract T extractFromResultSet(ResultSet rs) throws SQLException;
     protected abstract void insertInto (T t) throws SQLException;
 
-    protected abstract <E> void update(E e);
+    protected abstract void update(T e);
 
     protected abstract void delete(int id);
 }

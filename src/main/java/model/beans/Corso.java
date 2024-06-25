@@ -1,6 +1,7 @@
 package model.beans;
 
 import java.sql.Date;
+import java.util.Objects;
 
 public class Corso {
     private final int idCorso;
@@ -72,6 +73,20 @@ public class Corso {
                 ", certificazione='" + certificazione + '\'' +
                 ", dataCreazione=" + dataCreazione +
                 '}';
+    }
+
+    // equals e hashCode (necessario per l'uso come chiave di Map)
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Corso corso = (Corso) o;
+        return idCorso == corso.idCorso;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(idCorso);
     }
 }
 

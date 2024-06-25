@@ -31,8 +31,7 @@ public class UtenzaDaoImpl extends AbstractDataAccessObject<Utenza> implements U
     }
 
     @Override
-    public <E> void update(E e) {
-        Utenza utenza = (Utenza) e;
+    public void update(Utenza utenza) {
         try (Connection connection = getConnection();
              PreparedStatement ps = prepareStatement(connection, "UPDATE_UTENZA")) {
             ps.setString(1, utenza.getNome());

@@ -1,6 +1,6 @@
 <%@ page import="model.beans.Utenza" %>
 <%
-    Utenza user = (Utenza) session.getAttribute("User");
+    Utenza user = (Utenza) request.getSession(false).getAttribute("user");
 %>
 
 <%-- Debugging --%>

@@ -6,7 +6,12 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import model.Util.CarrelloScheduler;
+import model.Util.CarrelloService;
+import model.beans.Carrello;
 import model.beans.Corso;
+import model.beans.Utenza;
+import model.dao.CartDaoImpl;
 import model.dao.CorsoDaoImpl;
 
 import java.io.IOException;
@@ -35,6 +40,7 @@ public class ShoppingServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
+
 
         String action = req.getParameter("action");
         if (action == null) {
@@ -66,7 +72,7 @@ public class ShoppingServlet extends HttpServlet {
         HttpSession session = req.getSession(false);
         if (session != null) {
             session.removeAttribute(KEY_CART);
-            LOGGER.info("Cart emptied.");
+            LOGGER.info("Carrello emptied.");
             // Aggiorna il conteggio degli oggetti nel carrello
             updateCartCount(session);
         }
@@ -78,7 +84,7 @@ public class ShoppingServlet extends HttpServlet {
         HttpSession session = req.getSession(true);
         Map<Corso, Integer> cart = (Map<Corso, Integer>) session.getAttribute(KEY_CART);
         req.setAttribute(KEY_CART, cart);
-        LOGGER.log(Level.INFO, "Cart viewed. Cart size: {0}", cart != null ? cart.size() : 0);
+        LOGGER.log(Level.INFO, "Carrello viewed. Carrello size: {0}", cart != null ? cart.size() : 0);
         req.getRequestDispatcher(CART_PAGE).forward(req, resp);
     }
 

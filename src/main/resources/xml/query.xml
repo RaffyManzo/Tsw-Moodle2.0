@@ -27,4 +27,13 @@
     <entry key="FIND_UTENZA_BY_TIPO">SELECT * FROM Utenza WHERE Tipo = ?</entry>
     <entry key="FIND_UTENZA_BY_TELEFONO">SELECT * FROM Utenza WHERE Telefono LIKE ?</entry>
     <entry key="FIND_UTENZA_BY_CITTA">SELECT * FROM Utenza WHERE Citta = ?</entry>
+
+
+    <entry key="GET_CART_ID_BY_USER">SELECT * FROM Carrello where IDStudente = ?</entry>
+    <entry key="GET_CART_ELEMENTS">SELECT * FROM inserimento where IDCarrello = ? AND IDStudente = ?</entry>
+    <entry key="DELETE_FROM_CART">DELETE FROM inserimento WHERE IDCarrello = ? AND IDStudente = ? AND IDCorso = ?</entry>
+    <entry key="GET_CART_ELEMENT">SELECT * FROM inserimento WHERE IDCorso = ? AND IDCarrello = ? AND IDStudente = ?</entry>
+    <entry key="UPDATE_CART_ELEMENT">UPDATE inserimento SET Quantita = ? WHERE IDCorso = ? AND IDCarrello = ? AND IDStudente = ?</entry>
+    <entry key="INSERT_CART_ELEMENT">INSERT INTO inserimento (IDCorso, IDCarrello, IDStudente, Quantita) VALUES (?, ?, ?, ?)"</entry>
+    <entry key="INSERT_CART">INSERT INTO Carrello (IDStudente) VALUES (?)</entry>
 </properties>

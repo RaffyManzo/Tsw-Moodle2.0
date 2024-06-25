@@ -33,8 +33,7 @@ public class CorsoDaoImpl extends AbstractDataAccessObject<Corso> implements Cor
     }
 
     @Override
-    public <E> void update(E e)  {
-        Corso corso = (Corso) e;
+    public void update(Corso corso)  {
         try (Connection connection = getConnection();
              PreparedStatement ps = prepareStatement(connection,"UPDATE_CORSO")) {
             ps.setString(1, corso.getNomeCategoria());
