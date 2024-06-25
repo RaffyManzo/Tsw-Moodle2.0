@@ -5,7 +5,6 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.*;
 import model.beans.Utenza;
-import model.dao.UtenzaDao;
 import model.dao.UtenzaDaoImpl;
 
 import java.io.IOException;
