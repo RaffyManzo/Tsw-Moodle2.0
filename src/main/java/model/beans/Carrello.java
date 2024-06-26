@@ -16,7 +16,8 @@ public class Carrello {
     public Carrello(Map<Corso, Integer> sessionCart, int idUtente, int idCarrello) {
         IDUtente = idUtente;
         IDCarrello = idCarrello;
-        cart.putAll(sessionCart);
+        if (sessionCart != null)
+            cart.putAll(sessionCart);
     }
 
     public Carrello(int IDUtente, int IDCarrello) {

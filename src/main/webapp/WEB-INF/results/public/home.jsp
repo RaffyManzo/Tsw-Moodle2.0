@@ -1,6 +1,27 @@
 <%@ page import="model.beans.Utenza" %>
+<%@ page import="model.beans.Carrello" %>
+<%@ page import="java.util.Map" %>
+<%@ page import="model.beans.Corso" %>
+<%@ page import="model.dao.CartDaoImpl" %>
+<%@ page import="java.sql.SQLException" %>
 <%
     Utenza user = (Utenza) request.getSession(false).getAttribute("user");
+    if(user != null) {
+        try {
+            Carrello carrello = new Carrello((Map<Corso, Integer>) request.getSession(false).getAttribute("cart"),
+                    user.getIdUtente(), new CartDaoImpl().getCartIDByUser(user.getIdUtente()));
+
+            
+            if (!carrello.getCart().isEmpty()) {
+
+
+                request.getSession(false).setAttribute("cartItemCount",
+                        carrello.getCart().values().stream().reduce(0, Integer::sum));
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 %>
 
 <%-- Debugging --%>

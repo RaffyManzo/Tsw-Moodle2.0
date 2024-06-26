@@ -10,20 +10,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aaf64b38-f287-423c-9dbc-41a4353826d6" name="Changes" comment="Added checkout.jsp">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/listener/SessionListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/8d1da4ce-79df-43f7-8a5f-0540fbbb02f0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/8d1da4ce-79df-43f7-8a5f-0540fbbb02f0.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/8d1da4ce-79df-43f7-8a5f-0540fbbb02f0/storage_v2/_src_/schema/learn_hub.elC1XA.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/8d1da4ce-79df-43f7-8a5f-0540fbbb02f0/storage_v2/_src_/schema/learn_hub.elC1XA.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/Checkout.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/Checkout.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/LoginServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/LoginServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/ShoppingServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/ShoppingServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Util/CarrelloService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Util/CarrelloService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/beans/Carrello.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/beans/Carrello.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/dao/CartDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/dao/CartDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/dao/CartDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/dao/CartDaoImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/xml/query.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/xml/query.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/private/checkout.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/private/checkout.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/public/cart.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/public/cart.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/public/home.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/public/home.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -287,6 +280,7 @@
       <workItem from="1719311175298" duration="11499000" />
       <workItem from="1719352403640" duration="9934000" />
       <workItem from="1719394809422" duration="3290000" />
+      <workItem from="1719399551801" duration="2078000" />
     </task>
     <task id="LOCAL-00001" summary="Added registration form&#10;Added image picker servlet&#10;Added css and some fix">
       <option name="closed" value="true" />

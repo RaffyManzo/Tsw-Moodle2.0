@@ -84,8 +84,10 @@ public class LoginServlet extends HttpServlet {
                 HttpSession session = request.getSession(true);
                 Carrello carrello = new CartDaoImpl().getCartByUserID(user.getIdUtente());
 
-                if(carrello != null)
+                if(carrello != null) {
                     session.setAttribute("cart", carrello.getCart());
+
+                }
                 session.setAttribute("user", user);
                 session.setAttribute("isAdmin", user.getTipo().contentEquals("A") ? Boolean.TRUE : Boolean.FALSE);
 

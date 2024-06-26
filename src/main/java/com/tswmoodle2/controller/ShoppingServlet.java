@@ -28,6 +28,7 @@ public class ShoppingServlet extends HttpServlet {
     private static final String KEY_CART = "cart";
     private static final String CART_PAGE = "/WEB-INF/results/public/cart.jsp";
     private static final Logger LOGGER = Logger.getLogger(ShoppingServlet.class.getName());
+    Utenza user;
 
     @Override
     public void init() {
@@ -36,6 +37,8 @@ public class ShoppingServlet extends HttpServlet {
             products.put(c.getIdCorso(), c);
         }
         LOGGER.log(Level.INFO, "Products loaded: {0}", products.size());
+
+
     }
 
     @Override
@@ -43,7 +46,7 @@ public class ShoppingServlet extends HttpServlet {
             throws ServletException, IOException {
 
         HttpSession session = req.getSession(false);
-        Utenza user = session != null ? (Utenza) session.getAttribute("user") : null;
+        user = session != null ? (Utenza) session.getAttribute("user") : null;
 
 
         String action = req.getParameter("action");
@@ -54,16 +57,32 @@ public class ShoppingServlet extends HttpServlet {
 
         switch (action) {
             case "addToCart":
-                addToCart(req, resp);
+                try {
+                    addToCart(req, resp);
+                } catch (SQLException e) {
+                    throw new RuntimeException(e);
+                }
                 break;
             case "removeFromCart":
-                removeFromCart(req, resp);
+                try {
+                    removeFromCart(req, resp);
+                } catch (SQLException e) {
+                    throw new RuntimeException(e);
+                }
                 break;
             case "empty":
-                emptyCart(req, resp);
+                try {
+                    emptyCart(req, resp);
+                } catch (SQLException e) {
+                    throw new RuntimeException(e);
+                }
                 break;
             case "decreaseQuantity":
-                decreaseQuantity(req, resp);
+                try {
+                    decreaseQuantity(req, resp);
+                } catch (SQLException e) {
+                    throw new RuntimeException(e);
+                }
                 break;
             case "viewCart":
             default:
@@ -77,12 +96,18 @@ public class ShoppingServlet extends HttpServlet {
             throws ServletException, IOException {
         doGet(req, resp);
     }
-    private void emptyCart(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+    private void emptyCart(HttpServletRequest req, HttpServletResponse resp) throws IOException, SQLException {
         HttpSession session = req.getSession(false);
         if (session != null) {
             session.removeAttribute(KEY_CART);
             LOGGER.info("Carrello emptied.");
             updateCartCount(session);
+
+            if(user != null) {
+                new CartDaoImpl().clearCart(
+                        new CartDaoImpl().getCartIDByUser(user.getIdUtente())
+                );
+            }
         }
         display(req, resp);
     }
@@ -97,7 +122,7 @@ public class ShoppingServlet extends HttpServlet {
     }
 
     @SuppressWarnings("unchecked")
-    private void removeFromCart(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+    private void removeFromCart(HttpServletRequest req, HttpServletResponse resp) throws IOException, SQLException {
         String productIdParam = req.getParameter("productId");
         if (productIdParam != null) {
             Integer productId = Integer.parseInt(productIdParam);
@@ -112,6 +137,13 @@ public class ShoppingServlet extends HttpServlet {
                         session.setAttribute(KEY_CART, cart);
                         LOGGER.log(Level.INFO, "Product removed from cart: {0}", product.getNome());
 
+                        if(user != null) {
+                            new CartDaoImpl().deleteFromCarrello(
+                                    new CartDaoImpl().getCartIDByUser(user.getIdUtente()),
+                                    user.getIdUtente(),
+                                    productId
+                            );
+                        }
                     }
                 }
                 updateCartCount(session);
@@ -121,7 +153,7 @@ public class ShoppingServlet extends HttpServlet {
     }
 
     @SuppressWarnings("unchecked")
-    private void addToCart(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+    private void addToCart(HttpServletRequest req, HttpServletResponse resp) throws IOException, SQLException {
         String productIdParam = req.getParameter("productId");
         if (productIdParam != null) {
             Integer productId = Integer.parseInt(productIdParam);
@@ -135,8 +167,17 @@ public class ShoppingServlet extends HttpServlet {
 
             Corso product = products.get(productId);
             if (product != null) {
+
+
                 cart.put(product, cart.getOrDefault(product, 0) + 1);
                 session.setAttribute(KEY_CART, cart);
+
+                if(user != null) {
+                    Carrello carrello = new Carrello((Map<Corso, Integer>) session.getAttribute(KEY_CART),
+                            user.getIdUtente(),
+                            new CartDaoImpl().getCartIDByUser(user.getIdUtente()));
+                    new CarrelloService().saveCarrello(carrello);
+                }
                 LOGGER.log(Level.INFO, "Product added to cart: {0}", product.getNome());
 
             }
@@ -146,7 +187,7 @@ public class ShoppingServlet extends HttpServlet {
     }
 
     @SuppressWarnings("unchecked")
-    private void decreaseQuantity(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+    private void decreaseQuantity(HttpServletRequest req, HttpServletResponse resp) throws IOException, SQLException {
         String productIdParam = req.getParameter("productId");
         if (productIdParam != null) {
             Integer productId = Integer.parseInt(productIdParam);
@@ -168,6 +209,13 @@ public class ShoppingServlet extends HttpServlet {
                 }
                 session.setAttribute(KEY_CART, cart);
 
+                if(user != null) {
+                    Carrello carrello = new Carrello((Map<Corso, Integer>) session.getAttribute(KEY_CART),
+                            user.getIdUtente(),
+                            new CartDaoImpl().getCartIDByUser(user.getIdUtente()));
+                    new CarrelloService().saveCarrello(carrello);
+                }
+
             }
             updateCartCount(session);
         }
@@ -184,7 +232,7 @@ public class ShoppingServlet extends HttpServlet {
         }
     }
 
-    private void updateCartCount(HttpSession session) {
+    protected void updateCartCount(HttpSession session) {
         @SuppressWarnings("unchecked")
         Map<Corso, Integer> cart = (Map<Corso, Integer>) session.getAttribute(KEY_CART);
         int itemCount = 0;

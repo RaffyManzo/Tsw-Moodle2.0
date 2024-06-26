@@ -61,6 +61,42 @@ public class CartDaoImpl extends AbstractDataAccessObject<Carrello> implements C
 
     }
 
+    /**
+     * Rimuove un elemento specifico dal carrello.
+     *
+     * @param IDCarrello ID del carrello
+     * @param IDCorso ID del corso da rimuovere
+     * @throws SQLException
+     */
+    @Override
+    public void deleteFromCarrello(int IDCarrello, int IDUtente, int IDCorso) {
+        try (Connection conn = getConnection()) {
+            try (PreparedStatement deleteStmt = prepareStatement(conn, "DELETE_FROM_CART")) {
+                deleteStmt.setInt(1, IDCarrello);
+                deleteStmt.setInt(2, IDUtente);
+                deleteStmt.setInt(3, IDCorso);
+                deleteStmt.executeUpdate();
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
+    /**
+     * Svuota completamente il carrello.
+     *
+     * @param idCarrello ID del carrello da svuotare
+     * @throws SQLException
+     */
+    public void clearCart(int idCarrello) throws SQLException {
+        try (Connection conn = getConnection();
+             PreparedStatement deleteStmt = prepareStatement(conn, "CLEAR_CART")) {
+            deleteStmt.setInt(1, idCarrello);
+            deleteStmt.executeUpdate();
+        }
+    }
+
     @Override
     public void saveOrUpdateCarrello(Carrello carrello) {
         try (Connection conn = getConnection()) {
@@ -112,20 +148,7 @@ public class CartDaoImpl extends AbstractDataAccessObject<Carrello> implements C
     }
 
 
-    @Override
-    public void deleteFromCarrello(int IDCarrello, int IDUtente, int IDCorso) {
-        try (Connection conn = getConnection()) {
-            try (PreparedStatement deleteStmt = prepareStatement(conn, "DELETE_FROM_CART")) {
-                deleteStmt.setInt(1, IDCarrello);
-                deleteStmt.setInt(2, IDUtente);
-                deleteStmt.setInt(3, IDCorso);
-                deleteStmt.executeUpdate();
-            }
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
 
-    }
 
     public int createCartForUser(int userID) throws SQLException {
         try (Connection conn = getConnection();
