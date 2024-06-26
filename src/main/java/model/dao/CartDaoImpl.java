@@ -13,21 +13,42 @@ import java.util.Map;
 public class CartDaoImpl extends AbstractDataAccessObject<Carrello> implements CartDao {
     @Override
     protected Carrello extractFromResultSet(ResultSet rs) throws SQLException {
-        ArrayList<Corso> courses = new ArrayList<>();
-        ArrayList<Integer> quantity = new ArrayList<>();
-
-        while (rs.next()) {
-            courses.add(new CorsoDaoImpl().findByID(rs.getInt("IDCorso")));
-            quantity.add(rs.getInt("Quantita"));
+        if (!rs.next()) {
+            return null;
         }
 
+        int idCarrello = rs.getInt("IDCarrello");
+        int idStudente = rs.getInt("IDUtente");
 
-        return new Carrello(courses, quantity, rs.getInt("IDCarrello"), rs.getInt("IDStudente"));
+        ArrayList<Corso> courses = new ArrayList<>();
+        ArrayList<Integer> quantities = new ArrayList<>();
+
+        do {
+            int idCorso = rs.getInt("IDCorso");
+            int quantity = rs.getInt("Quantita");
+
+            Corso corso = new CorsoDaoImpl().findByID(idCorso);
+            courses.add(corso);
+            quantities.add(quantity);
+        } while (rs.next());
+
+        return new Carrello(courses, quantities, idCarrello, idStudente);
     }
 
     @Override
     protected void insertInto(Carrello carrello) throws SQLException {
 
+    }
+
+    public Carrello getCartByUserID(int userID) {
+        try (Connection conn = getConnection()) {
+            try (PreparedStatement ps = prepareStatement(conn, "GET_CART_BY_USER_ID")) {
+                ps.setInt(1, userID);
+                return getResultAsObject(ps.executeQuery());
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override
@@ -89,6 +110,7 @@ public class CartDaoImpl extends AbstractDataAccessObject<Carrello> implements C
             throw new RuntimeException(e);
         }
     }
+
 
     @Override
     public void deleteFromCarrello(int IDCarrello, int IDUtente, int IDCorso) {

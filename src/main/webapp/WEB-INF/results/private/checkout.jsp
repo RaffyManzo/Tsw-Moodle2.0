@@ -1,6 +1,7 @@
 <%@ page import="model.beans.Corso" %>
 <%@ page import="java.util.Map" %>
-<%@ page import="model.beans.Utenza" %><%--
+<%@ page import="model.beans.Utenza" %>
+<%@ page import="model.beans.Carrello" %><%--
   Created by IntelliJ IDEA.
   User: raffa
   Date: 25/06/2024
@@ -10,7 +11,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
     Utenza user = (Utenza) session.getAttribute("user");
-    Map<Corso, Integer> carrello = (Map<Corso, Integer>) request.getSession(false).getAttribute("cart");
+    //Map<Corso, Integer> carrello = (Map<Corso, Integer>) request.getSession(false).getAttribute("cart");
+    Map<Corso, Integer> carrello = ((Carrello) request.getAttribute("cart")).getCart();
 %>
 <html>
 <head>

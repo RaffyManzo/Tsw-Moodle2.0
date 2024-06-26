@@ -7,7 +7,9 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import model.beans.Carrello;
 import model.beans.Utenza;
+import model.dao.CartDaoImpl;
 import model.dao.UtenzaDaoImpl;
 
 import java.io.IOException;
@@ -80,6 +82,10 @@ public class LoginServlet extends HttpServlet {
             if (hashPassword.equals(user.getPassword())) {
                 // Creazione o recupero della sessione
                 HttpSession session = request.getSession(true);
+                Carrello carrello = new CartDaoImpl().getCartByUserID(user.getIdUtente());
+
+                if(carrello != null)
+                    session.setAttribute("cart", carrello.getCart());
                 session.setAttribute("user", user);
                 session.setAttribute("isAdmin", user.getTipo().contentEquals("A") ? Boolean.TRUE : Boolean.FALSE);
 

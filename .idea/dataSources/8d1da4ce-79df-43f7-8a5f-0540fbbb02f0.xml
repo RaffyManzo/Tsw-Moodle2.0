@@ -1010,8 +1010,8 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </schema>
     <schema id="293" parent="1" name="learn_hub">
-      <IntrospectionTimestamp>2024-06-20.02:23:53</IntrospectionTimestamp>
-      <LocalIntrospectionTimestamp>2024-06-19.22:23:53</LocalIntrospectionTimestamp>
+      <IntrospectionTimestamp>2024-06-26.03:53:40</IntrospectionTimestamp>
+      <LocalIntrospectionTimestamp>2024-06-25.23:53:40</LocalIntrospectionTimestamp>
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </schema>
     <user id="294" parent="1" name="mysql.infoschema">
@@ -1124,224 +1124,232 @@ Lezione</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="318" parent="299" name="IDStudente">
+    <column id="318" parent="299" name="IDCarrello">
+      <AutoIncrement>1</AutoIncrement>
       <DasType>int|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="319" parent="299" name="IDCarrello">
+    <column id="319" parent="299" name="IDUtente">
       <DasType>int|0s</DasType>
-      <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
     <foreign-key id="320" parent="299" name="carrello_ibfk_1">
-      <ColNames>IDStudente</ColNames>
+      <ColNames>IDUtente</ColNames>
       <RefColNames>IDUtente</RefColNames>
       <RefTableName>utenza</RefTableName>
     </foreign-key>
     <index id="321" parent="299" name="PRIMARY">
-      <ColNames>IDStudente
+      <ColNames>IDCarrello</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <index id="322" parent="299" name="IDUtente">
+      <ColNames>IDUtente
 IDCarrello</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="322" parent="299" name="PRIMARY">
+    <key id="323" parent="299" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="323" parent="300" name="Numero">
+    <key id="324" parent="299" name="IDUtente">
+      <UnderlyingIndexName>IDUtente</UnderlyingIndexName>
+    </key>
+    <column id="325" parent="300" name="Numero">
       <DasType>int|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="324" parent="300" name="Titolare">
+    <column id="326" parent="300" name="Titolare">
       <DasType>varchar(50)|0s</DasType>
       <Position>2</Position>
     </column>
-    <column id="325" parent="300" name="DataScadenza">
+    <column id="327" parent="300" name="DataScadenza">
       <DasType>date|0s</DasType>
       <Position>3</Position>
     </column>
-    <column id="326" parent="300" name="CVC">
+    <column id="328" parent="300" name="CVC">
       <DasType>int|0s</DasType>
       <Position>4</Position>
     </column>
-    <column id="327" parent="300" name="IDUtente">
+    <column id="329" parent="300" name="IDUtente">
       <DasType>int|0s</DasType>
       <Position>5</Position>
     </column>
-    <foreign-key id="328" parent="300" name="carta_ibfk_1">
+    <foreign-key id="330" parent="300" name="carta_ibfk_1">
       <ColNames>IDUtente</ColNames>
       <RefColNames>IDUtente</RefColNames>
       <RefTableName>utenza</RefTableName>
     </foreign-key>
-    <index id="329" parent="300" name="PRIMARY">
+    <index id="331" parent="300" name="PRIMARY">
       <ColNames>Numero</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="330" parent="300" name="IDUtente">
+    <index id="332" parent="300" name="IDUtente">
       <ColNames>IDUtente</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="331" parent="300" name="PRIMARY">
+    <key id="333" parent="300" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="332" parent="301" name="Nome">
+    <column id="334" parent="301" name="Nome">
       <DasType>varchar(50)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <index id="333" parent="301" name="PRIMARY">
+    <index id="335" parent="301" name="PRIMARY">
       <ColNames>Nome</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="334" parent="301" name="PRIMARY">
+    <key id="336" parent="301" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="335" parent="302" name="IDCorso">
+    <column id="337" parent="302" name="IDCorso">
       <DasType>int|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="336" parent="302" name="IDStudente">
+    <column id="338" parent="302" name="IDStudente">
       <DasType>int|0s</DasType>
       <Position>2</Position>
     </column>
-    <column id="337" parent="302" name="PercentualeCompletamento">
+    <column id="339" parent="302" name="PercentualeCompletamento">
       <DasType>decimal(5,2 digit)|0s</DasType>
       <Position>3</Position>
     </column>
-    <column id="338" parent="302" name="DataCompletamento">
+    <column id="340" parent="302" name="DataCompletamento">
       <DasType>date|0s</DasType>
       <Position>4</Position>
     </column>
-    <column id="339" parent="302" name="DataAcquisto">
+    <column id="341" parent="302" name="DataAcquisto">
       <DasType>date|0s</DasType>
       <Position>5</Position>
     </column>
-    <foreign-key id="340" parent="302" name="corsiacquistati_ibfk_1">
+    <foreign-key id="342" parent="302" name="corsiacquistati_ibfk_1">
       <ColNames>IDCorso</ColNames>
       <RefColNames>IDCorso</RefColNames>
       <RefTableName>corso</RefTableName>
     </foreign-key>
-    <foreign-key id="341" parent="302" name="corsiacquistati_ibfk_2">
+    <foreign-key id="343" parent="302" name="corsiacquistati_ibfk_2">
       <ColNames>IDStudente</ColNames>
       <RefColNames>IDUtente</RefColNames>
       <RefTableName>utenza</RefTableName>
     </foreign-key>
-    <index id="342" parent="302" name="PRIMARY">
+    <index id="344" parent="302" name="PRIMARY">
       <ColNames>IDCorso</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="343" parent="302" name="IDStudente">
+    <index id="345" parent="302" name="IDStudente">
       <ColNames>IDStudente</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="344" parent="302" name="PRIMARY">
+    <key id="346" parent="302" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="345" parent="303" name="IDCorso">
+    <column id="347" parent="303" name="IDCorso">
       <AutoIncrement>16</AutoIncrement>
       <DasType>int|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="346" parent="303" name="NomeCategoria">
+    <column id="348" parent="303" name="NomeCategoria">
       <DasType>varchar(255)|0s</DasType>
       <Position>2</Position>
     </column>
-    <column id="347" parent="303" name="Nome">
+    <column id="349" parent="303" name="Nome">
       <DasType>varchar(255)|0s</DasType>
       <Position>3</Position>
     </column>
-    <column id="348" parent="303" name="Descrizione">
+    <column id="350" parent="303" name="Descrizione">
       <DasType>text|0s</DasType>
       <Position>4</Position>
     </column>
-    <column id="349" parent="303" name="Immagine">
+    <column id="351" parent="303" name="Immagine">
       <DasType>varchar(255)|0s</DasType>
       <Position>5</Position>
     </column>
-    <column id="350" parent="303" name="Certificazione">
+    <column id="352" parent="303" name="Certificazione">
       <DasType>varchar(255)|0s</DasType>
       <Position>6</Position>
     </column>
-    <column id="351" parent="303" name="DataCreazione">
+    <column id="353" parent="303" name="DataCreazione">
       <DasType>date|0s</DasType>
       <Position>7</Position>
     </column>
-    <column id="352" parent="303" name="prezzo">
+    <column id="354" parent="303" name="prezzo">
       <DasType>decimal(8,2 digit)|0s</DasType>
       <Position>8</Position>
     </column>
-    <foreign-key id="353" parent="303" name="corso_ibfk_1">
+    <foreign-key id="355" parent="303" name="corso_ibfk_1">
       <ColNames>NomeCategoria</ColNames>
       <RefColNames>Nome</RefColNames>
       <RefTableName>categoria</RefTableName>
     </foreign-key>
-    <index id="354" parent="303" name="PRIMARY">
+    <index id="356" parent="303" name="PRIMARY">
       <ColNames>IDCorso</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="355" parent="303" name="NomeCategoria">
+    <index id="357" parent="303" name="NomeCategoria">
       <ColNames>NomeCategoria</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="356" parent="303" name="PRIMARY">
+    <key id="358" parent="303" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="357" parent="304" name="Nome">
+    <column id="359" parent="304" name="Nome">
       <DasType>varchar(100)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="358" parent="304" name="Path">
+    <column id="360" parent="304" name="Path">
       <DasType>varchar(255)|0s</DasType>
       <Position>2</Position>
     </column>
-    <column id="359" parent="304" name="Estensione">
+    <column id="361" parent="304" name="Estensione">
       <DasType>varchar(50)|0s</DasType>
       <Position>3</Position>
     </column>
-    <column id="360" parent="304" name="DataCaricamento">
+    <column id="362" parent="304" name="DataCaricamento">
       <DasType>date|0s</DasType>
       <Position>4</Position>
     </column>
-    <column id="361" parent="304" name="IDDocente">
+    <column id="363" parent="304" name="IDDocente">
       <DasType>int|0s</DasType>
       <Position>5</Position>
     </column>
-    <column id="362" parent="304" name="DataArgomento">
+    <column id="364" parent="304" name="DataArgomento">
       <DasType>date|0s</DasType>
       <Position>6</Position>
     </column>
-    <column id="363" parent="304" name="NomeA">
+    <column id="365" parent="304" name="NomeA">
       <DasType>varchar(255)|0s</DasType>
       <Position>7</Position>
     </column>
-    <column id="364" parent="304" name="LezioneA">
+    <column id="366" parent="304" name="LezioneA">
       <DasType>varchar(255)|0s</DasType>
       <Position>8</Position>
     </column>
-    <foreign-key id="365" parent="304" name="file_ibfk_1">
+    <foreign-key id="367" parent="304" name="file_ibfk_1">
       <ColNames>IDDocente</ColNames>
       <RefColNames>IDUtente</RefColNames>
       <RefTableName>utenza</RefTableName>
     </foreign-key>
-    <foreign-key id="366" parent="304" name="file_ibfk_2">
+    <foreign-key id="368" parent="304" name="file_ibfk_2">
       <ColNames>DataArgomento
 NomeA
 LezioneA</ColNames>
@@ -1350,228 +1358,241 @@ Nome
 Lezione</RefColNames>
       <RefTableName>argomento</RefTableName>
     </foreign-key>
-    <index id="367" parent="304" name="PRIMARY">
+    <index id="369" parent="304" name="PRIMARY">
       <ColNames>Nome</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="368" parent="304" name="IDDocente">
+    <index id="370" parent="304" name="IDDocente">
       <ColNames>IDDocente</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="369" parent="304" name="DataArgomento">
+    <index id="371" parent="304" name="DataArgomento">
       <ColNames>DataArgomento
 NomeA
 LezioneA</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="370" parent="304" name="PRIMARY">
+    <key id="372" parent="304" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="371" parent="305" name="IDCorso">
-      <DasType>int|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>1</Position>
-    </column>
-    <column id="372" parent="305" name="IDStudente">
-      <DasType>int|0s</DasType>
-      <Position>2</Position>
-    </column>
-    <column id="373" parent="305" name="IDCarrello">
-      <DasType>int|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>3</Position>
-    </column>
-    <column id="374" parent="305" name="DataInserimento">
-      <DasType>date|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>4</Position>
-    </column>
-    <column id="375" parent="305" name="Quantita">
-      <DasType>int|0s</DasType>
-      <Position>5</Position>
-    </column>
-    <foreign-key id="376" parent="305" name="inserimento_ibfk_1">
-      <ColNames>IDCorso</ColNames>
-      <RefColNames>IDCorso</RefColNames>
-      <RefTableName>corso</RefTableName>
-    </foreign-key>
-    <foreign-key id="377" parent="305" name="inserimento_ibfk_2">
-      <ColNames>IDStudente
-IDCarrello</ColNames>
-      <RefColNames>IDStudente
-IDCarrello</RefColNames>
-      <RefTableName>carrello</RefTableName>
-    </foreign-key>
-    <index id="378" parent="305" name="PRIMARY">
-      <ColNames>IDCorso
-IDCarrello
-DataInserimento</ColNames>
-      <Type>btree</Type>
-      <Unique>1</Unique>
-    </index>
-    <index id="379" parent="305" name="IDStudente">
-      <ColNames>IDStudente
-IDCarrello</ColNames>
-      <Type>btree</Type>
-    </index>
-    <key id="380" parent="305" name="PRIMARY">
-      <NameSurrogate>1</NameSurrogate>
-      <Primary>1</Primary>
-      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
-    </key>
-    <column id="381" parent="306" name="Descrizione">
-      <DasType>text|0s</DasType>
-      <Position>1</Position>
-    </column>
-    <column id="382" parent="306" name="Titolo">
-      <DasType>varchar(255)|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>2</Position>
-    </column>
-    <column id="383" parent="306" name="IDCorso">
-      <DasType>int|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>3</Position>
-    </column>
-    <foreign-key id="384" parent="306" name="lezione_ibfk_1">
-      <ColNames>IDCorso</ColNames>
-      <RefColNames>IDCorso</RefColNames>
-      <RefTableName>corso</RefTableName>
-    </foreign-key>
-    <index id="385" parent="306" name="PRIMARY">
-      <ColNames>IDCorso
-Titolo</ColNames>
-      <Type>btree</Type>
-      <Unique>1</Unique>
-    </index>
-    <key id="386" parent="306" name="PRIMARY">
-      <NameSurrogate>1</NameSurrogate>
-      <Primary>1</Primary>
-      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
-    </key>
-    <column id="387" parent="307" name="IDPagamento">
+    <column id="373" parent="305" name="IDInserimento">
       <AutoIncrement>1</AutoIncrement>
       <DasType>int|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="388" parent="307" name="NumeroCarta">
+    <column id="374" parent="305" name="IDCarrello">
       <DasType>int|0s</DasType>
       <Position>2</Position>
     </column>
-    <column id="389" parent="307" name="IDStudente">
+    <column id="375" parent="305" name="IDUtente">
       <DasType>int|0s</DasType>
       <Position>3</Position>
     </column>
-    <column id="390" parent="307" name="DataPagamento">
-      <DasType>date|0s</DasType>
+    <column id="376" parent="305" name="IDCorso">
+      <DasType>int|0s</DasType>
       <Position>4</Position>
     </column>
-    <foreign-key id="391" parent="307" name="pagamento_ibfk_1">
-      <ColNames>NumeroCarta</ColNames>
-      <RefColNames>Numero</RefColNames>
-      <RefTableName>carta</RefTableName>
+    <column id="377" parent="305" name="Quantita">
+      <DasType>int|0s</DasType>
+      <Position>5</Position>
+    </column>
+    <foreign-key id="378" parent="305" name="inserimento_ibfk_1">
+      <ColNames>IDCarrello</ColNames>
+      <RefColNames>IDCarrello</RefColNames>
+      <RefTableName>carrello</RefTableName>
     </foreign-key>
-    <foreign-key id="392" parent="307" name="pagamento_ibfk_2">
-      <ColNames>IDStudente</ColNames>
+    <foreign-key id="379" parent="305" name="inserimento_ibfk_3">
+      <ColNames>IDUtente</ColNames>
       <RefColNames>IDUtente</RefColNames>
-      <RefTableName>utenza</RefTableName>
+      <RefTableName>carrello</RefTableName>
     </foreign-key>
-    <index id="393" parent="307" name="PRIMARY">
-      <ColNames>IDPagamento</ColNames>
+    <foreign-key id="380" parent="305" name="inserimento_ibfk_2">
+      <ColNames>IDCorso</ColNames>
+      <RefColNames>IDCorso</RefColNames>
+      <RefTableName>corso</RefTableName>
+    </foreign-key>
+    <index id="381" parent="305" name="PRIMARY">
+      <ColNames>IDInserimento</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="394" parent="307" name="NumeroCarta">
-      <ColNames>NumeroCarta</ColNames>
+    <index id="382" parent="305" name="IDCarrello">
+      <ColNames>IDCarrello
+IDCorso
+IDUtente</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <index id="383" parent="305" name="IDUtente">
+      <ColNames>IDUtente</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="395" parent="307" name="IDStudente">
-      <ColNames>IDStudente</ColNames>
+    <index id="384" parent="305" name="IDCorso">
+      <ColNames>IDCorso</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="396" parent="307" name="PRIMARY">
+    <key id="385" parent="305" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="397" parent="308" name="IDUtente">
+    <key id="386" parent="305" name="IDCarrello">
+      <UnderlyingIndexName>IDCarrello</UnderlyingIndexName>
+    </key>
+    <column id="387" parent="306" name="Descrizione">
+      <DasType>text|0s</DasType>
+      <Position>1</Position>
+    </column>
+    <column id="388" parent="306" name="Titolo">
+      <DasType>varchar(255)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+    </column>
+    <column id="389" parent="306" name="IDCorso">
+      <DasType>int|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+    </column>
+    <foreign-key id="390" parent="306" name="lezione_ibfk_1">
+      <ColNames>IDCorso</ColNames>
+      <RefColNames>IDCorso</RefColNames>
+      <RefTableName>corso</RefTableName>
+    </foreign-key>
+    <index id="391" parent="306" name="PRIMARY">
+      <ColNames>IDCorso
+Titolo</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <key id="392" parent="306" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <column id="393" parent="307" name="IDPagamento">
+      <AutoIncrement>1</AutoIncrement>
+      <DasType>int|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+    </column>
+    <column id="394" parent="307" name="NumeroCarta">
+      <DasType>int|0s</DasType>
+      <Position>2</Position>
+    </column>
+    <column id="395" parent="307" name="IDStudente">
+      <DasType>int|0s</DasType>
+      <Position>3</Position>
+    </column>
+    <column id="396" parent="307" name="DataPagamento">
+      <DasType>date|0s</DasType>
+      <Position>4</Position>
+    </column>
+    <foreign-key id="397" parent="307" name="pagamento_ibfk_1">
+      <ColNames>NumeroCarta</ColNames>
+      <RefColNames>Numero</RefColNames>
+      <RefTableName>carta</RefTableName>
+    </foreign-key>
+    <foreign-key id="398" parent="307" name="pagamento_ibfk_2">
+      <ColNames>IDStudente</ColNames>
+      <RefColNames>IDUtente</RefColNames>
+      <RefTableName>utenza</RefTableName>
+    </foreign-key>
+    <index id="399" parent="307" name="PRIMARY">
+      <ColNames>IDPagamento</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <index id="400" parent="307" name="NumeroCarta">
+      <ColNames>NumeroCarta</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="401" parent="307" name="IDStudente">
+      <ColNames>IDStudente</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="402" parent="307" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <column id="403" parent="308" name="IDUtente">
       <AutoIncrement>32</AutoIncrement>
       <DasType>int|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="398" parent="308" name="Nome">
+    <column id="404" parent="308" name="Nome">
       <DasType>varchar(50)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="399" parent="308" name="Cognome">
+    <column id="405" parent="308" name="Cognome">
       <DasType>varchar(50)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
     </column>
-    <column id="400" parent="308" name="DataNascita">
+    <column id="406" parent="308" name="DataNascita">
       <DasType>date|0s</DasType>
       <Position>4</Position>
     </column>
-    <column id="401" parent="308" name="Indirizzo">
+    <column id="407" parent="308" name="Indirizzo">
       <DasType>varchar(100)|0s</DasType>
       <Position>5</Position>
     </column>
-    <column id="402" parent="308" name="Citta">
+    <column id="408" parent="308" name="Citta">
       <DasType>varchar(100)|0s</DasType>
       <Position>6</Position>
     </column>
-    <column id="403" parent="308" name="telefono">
+    <column id="409" parent="308" name="telefono">
       <DasType>varchar(13)|0s</DasType>
       <Position>7</Position>
     </column>
-    <column id="404" parent="308" name="Email">
+    <column id="410" parent="308" name="Email">
       <DasType>varchar(100)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>8</Position>
     </column>
-    <column id="405" parent="308" name="Password">
+    <column id="411" parent="308" name="Password">
       <DasType>varchar(255)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>9</Position>
     </column>
-    <column id="406" parent="308" name="DataCreazioneAccount">
+    <column id="412" parent="308" name="DataCreazioneAccount">
       <DasType>date|0s</DasType>
       <Position>10</Position>
     </column>
-    <column id="407" parent="308" name="Username">
+    <column id="413" parent="308" name="Username">
       <DasType>varchar(50)|0s</DasType>
       <Position>11</Position>
     </column>
-    <column id="408" parent="308" name="Tipo">
+    <column id="414" parent="308" name="Tipo">
       <DasType>varchar(1)|0s</DasType>
       <Position>12</Position>
     </column>
-    <column id="409" parent="308" name="Immagine">
+    <column id="415" parent="308" name="Immagine">
       <DasType>varchar(255)|0s</DasType>
       <Position>13</Position>
     </column>
-    <index id="410" parent="308" name="PRIMARY">
+    <index id="416" parent="308" name="PRIMARY">
       <ColNames>IDUtente</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="411" parent="308" name="Email">
+    <index id="417" parent="308" name="Email">
       <ColNames>Email</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="412" parent="308" name="PRIMARY">
+    <key id="418" parent="308" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <key id="413" parent="308" name="Email">
+    <key id="419" parent="308" name="Email">
       <UnderlyingIndexName>Email</UnderlyingIndexName>
     </key>
   </database-model>

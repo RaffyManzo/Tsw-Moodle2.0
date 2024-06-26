@@ -29,11 +29,11 @@
     <entry key="FIND_UTENZA_BY_CITTA">SELECT * FROM Utenza WHERE Citta = ?</entry>
 
 
-    <entry key="GET_CART_ID_BY_USER">SELECT * FROM Carrello where IDStudente = ?</entry>
-    <entry key="GET_CART_ELEMENTS">SELECT * FROM inserimento where IDCarrello = ? AND IDStudente = ?</entry>
-    <entry key="DELETE_FROM_CART">DELETE FROM inserimento WHERE IDCarrello = ? AND IDStudente = ? AND IDCorso = ?</entry>
-    <entry key="GET_CART_ELEMENT">SELECT * FROM inserimento WHERE IDCorso = ? AND IDCarrello = ? AND IDStudente = ?</entry>
-    <entry key="UPDATE_CART_ELEMENT">UPDATE inserimento SET Quantita = ? WHERE IDCorso = ? AND IDCarrello = ? AND IDStudente = ?</entry>
-    <entry key="INSERT_CART_ELEMENT">INSERT INTO inserimento (IDCorso, IDCarrello, IDStudente, Quantita) VALUES (?, ?, ?, ?)"</entry>
-    <entry key="INSERT_CART">INSERT INTO Carrello (IDStudente) VALUES (?)</entry>
+    <entry key="GET_CART_ID_BY_USER">SELECT * FROM carrello where IDUtente = ?</entry>
+    <entry key="GET_CART_BY_USER_ID">SELECT * FROM inserimento where IDUtente = ?</entry>
+    <entry key="DELETE_FROM_CART">DELETE FROM inserimento WHERE IDCarrello = ? AND IDUtente = ? AND IDCorso = ?</entry>
+    <entry key="GET_CART_ELEMENT">SELECT * FROM inserimento WHERE IDCorso = ? AND IDCarrello = ? AND IDUtente = ?</entry>
+    <entry key="UPDATE_CART_ELEMENT">UPDATE inserimento SET Quantita = ? WHERE IDCorso = ? AND IDCarrello = ? AND IDUtente = ?</entry>
+    <entry key="INSERT_CART_ELEMENT">INSERT INTO inserimento (IDCorso, IDCarrello, IDUtente, Quantita) VALUES (?, ?, ?, ?)</entry>
+    <entry key="INSERT_CART">INSERT INTO carrello (IDUtente) VALUES (?)</entry>
 </properties>

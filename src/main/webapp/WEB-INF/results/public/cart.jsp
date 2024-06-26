@@ -3,7 +3,7 @@
 <%@ page import="model.beans.Corso" %>
 <%@ page import="model.beans.Utenza" %>
 <%
-    Utenza user = (Utenza) session.getAttribute("User");
+    Utenza user = (Utenza) session.getAttribute("user");
     Map<Corso, Integer> cart = (Map<Corso, Integer>) request.getAttribute("cart");
 %>
 <!DOCTYPE html>

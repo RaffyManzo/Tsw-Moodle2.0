@@ -42,6 +42,10 @@ public class Carrello {
         return cart;
     }
 
+    public void setCart (Map<Corso, Integer> cart) {
+        this.cart.putAll(cart);
+    }
+
 
     public Corso getElementAtIndex(int index) {
         List<Corso> keys = new ArrayList<>(cart.keySet());
@@ -57,5 +61,24 @@ public class Carrello {
 
     public int getIDCarrello() {
         return IDCarrello;
+    }
+
+    public void addCorso(Corso corso, int quantita) {
+        cart.put(corso, cart.getOrDefault(corso, 0) + quantita);
+    }
+
+    public void removeCorso(Corso corso) {
+        cart.remove(corso);
+    }
+
+    public void decreaseQuantita(Corso corso, int quantita) {
+        if (cart.containsKey(corso)) {
+            int currentQuantita = cart.get(corso);
+            if (currentQuantita <= quantita) {
+                cart.remove(corso);
+            } else {
+                cart.put(corso, currentQuantita - quantita);
+            }
+        }
     }
 }
