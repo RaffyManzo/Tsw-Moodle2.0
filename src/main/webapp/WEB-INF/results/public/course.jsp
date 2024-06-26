@@ -24,7 +24,12 @@
     <script>
         $(document).ready(function () {
             // Creazione di un'istanza della classe CourseSlider
-            new CourseSlider("#other-course-of-creator", 'getCoursesJson');
+            // Passa il parametro dinamico alla tua classe JavaScript
+            const creatorId = <%= corso.getCreatore().getIdUtente() %>;
+            let query = "getCoursesJson?action=byCreator&c=" + creatorId
+
+            // Crea un'istanza di CourseSlider con i parametri dinamici
+            new CourseSlider("#other-course-of-creator", query);
 
         })
     </script>

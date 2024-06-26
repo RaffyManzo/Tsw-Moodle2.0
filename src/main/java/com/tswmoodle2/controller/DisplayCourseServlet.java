@@ -12,8 +12,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-@WebServlet(name = "displayCourseServlet", value = "/course")
-public class displayCourseServlet extends HttpServlet {
+@WebServlet(name = "DisplayCourseServlet", value = "/course")
+public class DisplayCourseServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String param = request.getParameter("courseID");
 

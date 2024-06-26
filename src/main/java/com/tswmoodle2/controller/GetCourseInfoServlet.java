@@ -8,12 +8,56 @@ import model.dao.CorsoDaoImpl;
 import org.json.simple.*;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+import java.util.logging.Level;
 
 @WebServlet(name = "GetCourseInfoServlet", value = "/getCoursesJson")
 public class GetCourseInfoServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws IOException {
+            throws IOException, ServletException {
+
+
+        String action = request.getParameter("action");
+        if (action == null) {
+            action = "all";
+        }
+
+        switch (action) {
+            case "byCreator":
+                getByCreator(response, request);
+                break;
+            default:
+                getAll(response);
+                break;
+        }
+    }
+
+    private void getByCreator(HttpServletResponse response, HttpServletRequest request) throws ServletException, IOException {
+        String param = request.getParameter("c");
+        if (param == null) {
+            List<String> errors = new ArrayList<>();
+            errors.add("Errore generico");
+            request.setAttribute("errors", errors);
+            request.getRequestDispatcher("/WEB-INF/results/public/error.jsp").forward(request, response);
+        } else {
+
+            ArrayList<Corso> courses = new CorsoDaoImpl().findByCreatore(
+                    Integer.parseInt(param)
+            );
+            sendResponse(response, courses);
+        }
+    }
+
+    private void getAll(HttpServletResponse response) throws IOException {
+        ArrayList<Corso> courses = new CorsoDaoImpl().getAllCourses();
+        sendResponse(response, courses);
+    }
+
+
+    private void sendResponse(HttpServletResponse response, ArrayList<Corso> courses) throws IOException {
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
         // Aggiungi questo per consentire le richieste CORS
@@ -22,7 +66,6 @@ public class GetCourseInfoServlet extends HttpServlet {
         response.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
 
 
-        ArrayList<Corso> courses = new CorsoDaoImpl().getAllCourses();
 
         JSONArray coursesArray = new JSONArray();
 
