@@ -1,0 +1,194 @@
+* {
+    font-family: "Jura", sans-serif;
+}
+
+.content-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    flex-direction: column;
+}
+
+.section-top {
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 400px;
+
+    background-color: #2d2f31;
+    padding: 0 10%;
+}
+
+
+.course-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-direction: column;
+    height: 80%;
+}
+
+.course-info * {
+    text-align: left;
+    color: #efefef;
+}
+
+.course-name {
+    font-size: 3.2rem;
+    margin-bottom: 1.6rem;
+    font-weight: bolder;
+}
+
+.course-links {
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: 0;
+    font-size: 1.4rem;
+
+    padding: .4rem 0;
+    white-space: nowrap;
+    scroll-snap-align: start;
+
+    color: #c0c4fc;
+    text-decoration: none;
+}
+
+.course-info h2 {
+
+    font-size: 1.9rem;
+    margin-bottom: 2.4rem;
+}
+
+.course-description {
+    font-weight: 400;
+    line-height: 1.4;
+    font-size: 1.4rem;
+}
+
+.overlayed {
+    box-shadow: 4px 4px 5px rgba(45, 47, 49,0.75);
+    border: solid 1px white;
+    transform: translateY(15%);
+}
+
+.add-to-cart-container {
+    border-radius: 12px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+    width: 20%;
+    background-color: #efefef;
+    box-sizing: border-box;
+    padding: 1%;
+}
+
+.add-to-cart-container img{
+
+    border-radius: 12px;
+    object-fit: cover;
+    width: 100%;
+    aspect-ratio: 2 / 1;
+}
+
+.add-to-cart-container h2 {
+    text-align: left;
+    color: #515151;
+}
+
+
+.add-to-cart-button {
+    border: none;
+    background: #4E569F;
+    line-height: 2em;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    color: #fff !important;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    width: calc(100% - 50px);
+    transition: all 0.2s ease;
+    margin: 10px 0;
+}
+
+.add-to-cart-button:hover {
+    background: #4E5680;
+    color: #eee !important;
+    transition: all 0.2s ease;
+}
+
+.course-creator-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    flex-direction: column;
+}
+
+.creator-info-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    padding: 5% 10% 5%;
+}
+
+.creator-info-container > *:first-child {
+    margin-left: 15%;
+}
+
+.creator-info-container > *:last-child {
+    margin-left: 5%;
+}
+
+.creator-info {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.creator-info-container .initials {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    font-size: 3rem; /* Ingrandisce il testo per coprire meglio l'area */
+    color: #fff;
+    background-color: #596cff; /* Colore di sfondo quando l'immagine non è disponibile */
+    border-radius: 50%; /* Assicura che il div sia circolare */
+    text-transform: uppercase; /* Trasforma le iniziali in maiuscolo */
+    text-align: center; /* Allinea il testo al centro */
+    line-height: 1; /* Assicura che il testo sia verticalmente centrato */
+}
+
+.creator-info-container #creator-profile-pic {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    object-fit: cover; /* Assicura che l'immagine copra tutto lo spazio disponibile */
+    border-radius: 50%; /* Assicura che l'immagine sia circolare */
+}
+
+.creator-profile-pic {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    width: 100px;
+    aspect-ratio: 1 / 1; /* Mantiene l'elemento quadrato */
+    border-radius: 50%; /* Rende l'elemento circolare */
+    overflow: hidden;
+    background-color: #ccc; /* Colore di sfondo predefinito */
+
+    text-decoration: none;
+}

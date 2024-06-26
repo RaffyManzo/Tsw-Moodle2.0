@@ -1,6 +1,7 @@
 package model.dao;
 
 import model.beans.Corso;
+import model.beans.Utenza;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -26,6 +27,8 @@ public class CorsoDaoImpl extends AbstractDataAccessObject<Corso> implements Cor
             ps.setString(4, corso.getImmagine());
             ps.setString(5, corso.getCertificazione());
             ps.setDate(6, corso.getDataCreazione());
+            ps.setDouble(8, corso.getPrezzo());
+            ps.setInt(9, corso.getCreatore().getIdUtente());
             ps.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -43,6 +46,8 @@ public class CorsoDaoImpl extends AbstractDataAccessObject<Corso> implements Cor
             ps.setString(5, corso.getCertificazione());
             ps.setDate(6, corso.getDataCreazione());
             ps.setInt(7, corso.getIdCorso());
+            ps.setDouble(8, corso.getPrezzo());
+            ps.setInt(9, corso.getCreatore().getIdUtente());
             ps.executeUpdate();
         } catch (SQLException exception) {
             throw new RuntimeException(exception);
@@ -155,6 +160,19 @@ public class CorsoDaoImpl extends AbstractDataAccessObject<Corso> implements Cor
     }
 
     @Override
+    public ArrayList<Corso> findByCreatore(int IDUtente)  {
+        try (Connection connection = getConnection();
+             PreparedStatement ps = prepareStatement(connection, "FIND_CORSI_BY_CREATORE")) {
+            ps.setDouble(1, IDUtente);
+            try (ResultSet rs = ps.executeQuery()) {
+                return getResultAsList(rs);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
     protected Corso extractFromResultSet(ResultSet rs) throws SQLException {
         int idCorso = rs.getInt("IDCorso");
         String nomeCategoria = rs.getString("NomeCategoria");
@@ -163,8 +181,9 @@ public class CorsoDaoImpl extends AbstractDataAccessObject<Corso> implements Cor
         String immagine = rs.getString("Immagine");
         String certificazione = rs.getString("Certificazione");
         java.sql.Date dataCreazione = rs.getDate("DataCreazione");
+        Utenza creatore = new UtenzaDaoImpl().findByID(rs.getInt("creatore"));
         Double prezzo = rs.getDouble("prezzo");
 
-        return new Corso(idCorso, nomeCategoria, nome, descrizione, immagine, certificazione, dataCreazione, prezzo);
+        return new Corso(idCorso, nomeCategoria, nome, descrizione, immagine, certificazione, dataCreazione, creatore, prezzo);
     }
 }

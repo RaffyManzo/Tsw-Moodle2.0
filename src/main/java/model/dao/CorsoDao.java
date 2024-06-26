@@ -15,5 +15,7 @@ public interface CorsoDao {
     ArrayList<Corso> findByDateRange(Date startDate, Date endDate) throws SQLException;
     ArrayList<Corso> findByCertificazione(String certificazione) throws SQLException;
     public ArrayList<Corso> findByPrezzo(double prezzo);
+    public ArrayList<Corso> findByCreatore(int IDUtente);
+
 }
 

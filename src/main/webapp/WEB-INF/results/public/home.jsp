@@ -11,7 +11,7 @@
             Carrello carrello = new Carrello((Map<Corso, Integer>) request.getSession(false).getAttribute("cart"),
                     user.getIdUtente(), new CartDaoImpl().getCartIDByUser(user.getIdUtente()));
 
-            
+
             if (!carrello.getCart().isEmpty()) {
 
 
@@ -51,13 +51,13 @@
     <script src="${pageContext.request.contextPath}/script/sliderClass.js"></script>
     <script src="${pageContext.request.contextPath}/script/bannerSize.js"></script>
     <script src="${pageContext.request.contextPath}/script/someDisplayFix.js" defer></script>
-    <script src="${pageContext.request.contextPath}/script/headerAccessBehaviour.js"></script>
+    <script src="${pageContext.request.contextPath}/script/profilepic.js"></script>
 
     <script>
         $(document).ready(function () {
             // Creazione di un'istanza della classe CourseSlider
-            const courseSliderTrend = new CourseSlider("#trend-course-slider-container", 'courses');
-            const courseSliderYour = new CourseSlider("#your-course-slider-container", 'courses');
+            const courseSliderTrend = new CourseSlider("#trend-course-slider-container", 'getCoursesJson');
+            const courseSliderYour = new CourseSlider("#your-course-slider-container", 'getCoursesJson');
 
         })
     </script>
@@ -109,6 +109,13 @@
                     <a href="${pageContext.request.contextPath}/shop?action=viewCart"
                        class="header-redirect-btn" id="li-header-redirect-to-cart">Carrello (${sessionScope.cartItemCount != null && sessionScope.cartItemCount > 0 ? sessionScope.cartItemCount : '0'})</a>
                 </div>
+                <%if(user != null) {%>
+                <div class="link-container">
+                    <a href="${pageContext.request.contextPath}/logout" class="header-redirect-btn">
+                        Logout
+                    </a>
+                </div>
+                <%}%>
             </div>
         </nav>
     </label>
@@ -149,7 +156,7 @@
             <% %>
 
         </div>
-        <span class="vertical-separator" id="vertical-bar-tofix"></span>
+        <span class="vertical-separator"></span>
 
         <div class="link-container">
             <a href="${pageContext.request.contextPath}/shop?action=viewCart" class="header-redirect-btn" id="header-redirect-to-cart">
@@ -158,6 +165,14 @@
                 <p>${sessionScope.cartItemCount != null && sessionScope.cartItemCount > 0 ? sessionScope.cartItemCount : '0'}</p>
             </a>
         </div>
+            <%if(user != null) {%>
+            <span class="vertical-separator"></span>
+            <div class="link-container">
+                <a href="${pageContext.request.contextPath}/logout" class="header-redirect-btn">
+                    Logout&nbsp;&nbsp;<img src="${pageContext.request.contextPath}/assets/images/log-out.png" alt="">
+                </a>
+            </div>
+            <%}%>
     </div>
 </div>
 <div class="banner">

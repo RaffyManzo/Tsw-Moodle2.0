@@ -2,8 +2,8 @@
 <!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
 <properties>
     <!-- Corso -->
-    <entry key="INSERT_CORSO">INSERT INTO Corso (NomeCategoria, Nome, Descrizione, Immagine, Certificazione, DataCreazione) VALUES (?, ?, ?, ?, ?, ?)</entry>
-    <entry key="UPDATE_CORSO">UPDATE Corso SET NomeCategoria = ?, Nome = ?, Descrizione = ?, Immagine = ?, Certificazione = ?, DataCreazione = ? WHERE IDCorso = ?</entry>
+    <entry key="INSERT_CORSO">INSERT INTO Corso (NomeCategoria, Nome, Descrizione, Immagine, Certificazione, DataCreazione, prezzo, creatore) VALUES (?, ?, ?, ?, ?, ?, ?, ?)</entry>
+    <entry key="UPDATE_CORSO">UPDATE Corso SET NomeCategoria = ?, Nome = ?, Descrizione = ?, Immagine = ?, Certificazione = ?, DataCreazione = ?, prezzo = ?,creatore = ? WHERE IDCorso = ?</entry>
     <entry key="DELETE_CORSO">DELETE FROM Corso WHERE IDCorso = ?</entry>
     <entry key="FIND_ALL_CORSI">SELECT * FROM Corso</entry>
     <entry key="FIND_CORSO_BY_ID">SELECT * FROM Corso WHERE IDCorso = ?</entry>
@@ -11,7 +11,9 @@
     <entry key="SEARCH_CORSI_BY_NOME">SELECT * FROM Corso WHERE Nome LIKE ?</entry>
     <entry key="FIND_CORSI_BY_DATE_RANGE">SELECT * FROM Corso WHERE DataCreazione BETWEEN ? AND ?</entry>
     <entry key="FIND_CORSI_BY_CERTIFICAZIONE">SELECT * FROM Corso WHERE Certificazione = ?</entry>
-    <entry key="FIND_CORSI_BY_CERTIFICAZIONE">SELECT * FROM Corso WHERE prezzo >= ?</entry>
+    <entry key="FIND_CORSI_BY_PREZZO">SELECT * FROM Corso WHERE prezzo >= ?</entry>
+    <entry key="FIND_CORSI_BY_CREATORE">SELECT * FROM Corso WHERE creatore = ?</entry>
+
 
     <!-- Utenza -->
     <entry key="INSERT_UTENZA">INSERT INTO Utenza (Nome, Cognome, DataNascita, Indirizzo, Citta, Telefono, Email, Password, DataCreazioneAccount, Username, Tipo) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)</entry>

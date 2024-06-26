@@ -52,7 +52,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>GetCourseInfoServlet</servlet-name>
-        <url-pattern>/courses</url-pattern>
+        <url-pattern>/getCoursesJson</url-pattern>
     </servlet-mapping>
 
     <servlet>

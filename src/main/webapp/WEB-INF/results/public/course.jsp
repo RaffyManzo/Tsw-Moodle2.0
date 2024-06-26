@@ -1,28 +1,42 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page import="java.util.Map" %>
 <%@ page import="model.beans.Corso" %>
-<%@ page import="model.beans.Utenza" %>
+<%@ page import="model.beans.Utenza" %><%--
+  Created by IntelliJ IDEA.
+  User: raffa
+  Date: 26/06/2024
+  Time: 23:02
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
-    Utenza user = (Utenza) session.getAttribute("user");
-    Map<Corso, Integer> cart = (Map<Corso, Integer>) request.getAttribute("cart");
+    Corso corso = (Corso) request.getAttribute("course");
+    Utenza user = (Utenza) request.getSession(false).getAttribute("user");
+
 %>
-<!DOCTYPE html>
 <html>
 <head>
+    <title><%= corso.getNome() %>
+    </title>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="${pageContext.request.contextPath}/script/sliderClass.js"></script>
+    <script src="${pageContext.request.contextPath}/script/profilepic.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            // Creazione di un'istanza della classe CourseSlider
+            new CourseSlider("#other-course-of-creator", 'getCoursesJson');
+
+        })
+    </script>
+
     <link href="${pageContext.request.contextPath}/css/header.css" rel="stylesheet">
-    <link href="${pageContext.request.contextPath}/css/cart.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/css/delete-margin.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/css/slider.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/css/footer.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/css/course.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com" rel="preconnect">
     <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
     <link href="https://fonts.googleapis.com/css2?family=Jura:wght@300..700&display=swap" rel="stylesheet">
-    <script src="${pageContext.request.contextPath}/script/imageErrorDetect.js"></script>
-
-    <script src="${pageContext.request.contextPath}/script/profilepic.js"></script>
-    <title>Shopping Cart - Learn hub</title>
 </head>
 <body>
 <div class="header" id="header">
@@ -66,7 +80,12 @@
                        id="header-redirect-to-registration">Registrati</a><%}%>
                     <% %>
                 </div>
-                <%if(user != null) {%>
+                <div class="link-container">
+                    <a href="${pageContext.request.contextPath}/shop?action=viewCart"
+                       class="header-redirect-btn" id="li-header-redirect-to-cart">Carrello
+                        (${sessionScope.cartItemCount != null && sessionScope.cartItemCount > 0 ? sessionScope.cartItemCount : '0'})</a>
+                </div>
+                <%if (user != null) {%>
                 <div class="link-container">
                     <a href="${pageContext.request.contextPath}/logout" class="header-redirect-btn">
                         Logout
@@ -76,6 +95,7 @@
             </div>
         </nav>
     </label>
+
     <div class="header-links" id="header-links">
 
         <span class="vertical-separator"></span>
@@ -116,7 +136,17 @@
                 <% %>
 
             </div>
-            <%if(user != null) {%>
+            <span class="vertical-separator"></span>
+
+            <div class="link-container">
+                <a href="${pageContext.request.contextPath}/shop?action=viewCart" class="header-redirect-btn"
+                   id="header-redirect-to-cart">
+                    <img
+                            src="${pageContext.request.contextPath}/assets/images/shopping-basket.png" alt="">
+                    <p>${sessionScope.cartItemCount != null && sessionScope.cartItemCount > 0 ? sessionScope.cartItemCount : '0'}</p>
+                </a>
+            </div>
+            <%if (user != null) {%>
             <span class="vertical-separator"></span>
             <div class="link-container">
                 <a href="${pageContext.request.contextPath}/logout" class="header-redirect-btn">
@@ -127,77 +157,72 @@
         </div>
     </div>
 </div>
-<div class="container">
-    <h1>Il tuo carrello</h1>
-    <%  Integer total = 0;
-        if (cart != null && !cart.isEmpty())
-            for (Map.Entry<Corso, Integer> entry : cart.entrySet())
-                total += entry.getValue();
-    %>
-
-    <div class="header-cart">
-        <label>(<%= total %>) Corsi aggiunti al tuo carrello</label>
-        <form action="shop" method="get">
-            <input type="hidden" name="action" value="empty"/>
-            <input id="reset-cart-btn" type="submit" value="Rimuovi tutto"/>
-        </form>
-    </div>
-    <h6 class="line-divider"></h6>
-
-    <div class="summary-container">
-        <div class="cart-list-container">
-            <%
-
-                if (cart != null && !cart.isEmpty()) {
-                    for (Map.Entry<Corso, Integer> entry : cart.entrySet()) {
-                        Corso product = entry.getKey();
-                        Integer quantity = entry.getValue();
-            %>
-
-
-            <div class="cart-item">
-                <img src="file?file=<%= product.getIdCorso() + "/" + product.getImmagine() %>&c=course" alt="/" class="product-image"/>
-                <div class="cart-item-info">
-                    <h5><%= product.getNome() %></h5>
-                    <p><%= product.getDescrizione() %></p>
-                    <div class="cart-item-sub-elements">
-                        <div class="quantity-controller">
-                            <a href="shop?action=decreaseQuantity&productId=<%= product.getIdCorso() %>"><strong>-</strong></a>
-                            <p><%= quantity %></p>
-                            <a href="shop?action=addToCart&productId=<%= product.getIdCorso() %>"><strong>+</strong></a>
-                        </div>
-                        <p><%= product.getPrezzo() %>$</p>
-                        <form action="shop" method="get" style="display:inline;">
-                            <input type="hidden" name="action" value="removeFromCart"/>
-                            <input type="hidden" name="productId" value="<%= product.getIdCorso() %>"/>
-                            <button type="submit" value="Remove" class="trash-cart-item">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
-                                    <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z"></path>
-                                    <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z"></path>
-                                </svg>
-                            </button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-            <% }} else {
-            %>
-            <p id="empty-cart">Your cart is empty.</p>
-            <%
-                }
-            %>
-
-        </div>
-        <div class="checkout-container">
-            <h4>Checkout</h4>
-            <h1><% double price = 0 ; if (cart != null) { for (Map.Entry<Corso, Integer> entry : cart.entrySet()){
-                price += entry.getKey().getPrezzo() * entry.getValue();}%> <%}%><%= Math.round(price * 100.0) / 100.0 %> $</h1>
-            <a href="${pageContext.request.contextPath}/checkout" class="checkout-btn">
-                Completa il pagamento
+<div class="content-container">
+    <div class="section-top">
+        <div class="course-info">
+            <a class="course-links">Visita la categoria: &nbsp;&nbsp;<%= corso.getNomeCategoria()%>
             </a>
+
+            <div>
+                <h2 class="course-name"><%= corso.getNome()%>
+                </h2>
+                <p class="course-description"><%= corso.getDescrizione()%>
+                </p>
+                <p>Creato da &nbsp; <a
+                        class="course-links"><%= corso.getCreatore().getCognome() + " " + corso.getCreatore().getNome()%>
+                </a></p>
+            </div>
+        </div>
+        <div class="overlayed add-to-cart-container">
+            <img src="file?file=<%= corso.getIdCorso() %>/<%= corso.getImmagine()%>&c=course" alt="">
+            <h2>Prezzo: <strong><%= corso.getPrezzo()%>
+            </strong></h2>
+            <a href="shop?action=addToCart&productId=<%=corso.getIdCorso()%>" class="add-to-cart-button">Aggiungi al
+                carrello</a>
         </div>
     </div>
 
+    <div class="course-creator-section">
+        <%
+            Utenza creator = corso.getCreatore();
+        %>
+
+        <div class="creator-info-container">
+            <a href="${pageContext.request.contextPath}/" class="creator-profile-pic">
+                <%
+                String initials = "";
+                if (creator.getNome() != null && creator.getCognome() != null) {
+                initials = creator.getNome().charAt(0) + "" + creator.getCognome().charAt(0);
+                }
+                %>
+                <img src="${pageContext.request.contextPath}/file?file=<%= creator.getImg()%>&id=<%= creator.getImg()%>&c=user" alt="<%= initials %>" id="creator-profile-pic">
+                <div class="initials" style="display: none;"><%= initials %></div>
+            </a>
+            <div class="creator-info">
+                <h5>Docente: <%= creator.getNome() + " " + creator.getCognome()%></h5>
+                <p>Email: &nbsp; <%= creator.getEmail()%></p>
+            </div>
+
+
+        </div>
+        <div class="courses-section" id="course-section">
+
+            <h3>Altri corsi di <a
+                    class="course-links"><%= corso.getCreatore().getCognome() + " " + corso.getCreatore().getNome()%>
+            </a></h3>
+            <div class="slider" >
+                <button class="move-slider-button move-slider-left">
+                    <img src="${pageContext.request.contextPath}/file?file=leftarr.png&c=app" alt="">
+                </button>
+                <div class="slider-element-container" id="other-course-of-creator">
+
+                </div>
+                <button class="move-slider-button move-slider-right">
+                    <img src="${pageContext.request.contextPath}/file?file=rightarr.png&c=app" alt="">
+                </button>
+            </div>
+        </div>
+    </div>
 </div>
 <footer class="footer">
     <div class="footer-container">
@@ -228,7 +253,6 @@
             </div>
         </div>
     </div>
-
 </footer>
 </body>
 </html>

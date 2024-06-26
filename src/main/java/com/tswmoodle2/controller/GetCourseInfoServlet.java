@@ -10,12 +10,17 @@ import org.json.simple.*;
 import java.io.IOException;
 import java.util.ArrayList;
 
-@WebServlet(name = "GetCourseInfoServlet", value = "/courses")
+@WebServlet(name = "GetCourseInfoServlet", value = "/getCoursesJson")
 public class GetCourseInfoServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws IOException {
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
+        // Aggiungi questo per consentire le richieste CORS
+        response.setHeader("Access-Control-Allow-Origin", "*");
+        response.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
+        response.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
+
 
         ArrayList<Corso> courses = new CorsoDaoImpl().getAllCourses();
 
@@ -31,6 +36,8 @@ public class GetCourseInfoServlet extends HttpServlet {
             courseObject.put("certification", course.getCertificazione());
             courseObject.put("creationDate", course.getDataCreazione().toString());
             courseObject.put("price", course.getPrezzo());
+            // Usa il metodo toJSON per serializzare l'oggetto creator
+            courseObject.put("creator", course.getCreatore().toJSON());
             coursesArray.add(courseObject);
         }
 

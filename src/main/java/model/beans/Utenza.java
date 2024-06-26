@@ -1,5 +1,7 @@
 package model.beans;
 
+import org.json.simple.JSONObject;
+
 import java.sql.Date;
 
 public class Utenza {
@@ -100,6 +102,16 @@ public class Utenza {
                 ", username='" + username + '\'' +
                 ", tipo='" + tipo + '\'' +
                 '}';
+    }
+
+    public JSONObject toJSON() {
+        JSONObject json = new JSONObject();
+        json.put("nome", nome);
+        json.put("cognome", cognome);
+        json.put("email", email);
+        json.put("tipo", tipo);
+        json.put("img", img);
+        return json;
     }
 
     public String getImg() {

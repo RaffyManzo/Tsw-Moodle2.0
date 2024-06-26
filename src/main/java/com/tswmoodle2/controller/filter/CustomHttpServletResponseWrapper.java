@@ -26,7 +26,7 @@ public class CustomHttpServletResponseWrapper extends HttpServletResponseWrapper
             boolean isALoginRequest = location.endsWith("login.html") || location.endsWith("registrazione.html");
 
             if (user != null && isALoginRequest) {
-                location = (request.getContextPath() + "/home");
+                 location = (request.getContextPath() + "/home");
             }
 
         super.sendRedirect(location);

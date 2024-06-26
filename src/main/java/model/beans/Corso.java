@@ -12,6 +12,7 @@ public class Corso {
     private final String certificazione;
     private final Date dataCreazione;
 
+    private Utenza creatore;
 
 
     private final double prezzo;
@@ -19,7 +20,7 @@ public class Corso {
 
 
     // Costruttore con argomenti
-    public Corso(int idCorso, String nomeCategoria, String nome, String descrizione, String immagine, String certificazione, Date dataCreazione, double prezzo) {
+    public Corso(int idCorso, String nomeCategoria, String nome, String descrizione, String immagine, String certificazione, Date dataCreazione, Utenza creatore, double prezzo) {
         this.idCorso = idCorso;
         this.nomeCategoria = nomeCategoria;
         this.nome = nome;
@@ -27,6 +28,7 @@ public class Corso {
         this.immagine = immagine;
         this.certificazione = certificazione;
         this.dataCreazione = dataCreazione;
+        this.creatore = creatore;
         this.prezzo = prezzo;
     }
 
@@ -62,6 +64,10 @@ public class Corso {
         return prezzo;
     }
 
+    public Utenza getCreatore() {
+        return creatore;
+    }
+
     @Override
     public String toString() {
         return "Corso{" +
@@ -71,6 +77,8 @@ public class Corso {
                 ", descrizione='" + descrizione + '\'' +
                 ", immagine='" + immagine + '\'' +
                 ", certificazione='" + certificazione + '\'' +
+                ", prezzo='" + prezzo + '\'' +
+                ", creatore='" + creatore + '\'' +
                 ", dataCreazione=" + dataCreazione +
                 '}';
     }
