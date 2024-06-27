@@ -8,6 +8,7 @@ import model.dao.CorsoDaoImpl;
 import org.json.simple.*;
 
 import java.io.IOException;
+import java.net.Inet4Address;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -35,8 +36,13 @@ public class GetCourseInfoServlet extends HttpServlet {
         }
     }
 
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        doGet(request, response);
+    }
+
     private void getByCreator(HttpServletResponse response, HttpServletRequest request) throws ServletException, IOException {
-        String param = request.getParameter("c");
+        Integer param = (Integer) request.getSession().getAttribute("c");
+        request.getSession().removeAttribute("c");
         if (param == null) {
             List<String> errors = new ArrayList<>();
             errors.add("Errore generico");
@@ -45,7 +51,7 @@ public class GetCourseInfoServlet extends HttpServlet {
         } else {
 
             ArrayList<Corso> courses = new CorsoDaoImpl().findByCreatore(
-                    Integer.parseInt(param)
+                    param
             );
             sendResponse(response, courses);
         }

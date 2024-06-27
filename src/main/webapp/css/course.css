@@ -21,6 +21,10 @@
     padding: 0 10%;
 }
 
+.dark-link {
+    color: #596cff !important;
+}
+
 
 .course-info {
     display: flex;

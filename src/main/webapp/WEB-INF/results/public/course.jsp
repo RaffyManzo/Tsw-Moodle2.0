@@ -11,6 +11,7 @@
     Corso corso = (Corso) request.getAttribute("course");
     Utenza user = (Utenza) request.getSession(false).getAttribute("user");
 
+    request.getSession().setAttribute("c", corso.getCreatore().getIdUtente());
 %>
 <html>
 <head>
@@ -25,8 +26,7 @@
         $(document).ready(function () {
             // Creazione di un'istanza della classe CourseSlider
             // Passa il parametro dinamico alla tua classe JavaScript
-            const creatorId = <%= corso.getCreatore().getIdUtente() %>;
-            let query = "getCoursesJson?action=byCreator&c=" + creatorId
+            let query = "getCoursesJson?action=byCreator"
 
             // Crea un'istanza di CourseSlider con i parametri dinamici
             new CourseSlider("#other-course-of-creator", query);
@@ -213,7 +213,7 @@
         <div class="courses-section" id="course-section">
 
             <h3>Altri corsi di <a
-                    class="course-links"><%= corso.getCreatore().getCognome() + " " + corso.getCreatore().getNome()%>
+                    class="course-links dark-link"><%= corso.getCreatore().getCognome() + " " + corso.getCreatore().getNome()%>
             </a></h3>
             <div class="slider" >
                 <button class="move-slider-button move-slider-left">
