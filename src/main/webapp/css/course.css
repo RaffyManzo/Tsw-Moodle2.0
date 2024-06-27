@@ -196,3 +196,46 @@
 
     text-decoration: none;
 }
+
+@media (max-width: 1660px) {
+
+    .add-to-cart-container {
+        width: 30%;
+    }
+}
+
+@media (max-width: 1200px) {
+
+    .add-to-cart-container {
+        width: 40%;
+    }
+
+    .section-top {
+        justify-content: space-around;
+        padding: 5% 0 0;
+    }
+
+    .course-creator-section {
+        margin-top: 50px;
+    }
+}
+@media (max-width: 745px) {
+
+    .add-to-cart-container {
+        width: 60%;
+    }
+
+    .section-top {
+        flex-direction: column;
+        height: auto;
+
+    }
+
+    .course-creator-section {
+        margin-top: 25%;
+    }
+
+    .creator-info-container > * {
+        margin-left: 5%;
+    }
+}
