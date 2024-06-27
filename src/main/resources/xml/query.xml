@@ -39,4 +39,29 @@
     <entry key="UPDATE_CART_ELEMENT">UPDATE inserimento SET Quantita = ? WHERE IDCorso = ? AND IDCarrello = ? AND IDUtente = ?</entry>
     <entry key="INSERT_CART_ELEMENT">INSERT INTO inserimento (IDCorso, IDCarrello, IDUtente, Quantita) VALUES (?, ?, ?, ?)</entry>
     <entry key="INSERT_CART">INSERT INTO carrello (IDUtente) VALUES (?)</entry>
+
+    <!--  Category page-->
+    <entry key="GET_CREATORS_WITH_HIGHER_NUMBER_OF_COURSE">
+        SELECT
+            u.IDUtente,
+            u.Nome,
+            u.Cognome,
+            u.email,
+            u.immagine,
+            COUNT(c.IDCorso) AS #corsi
+        FROM
+            utenza u JOIN
+            corso c ON u.IDUtente = c.creatore
+        WHERE
+            c.NomeCategoria = 'Design'
+        GROUP BY
+            u.IDUtente, u.Nome, u.Cognome,
+            u.email, u.immagine
+        ORDER BY
+            NumeroCorsi DESC
+        LIMIT 5;
+    </entry>
+
+    <!-- Teacher page -->
+    <entry key="COUNT_CATEGORY_COURSE">select corso.nomeCategoria, count(*) from corso inner join utenza on corso.creatore = utenza.IDUtente where IDUtente=? group by corso.nomeCategoria</entry>
 </properties>

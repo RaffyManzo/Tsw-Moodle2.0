@@ -7,7 +7,9 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import model.Util.CarrelloService;
 import model.beans.Carrello;
+import model.beans.Corso;
 import model.beans.Utenza;
 import model.dao.CartDaoImpl;
 import model.dao.UtenzaDaoImpl;
@@ -17,6 +19,7 @@ import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
+import java.util.Map;
 import java.util.regex.Pattern;
 
 @WebServlet(name = "LoginServlet", urlPatterns = {"/login"})
@@ -85,8 +88,9 @@ public class LoginServlet extends HttpServlet {
                 Carrello carrello = new CartDaoImpl().getCartByUserID(user.getIdUtente());
 
                 if(carrello != null) {
+                    carrello.setCart((Map<Corso, Integer>) session.getAttribute("cart"));
                     session.setAttribute("cart", carrello.getCart());
-
+                    new CarrelloService().saveCarrello(carrello);
                 }
                 session.setAttribute("user", user);
                 session.setAttribute("isAdmin", user.getTipo().contentEquals("A") ? Boolean.TRUE : Boolean.FALSE);

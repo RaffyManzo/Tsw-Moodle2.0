@@ -165,8 +165,8 @@
 <div class="content-container">
     <div class="section-top">
         <div class="course-info">
-            <a class="course-links">Visita la categoria: &nbsp;&nbsp;<%= corso.getNomeCategoria()%>
-            </a>
+            <p style="font-size: 1.4rem;"><a class="course-links">Tutte le categorie</a> > <a class="course-links"><%= corso.getNomeCategoria()%></a></p>
+
 
             <div>
                 <h2 class="course-name"><%= corso.getNome()%>
@@ -200,7 +200,7 @@
                 initials = creator.getNome().charAt(0) + "" + creator.getCognome().charAt(0);
                 }
                 %>
-                <img src="${pageContext.request.contextPath}/file?file=<%= creator.getImg()%>&id=<%= creator.getImg()%>&c=user" alt="<%= initials %>" id="creator-profile-pic">
+                <img src="${pageContext.request.contextPath}/file?file=<%= creator.getImg()%>&id=<%= creator.getIdUtente()%>&c=user" alt="<%= initials %>" id="creator-profile-pic">
                 <div class="initials" style="display: none;"><%= initials %></div>
             </a>
             <div class="creator-info">
