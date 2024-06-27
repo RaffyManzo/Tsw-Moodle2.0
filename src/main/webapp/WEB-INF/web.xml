@@ -6,7 +6,7 @@
 
     <context-param>
         <param-name>upload-path</param-name>
-        <param-value>${catalina.home}/upload</param-value>
+        <param-value>${catalina.home}\upload</param-value>
     </context-param>
 
     <filter>

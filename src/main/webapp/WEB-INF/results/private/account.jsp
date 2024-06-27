@@ -130,10 +130,13 @@
                      src="${pageContext.request.contextPath}/file?file=${user.getImg()}&id=${user.getIdUtente()}&c=user"
                      id="profile-pic" alt="">
             </div>
-            <a class="modify-pic">
-                <img src="${pageContext.request.contextPath}/assets/images/pen-line.png" alt="" >
-                &nbsp;&nbsp;Modifica immagine
-            </a>
+            <form class="modify-pic" action="${pageContext.request.contextPath}/uploadImage" method="post" enctype="multipart/form-data" id="uploadForm">
+                <input type="file" id="profilePicture" name="profilePicture" accept="image/*" onchange="document.getElementById('uploadForm').submit()">
+                <label for="profilePicture">
+                    <img src="${pageContext.request.contextPath}/assets/images/pen-line.png" alt="Edit" class="edit-icon">
+                    <span>Modifica immagine</span>
+                </label>
+            </form>
         </div>
         <div class="fields-set-column">
             <div class="field-row-container">
@@ -188,15 +191,16 @@
                         <input class="input-field" readonly type="email" value="<%= user.getEmail()%>">
                     </div>
                 </div>
-                <div class="input-box">
-                    <div class="field-input-box-container ">
+                <form action="${pageContext.request.contextPath}/account" method="POST" class="input-box input-box-button">
+                    <div class="field-input-box-container input-field-button">
                         <label>Telefono</label>
-                        <input class="input-field" readonly type="text" value="<%= user.getTelefono()%>">
+                        <input class="input-field" name="t" type="text" value="<%= user.getTelefono()%>">
                     </div>
-                </div>
+                    <button class="edit-icon-button" type="submit"><img src="${pageContext.request.contextPath}/assets/images/pen-line.png" alt="Edit" class="edit-icon"></button>
+                </form>
             </div>
             <h3>Modifica password </h3>
-            <form class="field-row-container">
+            <form action="${pageContext.request.contextPath}/account" METHOD="post" class="field-row-container">
                 <div class="input-box">
                     <div class="field-input-box-container ">
                         <label>Password</label>
@@ -212,6 +216,22 @@
                 <button type="submit" class="confirm-password-btn"><img
                         src="${pageContext.request.contextPath}/assets/images/check.png" alt="">
                 </button>
+            </form>
+        </div>
+    </div>
+    <div class="header-section">
+        <h1>Operazioni sull’account</h1>
+        <h6 class="line-divider"></h6>
+    </div>
+    <div class="section not-resize">
+        <div class="fields-set-column fields-set-column-all-row">
+            <form method="post" action="${pageContext.request.contextPath}/account" class="field-row-container">
+                <button type="submit" class='delete-account-btn red-btn'>Elimina account</button>
+                <p class="delete-message">
+                    É un’operazione irreversibile, tutti i <br>
+                    dati e corsi da te creati verranno<br>
+                    eliminati
+                </p>
             </form>
         </div>
     </div>

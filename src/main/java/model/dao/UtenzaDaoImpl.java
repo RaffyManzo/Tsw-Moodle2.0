@@ -52,6 +52,17 @@ public class UtenzaDaoImpl extends AbstractDataAccessObject<Utenza> implements U
         }
     }
 
+    public void updateImage(int userID, String filePath) {
+        try (Connection connection = getConnection();
+             PreparedStatement ps = prepareStatement(connection, "UPDATE_IMAGE")) {
+            ps.setInt(2, userID);
+            ps.setString(1, filePath);
+            ps.executeUpdate();
+        } catch (SQLException exception) {
+            throw new RuntimeException(exception);
+        }
+    }
+
     @Override
     public void delete(int id) {
         try (Connection connection = getConnection();

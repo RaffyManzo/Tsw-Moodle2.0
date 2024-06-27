@@ -9,10 +9,31 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aaf64b38-f287-423c-9dbc-41a4353826d6" name="Changes" comment="account.jsp in progress">
+    <list default="true" id="aaf64b38-f287-423c-9dbc-41a4353826d6" name="Changes" comment="account.jsp: left delete account">
+      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/webContexts.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/UploadImageServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/FileServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/FileServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/dao/UtenzaDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/dao/UtenzaDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/upload/app/flame 1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/upload/app/leftarr.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/upload/app/rightarr.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/upload/app/star.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/upload/course/1/python.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/upload/course/2/r.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/upload/course/3/design.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/upload/course/4/marketing.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/upload/course/5/inglese.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/upload/course/default.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/upload/user/4/img.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/upload/user/test/file.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/upload/user/test/img.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/xml/query.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/xml/query.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/private/account.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/private/account.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/css/account.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/account.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/checkout.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/checkout.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,8 +47,8 @@
         <option value="SCSS File" />
         <option value="JavaScript File" />
         <option value="Jsp File" />
-        <option value="Class" />
         <option value="CSS File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -84,27 +105,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/raffa/IdeaProjects/Tsw-Moodle2.0/src/main/resources&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.4586207&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "C:/Users/raffa/IdeaProjects/Tsw-Moodle2.0/src/main/resources",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.4586207",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\raffa\IdeaProjects\Tsw-Moodle2.0\src\main\resources" />
@@ -235,6 +257,10 @@
         </option>
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Application.QueryPool" />
+      <item itemvalue="Tomcat Server.Tomcat 10.1.19" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.QueryPool" />
@@ -278,7 +304,7 @@
       <workItem from="1719394809422" duration="3290000" />
       <workItem from="1719399551801" duration="16452000" />
       <workItem from="1719444707734" duration="2969000" />
-      <workItem from="1719485652748" duration="11967000" />
+      <workItem from="1719485652748" duration="19776000" />
     </task>
     <task id="LOCAL-00001" summary="Added registration form&#10;Added image picker servlet&#10;Added css and some fix">
       <option name="closed" value="true" />
@@ -504,7 +530,15 @@
       <option name="project" value="LOCAL" />
       <updated>1719507848588</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="account.jsp: left delete account">
+      <option name="closed" value="true" />
+      <created>1719510089939</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1719510089939</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -522,7 +556,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Start HomeServlet.java" />
     <MESSAGE value="01-06" />
     <MESSAGE value="Load query from XMl, and fixed DBManager and DAO element" />
     <MESSAGE value="slider.js finished and fixed" />
@@ -547,6 +580,7 @@
     <MESSAGE value="Responsive course.css" />
     <MESSAGE value="Add an image in resources&#10;Start with category.jsp&#10;Fix conflict with session cart and db cart&#10;Start with account.jsp" />
     <MESSAGE value="account.jsp in progress" />
-    <option name="LAST_COMMIT_MESSAGE" value="account.jsp in progress" />
+    <MESSAGE value="account.jsp: left delete account" />
+    <option name="LAST_COMMIT_MESSAGE" value="account.jsp: left delete account" />
   </component>
 </project>
