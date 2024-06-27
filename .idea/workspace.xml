@@ -9,15 +9,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aaf64b38-f287-423c-9dbc-41a4353826d6" name="Changes" comment="Add an image in resources&#10;Start with category.jsp&#10;Fix conflict with session cart and db cart&#10;Start with account.jsp">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/AccountServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/images/check.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/images/pen-line.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/css/account.css" afterDir="false" />
+    <list default="true" id="aaf64b38-f287-423c-9dbc-41a4353826d6" name="Changes" comment="account.jsp in progress">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/LoginServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/LoginServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/private/account.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/private/account.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/reg.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/reg.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/account.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/account.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -283,7 +278,7 @@
       <workItem from="1719394809422" duration="3290000" />
       <workItem from="1719399551801" duration="16452000" />
       <workItem from="1719444707734" duration="2969000" />
-      <workItem from="1719485652748" duration="9706000" />
+      <workItem from="1719485652748" duration="11967000" />
     </task>
     <task id="LOCAL-00001" summary="Added registration form&#10;Added image picker servlet&#10;Added css and some fix">
       <option name="closed" value="true" />
@@ -501,7 +496,15 @@
       <option name="project" value="LOCAL" />
       <updated>1719503134375</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="account.jsp in progress">
+      <option name="closed" value="true" />
+      <created>1719507848588</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1719507848588</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -519,7 +522,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fixed imageServlet and convert it to FileServlet&#10;Begin DAOpattern" />
     <MESSAGE value="Start HomeServlet.java" />
     <MESSAGE value="01-06" />
     <MESSAGE value="Load query from XMl, and fixed DBManager and DAO element" />
@@ -544,6 +546,7 @@
     <MESSAGE value="fix color" />
     <MESSAGE value="Responsive course.css" />
     <MESSAGE value="Add an image in resources&#10;Start with category.jsp&#10;Fix conflict with session cart and db cart&#10;Start with account.jsp" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add an image in resources&#10;Start with category.jsp&#10;Fix conflict with session cart and db cart&#10;Start with account.jsp" />
+    <MESSAGE value="account.jsp in progress" />
+    <option name="LAST_COMMIT_MESSAGE" value="account.jsp in progress" />
   </component>
 </project>

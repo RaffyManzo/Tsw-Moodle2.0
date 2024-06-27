@@ -23,7 +23,45 @@
 
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="${pageContext.request.contextPath}/script/imageErrorDetect.js"></script>
+    <script defer>
+        $(document).ready(() => {
+            const image = document.getElementById('profile-pic');
+
+            image.onerror = function () {
+                console.log("Image failed to load, loading default image.");
+                image.src = 'file?file=default.png&c=course';
+            };
+
+            image.onload = function () {
+                if (image.naturalHeight + image.naturalWidth === 0) {
+                    console.log("Image loaded but has zero size, triggering onerror.");
+                    image.onerror();
+                } else {
+                    console.log("Image loaded successfully.");
+                }
+            };
+
+            // For cached images that might not trigger onload
+            if (image.complete) {
+                if (image.naturalHeight + image.naturalWidth === 0) {
+                    console.log("Image already complete but has zero size, triggering onerror.");
+                    image.onerror();
+                } else {
+                    console.log("Image already complete and loaded successfully.");
+                }
+            } else {
+                console.log("Image is not complete, waiting for load event.");
+            }
+        });
+
+        function imageNotFound() {
+            console.log("Image doesn't load, loaded a placeholder");
+        }
+
+
+
+
+    </script>
 </head>
 <body>
 <div class="header" id="header">
@@ -90,11 +128,11 @@
             <div class="profile-pic-wrapper">
                 <img class="profile-pic"
                      src="${pageContext.request.contextPath}/file?file=${user.getImg()}&id=${user.getIdUtente()}&c=user"
-                     alt="">
+                     id="profile-pic" alt="">
             </div>
             <a class="modify-pic">
-                <img src="${pageContext.request.contextPath}/assets/images/pen-line.png" alt="">
-                Modifica immagine
+                <img src="${pageContext.request.contextPath}/assets/images/pen-line.png" alt="" >
+                &nbsp;&nbsp;Modifica immagine
             </a>
         </div>
         <div class="fields-set-column">
