@@ -88,7 +88,12 @@ public class LoginServlet extends HttpServlet {
                 Carrello carrello = new CartDaoImpl().getCartByUserID(user.getIdUtente());
 
                 if(carrello != null) {
-                    carrello.setCart((Map<Corso, Integer>) session.getAttribute("cart"));
+
+                    Map<Corso, Integer> sessionCart = (Map<Corso, Integer>) session.getAttribute("cart");
+
+                    if(sessionCart != null)
+                        if(!sessionCart.isEmpty())
+                            carrello.setCart(sessionCart);
                     session.setAttribute("cart", carrello.getCart());
                     new CarrelloService().saveCarrello(carrello);
                 }

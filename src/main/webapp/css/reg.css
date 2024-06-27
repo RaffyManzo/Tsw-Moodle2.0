@@ -226,7 +226,7 @@ fieldset > legend {
     box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.25), 4px 4px 4px rgba(0, 0, 0, 0.25);
     background-color: white;
     border-radius: 12px;
-
+    box-sizing: border-box;
 
 }
 

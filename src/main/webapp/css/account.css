@@ -1,0 +1,121 @@
+* {
+    font-family: "Jura", sans-serif;
+}
+
+.section {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    padding: 0 5%;
+    box-sizing: border-box;
+}
+
+.fields-set-column{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    flex-direction: column;
+    width: 70%;
+    height: 100%;
+}
+
+.fields-set-column.fields-set-column-all-row{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    padding: 0 5%;
+    box-sizing: border-box;
+}
+
+.fields-set-column.fields-set-column-all-row .field-row-container {
+    justify-content: space-between;
+}
+
+.fields-set-column.fields-set-column-all-row .field-row-container > * {
+    margin: 0 !important;
+}
+.profile-pic-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 20%;
+    height: 100%;
+}
+
+.profile-pic-container > * {
+    margin: 15px 0;
+}
+
+.profile-pic {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    object-fit: cover; /* Assicura che l'immagine copra tutto lo spazio disponibile */
+    border-radius: 50%; /* Assicura che l'immagine sia circolare */
+}
+
+.profile-pic-wrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    width: 200px;
+    aspect-ratio: 1 / 1; /* Mantiene l'elemento quadrato */
+    border-radius: 50%; /* Rende l'elemento circolare */
+    overflow: hidden;
+    background-color: #ccc; /* Colore di sfondo predefinito */
+
+    text-decoration: none;
+}
+
+.field-row-container {
+    margin: 15px auto;
+    justify-content: flex-start;
+}
+
+.all-row {
+    width: calc(40% + 40% + 40px) !important;
+}
+
+.field-row-container > * {
+    margin: 0 20px !important;
+}
+
+.modify-pic {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.header-section {
+    display: flex;
+    align-items: flex-start;
+    width: 100%;
+    flex-direction: column;
+    padding: 0 10%;
+    box-sizing: border-box;
+}
+
+
+.line-divider {
+    border-bottom: 1px solid black;
+    width: 100%;
+}
+
+.confirm-password-btn {
+    width: auto;
+    aspect-ratio: 1 / 1; /* Mantiene l'elemento quadrato */
+    border-radius: 8px;
+    height: 100%;
+    background-color: #4e569f;
+    font-size: 100%;
+}
