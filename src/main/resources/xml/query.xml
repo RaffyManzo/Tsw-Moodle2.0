@@ -16,8 +16,9 @@
 
 
     <!-- Utenza -->
-    <entry key="INSERT_UTENZA">INSERT INTO Utenza (Nome, Cognome, DataNascita, Indirizzo, Citta, Telefono, Email, Password, DataCreazioneAccount, Username, Tipo) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)</entry>
-    <entry key="UPDATE_UTENZA">UPDATE Utenza SET Nome = ?, Cognome = ?, DataNascita = ?, Indirizzo = ?, Citta = ?, Telefono = ?, Email = ?, Password = ?, DataCreazioneAccount = ?, Username = ?, Tipo = ? WHERE IDUtente = ?</entry>
+    <entry key="INSERT_UTENZA">INSERT INTO Utenza (Nome, Cognome, DataNascita, Indirizzo, Citta, Telefono, Email, Password, DataCreazioneAccount, Username, Tipo, Immagine) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)</entry>
+    <entry key="UPDATE_UTENZA">UPDATE Utenza SET Nome = ?, Cognome = ?, DataNascita = ?, Indirizzo = ?, Citta = ?, Telefono = ?, Email = ?, Password = ?, DataCreazioneAccount = ?, Username = ?, Tipo = ?, Immagine = ? WHERE IDUtente = ?</entry>
+
     <entry key="DELETE_UTENZA">DELETE FROM Utenza WHERE IDUtente = ?</entry>
     <entry key="FIND_ALL_UTENZA">SELECT * FROM Utenza</entry>
     <entry key="FIND_UTENZA_BY_ID">SELECT * FROM Utenza WHERE IDUtente = ?</entry>
@@ -29,7 +30,7 @@
     <entry key="FIND_UTENZA_BY_TIPO">SELECT * FROM Utenza WHERE Tipo = ?</entry>
     <entry key="FIND_UTENZA_BY_TELEFONO">SELECT * FROM Utenza WHERE Telefono LIKE ?</entry>
     <entry key="FIND_UTENZA_BY_CITTA">SELECT * FROM Utenza WHERE Citta = ?</entry>
-    <entry key="UPDATE_IMAGE">UPDATE utenza SET Immagine = ? WHERE IDUtente = ?</entry>
+
 
 
     <entry key="GET_CART_ID_BY_USER">SELECT * FROM carrello where IDUtente = ?</entry>

@@ -71,13 +71,15 @@ public class UploadImageServlet extends HttpServlet {
             }
             Files.copy(input, file.toPath());
         } catch (FileAlreadyExistsException ex) {
-            throw new RuntimeException(ex);q
+            throw new RuntimeException(ex);
         }
 
 
 
-        new UtenzaDaoImpl().updateImage(user.getIdUtente(), fileName);
-        request.getSession().setAttribute("user", new UtenzaDaoImpl().findByID(user.getIdUtente()));
+        user.setImage(fileName);
+        new UtenzaDaoImpl().update(user);
+        //new UtenzaDaoImpl().updateImage(user.getIdUtente(), fileName);
+        request.getSession().setAttribute("user", user);
 
         // Redirect to success page or send a success response
         response.sendRedirect("account"); // or respond with a success message

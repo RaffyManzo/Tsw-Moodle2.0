@@ -11,14 +11,14 @@ public class Utenza {
     private final Date dataNascita;
     private final String indirizzo;
     private final String citta;
-    private final String telefono;
+    private String telefono;
     private final String email;
     private final String password;
     private final Date dataCreazioneAccount;
     private final String username;
     private final String tipo;
 
-    private final String img;
+    private String img;
 
 
     public Utenza(int idUtente, String nome, String cognome, Date dataNascita, String indirizzo, String citta, String telefono, String email, String password, Date dataCreazioneAccount, String username, String tipo, String img) {
@@ -116,5 +116,13 @@ public class Utenza {
 
     public String getImg() {
         return img;
+    }
+
+    public void setImage(String fileName) {
+        this.img = fileName;
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
     }
 }

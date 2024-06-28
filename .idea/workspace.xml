@@ -9,8 +9,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aaf64b38-f287-423c-9dbc-41a4353826d6" name="Changes" comment="account.jsp: implemented change profile pic &#10;modified FileServlet.java file pick. Upload folder now is outside webapp, in CATALINA.HOME Folder">
+    <list default="true" id="aaf64b38-f287-423c-9dbc-41a4353826d6" name="Changes" comment="non mi ricordo">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/filter/AccountOperationFilter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/AccountServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/AccountServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/UploadImageServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/UploadImageServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/beans/Utenza.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/beans/Utenza.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/dao/UtenzaDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/dao/UtenzaDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/xml/query.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/xml/query.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/private/account.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/private/account.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,28 +89,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "C:/Users/raffa/IdeaProjects/Tsw-Moodle2.0/src/main/resources",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.4586207",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/raffa/IdeaProjects/Tsw-Moodle2.0/src/main/resources&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.4586207&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\raffa\IdeaProjects\Tsw-Moodle2.0\src\main\resources" />
@@ -282,6 +289,7 @@
       <workItem from="1719399551801" duration="16452000" />
       <workItem from="1719444707734" duration="2969000" />
       <workItem from="1719485652748" duration="21018000" />
+      <workItem from="1719580823127" duration="2387000" />
     </task>
     <task id="LOCAL-00001" summary="Added registration form&#10;Added image picker servlet&#10;Added css and some fix">
       <option name="closed" value="true" />
@@ -523,7 +531,15 @@
       <option name="project" value="LOCAL" />
       <updated>1719526250486</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="non mi ricordo">
+      <option name="closed" value="true" />
+      <created>1719580874332</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1719580874332</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -541,7 +557,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Load query from XMl, and fixed DBManager and DAO element" />
     <MESSAGE value="slider.js finished and fixed" />
     <MESSAGE value="deleted slider.js file, and added sliderClass.js" />
     <MESSAGE value="Add categories to home, fix some bug" />
@@ -566,6 +581,7 @@
     <MESSAGE value="account.jsp in progress" />
     <MESSAGE value="account.jsp: left delete account" />
     <MESSAGE value="account.jsp: implemented change profile pic &#10;modified FileServlet.java file pick. Upload folder now is outside webapp, in CATALINA.HOME Folder" />
-    <option name="LAST_COMMIT_MESSAGE" value="account.jsp: implemented change profile pic &#10;modified FileServlet.java file pick. Upload folder now is outside webapp, in CATALINA.HOME Folder" />
+    <MESSAGE value="non mi ricordo" />
+    <option name="LAST_COMMIT_MESSAGE" value="non mi ricordo" />
   </component>
 </project>

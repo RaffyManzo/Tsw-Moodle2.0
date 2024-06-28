@@ -24,6 +24,7 @@ public class UtenzaDaoImpl extends AbstractDataAccessObject<Utenza> implements U
             ps.setDate(9, utenza.getDataCreazioneAccount());
             ps.setString(10, utenza.getUsername());
             ps.setString(11, utenza.getTipo());
+            ps.setString(12, utenza.getImg());
             ps.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -45,23 +46,15 @@ public class UtenzaDaoImpl extends AbstractDataAccessObject<Utenza> implements U
             ps.setDate(9, utenza.getDataCreazioneAccount());
             ps.setString(10, utenza.getUsername());
             ps.setString(11, utenza.getTipo());
-            ps.setInt(12, utenza.getIdUtente());
+            ps.setString(12, utenza.getImg());
+            ps.setInt(13, utenza.getIdUtente());
             ps.executeUpdate();
         } catch (SQLException exception) {
             throw new RuntimeException(exception);
         }
     }
 
-    public void updateImage(int userID, String filePath) {
-        try (Connection connection = getConnection();
-             PreparedStatement ps = prepareStatement(connection, "UPDATE_IMAGE")) {
-            ps.setInt(2, userID);
-            ps.setString(1, filePath);
-            ps.executeUpdate();
-        } catch (SQLException exception) {
-            throw new RuntimeException(exception);
-        }
-    }
+
 
     @Override
     public void delete(int id) {

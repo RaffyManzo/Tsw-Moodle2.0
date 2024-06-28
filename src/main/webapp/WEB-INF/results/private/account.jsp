@@ -226,12 +226,19 @@
     <div class="section not-resize">
         <div class="fields-set-column fields-set-column-all-row">
             <form method="post" action="${pageContext.request.contextPath}/account" class="field-row-container">
-                <button type="submit" class='delete-account-btn red-btn'>Elimina account</button>
+                <button type="submit" class='delete-account-btn red-btn' onclick="return confirmDeleteAccount()">Elimina account</button>
                 <p class="delete-message">
                     É un’operazione irreversibile, tutti i <br>
                     dati e corsi da te creati verranno<br>
                     eliminati
                 </p>
+                <input style="display: none; width: 0; height: 0" name="d" value="TRUE">
+                <script>
+                function confirmDeleteAccount() {
+                    return confirm("Sei sicuro di voler eliminare l'account?");
+                }
+            </script>
+
             </form>
         </div>
     </div>
