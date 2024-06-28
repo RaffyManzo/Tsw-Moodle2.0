@@ -9,20 +9,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aaf64b38-f287-423c-9dbc-41a4353826d6" name="Changes" comment="Implement AccountOperationFilter.java and delete option in AccountServlet.java">
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/script/registrationMantainField.js" afterDir="false" />
+    <list default="true" id="aaf64b38-f287-423c-9dbc-41a4353826d6" name="Changes" comment="Implements RegistrationServlet">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/AccountServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/AccountServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/RegistrationServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/RegistrationServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/filter/AccountOperationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/filter/AccountOperationFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/dao/AbstractDataAccessObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/dao/AbstractDataAccessObject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/dao/CartDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/dao/CartDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/dao/CorsoDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/dao/CorsoDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/beans/Utenza.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/beans/Utenza.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/dao/UtenzaDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/dao/UtenzaDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/xml/query.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/xml/query.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/public/error.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/public/error.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/registrazione.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/registrazione.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/script/PhoneNumberValidation.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/script/PhoneNumberValidation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/private/test.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/public/test.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -125,10 +117,10 @@
       <recent name="C:\Users\raffa\IdeaProjects\Tsw-Moodle2.0\.mvn\wrapper" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\raffa\IdeaProjects\Tsw-Moodle2.0\src\main\webapp\WEB-INF\results\public" />
       <recent name="C:\Users\raffa\IdeaProjects\Tsw-Moodle2.0\src\main\webapp\assets\images" />
       <recent name="C:\Users\raffa\IdeaProjects\Tsw-Moodle2.0\src\main\resources" />
       <recent name="C:\Users\raffa\IdeaProjects\Tsw-Moodle2.0\src\main\webapp\WEB-INF\results\private" />
-      <recent name="C:\Users\raffa\IdeaProjects\Tsw-Moodle2.0\src\main\webapp\WEB-INF\results\public" />
       <recent name="C:\Users\raffa\IdeaProjects\Tsw-Moodle2.0\upload\images" />
     </key>
   </component>
@@ -295,6 +287,8 @@
       <workItem from="1719444707734" duration="2969000" />
       <workItem from="1719485652748" duration="21018000" />
       <workItem from="1719580823127" duration="11184000" />
+      <workItem from="1719593177469" duration="42000" />
+      <workItem from="1719607901973" duration="4566000" />
     </task>
     <task id="LOCAL-00001" summary="Added registration form&#10;Added image picker servlet&#10;Added css and some fix">
       <option name="closed" value="true" />
@@ -552,7 +546,15 @@
       <option name="project" value="LOCAL" />
       <updated>1719583376640</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="Implements RegistrationServlet">
+      <option name="closed" value="true" />
+      <created>1719593204369</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1719593204369</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -570,7 +572,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="deleted slider.js file, and added sliderClass.js" />
     <MESSAGE value="Add categories to home, fix some bug" />
     <MESSAGE value="fetch api instead JQuery AJAX" />
     <MESSAGE value="Error page, login servelt, fix to db" />
@@ -595,6 +596,7 @@
     <MESSAGE value="account.jsp: implemented change profile pic &#10;modified FileServlet.java file pick. Upload folder now is outside webapp, in CATALINA.HOME Folder" />
     <MESSAGE value="non mi ricordo" />
     <MESSAGE value="Implement AccountOperationFilter.java and delete option in AccountServlet.java" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implement AccountOperationFilter.java and delete option in AccountServlet.java" />
+    <MESSAGE value="Implements RegistrationServlet" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implements RegistrationServlet" />
   </component>
 </project>

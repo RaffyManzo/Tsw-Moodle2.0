@@ -2,7 +2,7 @@ package model.beans;
 
 import org.json.simple.JSONObject;
 
-import java.sql.Date;
+import java.util.Date;
 
 public class Utenza {
     private final int idUtente;
