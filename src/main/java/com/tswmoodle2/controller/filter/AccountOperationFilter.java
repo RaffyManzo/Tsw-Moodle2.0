@@ -31,7 +31,7 @@ public class AccountOperationFilter extends HttpFilter implements Filter {
             List<String> errors = new ArrayList<>();
             errors.add("Non hai i permessi per accedere a questa risorsa");
             httpServletRequest.setAttribute("errors", errors);
-            httpServletResponse.sendRedirect(httpServletRequest.getContextPath() + "/WEB-INF/results/public/error.jsp");
+            httpServletRequest.getRequestDispatcher("/WEB-INF/results/public/error.jsp").forward(request, response);
             return; // Stop further processing
         }
 

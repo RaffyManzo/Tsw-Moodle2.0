@@ -18,7 +18,7 @@ public class CorsoDaoImpl extends AbstractDataAccessObject<Corso> implements Cor
     }
 
     @Override
-    public void insertInto(Corso corso)  {
+    public boolean insertInto(Corso corso)  {
         try (Connection connection = getConnection();
              PreparedStatement ps = prepareStatement(connection, "INSERT_CORSO")) {
             ps.setString(1, corso.getNomeCategoria());
@@ -33,6 +33,7 @@ public class CorsoDaoImpl extends AbstractDataAccessObject<Corso> implements Cor
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+        return false;
     }
 
     @Override

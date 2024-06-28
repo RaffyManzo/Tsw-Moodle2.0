@@ -16,7 +16,7 @@
 
 
     <!-- Utenza -->
-    <entry key="INSERT_UTENZA">INSERT INTO Utenza (Nome, Cognome, DataNascita, Indirizzo, Citta, Telefono, Email, Password, DataCreazioneAccount, Username, Tipo, Immagine) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)</entry>
+    <entry key="INSERT_UTENZA">INSERT INTO Utenza (Nome, Cognome, DataNascita, Indirizzo, Citta, Telefono, Email, Password, DataCreazioneAccount, Username, Tipo, Immagine) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING IDUtente</entry>
     <entry key="UPDATE_UTENZA">UPDATE Utenza SET Nome = ?, Cognome = ?, DataNascita = ?, Indirizzo = ?, Citta = ?, Telefono = ?, Email = ?, Password = ?, DataCreazioneAccount = ?, Username = ?, Tipo = ?, Immagine = ? WHERE IDUtente = ?</entry>
 
     <entry key="DELETE_UTENZA">DELETE FROM Utenza WHERE IDUtente = ?</entry>

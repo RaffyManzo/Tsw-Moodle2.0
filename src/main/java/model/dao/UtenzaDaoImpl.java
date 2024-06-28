@@ -10,25 +10,30 @@ public class UtenzaDaoImpl extends AbstractDataAccessObject<Utenza> implements U
     ArrayList<Utenza> users = new ArrayList<>();
 
     @Override
-    public void insertInto(Utenza utenza) {
+    public boolean insertInto(Utenza utenza) {
+        boolean success = false;
         try (Connection connection = getConnection();
-             PreparedStatement ps = prepareStatement(connection, "INSERT_UTENZA")) {
+             PreparedStatement ps = prepareStatement(connection, "INSERT INTO Utenza (Nome, Cognome, DataNascita, Indirizzo, Citta, Telefono, Email, Password, DataCreazioneAccount, Username, Tipo, Immagine) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING IDUtente")) {
             ps.setString(1, utenza.getNome());
             ps.setString(2, utenza.getCognome());
-            ps.setDate(3, utenza.getDataNascita());
+            ps.setDate(3, new java.sql.Date(utenza.getDataNascita().getTime()));
             ps.setString(4, utenza.getIndirizzo());
             ps.setString(5, utenza.getCitta());
             ps.setString(6, utenza.getTelefono());
             ps.setString(7, utenza.getEmail());
             ps.setString(8, utenza.getPassword());
-            ps.setDate(9, utenza.getDataCreazioneAccount());
+            ps.setDate(9, new java.sql.Date(utenza.getDataCreazioneAccount().getTime()));
             ps.setString(10, utenza.getUsername());
             ps.setString(11, utenza.getTipo());
             ps.setString(12, utenza.getImg());
-            ps.executeUpdate();
+
+            int rowsAffected = ps.executeUpdate();
+            success = rowsAffected > 0; // Se l'operazione ha avuto successo, rowsAffected sarà maggiore di 0
+
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+        return success;
     }
 
     @Override

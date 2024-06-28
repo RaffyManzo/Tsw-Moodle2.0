@@ -36,8 +36,9 @@ public class CartDaoImpl extends AbstractDataAccessObject<Carrello> implements C
     }
 
     @Override
-    protected void insertInto(Carrello carrello) throws SQLException {
+    protected boolean insertInto(Carrello carrello) throws SQLException {
 
+        return false;
     }
 
     public Carrello getCartByUserID(int userID) {

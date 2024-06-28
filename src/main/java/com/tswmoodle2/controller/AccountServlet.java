@@ -15,7 +15,6 @@ import model.dao.UtenzaDaoImpl;
 
 @WebServlet("/account")
 public class AccountServlet extends HttpServlet {
-    private static final long serialVersionUID = 1L;
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.getRequestDispatcher("/WEB-INF/results/private/account.jsp").forward(request, response);
@@ -48,7 +47,7 @@ public class AccountServlet extends HttpServlet {
             List<String> errors = new ArrayList<>();
             errors.add("Non hai i permessi per accedere a questa risorsa");
             request.setAttribute("errors", errors);
-            response.sendRedirect(request.getContextPath() + "/error.jsp");
+            request.getRequestDispatcher("/WEB-INF/results/public/error.jsp").forward(request, response);
         }
     }
 
@@ -64,13 +63,13 @@ public class AccountServlet extends HttpServlet {
                 List<String> errors = new ArrayList<>();
                 errors.add("Non hai i permessi per accedere a questa risorsa");
                 request.setAttribute("errors", errors);
-                response.sendRedirect(request.getContextPath() + "/error.jsp");
+                request.getRequestDispatcher("/WEB-INF/results/public/error.jsp").forward(request, response);
             }
         } else {
             List<String> errors = new ArrayList<>();
             errors.add("Non hai i permessi per accedere a questa risorsa");
             request.setAttribute("errors", errors);
-            response.sendRedirect(request.getContextPath() + "/error.jsp");
+            request.getRequestDispatcher("/WEB-INF/results/public/error.jsp").forward(request, response);
         }
     }
 }
