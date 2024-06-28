@@ -71,7 +71,7 @@ public class UploadImageServlet extends HttpServlet {
             }
             Files.copy(input, file.toPath());
         } catch (FileAlreadyExistsException ex) {
-            throw new RuntimeException(ex);
+            throw new RuntimeException(ex);q
         }
 
 

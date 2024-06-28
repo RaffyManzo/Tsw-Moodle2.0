@@ -9,31 +9,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aaf64b38-f287-423c-9dbc-41a4353826d6" name="Changes" comment="account.jsp: left delete account">
-      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/webContexts.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/UploadImageServlet.java" afterDir="false" />
+    <list default="true" id="aaf64b38-f287-423c-9dbc-41a4353826d6" name="Changes" comment="account.jsp: implemented change profile pic &#10;modified FileServlet.java file pick. Upload folder now is outside webapp, in CATALINA.HOME Folder">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/FileServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/FileServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/dao/UtenzaDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/dao/UtenzaDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/upload/app/flame 1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/upload/app/leftarr.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/upload/app/rightarr.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/upload/app/star.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/upload/course/1/python.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/upload/course/2/r.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/upload/course/3/design.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/upload/course/4/marketing.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/upload/course/5/inglese.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/upload/course/default.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/upload/user/4/img.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/upload/user/test/file.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/upload/user/test/img.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/xml/query.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/xml/query.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/private/account.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/private/account.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/account.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/account.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/checkout.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/checkout.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -304,7 +281,7 @@
       <workItem from="1719394809422" duration="3290000" />
       <workItem from="1719399551801" duration="16452000" />
       <workItem from="1719444707734" duration="2969000" />
-      <workItem from="1719485652748" duration="19776000" />
+      <workItem from="1719485652748" duration="21018000" />
     </task>
     <task id="LOCAL-00001" summary="Added registration form&#10;Added image picker servlet&#10;Added css and some fix">
       <option name="closed" value="true" />
@@ -538,7 +515,15 @@
       <option name="project" value="LOCAL" />
       <updated>1719510089939</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="account.jsp: implemented change profile pic &#10;modified FileServlet.java file pick. Upload folder now is outside webapp, in CATALINA.HOME Folder">
+      <option name="closed" value="true" />
+      <created>1719526250486</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1719526250486</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -556,7 +541,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="01-06" />
     <MESSAGE value="Load query from XMl, and fixed DBManager and DAO element" />
     <MESSAGE value="slider.js finished and fixed" />
     <MESSAGE value="deleted slider.js file, and added sliderClass.js" />
@@ -581,6 +565,7 @@
     <MESSAGE value="Add an image in resources&#10;Start with category.jsp&#10;Fix conflict with session cart and db cart&#10;Start with account.jsp" />
     <MESSAGE value="account.jsp in progress" />
     <MESSAGE value="account.jsp: left delete account" />
-    <option name="LAST_COMMIT_MESSAGE" value="account.jsp: left delete account" />
+    <MESSAGE value="account.jsp: implemented change profile pic &#10;modified FileServlet.java file pick. Upload folder now is outside webapp, in CATALINA.HOME Folder" />
+    <option name="LAST_COMMIT_MESSAGE" value="account.jsp: implemented change profile pic &#10;modified FileServlet.java file pick. Upload folder now is outside webapp, in CATALINA.HOME Folder" />
   </component>
 </project>
