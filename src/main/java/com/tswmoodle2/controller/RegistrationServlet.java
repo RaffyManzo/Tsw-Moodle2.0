@@ -88,7 +88,14 @@ public class RegistrationServlet extends HttpServlet {
             boolean success = utenzaDao.insertInto(utenza);
 
             if (success) {
-                response.sendRedirect("login.html");
+                request.setAttribute("operation", "registrazione");
+                request.setAttribute("message-header", "Benvenuto " + name);
+                List<String> msgs = new ArrayList<>();
+                msgs.add("Il tuo account é stato creato in modo corretto");
+                msgs.add("Per accedere all'area riservata effettua il login");
+                request.setAttribute("messages", msgs);
+
+                request.getRequestDispatcher("/WEB-INF/results/public/success.jsp").forward(request, response);
             } else {
                 error(request, response, "La registrazione <strong>NON</strong> andata a buon fine");
 

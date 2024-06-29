@@ -58,7 +58,14 @@ public class AccountServlet extends HttpServlet {
             if (user != null) {
                 new UtenzaDaoImpl().delete(user.getIdUtente());
                 session.invalidate();
-                response.sendRedirect(request.getContextPath() + "/login.html");
+                request.setAttribute("operation", "cancellazione account");
+                request.setAttribute("message-header", "Addio " + user.getNome());
+                List<String> msgs = new ArrayList<>();
+                msgs.add("Il tuo account é stato eliminato in modo corretto");
+                msgs.add("I tuoi dati sono stati eliminati");
+                request.setAttribute("messages", msgs);
+
+                request.getRequestDispatcher("/WEB-INF/results/public/success.jsp").forward(request, response);
             } else {
                 List<String> errors = new ArrayList<>();
                 errors.add("Non hai i permessi per accedere a questa risorsa");

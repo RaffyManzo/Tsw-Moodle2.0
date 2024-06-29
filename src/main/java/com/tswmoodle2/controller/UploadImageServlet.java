@@ -50,7 +50,20 @@ public class UploadImageServlet extends HttpServlet {
         // Create the directory if it does not exist
         File uploadDir = new File(uploadPath);
         if (!uploadDir.exists()) {
-            uploadDir.mkdirs();
+            try {
+                boolean isCreated = uploadDir.mkdirs();
+                if (isCreated) {
+                    LOGGER.log(Level.INFO, "Directory created successfully.");
+                } else {
+                    LOGGER.log(Level.INFO, "Failed to create directory.");
+                }
+            } catch (SecurityException se) {
+                LOGGER.log(Level.INFO, "Permission denied: " + se.getMessage());
+            } catch (Exception e) {
+                LOGGER.log(Level.INFO, "An error occurred: " + e.getMessage());
+            }
+        } else {
+            LOGGER.log(Level.INFO, "Directory already exists.");
         }
 
         // Save the file
