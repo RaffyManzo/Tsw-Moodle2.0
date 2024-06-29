@@ -1,0 +1,44 @@
+.search-bar-container {
+    overflow: hidden;
+    background-color: #e9e9e9;
+    display: flex;
+    align-items: center;
+    position: relative;
+    height: 10%;
+    box-shadow: 15px 15px 15px #a6a6a6;
+    padding: 0 1em; /* Padding su entrambi i lati per evitare che l'immagine tocchi i bordi */
+    margin-bottom: 0;
+}
+
+#search-bar {
+    flex: 1; /* Permette alla barra di ricerca di occupare tutto lo spazio disponibile */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 50px;
+    font-size: 16px;
+}
+
+#search-button {
+    display: flex; /* Usa flexbox per centrare l'immagine */
+    align-items: center; /* Centra l'immagine verticalmente */
+    justify-content: center; /* Centra l'immagine orizzontalmente */
+    height: 50px; /* Altezza del bottone */
+    width: 50px; /* Larghezza del bottone */
+    border-radius: 25px; /* Rende il bottone rotondo */
+    border: none; /* Rimuove il bordo di default */
+    background-color: #92A0FF; /* Colore di sfondo del bottone */
+    cursor: pointer; /* Cambia il cursore quando si passa sopra il bottone */
+    margin-right: 10px; /* Margine per separare il bottone dal campo di input */
+    box-shadow: 5px 5px 5px #a6a6a6;
+}
+
+#search-button img {
+    display: flex; /* Usa flexbox per centrare l'immagine */
+    align-items: center; /* Centra l'immagine verticalmente */
+    justify-content: center; /* Centra l'immagine orizzontalmente */
+    height: 30px; /* Altezza del bottone */
+    width: 30px; /* Larghezza del bottone */
+    border: none; /* Rimuove il bordo di default */
+    cursor: pointer; /* Cambia il cursore quando si passa sopra il bottone */
+    margin-right: 5px; /* Margine per separare il bottone dal campo di input */
+}
