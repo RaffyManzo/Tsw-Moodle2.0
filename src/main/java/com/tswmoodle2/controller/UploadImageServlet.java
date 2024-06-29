@@ -1,10 +1,11 @@
 package com.tswmoodle2.controller;
 
-
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.nio.file.FileAlreadyExistsException;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -18,71 +19,85 @@ import jakarta.servlet.http.Part;
 import model.beans.Utenza;
 import model.dao.UtenzaDaoImpl;
 
-@WebServlet(name = "UploadImageServlet" ,urlPatterns = "/uploadImage")
+@WebServlet(name = "UploadImageServlet", urlPatterns = "/uploadImage")
 @MultipartConfig
 public class UploadImageServlet extends HttpServlet {
 
-    private static final String UPLOAD_DIR = "user";
     private static final String SEPARATOR = "/";
     private String UPLOAD_FOLDER;
     private static final Logger LOGGER = Logger.getLogger(UploadImageServlet.class.getName());
 
+    @Override
     public void init() {
-        UPLOAD_FOLDER = getServletContext().getInitParameter("upload-path");;
+        UPLOAD_FOLDER = getServletContext().getInitParameter("upload-path");
+        LOGGER.log(Level.INFO, "Upload folder set to: " + UPLOAD_FOLDER);
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        // Get the user ID from session
-        Utenza user = (Utenza) request.getSession().getAttribute("user"); // or get it from session
+        Utenza user = (Utenza) request.getSession().getAttribute("user");
+        if (user == null) {
+            LOGGER.log(Level.SEVERE, "User session not found.");
+            response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "User not logged in.");
+            return;
+        }
 
-        // Get the uploaded file part
         Part filePart = request.getPart("profilePicture");
+        if (filePart == null) {
+            LOGGER.log(Level.SEVERE, "No file uploaded or file part name mismatch.");
+            response.sendError(HttpServletResponse.SC_BAD_REQUEST, "No file uploaded.");
+            return;
+        }
+
         String fileName = getFileName(filePart);
+        if (fileName == null || fileName.isEmpty()) {
+            LOGGER.log(Level.SEVERE, "File name could not be determined.");
+            response.sendError(HttpServletResponse.SC_BAD_REQUEST, "File name could not be determined.");
+            return;
+        }
 
-        // Create path components to save the file
-        String uploadPath = UPLOAD_FOLDER + SEPARATOR +  UPLOAD_DIR + SEPARATOR + user.getIdUtente();
+        String uploadPath = UPLOAD_FOLDER + SEPARATOR + "user" + SEPARATOR + user.getIdUtente();
+        LOGGER.log(Level.INFO, "Path for upload: {0}", uploadPath);
 
-        LOGGER.log(Level.INFO, "Path che cerco e se non esiste creo: {0}", uploadPath);
-
-        // Create the directory if it does not exist
         File uploadDir = new File(uploadPath);
         if (!uploadDir.exists()) {
-            uploadDir.mkdirs();
-        }
-
-        // Save the file
-        String filePath = uploadPath + SEPARATOR + fileName;
-
-        LOGGER.log(Level.INFO, "File che sto cercando: {0}", filePath);
-
-        File file = new File(filePath);
-        try (var input = filePart.getInputStream()) {
-            File fileToDelete = new File(UPLOAD_FOLDER + SEPARATOR +  UPLOAD_DIR + SEPARATOR + user.getIdUtente() +SEPARATOR+user.getImg());
-            if(fileToDelete.exists()){
-                boolean deleteResult = fileToDelete.delete();
-                if (!deleteResult) {
-                    LOGGER.log(Level.WARNING, "Non è stato possibile cancellare il file: {0}", fileToDelete.getAbsolutePath());
+            try {
+                Path createdPath = Files.createDirectories(uploadDir.toPath());
+                LOGGER.log(Level.INFO, "Directory created or already exists at: {0}", createdPath.toString());
+                // Verifica esistenza directory
+                if (Files.exists(createdPath)) {
+                    LOGGER.log(Level.INFO, "Confirmed: Directory exists at: {0}", createdPath.toString());
+                } else {
+                    LOGGER.log(Level.SEVERE, "Directory creation failed: {0}", createdPath.toString());
+                    response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Failed to create upload directory.");
+                    return;
                 }
-            } else {
-                LOGGER.log(Level.WARNING, "Il file da cancellare non esiste: {0}", fileToDelete.getAbsolutePath());
+            } catch (IOException e) {
+                LOGGER.log(Level.SEVERE, "Failed to create directory: " + e.getMessage(), e);
+                response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Failed to create upload directory.");
+                return;
             }
-            Files.copy(input, file.toPath());
-        } catch (FileAlreadyExistsException ex) {
-            throw new RuntimeException(ex);
         }
 
+        String filePath = uploadPath + SEPARATOR + fileName;
+        LOGGER.log(Level.INFO, "File path: {0}", filePath);
 
+        try (InputStream input = filePart.getInputStream()) {
+
+            Files.copy(input, Path.of(filePath));
+        } catch (IOException ex) {
+            LOGGER.log(Level.SEVERE, "Failed to save uploaded file: " + ex.getMessage(), ex);
+            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Failed to save uploaded file.");
+            return;
+        }
 
         user.setImage(fileName);
         new UtenzaDaoImpl().update(user);
-        //new UtenzaDaoImpl().updateImage(user.getIdUtente(), fileName);
         request.getSession().setAttribute("user", user);
 
-        // Redirect to success page or send a success response
-        response.sendRedirect("account"); // or respond with a success message
+        response.sendRedirect("account");
     }
 
     private String getFileName(Part part) {
@@ -93,5 +108,4 @@ public class UploadImageServlet extends HttpServlet {
         }
         return null;
     }
-
 }

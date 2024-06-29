@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.sql.Date;
+import java.util.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -52,52 +52,74 @@ public class RegistrationServlet extends HttpServlet {
             return;
         }
 
-        Calendar today = Calendar.getInstance();
-        today.set(Calendar.HOUR_OF_DAY, 0);
+        try {
+            // Ottieni la data corrente formattata come "dd/MM/yyyy"
+            // Ottieni la data corrente formattata come "dd/MM/yyyy"
+            Calendar today = Calendar.getInstance();
+            today.set(Calendar.HOUR_OF_DAY, 0);
+            today.set(Calendar.MINUTE, 0);
+            today.set(Calendar.SECOND, 0);
+            today.set(Calendar.MILLISECOND, 0);
+            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+            String todayStr = sdf.format(today.getTime());
 
+            // Converti le date usando il formato corretto
+            String birthDateFormatted = reformatDate(birthDate, "yyyy-MM-dd", "dd/MM/yyyy");
 
-        final String OLD_FORMAT = "dd/MM/yyyy";
+            // Stampa le date formattate
+            System.out.println(birthDateFormatted);
+            System.out.println(todayStr);
+
+            // Converte le stringhe di data in oggetti Date
+            Date birthDateObj = convertStringToDate(birthDateFormatted, "dd/MM/yyyy");
+            Date todayObj = convertStringToDate(todayStr, "dd/MM/yyyy");
+
 
 
 
         // Create Utenza object and insert it into the database
-        Utenza utenza = new Utenza(
-                0, name, surname, reformatAndConvertDate(birthDate),
-                address, nation, countryCode + " " +phoneNumber, email, toHash(password),
-                reformatAndConvertDate(today.getTime().toString()), username, accountType, ""
-        );
-        UtenzaDaoImpl utenzaDao = new UtenzaDaoImpl();
-        boolean success = utenzaDao.insertInto(utenza);
+            Utenza utenza = new Utenza(
+                    0, name, surname, birthDateObj,
+                    address, nation, countryCode + " " + phoneNumber, email, toHash(password),
+                    todayObj, username, accountType, ""
+            );
 
-        if (success) {
-            response.sendRedirect("login.html");
-        } else {
-            error(request, response, "La registrazione <strong>NON</strong> andata a buon fine");
+            UtenzaDaoImpl utenzaDao = new UtenzaDaoImpl();
+            boolean success = utenzaDao.insertInto(utenza);
 
-        }
-    }
+            if (success) {
+                request.setAttribute("operation", "registrazione");
+                request.setAttribute("message-header", "Benvenuto " + name);
+                List<String> msgs = new ArrayList<>();
+                msgs.add("Il tuo account é stato creato in modo corretto");
+                msgs.add("Per accedere all'area riservata effettua il login");
+                request.setAttribute("messages", msgs);
 
-    private Date reformatAndConvertDate(String date) {
-        final String NEW_FORMAT = "yyyy/MM/dd";
-        final String OLD_FORMAT = "dd/MM/yyyy";
+                request.getRequestDispatcher("/WEB-INF/results/public/success.jsp").forward(request, response);
+            } else {
+                error(request, response, "La registrazione <strong>NON</strong> andata a buon fine");
 
-        date = date.replace('-', '/');
-
-        // Adjusted to match the format of the input date string
-        SimpleDateFormat sdf = new SimpleDateFormat(OLD_FORMAT);
-        Date d = null;
-
-        try {
-            d = (Date) sdf.parse(date);
+            }
         } catch (ParseException e) {
             throw new RuntimeException(e);
         }
-        sdf.applyPattern(NEW_FORMAT);
 
-        String newConvertedDateString = sdf.format(d);
+    }
 
+    public static Date convertStringToDate(String dateStr, String formatStr) throws ParseException {
+        SimpleDateFormat format = new SimpleDateFormat(formatStr);
+        return format.parse(dateStr);
+    }
 
-        return Date.valueOf(newConvertedDateString);
+    public static String reformatDate(String date, String inputFormatStr, String outputFormatStr) throws ParseException {
+        SimpleDateFormat inputFormat = new SimpleDateFormat(inputFormatStr);
+        SimpleDateFormat outputFormat = new SimpleDateFormat(outputFormatStr);
+
+        // Parsing della stringa di input nel formato di ingresso
+        Date parsedDate = inputFormat.parse(date);
+
+        // Formattazione della data nel formato di uscita e ritorno della data riformattata e convertita
+        return outputFormat.format(parsedDate);
     }
 
 

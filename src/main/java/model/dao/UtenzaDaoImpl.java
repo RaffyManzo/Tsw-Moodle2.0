@@ -13,16 +13,18 @@ public class UtenzaDaoImpl extends AbstractDataAccessObject<Utenza> implements U
     public boolean insertInto(Utenza utenza) {
         boolean success = false;
         try (Connection connection = getConnection();
-             PreparedStatement ps = prepareStatement(connection, "INSERT INTO Utenza (Nome, Cognome, DataNascita, Indirizzo, Citta, Telefono, Email, Password, DataCreazioneAccount, Username, Tipo, Immagine) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING IDUtente")) {
+             PreparedStatement ps = prepareStatement(connection, "INSERT_UTENZA")) {
             ps.setString(1, utenza.getNome());
             ps.setString(2, utenza.getCognome());
-            ps.setDate(3, new java.sql.Date(utenza.getDataNascita().getTime()));
+            ps.setDate(3,
+                    new java.sql.Date(utenza.getDataNascita().getTime()));
             ps.setString(4, utenza.getIndirizzo());
             ps.setString(5, utenza.getCitta());
             ps.setString(6, utenza.getTelefono());
             ps.setString(7, utenza.getEmail());
             ps.setString(8, utenza.getPassword());
-            ps.setDate(9, new java.sql.Date(utenza.getDataCreazioneAccount().getTime()));
+            ps.setDate(9,
+                    new java.sql.Date(utenza.getDataCreazioneAccount().getTime()));
             ps.setString(10, utenza.getUsername());
             ps.setString(11, utenza.getTipo());
             ps.setString(12, utenza.getImg());
@@ -42,13 +44,16 @@ public class UtenzaDaoImpl extends AbstractDataAccessObject<Utenza> implements U
              PreparedStatement ps = prepareStatement(connection, "UPDATE_UTENZA")) {
             ps.setString(1, utenza.getNome());
             ps.setString(2, utenza.getCognome());
-            ps.setDate(3, utenza.getDataNascita());
+            ps.setDate(3,
+                    new java.sql.Date(utenza.getDataNascita().getTime()));
             ps.setString(4, utenza.getIndirizzo());
             ps.setString(5, utenza.getCitta());
             ps.setString(6, utenza.getTelefono());
             ps.setString(7, utenza.getEmail());
             ps.setString(8, utenza.getPassword());
-            ps.setDate(9, utenza.getDataCreazioneAccount());
+            ps.setDate(9,
+                    new java.sql.Date(utenza.getDataCreazioneAccount().getTime()));
+
             ps.setString(10, utenza.getUsername());
             ps.setString(11, utenza.getTipo());
             ps.setString(12, utenza.getImg());
