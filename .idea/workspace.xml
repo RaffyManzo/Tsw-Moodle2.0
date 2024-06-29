@@ -9,10 +9,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aaf64b38-f287-423c-9dbc-41a4353826d6" name="Changes" comment="account.jsp in progress">
+    <list default="true" id="aaf64b38-f287-423c-9dbc-41a4353826d6" name="Changes" comment="Implement AccountOperationFilter.java and delete option in AccountServlet.java">
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/script/registrationMantainField.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/private/account.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/private/account.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/account.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/account.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/AccountServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/AccountServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/RegistrationServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/RegistrationServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/filter/AccountOperationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/filter/AccountOperationFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/dao/AbstractDataAccessObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/dao/AbstractDataAccessObject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/dao/CartDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/dao/CartDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/dao/CorsoDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/dao/CorsoDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/dao/UtenzaDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/dao/UtenzaDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/xml/query.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/xml/query.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/public/error.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/public/error.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/registrazione.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/registrazione.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/script/PhoneNumberValidation.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/script/PhoneNumberValidation.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,10 +34,10 @@
       <list>
         <option value="HTML File" />
         <option value="SCSS File" />
-        <option value="JavaScript File" />
         <option value="Jsp File" />
-        <option value="Class" />
         <option value="CSS File" />
+        <option value="JavaScript File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -89,6 +99,7 @@
     &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/raffa/IdeaProjects/Tsw-Moodle2.0/src/main/resources&quot;,
@@ -235,6 +246,10 @@
         </option>
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Application.QueryPool" />
+      <item itemvalue="Tomcat Server.Tomcat 10.1.19" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.QueryPool" />
@@ -278,7 +293,8 @@
       <workItem from="1719394809422" duration="3290000" />
       <workItem from="1719399551801" duration="16452000" />
       <workItem from="1719444707734" duration="2969000" />
-      <workItem from="1719485652748" duration="11967000" />
+      <workItem from="1719485652748" duration="21018000" />
+      <workItem from="1719580823127" duration="11184000" />
     </task>
     <task id="LOCAL-00001" summary="Added registration form&#10;Added image picker servlet&#10;Added css and some fix">
       <option name="closed" value="true" />
@@ -504,7 +520,39 @@
       <option name="project" value="LOCAL" />
       <updated>1719507848588</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="account.jsp: left delete account">
+      <option name="closed" value="true" />
+      <created>1719510089939</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1719510089939</updated>
+    </task>
+    <task id="LOCAL-00030" summary="account.jsp: implemented change profile pic &#10;modified FileServlet.java file pick. Upload folder now is outside webapp, in CATALINA.HOME Folder">
+      <option name="closed" value="true" />
+      <created>1719526250486</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1719526250486</updated>
+    </task>
+    <task id="LOCAL-00031" summary="non mi ricordo">
+      <option name="closed" value="true" />
+      <created>1719580874332</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1719580874332</updated>
+    </task>
+    <task id="LOCAL-00032" summary="Implement AccountOperationFilter.java and delete option in AccountServlet.java">
+      <option name="closed" value="true" />
+      <created>1719583376640</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1719583376640</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -522,10 +570,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Start HomeServlet.java" />
-    <MESSAGE value="01-06" />
-    <MESSAGE value="Load query from XMl, and fixed DBManager and DAO element" />
-    <MESSAGE value="slider.js finished and fixed" />
     <MESSAGE value="deleted slider.js file, and added sliderClass.js" />
     <MESSAGE value="Add categories to home, fix some bug" />
     <MESSAGE value="fetch api instead JQuery AJAX" />
@@ -547,6 +591,10 @@
     <MESSAGE value="Responsive course.css" />
     <MESSAGE value="Add an image in resources&#10;Start with category.jsp&#10;Fix conflict with session cart and db cart&#10;Start with account.jsp" />
     <MESSAGE value="account.jsp in progress" />
-    <option name="LAST_COMMIT_MESSAGE" value="account.jsp in progress" />
+    <MESSAGE value="account.jsp: left delete account" />
+    <MESSAGE value="account.jsp: implemented change profile pic &#10;modified FileServlet.java file pick. Upload folder now is outside webapp, in CATALINA.HOME Folder" />
+    <MESSAGE value="non mi ricordo" />
+    <MESSAGE value="Implement AccountOperationFilter.java and delete option in AccountServlet.java" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implement AccountOperationFilter.java and delete option in AccountServlet.java" />
   </component>
 </project>

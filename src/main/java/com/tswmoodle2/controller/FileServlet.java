@@ -17,8 +17,7 @@ public class FileServlet extends HttpServlet {
     private String UPLOAD_FOLDER;
 
     public void init() {
-        UPLOAD_FOLDER = //getServletContext().getInitParameter("upload-path");
-         "upload";
+        UPLOAD_FOLDER = getServletContext().getInitParameter("upload-path");;
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -38,25 +37,14 @@ public class FileServlet extends HttpServlet {
          * Prende un percorso a un file come argomento e restituisce un InputStream per leggere il file.
          * Il file deve essere nel percorso del contesto dell’applicazione web
          * */
-        //File f = userID == null ?
-                    //new File(UPLOAD_FOLDER + "/" + contest + "/" + fileName) :
-                    //new File(UPLOAD_FOLDER + "/" + contest + "/" + userID + "/" + fileName);
-        //String contentType = Files.probeContentType(f.toPath());
-
-        String path = userID == null ?
-                UPLOAD_FOLDER + "/" + contest + "/" + fileName :
-                UPLOAD_FOLDER + "/" + contest + "/" + userID + "/" + fileName;
-        InputStream inputStream = QueryPool.class.getClassLoader().getResourceAsStream(path);
-
-        String contentType = getContentType(inputStream);
+        File f = userID == null ?
+                    new File(UPLOAD_FOLDER + "/" + contest + "/" + fileName) :
+                    new File(UPLOAD_FOLDER + "/" + contest + "/" + userID + "/" + fileName);
+        String contentType = Files.probeContentType(f.toPath());
 
 
-        if (inputStream == null) {
-            System.out.println("File not found in classpath: " + path);
-            throw new IllegalArgumentException(path + " is not found");
-        }
         
-        //InputStream file = f.toURI().toURL().openStream();
+        InputStream file = f.toURI().toURL().openStream();
         OutputStream os = response.getOutputStream();
 
         response.setContentType(contentType);
@@ -64,7 +52,7 @@ public class FileServlet extends HttpServlet {
         byte[] buffer = new byte[1024];
         int bytesRead;
 
-        while ((bytesRead = inputStream.read(buffer)) != -1) {
+        while ((bytesRead = file.read(buffer)) != -1) {
 
             os.write(buffer, 0, bytesRead);
         }
