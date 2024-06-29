@@ -42,6 +42,7 @@
     <link href="${pageContext.request.contextPath}/css/slider.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/css/home.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/css/footer.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/css/search.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com" rel="preconnect">
     <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
     <link href="https://fonts.googleapis.com/css2?family=Jura:wght@300..700&display=swap" rel="stylesheet">
@@ -52,6 +53,7 @@
     <script src="${pageContext.request.contextPath}/script/bannerSize.js"></script>
     <script src="${pageContext.request.contextPath}/script/someDisplayFix.js" defer></script>
     <script src="${pageContext.request.contextPath}/script/profilepic.js"></script>
+    <script src="${pageContext.request.contextPath}/script/search.js"></script>
 
     <script>
         $(document).ready(function () {
@@ -72,6 +74,7 @@
         <h1 class="site-name" id="header-site-name">
             Learn Hub
         </h1>
+
     </div>
     <!-- We add the checkbox -->
     <input type="checkbox" id="hamburger-input" class="burger-shower"/>
@@ -174,11 +177,22 @@
             </div>
             <%}%>
     </div>
+
 </div>
-<div class="banner">
+
+    <div class="search-bar-container">
+        <input type="text" id="search-bar" placeholder="Cerca corsi...">
+        <div id="search-results"></div>
+        <button id="search-button">
+            <img id="search-image" src="${pageContext.request.contextPath}/assets/images/lens.png" alt="Cerca">
+        </button>
+    </div>
+
+    <div class="banner">
     <div class="banner-rect-slider" id="banner-rect-slider">
         <div class="banner-rect-slider-overlay"></div>
         <div id="banner-rect-slider-content"></div>
+    </div>
     </div>
 </div>
 <div class="container">
