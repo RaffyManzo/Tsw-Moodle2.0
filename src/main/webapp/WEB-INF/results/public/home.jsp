@@ -182,7 +182,9 @@
 
     <div class="search-bar-container">
         <input type="text" id="search-bar" placeholder="Cerca corsi...">
-        <div id="search-results"></div>
+        <div id="dropdown" class="dropdown-content">
+            <ul></ul>
+        </div>
         <button id="search-button">
             <img id="search-image" src="${pageContext.request.contextPath}/assets/images/lens.png" alt="Cerca">
         </button>

@@ -42,3 +42,41 @@
     cursor: pointer; /* Cambia il cursore quando si passa sopra il bottone */
     margin-right: 5px; /* Margine per separare il bottone dal campo di input */
 }
+
+#dropdown {
+    position: absolute;
+    background-color: #fff;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    z-index: 1;
+    width: calc(100% - 2em); /* Same width as the search bar container minus padding */
+    display: none;
+    max-height: 200px;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-top: 5px;
+}
+.dropdown-content {
+    display: none;
+    flex-direction: column;
+    border: 1px solid #d4d4d4;
+    border-top: none;
+    z-index: 99;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: #fff;
+    max-height: 200px; /* optional: limit the height */
+}
+
+.dropdown-content ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.dropdown-content li {
+    padding: 10px;
+    cursor: pointer;
+    border-bottom: 1px solid #d4d4d4;
+}
