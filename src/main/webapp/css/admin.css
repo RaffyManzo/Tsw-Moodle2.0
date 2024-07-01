@@ -1,0 +1,67 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    padding: 20px;
+    background-color: #f4f4f4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.admin-header {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: white;
+    font-family: "Jura", serif;
+    font-size: 25px;
+
+    font-weight: 700;
+    font-style: normal;
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+select {
+    padding: 10px;
+    font-size: 18px;
+    margin-right: 10px;
+    width: 200px;
+}
+
+input[type="submit"] {
+    background-color: #92A0FF; /* Colore del pulsante */
+    color: white; /* Colore del testo */
+    border: none; /* Rimuove i bordi predefiniti */
+    border-radius: 12px; /* Bordi arrotondati */
+    padding: 10px 20px; /* Spaziatura interna */
+    font-size: 16px; /* Dimensione del testo */
+    cursor: pointer; /* Cambia il cursore al passaggio del mouse */
+    transition: background-color 0.3s; /* Transizione per il cambio di colore */
+}
+
+input[type="submit"]:hover {
+    background-color: #7582fd;
+}
+
+#table-container {
+    margin-top: 20px;
+    width: 80%;
+}
+
+.button-container {
+    display: flex;
+    gap: 10px; /* Spazio tra i pulsanti */
+    padding-top: 10px;
+}

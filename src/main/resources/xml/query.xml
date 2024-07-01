@@ -18,7 +18,6 @@
     <!-- Utenza -->
     <entry key="INSERT_UTENZA">INSERT INTO Utenza (Nome, Cognome, DataNascita, Indirizzo, Citta, Telefono, Email, Password, DataCreazioneAccount, Username, Tipo, Immagine) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)</entry>
     <entry key="UPDATE_UTENZA">UPDATE Utenza SET Nome = ?, Cognome = ?, DataNascita = ?, Indirizzo = ?, Citta = ?, Telefono = ?, Email = ?, Password = ?, DataCreazioneAccount = ?, Username = ?, Tipo = ?, Immagine = ? WHERE IDUtente = ?</entry>
-
     <entry key="DELETE_UTENZA">DELETE FROM Utenza WHERE IDUtente = ?</entry>
     <entry key="FIND_ALL_UTENZA">SELECT * FROM Utenza</entry>
     <entry key="FIND_UTENZA_BY_ID">SELECT * FROM Utenza WHERE IDUtente = ?</entry>
@@ -30,9 +29,9 @@
     <entry key="FIND_UTENZA_BY_TIPO">SELECT * FROM Utenza WHERE Tipo = ?</entry>
     <entry key="FIND_UTENZA_BY_TELEFONO">SELECT * FROM Utenza WHERE Telefono LIKE ?</entry>
     <entry key="FIND_UTENZA_BY_CITTA">SELECT * FROM Utenza WHERE Citta = ?</entry>
+    <entry key="FIND_UTENZA_BY_TIPO_DATI">SELECT * FROM Utenza WHERE Tipo = ? AND (Nome = ? OR Cognome = ? OR Username = ?)</entry>
 
-
-
+    <!-- Carrello -->
     <entry key="GET_CART_ID_BY_USER">SELECT * FROM carrello where IDUtente = ?</entry>
     <entry key="GET_CART_BY_USER_ID">SELECT * FROM inserimento where IDUtente = ?</entry>
     <entry key="DELETE_FROM_CART">DELETE FROM inserimento WHERE IDCarrello = ? AND IDUtente = ? AND IDCorso = ?</entry>
@@ -41,6 +40,13 @@
     <entry key="UPDATE_CART_ELEMENT">UPDATE inserimento SET Quantita = ? WHERE IDCorso = ? AND IDCarrello = ? AND IDUtente = ?</entry>
     <entry key="INSERT_CART_ELEMENT">INSERT INTO inserimento (IDCorso, IDCarrello, IDUtente, Quantita) VALUES (?, ?, ?, ?)</entry>
     <entry key="INSERT_CART">INSERT INTO carrello (IDUtente) VALUES (?)</entry>
+
+    <!-- Categoria -->
+    <entry key="INSERT_CATEGORIA">INSERT INTO Categoria (Nome) VALUES (?)</entry>
+    <entry key="UPDATE_CATEGORIA">UPDATE Categoria SET Nome = ? WHERE Nome = ?</entry>
+    <entry key="DELETE_CATEGORIA">DELETE FROM Categoria WHERE Nome = ?</entry>
+    <entry key="FIND_ALL_CATEGORIE">SELECT * FROM Categoria</entry>
+    <entry key="SEARCH_CATEGORIA_BY_NOME">SELECT * FROM Categoria WHERE Nome LIKE ?</entry>
 
     <!--  Category page-->
     <entry key="GET_CREATORS_WITH_HIGHER_NUMBER_OF_COURSE">
