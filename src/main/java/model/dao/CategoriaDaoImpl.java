@@ -17,7 +17,7 @@ public class CategoriaDaoImpl extends AbstractDataAccessObject<Categoria> implem
     @Override
     public Categoria findByNome(String nome){
         try (Connection connection = getConnection();
-             PreparedStatement ps = prepareStatement(connection, "FIND_CORSO_BY_ID")) {
+             PreparedStatement ps = prepareStatement(connection, "SEARCH_CATEGORIA_BY_NOME")) {
             ps.setString(1, nome);
             try (ResultSet rs = ps.executeQuery()) {
                 if (rs.next()) {
@@ -33,7 +33,7 @@ public class CategoriaDaoImpl extends AbstractDataAccessObject<Categoria> implem
     @Override
     public ArrayList<Categoria> getAllCategorie(){
         try (Connection connection = getConnection();
-             PreparedStatement ps = prepareStatement(connection, "FIND_ALL_CORSI");
+             PreparedStatement ps = prepareStatement(connection, "FIND_ALL_CATEGORIE");
              ResultSet rs = ps.executeQuery()) {
             categorie.addAll(getResultAsList(rs));
             return categorie;
@@ -51,7 +51,7 @@ public class CategoriaDaoImpl extends AbstractDataAccessObject<Categoria> implem
     @Override
     protected boolean insertInto(Categoria categoria){
         try (Connection connection = getConnection();
-             PreparedStatement ps = prepareStatement(connection, "INSERT_CORSO")) {
+             PreparedStatement ps = prepareStatement(connection, "INSERT_CATEGORIA")) {
             ps.setString(1, categoria.getNome());
             ps.executeUpdate();
         } catch (SQLException e) {
@@ -63,7 +63,7 @@ public class CategoriaDaoImpl extends AbstractDataAccessObject<Categoria> implem
     @Override
     protected void update(Categoria categoria) {
         try (Connection connection = getConnection();
-             PreparedStatement ps = prepareStatement(connection,"UPDATE_CORSO")) {
+             PreparedStatement ps = prepareStatement(connection,"UPDATE_CATEGORIA")) {
             ps.setString(1, categoria.getNome());
            ps.executeUpdate();
         } catch (SQLException exception) {
@@ -78,7 +78,7 @@ public class CategoriaDaoImpl extends AbstractDataAccessObject<Categoria> implem
     
     protected void delete(String nome) {
         try (Connection connection = getConnection();
-             PreparedStatement ps = prepareStatement(connection, "DELETE_CORSO")) {
+             PreparedStatement ps = prepareStatement(connection, "DELETE_CATEGORIA")) {
             ps.setString(1, nome);
             ps.executeUpdate();
         } catch (SQLException e) {

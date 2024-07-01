@@ -46,7 +46,7 @@
     <entry key="UPDATE_CATEGORIA">UPDATE Categoria SET Nome = ? WHERE Nome = ?</entry>
     <entry key="DELETE_CATEGORIA">DELETE FROM Categoria WHERE Nome = ?</entry>
     <entry key="FIND_ALL_CATEGORIE">SELECT * FROM Categoria</entry>
-    <entry key="SEARCH__CATEGORIA_BY_NOME">SELECT * FROM Categoria WHERE Nome LIKE ?</entry>
+    <entry key="SEARCH_CATEGORIA_BY_NOME">SELECT * FROM Categoria WHERE Nome LIKE ?</entry>
 
     <!--  Category page-->
     <entry key="GET_CREATORS_WITH_HIGHER_NUMBER_OF_COURSE">
