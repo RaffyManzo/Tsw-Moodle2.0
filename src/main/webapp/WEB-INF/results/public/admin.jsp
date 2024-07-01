@@ -36,7 +36,6 @@
             <option value="utenza" <%= request.getAttribute("table") != null && request.getAttribute("table").equals("utenza") ? "selected" : "" %>>Utenza</option>
             <option value="corso" <%= request.getAttribute("table") != null && request.getAttribute("table").equals("corso") ? "selected" : "" %>>Corso</option>
             <option value="categoria" <%= request.getAttribute("table") != null && request.getAttribute("table").equals("categoria") ? "selected" : "" %>>Categoria</option>
-            <%--<option value="lezione" <%= request.getAttribute("table") != null && request.getAttribute("table").equals("lezione") ? "selected" : "" %>>Lezione</option>--%>
         </select>
         <input id="load-table" type="submit" value="Carica dati"/>
     </div>
@@ -60,6 +59,7 @@
                         <div class="button-container">
                             <form action="EliminaServlet">
                                 <input type="hidden" name="id" value="<%= u.getIdUtente() %>">
+                                <input type="hidden" name="tipo" value="utenza">
                                 <input type="submit" value="Elimina">
                             </form>
                             <form action="ModificaServlet">
@@ -84,6 +84,7 @@
                     <div class="button-container">
                         <form action="EliminaServlet">
                             <input type="hidden" name="id" value="<%= c.getIdCorso() %>">
+                            <input type="hidden" name="tipo" value="corso">
                             <input type="submit" value="Elimina">
                         </form>
                         <form action="ModificaServlet">
@@ -103,6 +104,7 @@
                     Nome: <%= c.getNome() %><br>
                     <div class="button-container">
                         <form action="EliminaServlet">
+                            <input type="hidden" name="tipo" value="categoria">
                             <input type="hidden" name="id" value="<%= c.getNome() %>">
                             <input type="submit" value="Elimina">
                         </form>
@@ -115,7 +117,6 @@
         <%
                 }
                 break;
-                //manca lezioni
                 default: System.out.println("Errore");
             }
             }

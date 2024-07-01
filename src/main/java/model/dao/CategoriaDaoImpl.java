@@ -76,7 +76,7 @@ public class CategoriaDaoImpl extends AbstractDataAccessObject<Categoria> implem
         //?????
     }
     
-    protected void delete(String nome) {
+    public void delete(String nome) {
         try (Connection connection = getConnection();
              PreparedStatement ps = prepareStatement(connection, "DELETE_CATEGORIA")) {
             ps.setString(1, nome);
