@@ -40,18 +40,19 @@ select {
     width: 200px;
 }
 
-#load-table {
-    padding: 10px 20px;
-    font-size: 18px;
-    background-color: #4E5690;
-    color: white;
-    border: none;
-    border-radius: 12px;
-    cursor: pointer;
+input[type="submit"] {
+    background-color: #92A0FF; /* Colore del pulsante */
+    color: white; /* Colore del testo */
+    border: none; /* Rimuove i bordi predefiniti */
+    border-radius: 12px; /* Bordi arrotondati */
+    padding: 10px 20px; /* Spaziatura interna */
+    font-size: 16px; /* Dimensione del testo */
+    cursor: pointer; /* Cambia il cursore al passaggio del mouse */
+    transition: background-color 0.3s; /* Transizione per il cambio di colore */
 }
 
-#load-table:hover {
-    background-color: #5563b9;
+input[type="submit"]:hover {
+    background-color: #7582fd;
 }
 
 #table-container {
@@ -59,8 +60,8 @@ select {
     width: 80%;
 }
 
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 20px;
+.button-container {
+    display: flex;
+    gap: 10px; /* Spazio tra i pulsanti */
+    padding-top: 10px;
 }

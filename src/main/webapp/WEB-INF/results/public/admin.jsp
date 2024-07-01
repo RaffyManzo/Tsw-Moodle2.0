@@ -1,12 +1,9 @@
 <%@ page import="model.beans.Utenza" %>
-<%@ page import="model.beans.Carrello" %>
-<%@ page import="java.util.Map" %>
 <%@ page import="model.beans.Corso" %>
-<%@ page import="model.dao.CartDaoImpl" %>
-<%@ page import="java.sql.SQLException" %>
 <%@ page import="java.util.List" %>
 <%@ page import="model.beans.Categoria" %>
 <%
+    //da spostare in privato ma ora è qui per vedere se funziona e non fare il login ogni volta
     Utenza user = (Utenza) request.getSession(false).getAttribute("user");
 %>
 
@@ -36,10 +33,10 @@
 <form action="AdminServlet">
     <div class="controls" >
         <select id="table-select" name="table-select">
-            <option value="utenza">Utenza</option>
-            <option value="corso">Corso</option>
-            <option value="categoria">Categoria</option>
-            <%--<option value="lezione">Lezione</option>--%>
+            <option value="utenza" <%= request.getAttribute("table") != null && request.getAttribute("table").equals("utenza") ? "selected" : "" %>>Utenza</option>
+            <option value="corso" <%= request.getAttribute("table") != null && request.getAttribute("table").equals("corso") ? "selected" : "" %>>Corso</option>
+            <option value="categoria" <%= request.getAttribute("table") != null && request.getAttribute("table").equals("categoria") ? "selected" : "" %>>Categoria</option>
+            <%--<option value="lezione" <%= request.getAttribute("table") != null && request.getAttribute("table").equals("lezione") ? "selected" : "" %>>Lezione</option>--%>
         </select>
         <input id="load-table" type="submit" value="Carica dati"/>
     </div>
@@ -60,10 +57,16 @@
                         email: <%= u.getEmail() %><br>
                         username: <%= u.getUsername() %><br>
                         data creazione account: <%= u.getDataCreazioneAccount() %><br>
-                        <form action="Elimina">
-                            <input type="hidden" name="id" value="<%= u.getIdUtente() %>">
-                            <input type="submit" value="Elimina">
-                        </form>
+                        <div class="button-container">
+                            <form action="EliminaServlet">
+                                <input type="hidden" name="id" value="<%= u.getIdUtente() %>">
+                                <input type="submit" value="Elimina">
+                            </form>
+                            <form action="ModificaServlet">
+                                <input type="hidden" name="id" value="<%= u.getIdUtente() %>">
+                                <input type="submit" value="Modifica">
+                            </form>
+                        </div>
                     </li>
         <%
                     }
@@ -74,14 +77,20 @@
         %>
                 <li>
                     id: <%= c.getIdCorso() %><br>
-                    <%= c.getNome() %> - <%= c.getCreatore() %><br>
+                    <%= c.getNome() %> - <%= c.getCreatore().getCognome() %> <%= c.getCreatore().getNome() %><br>
                     Categoria: <%= c.getNomeCategoria() %><br>
                     Descrizione: <%= c.getDescrizione() %><br>
                     Prezzo: <%= c.getPrezzo() %><br>
-                    <form action="Elimina">
-                        <input type="hidden" name="id" value="<%= c.getIdCorso() %>">
-                        <input type="submit" value="Elimina">
-                    </form>
+                    <div class="button-container">
+                        <form action="EliminaServlet">
+                            <input type="hidden" name="id" value="<%= c.getIdCorso() %>">
+                            <input type="submit" value="Elimina">
+                        </form>
+                        <form action="ModificaServlet">
+                            <input type="hidden" name="id" value="<%= c.getIdCorso() %>">
+                            <input type="submit" value="Modifica">
+                        </form>
+                    </div>
                 </li>
         <%
                 }
@@ -92,10 +101,16 @@
         %>
                 <li>
                     Nome: <%= c.getNome() %><br>
-                    <form action="Elimina">
-                        <input type="hidden" name="id" value="<%= c.getNome() %>">
-                        <input type="submit" value="Elimina">
-                    </form>
+                    <div class="button-container">
+                        <form action="EliminaServlet">
+                            <input type="hidden" name="id" value="<%= c.getNome() %>">
+                            <input type="submit" value="Elimina">
+                        </form>
+                        <form action="ModificaServlet">
+                            <input type="hidden" name="id" value="<%= c.getNome() %>">
+                            <input type="submit" value="Modifica">
+                        </form>
+                    </div>
                 </li>
         <%
                 }
