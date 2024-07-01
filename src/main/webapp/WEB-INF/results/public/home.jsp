@@ -186,13 +186,17 @@
 </div>
 
     <div class="search-bar-container">
-        <input type="text" id="search-bar" placeholder="Cerca corsi...">
+        <div class="search-box">
+            <button id="search-button">
+                <img id="search-image" src="${pageContext.request.contextPath}/assets/images/lens.png" alt="Cerca">
+            </button>
+            <input type="text" id="search-bar" placeholder="Cerca corsi, categorie o docenti...">
+
+        </div>
         <div id="dropdown" class="dropdown-content">
             <ul></ul>
         </div>
-        <button id="search-button">
-            <img id="search-image" src="${pageContext.request.contextPath}/assets/images/lens.png" alt="Cerca">
-        </button>
+
     </div>
 
     <div class="banner">

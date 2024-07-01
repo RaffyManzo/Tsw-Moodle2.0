@@ -30,7 +30,7 @@
     </div>
 </div>
 
-<form action="AdminServlet">
+<form action="admin">
     <div class="controls" >
         <select id="table-select" name="table-select">
             <option value="utenza" <%= request.getAttribute("table") != null && request.getAttribute("table").equals("utenza") ? "selected" : "" %>>Utenza</option>
@@ -57,12 +57,12 @@
                         username: <%= u.getUsername() %><br>
                         data creazione account: <%= u.getDataCreazioneAccount() %><br>
                         <div class="button-container">
-                            <form action="EliminaServlet">
+                            <form action="adminDelete">
                                 <input type="hidden" name="id" value="<%= u.getIdUtente() %>">
                                 <input type="hidden" name="tipo" value="utenza">
                                 <input type="submit" value="Elimina">
                             </form>
-                            <form action="ModificaServlet">
+                            <form action="adminDelete">
                                 <input type="hidden" name="id" value="<%= u.getIdUtente() %>">
                                 <input type="submit" value="Modifica">
                             </form>
@@ -82,7 +82,7 @@
                     Descrizione: <%= c.getDescrizione() %><br>
                     Prezzo: <%= c.getPrezzo() %><br>
                     <div class="button-container">
-                        <form action="EliminaServlet">
+                        <form action="adminDelete">
                             <input type="hidden" name="id" value="<%= c.getIdCorso() %>">
                             <input type="hidden" name="tipo" value="corso">
                             <input type="submit" value="Elimina">
@@ -103,7 +103,7 @@
                 <li>
                     Nome: <%= c.getNome() %><br>
                     <div class="button-container">
-                        <form action="EliminaServlet">
+                        <form action="adminDelete">
                             <input type="hidden" name="tipo" value="categoria">
                             <input type="hidden" name="id" value="<%= c.getNome() %>">
                             <input type="submit" value="Elimina">

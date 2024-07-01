@@ -39,6 +39,20 @@ public class CustomHttpServletRequestWrapper extends HttpServletRequestWrapper {
                 return super.getRequestDispatcher(path);
             }
         }
+
+        // ADMIN filter
+        HttpSession session = getSession(false);
+        boolean isAdminResource = path.contains("/WEB-INF/results/admin");
+        if( isAdminResource) {
+            if(session.getAttribute("isAdmin").equals(Boolean.TRUE)) {
+                return super.getRequestDispatcher(path);
+            } else {
+                List<String> errors = new ArrayList<>();
+                errors.add("Non hai i permessi per accedere a questa risorsa, prova ad effettuare l'accesso");
+                getRequest().setAttribute("errors", errors);
+                path = "/WEB-INF/results/public/error.jsp";
+            }
+        }
         return super.getRequestDispatcher(path);
     }
 }

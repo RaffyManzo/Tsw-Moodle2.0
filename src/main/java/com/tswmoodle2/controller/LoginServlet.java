@@ -83,6 +83,12 @@ public class LoginServlet extends HttpServlet {
 
         if (user != null) {
             if (hashPassword.equals(user.getPassword())) {
+
+                if(user.getTipo().equals("A")) {
+                    response.sendRedirect("admin");
+                }
+
+
                 // Creazione o recupero della sessione
                 HttpSession session = request.getSession(true);
                 Carrello carrello = new CartDaoImpl().getCartByUserID(user.getIdUtente());
