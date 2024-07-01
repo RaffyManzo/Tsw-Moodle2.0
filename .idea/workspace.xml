@@ -9,10 +9,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aaf64b38-f287-423c-9dbc-41a4353826d6" name="Changes" comment="added success.jsp">
+    <list default="true" id="aaf64b38-f287-423c-9dbc-41a4353826d6" name="Changes" comment="fixed UploadImageServlet.java">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/UploadImageServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/UploadImageServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/LoginServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/LoginServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/dao/CartDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/dao/CartDaoImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -287,7 +287,9 @@
       <workItem from="1719580823127" duration="11184000" />
       <workItem from="1719593177469" duration="42000" />
       <workItem from="1719607901973" duration="5531000" />
-      <workItem from="1719664578704" duration="7037000" />
+      <workItem from="1719664578704" duration="7272000" />
+      <workItem from="1719753773236" duration="2291000" />
+      <workItem from="1719838365973" duration="1127000" />
     </task>
     <task id="LOCAL-00001" summary="Added registration form&#10;Added image picker servlet&#10;Added css and some fix">
       <option name="closed" value="true" />
@@ -569,7 +571,15 @@
       <option name="project" value="LOCAL" />
       <updated>1719668312301</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="fixed UploadImageServlet.java">
+      <option name="closed" value="true" />
+      <created>1719672360259</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1719672360259</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -587,7 +597,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Error page, login servelt, fix to db" />
     <MESSAGE value="finished footer" />
     <MESSAGE value="Fix getResultAsObject and LoginServlet.java" />
     <MESSAGE value="try to add toggle" />
@@ -612,6 +621,7 @@
     <MESSAGE value="Implements RegistrationServlet" />
     <MESSAGE value="fix RegistrationServlet" />
     <MESSAGE value="added success.jsp" />
-    <option name="LAST_COMMIT_MESSAGE" value="added success.jsp" />
+    <MESSAGE value="fixed UploadImageServlet.java" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed UploadImageServlet.java" />
   </component>
 </project>

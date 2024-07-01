@@ -1,5 +1,6 @@
 package model.dao;
 
+import com.tswmoodle2.controller.ShoppingServlet;
 import model.beans.Carrello;
 import model.beans.Corso;
 
@@ -9,8 +10,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class CartDaoImpl extends AbstractDataAccessObject<Carrello> implements CartDao {
+    private static final Logger LOGGER = Logger.getLogger(CartDaoImpl.class.getName());
+
     @Override
     protected Carrello extractFromResultSet(ResultSet rs) throws SQLException {
         if (!rs.next()) {
@@ -100,8 +105,11 @@ public class CartDaoImpl extends AbstractDataAccessObject<Carrello> implements C
 
     @Override
     public void saveOrUpdateCarrello(Carrello carrello) {
+        LOGGER.log(Level.INFO, "Saving or updating cart: IDCarrello: {0}, IDUtente: {1}", new Object[]{carrello.getIDCarrello(), carrello.getIDUtente()});
+
         try (Connection conn = getConnection()) {
             conn.setAutoCommit(false);
+
             try {
                 for (Map.Entry<Corso, Integer> entry : carrello.getCart().entrySet()) {
                     Corso corso = entry.getKey();
@@ -151,6 +159,8 @@ public class CartDaoImpl extends AbstractDataAccessObject<Carrello> implements C
 
 
 
+
+
     public int createCartForUser(int userID) throws SQLException {
         try (Connection conn = getConnection();
              PreparedStatement stmt = prepareStatement(conn, "INSERT_CART", PreparedStatement.RETURN_GENERATED_KEYS)) {
@@ -174,7 +184,9 @@ public class CartDaoImpl extends AbstractDataAccessObject<Carrello> implements C
 
                 ResultSet rs = ps.executeQuery();
                 if (rs.next()) {
-                    return rs.getInt(2);
+                    return rs.getInt(
+                            "IDCarrello"
+                    );
                 }
 
             } catch (SQLException e) {
