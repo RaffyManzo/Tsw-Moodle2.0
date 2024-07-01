@@ -229,6 +229,35 @@ public class UtenzaDaoImpl extends AbstractDataAccessObject<Utenza> implements U
     }
 
     @Override
+    public ArrayList<Utenza> findByTipoEDati(String tipo, String dati) {
+        try (Connection connection = getConnection();
+             PreparedStatement ps = prepareStatement(connection, "FIND_UTENZA_BY_TIPODATI")) {
+            ps.setString(1, tipo);
+            String[] datiSplit=dati.split(" ");
+            String searchPattern;
+            if(datiSplit.length==1){
+                searchPattern = "%" + datiSplit[0] + "%";
+                ps.setString(2, searchPattern);
+                ps.setString(3, searchPattern);
+                ps.setString(4, searchPattern);
+            }else {
+                searchPattern = "%" + datiSplit[1] + "%";
+                ps.setString(2, datiSplit[0]);
+                ps.setString(3, searchPattern);
+                ps.setString(4, datiSplit[0]);
+            }
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    return getResultAsList(rs);
+                }
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return null;
+    }
+
+    @Override
     protected Utenza extractFromResultSet(ResultSet rs) throws SQLException {
         int idUtente = rs.getInt("IDUtente");
         String nome = rs.getString("Nome");

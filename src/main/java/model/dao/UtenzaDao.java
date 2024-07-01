@@ -18,4 +18,5 @@ public interface UtenzaDao {
     ArrayList<Utenza> findByTipo(String tipo)  ;
     ArrayList<Utenza> findByTelefono(String telefono)  ;
     ArrayList<Utenza> findByCitta(String citta)  ;
+    ArrayList<Utenza> findByTipoEDati(String tipo, String dati)  ;
 }
