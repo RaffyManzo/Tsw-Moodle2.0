@@ -91,11 +91,16 @@ public class LoginServlet extends HttpServlet {
 
                     Map<Corso, Integer> sessionCart = (Map<Corso, Integer>) session.getAttribute("cart");
 
-                    if(sessionCart != null)
-                        if(!sessionCart.isEmpty())
+                    if(sessionCart != null) {
+                        if (!sessionCart.isEmpty()) {
                             carrello.setCart(sessionCart);
-                    session.setAttribute("cart", carrello.getCart());
-                    new CarrelloService().saveCarrello(carrello);
+                            session.setAttribute("cart", carrello.getCart());
+                            new CarrelloService().saveCarrello(carrello);
+                        }
+                    }
+                    else {
+                            session.setAttribute("cart", carrello.getCart());
+                        }
                 }
                 session.setAttribute("user", user);
                 session.setAttribute("isAdmin", user.getTipo().contentEquals("A") ? Boolean.TRUE : Boolean.FALSE);
