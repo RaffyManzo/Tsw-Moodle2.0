@@ -1,57 +1,102 @@
-$(document).ready(function() {
-    //    $('#search-button').on('click', function() {
-    var searchBar = document.getElementById('search-bar');
-    searchBar.addEventListener("onkeyup", function() {
-        var searchTerm = $('#search-bar').val();
-        if (searchTerm.length > 0) {
-            var xhr = new XMLHttpRequest();
-            var url = 'http://yourServerAddress/yourServletUrl?paramName=' + encodeURIComponent(paramValue);
+document.addEventListener('DOMContentLoaded', function (){
+    const searchBar = document.getElementById('search-bar');
+    const searchResults = document.getElementById('search-results');
+    const dropdown = document.getElementById('dropdown');
 
-            xhr.open('GET', url, true);
+    searchBar.oninput = search;
+    document.getElementById('search-button').onclick = search;
 
-            xhr.onreadystatechange = function() {
-                if (xhr.readyState === XMLHttpRequest.DONE) {
-                    if (xhr.status === 200) {
-                        var data = JSON.parse(xhr.responseText);
-                        showAutocompleteResults(data);
-                    } else {
-                        console.error('Error:', xhr.statusText);
-                    }
-                }
-            };
 
-            xhr.send();
-        }else {
-            clearDropdown();
-        }
-    });
+    function search() {
+        // your logicfunction() {
+        const query = searchBar.value;
 
-    function showAutocompleteResults(data) {
-        const dropdownMenu = document.getElementById('dropdownMenu');
-        const dropdownList = dropdownMenu.querySelector('ul');
-        dropdownList.innerHTML = ''; // Pulisce il container dei risultati
-
-        data.forEach(item => {
-            const li = document.createElement('li');
-            li.textContent = item;
-            li.addEventListener('click', function() {
-                document.getElementById('searchInput').value = item;
-                clearDropdown();
-            });
-            dropdownList.appendChild(li);
-        });
-
-        if (data.length > 0) {
-            dropdownMenu.style.display = 'flex';
+        if (query.length >= 1) {
+            fetch(`search?q=${encodeURIComponent(query)}`)
+                .then(response => response.json())
+                .then(data => {
+                    const utenti = data.utenti.sort((a, b) => a.surname.localeCompare(b.surname));
+                    const corsi = data.corsi.sort((a, b) => a.name.localeCompare(b.name));
+                    const categorie = data.categorie.sort((a, b) => a.name.localeCompare(b.name));
+                    renderDropdown(utenti, corsi, categorie);
+                });
         } else {
-            clearDropdown();
+            const item = document.createElement('li');
+            item.classList.add('dropdown-item');
+            item.innerHTML =
+                        '<span>Nessun risultato per ' + query + '</span>';
+            searchResults.appendChild(item);
+            dropdown.style.display = 'none';
         }
     }
 
-    function clearDropdown() {
-        const dropdownMenu = document.getElementById('dropdownMenu');
-        dropdownMenu.style.display = 'none';
-        const dropdownList = dropdownMenu.querySelector('ul');
-        dropdownList.innerHTML = ''; // Pulisce il container dei risultati
+    function renderDropdown(utenti, corsi, categorie) {
+        searchResults.innerHTML = ''
+        if (utenti.length > 0 || corsi.length > 0 || categorie.length > 0) {
+            if (utenti.length > 0) {
+                const utentiHeader = document.createElement('li');
+                utentiHeader.classList.add('dropdown-header');
+                utentiHeader.textContent = 'Docenti';
+                searchResults.appendChild(utentiHeader);
+                utenti.forEach(utente => {
+                    const item = document.createElement('li');
+                    const a = document.createElement("a");
+                    item.classList.add('dropdown-item');
+                    a.innerHTML = `
+                        <img src="file?file=${utente.image}&id=${utente.id}&c=user" alt="${utente.name} ${utente.surname}" class="dropdown-img">
+                        <span>${utente.name} ${utente.surname}</span>
+                    `;
+                    a.href = '';
+                    item.appendChild(a)
+                    searchResults.appendChild(item);
+
+                });
+            }
+
+            if (corsi.length > 0) {
+                const corsiHeader = document.createElement('li');
+                corsiHeader.classList.add('dropdown-header');
+                corsiHeader.textContent = 'Corsi';
+                searchResults.appendChild(corsiHeader);
+                corsi.forEach(corso => {
+                    const item = document.createElement('li');
+                    item.classList.add('dropdown-item');
+                    const a = document.createElement("a");
+                    a.innerHTML = `
+                        <img src="file?file=${corso.image}&id=${corso.id}&c=course" alt="${corso.name}" class="dropdown-img">
+                        <span>${corso.name} (${corso.category})</span>
+                    `;
+
+                    a.href = `
+                        course?courseID=${corso.id}
+                            `;
+                    item.appendChild(a)
+                    searchResults.appendChild(item);
+                });
+            }
+
+            if (categorie.length > 0) {
+                const categorieHeader = document.createElement('li');
+                categorieHeader.classList.add('dropdown-header');
+                categorieHeader.textContent = 'Categorie';
+                searchResults.appendChild(categorieHeader);
+                categorie.forEach(categoria => {
+                    const item = document.createElement('li');
+                    item.classList.add('dropdown-item');
+                    const a = document.createElement("a");
+                    a.innerHTML = `
+                        <span>${categoria.name}</span>
+                    `;
+                    a.href = `
+                            `;
+                    item.appendChild(a)
+                    searchResults.appendChild(item);
+                });
+            }
+
+            dropdown.style.display = 'block';
+        } else {
+            dropdown.style.display = 'none';
+        }
     }
 });

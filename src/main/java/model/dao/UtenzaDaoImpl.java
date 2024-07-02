@@ -64,9 +64,6 @@ public class UtenzaDaoImpl extends AbstractDataAccessObject<Utenza> implements U
         }
     }
 
-
-
-    @Override
     public void delete(int id) {
         try (Connection connection = getConnection();
              PreparedStatement ps = prepareStatement(connection, "DELETE_UTENZA")) {
@@ -113,6 +110,21 @@ public class UtenzaDaoImpl extends AbstractDataAccessObject<Utenza> implements U
             try (ResultSet rs = ps.executeQuery()) {
                 return getResultAsList(rs);
             }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public ArrayList<Utenza> searchByCognomeOrUsernameLimited(String nome, int limit) {
+        try (Connection connection = getConnection();
+             PreparedStatement ps = prepareStatement(connection, "FIND_UTENZA_BY_SURNAME_OR_USERNAME_LIMIT")) {
+            ps.setString(1, "%" + nome + "%");
+            ps.setString(2, "%" + nome + "%");
+            ps.setInt(3, limit);
+            ResultSet rs = ps.executeQuery();
+
+            return getResultAsList(rs);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -228,33 +240,19 @@ public class UtenzaDaoImpl extends AbstractDataAccessObject<Utenza> implements U
         return null;
     }
 
+
     @Override
-    public ArrayList<Utenza> findByTipoEDati(String tipo, String dati) {
+    public ArrayList<Utenza> searchByCognomeOrUsername(String pattern) {
         try (Connection connection = getConnection();
-             PreparedStatement ps = prepareStatement(connection, "FIND_UTENZA_BY_TIPODATI")) {
-            ps.setString(1, tipo);
-            String[] datiSplit=dati.split(" ");
-            String searchPattern;
-            if(datiSplit.length==1){
-                searchPattern = "%" + datiSplit[0] + "%";
-                ps.setString(2, searchPattern);
-                ps.setString(3, searchPattern);
-                ps.setString(4, searchPattern);
-            }else {
-                searchPattern = "%" + datiSplit[1] + "%";
-                ps.setString(2, datiSplit[0]);
-                ps.setString(3, searchPattern);
-                ps.setString(4, datiSplit[0]);
-            }
-            try (ResultSet rs = ps.executeQuery()) {
-                if (rs.next()) {
-                    return getResultAsList(rs);
-                }
-            }
+             PreparedStatement ps = prepareStatement(connection, "FIND_UTENZA_BY_SURNAME_OR_USERNAME")) {
+            ps.setString(1, "%" + pattern + "%");
+            ps.setString(2, "%" + pattern + "%");
+            ResultSet rs = ps.executeQuery();
+
+            return getResultAsList(rs);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        return null;
     }
 
     @Override

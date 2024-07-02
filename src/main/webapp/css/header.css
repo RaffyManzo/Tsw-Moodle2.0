@@ -32,7 +32,9 @@ Header banner on top of each pages
 }
 
 #header-logo-image > img{
-    transform: scale(2);
+    box-sizing: border-box;
+    aspect-ratio: 2 / 1;
+    object-fit: cover;
     height: 100px;
 }
 

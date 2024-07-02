@@ -12,6 +12,7 @@ public interface CorsoDao {
     Corso findByID(int id) throws SQLException;
     ArrayList<Corso> findByCategoria(String categoria) throws SQLException;
     ArrayList<Corso> searchByName(String nome) throws SQLException;
+    ArrayList<Corso> searchByNameLimited(String nome, int limit) throws SQLException;
     ArrayList<Corso> findByDateRange(Date startDate, Date endDate) throws SQLException;
     ArrayList<Corso> findByCertificazione(String certificazione) throws SQLException;
     public ArrayList<Corso> findByPrezzo(double prezzo);

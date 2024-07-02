@@ -9,6 +9,7 @@
     <entry key="FIND_CORSO_BY_ID">SELECT * FROM Corso WHERE IDCorso = ?</entry>
     <entry key="FIND_CORSI_BY_CATEGORIA">SELECT * FROM Corso WHERE NomeCategoria = ?</entry>
     <entry key="SEARCH_CORSI_BY_NOME">SELECT * FROM Corso WHERE Nome LIKE ?</entry>
+    <entry key="SEARCH_CORSI_BY_NOME_LIMIT">SELECT * FROM Corso WHERE Nome LIKE ? LIMIT ?</entry>
     <entry key="FIND_CORSI_BY_DATE_RANGE">SELECT * FROM Corso WHERE DataCreazione BETWEEN ? AND ?</entry>
     <entry key="FIND_CORSI_BY_CERTIFICAZIONE">SELECT * FROM Corso WHERE Certificazione = ?</entry>
     <entry key="FIND_CORSI_BY_PREZZO">SELECT * FROM Corso WHERE prezzo >= ?</entry>
@@ -29,7 +30,8 @@
     <entry key="FIND_UTENZA_BY_TIPO">SELECT * FROM Utenza WHERE Tipo = ?</entry>
     <entry key="FIND_UTENZA_BY_TELEFONO">SELECT * FROM Utenza WHERE Telefono LIKE ?</entry>
     <entry key="FIND_UTENZA_BY_CITTA">SELECT * FROM Utenza WHERE Citta = ?</entry>
-    <entry key="FIND_UTENZA_BY_TIPO_DATI">SELECT * FROM Utenza WHERE Tipo = ? AND (Nome = ? OR Cognome = ? OR Username = ?)</entry>
+    <entry key="FIND_UTENZA_BY_SURNAME_OR_USERNAME">SELECT * FROM Utenza WHERE Tipo = "D" AND (Cognome LIKE ? OR Username LIKE ?)</entry>
+    <entry key="FIND_UTENZA_BY_SURNAME_OR_USERNAME_LIMIT">SELECT * FROM Utenza WHERE Tipo = "D" AND (Cognome LIKE ? OR Username LIKE ?) LIMIT ?</entry>
 
     <!-- Carrello -->
     <entry key="GET_CART_ID_BY_USER">SELECT * FROM carrello where IDUtente = ?</entry>
@@ -47,6 +49,13 @@
     <entry key="DELETE_CATEGORIA">DELETE FROM Categoria WHERE Nome = ?</entry>
     <entry key="FIND_ALL_CATEGORIE">SELECT * FROM Categoria</entry>
     <entry key="SEARCH_CATEGORIA_BY_NOME">SELECT * FROM Categoria WHERE Nome LIKE ?</entry>
+    <entry key="SEARCH_CATEGORIA_BY_NOME_LIMIT">SELECT * FROM Categoria WHERE Nome LIKE ? LIMIT ?</entry>
+
+    <entry key="COUNT_CATEGORIA_BY_NOME">COUNT(co.*) as numero_corsi
+        FROM Categoria c
+        LEFT JOIN Corso co ON c.NOME = co.NomeCategoria
+        WHERE c.nome LIKE ?</entry>
+
 
     <!--  Category page-->
     <entry key="GET_CREATORS_WITH_HIGHER_NUMBER_OF_COURSE">

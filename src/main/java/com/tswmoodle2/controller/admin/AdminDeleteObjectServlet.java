@@ -1,6 +1,5 @@
-package com.tswmoodle2.controller;
+package com.tswmoodle2.controller.admin;
 
-import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -12,24 +11,24 @@ import model.dao.UtenzaDaoImpl;
 
 import java.io.IOException;
 
-@WebServlet(name = "EliminaServlet", value = "/EliminaServlet")
-public class EliminaServlet extends HttpServlet {
+@WebServlet(name = "AdminDeleteObjectServlet", value = "/adminDelete")
+public class AdminDeleteObjectServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String table = request.getParameter("tipo");
         switch (table) {
             case "utenza":
-                UtenzaDaoImpl u=new UtenzaDaoImpl();
-                int idu= Integer.parseInt(request.getParameter("id"));
+                UtenzaDaoImpl u = new UtenzaDaoImpl();
+                int idu = Integer.parseInt(request.getParameter("id"));
                 u.delete(idu);
                 break;
             case "corso":
-                CorsoDaoImpl c=new CorsoDaoImpl();
-                int idc= Integer.parseInt(request.getParameter("id"));
+                CorsoDaoImpl c = new CorsoDaoImpl();
+                int idc = Integer.parseInt(request.getParameter("id"));
                 c.delete(idc);
                 break;
             case "categoria":
-                CategoriaDaoImpl ca=new CategoriaDaoImpl();
-                String idca= request.getParameter("id");
+                CategoriaDaoImpl ca = new CategoriaDaoImpl();
+                String idca = request.getParameter("id");
                 ca.delete(idca);
                 break;
             default:

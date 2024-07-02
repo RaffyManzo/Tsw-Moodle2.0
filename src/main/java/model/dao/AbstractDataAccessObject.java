@@ -80,5 +80,4 @@ public abstract class  AbstractDataAccessObject <T> {
 
     protected abstract void update(T e);
 
-    protected abstract void delete(int id);
 }

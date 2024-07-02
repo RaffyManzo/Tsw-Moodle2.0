@@ -42,7 +42,7 @@
     <link href="${pageContext.request.contextPath}/css/slider.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/css/home.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/css/footer.css" rel="stylesheet">
-    <link href="${pageContext.request.contextPath}/css/search.css" rel="stylesheet">
+
     <link href="https://fonts.googleapis.com" rel="preconnect">
     <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
     <link href="https://fonts.googleapis.com/css2?family=Jura:wght@300..700&display=swap" rel="stylesheet">
@@ -54,6 +54,7 @@
     <script src="${pageContext.request.contextPath}/script/someDisplayFix.js" defer></script>
     <script src="${pageContext.request.contextPath}/script/profilepic.js"></script>
     <script src="${pageContext.request.contextPath}/script/search.js"></script>
+    <link href="${pageContext.request.contextPath}/css/search.css" rel="stylesheet">
 
     <script>
         $(document).ready(function () {
@@ -186,13 +187,17 @@
 </div>
 
     <div class="search-bar-container">
-        <input type="text" id="search-bar" placeholder="Cerca corsi...">
-        <div id="dropdown" class="dropdown-content">
-            <ul></ul>
+        <div class="search-box">
+            <button id="search-button">
+                <img id="search-image" src="${pageContext.request.contextPath}/assets/images/lens.png" alt="Cerca">
+            </button>
+            <input type="text" id="search-bar" placeholder="Cerca corsi, categorie o docenti...">
+
         </div>
-        <button id="search-button">
-            <img id="search-image" src="${pageContext.request.contextPath}/assets/images/lens.png" alt="Cerca">
-        </button>
+        <div id="dropdown" class="dropdown-content">
+            <ul id="search-results"></ul>
+        </div>
+
     </div>
 
     <div class="banner">

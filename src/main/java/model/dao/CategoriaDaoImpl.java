@@ -15,19 +15,34 @@ public class CategoriaDaoImpl extends AbstractDataAccessObject<Categoria> implem
     }
 
     @Override
-    public Categoria findByNome(String nome){
+    public ArrayList<Categoria> findByNome(String nome){
         try (Connection connection = getConnection();
              PreparedStatement ps = prepareStatement(connection, "SEARCH_CATEGORIA_BY_NOME")) {
-            ps.setString(1, nome);
+            ps.setString(1, "%" + nome + "%");
+
             try (ResultSet rs = ps.executeQuery()) {
-                if (rs.next()) {
-                    return getResultAsObject(rs);
-                }
+                return getResultAsList(rs);
             }
+
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        return null;
+    }
+
+    @Override
+    public ArrayList<Categoria> findByNomeLimited(String nome, int limit) {
+        try (Connection connection = getConnection();
+             PreparedStatement ps = prepareStatement(connection, "SEARCH_CATEGORIA_BY_NOME_LIMIT")) {
+            ps.setString(1, "%" + nome + "%");
+            ps.setInt(2, limit);
+
+            try (ResultSet rs = ps.executeQuery()) {
+                return getResultAsList(rs);
+            }
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override
@@ -40,6 +55,12 @@ public class CategoriaDaoImpl extends AbstractDataAccessObject<Categoria> implem
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    @Override
+    public int countAllCourseOf(String name){
+        //
+        return -1;
     }
 
     @Override
@@ -69,11 +90,6 @@ public class CategoriaDaoImpl extends AbstractDataAccessObject<Categoria> implem
         } catch (SQLException exception) {
             throw new RuntimeException(exception);
         }
-    }
-
-    @Override
-    protected void delete(int id) {
-        //?????
     }
     
     public void delete(String nome) {
