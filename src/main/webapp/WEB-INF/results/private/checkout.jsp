@@ -87,7 +87,7 @@
                     </span>
             </div>
         </div>
-        <form class='credit-info' onsubmit="validateForm()">
+        <form class='credit-info' onsubmit="" method="post" action="checkout?a=purchase">
             <div class='credit-info-content'>
                 <table class='half-input-table'>
                     <tr>
@@ -122,7 +122,7 @@
                     </tr>
                 </table>
                 <div class="button-checkout-field">
-                    <input type="submit" class='pay-btn' value="Inoltra il pagamento">
+                    <input type="submit" class='pay-btn' onsubmit="" value="Inoltra il pagamento">
                     <a href="${pageContext.request.contextPath}/shop?action=viewCart" class='pay-btn'>Annulla</a>
                 </div>
             </div>

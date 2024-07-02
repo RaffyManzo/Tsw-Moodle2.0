@@ -189,7 +189,7 @@
                 </h2>
                 <p class="course-description"><%= corso.getDescrizione()%>
                 </p>
-                <p>Creato da &nbsp; <a
+                <p>Creato da &nbsp; <a href="profile?id=<%= corso.getCreatore().getIdUtente() %>"
                         class="course-links"><%= corso.getCreatore().getCognome() + " " + corso.getCreatore().getNome()%>
                 </a></p>
             </div>
@@ -209,7 +209,7 @@
         %>
 
         <div class="creator-info-container">
-            <a href="${pageContext.request.contextPath}/" class="creator-profile-pic">
+            <a href="${pageContext.request.contextPath}/profile?id=<%= creator.getIdUtente() %>" class="creator-profile-pic">
                 <%
                 String initials = "";
                 if (creator.getNome() != null && creator.getCognome() != null) {

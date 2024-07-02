@@ -273,4 +273,17 @@ public class UtenzaDaoImpl extends AbstractDataAccessObject<Utenza> implements U
 
         return new Utenza(idUtente, nome, cognome, dataNascita, indirizzo, citta, telefono, email, password, dataCreazioneAccount, username, tipo, img);
     }
+
+    public boolean purchaseCourse(int userID, int courseID) {
+        try (Connection connection = getConnection();
+             PreparedStatement ps = prepareStatement(connection, "PURCHASE_COURSE")) {
+            ps.setInt(1, userID);
+            ps.setInt(2, courseID);
+
+
+            return ps.execute();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

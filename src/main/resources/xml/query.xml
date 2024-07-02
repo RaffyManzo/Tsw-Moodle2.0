@@ -43,6 +43,9 @@
     <entry key="INSERT_CART_ELEMENT">INSERT INTO inserimento (IDCorso, IDCarrello, IDUtente, Quantita) VALUES (?, ?, ?, ?)</entry>
     <entry key="INSERT_CART">INSERT INTO carrello (IDUtente) VALUES (?)</entry>
 
+    <entry key="PURCHASE_COURSE">INSERT INTO corsiacquistati (IDUtente, IDCorso) VALUES (?, ?)</entry>
+
+
     <!-- Categoria -->
     <entry key="INSERT_CATEGORIA">INSERT INTO Categoria (Nome) VALUES (?)</entry>
     <entry key="UPDATE_CATEGORIA">UPDATE Categoria SET Nome = ? WHERE Nome = ?</entry>
@@ -80,5 +83,5 @@
     </entry>
 
     <!-- Teacher page -->
-    <entry key="COUNT_CATEGORY_COURSE">select corso.nomeCategoria, count(*) from corso inner join utenza on corso.creatore = utenza.IDUtente where IDUtente=? group by corso.nomeCategoria</entry>
+    <entry key="COUNT_CATEGORY_COURSE">select corso.nomeCategoria, count(*) AS count from corso inner join utenza on corso.creatore = utenza.IDUtente where IDUtente=? group by corso.nomeCategoria</entry>
 </properties>
