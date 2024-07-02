@@ -169,7 +169,7 @@ public class ShoppingServlet extends HttpServlet {
             if (product != null) {
 
 
-                cart.put(product, cart.getOrDefault(product, 0) + 1);
+                cart.put(product, 1);
                 session.setAttribute(KEY_CART, cart);
 
                 if(user != null) {

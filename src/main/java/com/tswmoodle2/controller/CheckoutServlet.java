@@ -10,10 +10,14 @@ import model.beans.Carrello;
 import model.beans.Corso;
 import model.beans.Utenza;
 import model.dao.CartDaoImpl;
+import model.dao.CorsoDaoImpl;
 import model.dao.UtenzaDaoImpl;
 
 import java.io.IOException;
+import java.net.URLEncoder;
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.temporal.TemporalAdjusters;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -37,7 +41,7 @@ public class CheckoutServlet extends HttpServlet {
                 redirectToCheckoutPage(request,response);
                 break;
             case "purchase":
-                    purchaseCourse(request, response);
+                    purchaseCourses(request, response);
                     break;
             default:
                 error(request, response, "Parametro non valido");
@@ -47,31 +51,64 @@ public class CheckoutServlet extends HttpServlet {
 
     }
 
-    private void purchaseCourse(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+    private void purchaseCourses(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
         HttpSession session = request.getSession(false);
         Utenza user = ((Utenza)session.getAttribute("user"));
         Carrello cart = new CartDaoImpl().getCartByUserID(user.getIdUtente());
         UtenzaDaoImpl utenzaDao = new UtenzaDaoImpl();
-        CartDaoImpl cartDao = new CartDaoImpl();
 
-        if(checkCardValidity(request)) {
-            session.removeAttribute("cart");
+        try {
+            if (checkCardValidity(request)) {
+                session.removeAttribute("cart");
+                session.removeAttribute("cartItemCount");
 
-            for(Corso c: cart.getCart().keySet()) {
-                utenzaDao.purchaseCourse(user.getIdUtente(), c.getIdCorso());
+                utenzaDao.purchaseCoursesFromCart(cart);
+                success(request, response, cart);
+            } else {
+                error(request, response, "Metodo di pagamento non valido");
             }
+        } catch (SQLException e) {
+            String message = e.getMessage();
+            if (message.contains("Il corso con ID")) {
 
-            cartDao.clearCart(cart.getIDCarrello());
-
-        } else {
-            error(request, response, "Metodo di pagamento non valido");
-            return;
+                error(request, response, e.getMessage());
+            } else {
+                throw new ServletException(e);
+            }
         }
     }
 
     private boolean checkCardValidity( HttpServletRequest request) {
-        return true;
+        String cardNumber = request.getParameter("cardNumber");
+        String cardHolder = request.getParameter("cardHolder");
+        String expiryDate = request.getParameter("expiryDate");
+        String cvc = request.getParameter("cvc");
+
+        return isValidCardNumber(cardNumber) && isValidExpiryDate(expiryDate) && isValidCVC(cvc);
     }
+
+    private boolean isValidCardNumber(String cardNumber) {
+        // Implementa la logica di validazione del numero della carta di credito
+        return cardNumber != null && cardNumber.matches("\\d{4} \\d{4} \\d{4} \\d{4}");    }
+
+    private boolean isValidExpiryDate(String expiryDate) {
+        // Implementa la logica di validazione della data di scadenza
+        if (expiryDate != null && expiryDate.matches("(0[1-9]|1[0-2])/\\d{2}")) {
+            String[] parts = expiryDate.split("/");
+            int month = Integer.parseInt(parts[0]);
+            int year = Integer.parseInt("20" + parts[1]); // Assumi che l'anno sia nel formato 'YY'
+            LocalDate now = LocalDate.now();
+            LocalDate expiry = LocalDate.of(year, month, 1).with(TemporalAdjusters.lastDayOfMonth());
+            return !expiry.isBefore(now);
+        }
+        return false;
+    }
+
+    private boolean isValidCVC(String cvc) {
+        // Implementa la logica di validazione del CVC
+        return cvc != null && cvc.matches("\\d{3}");
+    }
+
 
     boolean checkAccount(HttpServletRequest request) {
         HttpSession session = request.getSession();
@@ -88,6 +125,19 @@ public class CheckoutServlet extends HttpServlet {
         errors.add(error);
         request.setAttribute("errors", errors);
         request.getRequestDispatcher("/WEB-INF/results/public/error.jsp").forward(request, response);
+    }
+
+    private void success(HttpServletRequest request, HttpServletResponse response, Carrello cart) throws ServletException, IOException {
+        request.setAttribute("operation", "pagamento");
+        request.setAttribute("message-header", "Congratulazioni, pagamento riuscito");
+        List<String> msgs = new ArrayList<>();
+
+        for (Corso c : cart.getCart().keySet()) {
+            msgs.add(c.getNome() + " é stato aggiunto al tuo account");
+        }
+        request.setAttribute("messages", msgs);
+
+        request.getRequestDispatcher("/WEB-INF/results/public/success.jsp").forward(request, response);
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

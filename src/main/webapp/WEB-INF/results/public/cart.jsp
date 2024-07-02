@@ -177,11 +177,11 @@
                     <h5><%= product.getNome() %></h5>
                     <p><%= product.getDescrizione() %></p>
                     <div class="cart-item-sub-elements">
-                        <div class="quantity-controller">
+                        <!-- <div class="quantity-controller">
                             <a href="shop?action=decreaseQuantity&productId=<%= product.getIdCorso() %>"><strong>-</strong></a>
                             <p><%= quantity %></p>
                             <a href="shop?action=addToCart&productId=<%= product.getIdCorso() %>"><strong>+</strong></a>
-                        </div>
+                        </div> -->
                         <p><%= product.getPrezzo() %>$</p>
                         <form action="shop" method="get" style="display:inline;">
                             <input type="hidden" name="action" value="removeFromCart"/>

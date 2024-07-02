@@ -9,25 +9,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aaf64b38-f287-423c-9dbc-41a4353826d6" name="Changes" comment="set the limit of search bar result">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/TeacherProfileServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/public/profile.jsp" afterDir="false" />
+    <list default="true" id="aaf64b38-f287-423c-9dbc-41a4353826d6" name="Changes" comment="start category page&#10;start purchasing course">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/8d1da4ce-79df-43f7-8a5f-0540fbbb02f0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/8d1da4ce-79df-43f7-8a5f-0540fbbb02f0.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/Checkout.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/CheckoutServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/SearchServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/SearchServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/filter/AccessControlFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/filter/AccessControlFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/dao/CategoriaDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/dao/CategoriaDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/dao/CategoriaDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/dao/CategoriaDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/CheckoutServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/CheckoutServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/LoginServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/LoginServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/ShoppingServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/ShoppingServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/DBManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/DBManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/dao/AbstractDataAccessObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/dao/AbstractDataAccessObject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/dao/CartDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/dao/CartDaoImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/dao/UtenzaDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/dao/UtenzaDaoImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/xml/query.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/xml/query.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/private/checkout.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/private/checkout.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/public/cart.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/public/cart.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/public/course.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/public/course.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/public/error.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/public/error.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/reg.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/reg.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/search.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/search.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/registrazione.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/registrazione.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/script/search.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/script/search.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/public/success.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/public/success.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -306,7 +303,7 @@
       <workItem from="1719753773236" duration="2291000" />
       <workItem from="1719838365973" duration="3253000" />
       <workItem from="1719870421188" duration="8766000" />
-      <workItem from="1719912322174" duration="10623000" />
+      <workItem from="1719912322174" duration="21330000" />
     </task>
     <task id="LOCAL-00001" summary="Added registration form&#10;Added image picker servlet&#10;Added css and some fix">
       <option name="closed" value="true" />
@@ -628,7 +625,15 @@
       <option name="project" value="LOCAL" />
       <updated>1719913759721</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="start category page&#10;start purchasing course">
+      <option name="closed" value="true" />
+      <created>1719929031568</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1719929031568</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -646,7 +651,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="home.jsp after login" />
     <MESSAGE value="Added ShoppingServlet.java and cart.jsp" />
     <MESSAGE value="Finish cart page" />
     <MESSAGE value="Fix cart.jsp" />
@@ -671,6 +675,7 @@
     <MESSAGE value="fix search.css" />
     <MESSAGE value="finished search bar" />
     <MESSAGE value="set the limit of search bar result" />
-    <option name="LAST_COMMIT_MESSAGE" value="set the limit of search bar result" />
+    <MESSAGE value="start category page&#10;start purchasing course" />
+    <option name="LAST_COMMIT_MESSAGE" value="start category page&#10;start purchasing course" />
   </component>
 </project>

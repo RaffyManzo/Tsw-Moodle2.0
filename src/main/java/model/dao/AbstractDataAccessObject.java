@@ -25,6 +25,7 @@ public abstract class  AbstractDataAccessObject <T> {
     }
 
 
+
     /**
      * Prepare a statement for a param query
      *

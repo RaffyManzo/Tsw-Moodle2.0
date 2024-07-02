@@ -37,12 +37,16 @@
         </div>
     </div>
     <div class="buttons">
+        <%if(request.getHeader("Referer").contains("checkout") && request.getSession(false).getAttribute("user") != null) {%>
+        <a href="${pageContext.request.contextPath}/dashboard" class="button">Vai alla dashboard</a>
+        <%} else {%>
         <%if(request.getHeader("Referer").equals("registrazione.html")) {%>
         <a href="${pageContext.request.contextPath}/login.html" class="button">Vai alla pagina di login</a>
         <%} else {%>
         <a href="${pageContext.request.contextPath}/registrazione.html" class="button">Crea un nuovo account</a>
         <%}%>
         <a href="${pageContext.request.contextPath}/home" class="button">Vai alla Home senza login</a>
+        <%}%>
     </div>
 </div>
 

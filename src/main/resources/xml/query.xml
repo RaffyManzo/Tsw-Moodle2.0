@@ -43,7 +43,7 @@
     <entry key="INSERT_CART_ELEMENT">INSERT INTO inserimento (IDCorso, IDCarrello, IDUtente, Quantita) VALUES (?, ?, ?, ?)</entry>
     <entry key="INSERT_CART">INSERT INTO carrello (IDUtente) VALUES (?)</entry>
 
-    <entry key="PURCHASE_COURSE">INSERT INTO corsiacquistati (IDUtente, IDCorso) VALUES (?, ?)</entry>
+    <entry key="PURCHASE_COURSE">INSERT INTO corsiacquistati (IDCorso, IDUtente, Totale) VALUES (?, ?, ?)</entry>
 
 
     <!-- Categoria -->

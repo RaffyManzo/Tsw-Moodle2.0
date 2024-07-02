@@ -71,7 +71,7 @@ public class AdminServlet extends HttpServlet {
 
         request.setAttribute("data", data);
         request.setAttribute("table", table);
-        request.getRequestDispatcher("/WEB-INF/results/public/admin.jsp").forward(request, response);
+        request.getRequestDispatcher("/WEB-INF/results/admin/admin.jsp").forward(request, response);
 
     }
 }

@@ -36,12 +36,7 @@
         </div>
     </div>
     <div class="buttons">
-        <%if(request.getHeader("Referer").equals("new") || request.getHeader("Referer").contains("shop")) {%>
-        <a href="${pageContext.request.contextPath}/login.html" class="button">Vai alla pagina di login</a>
-        <%} else {%>
-        <a href="${pageContext.request.contextPath}/registrazione.html" class="button">Torna alla pagina di registrazione</a>
-        <%}%>
-        <a href="${pageContext.request.contextPath}/home" class="button">Vai alla Home senza login</a>
+        <a href="${pageContext.request.contextPath}/home" class="button">Torna alla homepage</a>
     </div>
 </div>
 

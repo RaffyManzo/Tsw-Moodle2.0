@@ -45,6 +45,8 @@ public class DBManager {
             ds = new DataSource();
             ds.setPoolProperties(properties);
         }
+
         return ds.getConnection();
     }
+
 }

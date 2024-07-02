@@ -84,9 +84,6 @@ public class LoginServlet extends HttpServlet {
         if (user != null) {
             if (hashPassword.equals(user.getPassword())) {
 
-                if(user.getTipo().equals("A")) {
-                    response.sendRedirect("admin");
-                }
 
 
                 // Creazione o recupero della sessione
@@ -111,8 +108,14 @@ public class LoginServlet extends HttpServlet {
                 session.setAttribute("user", user);
                 session.setAttribute("isAdmin", user.getTipo().contentEquals("A") ? Boolean.TRUE : Boolean.FALSE);
 
-                // Reindirizzamento alla home
-                response.sendRedirect("home");
+
+                if(user.getTipo().equals("A")) {
+                    response.sendRedirect("admin");
+                    return;
+                } else {
+                    // Reindirizzamento alla home
+                    response.sendRedirect("home");
+                }
                 return;
             } else {
                 errors.add("Username e password non corrispondono");
