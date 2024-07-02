@@ -64,9 +64,6 @@ public class UtenzaDaoImpl extends AbstractDataAccessObject<Utenza> implements U
         }
     }
 
-
-
-    @Override
     public void delete(int id) {
         try (Connection connection = getConnection();
              PreparedStatement ps = prepareStatement(connection, "DELETE_UTENZA")) {
@@ -228,14 +225,13 @@ public class UtenzaDaoImpl extends AbstractDataAccessObject<Utenza> implements U
         return null;
     }
 
+
     @Override
-    public ArrayList<Utenza> findByTipoEDati(String tipo, String searchPattern) {
+    public ArrayList<Utenza> searchByCognomeOrUsername(String pattern) {
         try (Connection connection = getConnection();
-             PreparedStatement ps = prepareStatement(connection, "FIND_UTENZA_BY_TIPODATI")) {
-            ps.setString(1, tipo);
-            ps.setString(2, searchPattern);
-            ps.setString(3, searchPattern);
-            ps.setString(4, searchPattern);
+             PreparedStatement ps = prepareStatement(connection, "FIND_UTENZA_BY_SURNAME_OR_USERNAME")) {
+            ps.setString(1, "%" + pattern + "%");
+            ps.setString(2, "%" + pattern + "%");
             ResultSet rs = ps.executeQuery();
 
             return getResultAsList(rs);

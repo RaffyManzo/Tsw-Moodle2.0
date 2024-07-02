@@ -8,6 +8,10 @@
     align-items: center;
     width: 100%;
     flex-direction: column;
+
+    position: relative;
+    top: 100px;
+    margin-bottom: 100px;
 }
 
 .section-top {
@@ -19,6 +23,8 @@
 
     background-color: #2d2f31;
     padding: 0 10%;
+
+
 }
 
 .dark-link {

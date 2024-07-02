@@ -62,10 +62,6 @@ public class CartDaoImpl extends AbstractDataAccessObject<Carrello> implements C
 
     }
 
-    @Override
-    protected void delete(int id) {
-
-    }
 
     /**
      * Rimuove un elemento specifico dal carrello.

@@ -55,7 +55,6 @@ public class CorsoDaoImpl extends AbstractDataAccessObject<Corso> implements Cor
         }
     }
 
-    @Override
     public void delete(int id) {
         try (Connection connection = getConnection();
              PreparedStatement ps = prepareStatement(connection, "DELETE_CORSO")) {
