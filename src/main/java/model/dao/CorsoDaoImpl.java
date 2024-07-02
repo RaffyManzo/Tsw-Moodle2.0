@@ -120,6 +120,22 @@ public class CorsoDaoImpl extends AbstractDataAccessObject<Corso> implements Cor
     }
 
     @Override
+    public ArrayList<Corso> searchByNameLimited(String nome, int limit){
+        try (Connection connection = getConnection();
+             PreparedStatement ps = prepareStatement(connection, "SEARCH_CORSI_BY_NOME_LIMIT")) {
+            ps.setString(1, "%" + nome + "%");
+            ps.setInt(2, limit);
+
+            try (ResultSet rs = ps.executeQuery()) {
+                return getResultAsList(rs);
+            }
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
     public ArrayList<Corso> findByDateRange(Date startDate, Date endDate)  {
         try (Connection connection = getConnection();
              PreparedStatement ps = prepareStatement(connection, "FIND_CORSI_BY_DATE_RANGE")) {

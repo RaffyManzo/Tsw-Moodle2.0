@@ -7,6 +7,7 @@ import java.util.ArrayList;
 
 public interface CategoriaDao {
     ArrayList<Categoria> findByNome(String nome) throws SQLException;
+    ArrayList<Categoria> findByNomeLimited(String nome, int limit) throws SQLException;
     ArrayList<Categoria> getAllCategorie() throws SQLException;
     int countAllCourseOf(String name) throws SQLException;
 }

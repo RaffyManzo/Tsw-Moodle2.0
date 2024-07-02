@@ -116,6 +116,21 @@ public class UtenzaDaoImpl extends AbstractDataAccessObject<Utenza> implements U
     }
 
     @Override
+    public ArrayList<Utenza> searchByCognomeOrUsernameLimited(String nome, int limit) {
+        try (Connection connection = getConnection();
+             PreparedStatement ps = prepareStatement(connection, "FIND_UTENZA_BY_SURNAME_OR_USERNAME_LIMIT")) {
+            ps.setString(1, "%" + nome + "%");
+            ps.setString(2, "%" + nome + "%");
+            ps.setInt(3, limit);
+            ResultSet rs = ps.executeQuery();
+
+            return getResultAsList(rs);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
     public ArrayList<Utenza> findByCognome(String cognome) {
         try (Connection connection = getConnection();
              PreparedStatement ps = prepareStatement(connection, "FIND_UTENZA_BY_COGNOME")) {

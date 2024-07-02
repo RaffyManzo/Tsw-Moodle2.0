@@ -31,12 +31,12 @@ document.addEventListener('DOMContentLoaded', function (){
     }
 
     function renderDropdown(utenti, corsi, categorie) {
-        searchResults.innerHTML = '';
+        searchResults.innerHTML = ''
         if (utenti.length > 0 || corsi.length > 0 || categorie.length > 0) {
             if (utenti.length > 0) {
                 const utentiHeader = document.createElement('li');
                 utentiHeader.classList.add('dropdown-header');
-                utentiHeader.textContent = 'Utenti';
+                utentiHeader.textContent = 'Docenti';
                 searchResults.appendChild(utentiHeader);
                 utenti.forEach(utente => {
                     const item = document.createElement('li');
@@ -49,6 +49,7 @@ document.addEventListener('DOMContentLoaded', function (){
                     a.href = '';
                     item.appendChild(a)
                     searchResults.appendChild(item);
+
                 });
             }
 

@@ -19,6 +19,7 @@ import java.util.List;
 
 @WebServlet(name = "SearchServlet", value = "/search")
 public class SearchServlet extends HttpServlet {
+    private static final int DISPLAY_LIMIT = 3;
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 // Imposta gli header per il CORS
@@ -30,9 +31,9 @@ public class SearchServlet extends HttpServlet {
         String searchTerm = request.getParameter("q");
 
         // Esegui la query sui tre diversi tipi di oggetti
-        List<Utenza> utenti = new UtenzaDaoImpl().searchByCognomeOrUsername(searchTerm);
-        List<Corso> corsi = new CorsoDaoImpl().searchByName(searchTerm);
-        List<Categoria> categorie = new CategoriaDaoImpl().findByNome(searchTerm);
+        List<Utenza> utenti = new UtenzaDaoImpl().searchByCognomeOrUsernameLimited(searchTerm,DISPLAY_LIMIT );
+        List<Corso> corsi = new CorsoDaoImpl().searchByNameLimited(searchTerm, DISPLAY_LIMIT);
+        List<Categoria> categorie = new CategoriaDaoImpl().findByNomeLimited(searchTerm, DISPLAY_LIMIT);
 
         // Crea il JSON di risposta
         JSONObject jsonResponse = new JSONObject();

@@ -12,6 +12,7 @@ public interface UtenzaDao {
 
     ArrayList<Utenza> findByNome(String nome);
 
+
     ArrayList<Utenza> findByCognome(String cognome);
 
     ArrayList<Utenza> findByDateRange(Date startDate, Date endDate);
@@ -27,4 +28,5 @@ public interface UtenzaDao {
     ArrayList<Utenza> findByCitta(String citta);
 
     ArrayList<Utenza> searchByCognomeOrUsername(String tipo);
+    ArrayList<Utenza> searchByCognomeOrUsernameLimited(String nome, int limit);
 }
