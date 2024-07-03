@@ -25,6 +25,8 @@
     <script src="${pageContext.request.contextPath}/script/search.js"></script>
     <link href="${pageContext.request.contextPath}/css/search.css" rel="stylesheet">
 
+    <script src="${pageContext.request.contextPath}/script/imageErrorDetect.js" defer></script>
+
 
     <script>
         $(document).ready(function () {

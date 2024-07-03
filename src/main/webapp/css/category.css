@@ -2,6 +2,52 @@
     font-family: "Jura", sans-serif;
 }
 
+.master-category-container {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    background-color: #2d2f31;
+    padding: 0 10%;
+    box-sizing: border-box;
+
+}
+
+#courses {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.links {
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: 0;
+    font-size: 1.4rem;
+
+    padding: .4rem 0;
+    white-space: nowrap;
+    scroll-snap-align: start;
+
+    color: #c0c4fc;
+    text-decoration: none;
+}
+
+.master-category-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    color: #fff;
+    height: 100%;
+    box-sizing: border-box;
+}
+
 .creator-info-container > * {
     margin: 0 !important;
 }
@@ -39,11 +85,12 @@
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     margin: 20px;
     overflow: hidden;
-    width: 80%;
+    width: 40%;
     display: flex;
     flex-direction: row;
     align-items: center;
     text-decoration: none;
+    height: 200px;
     color: black;
     padding: 10px;
     box-sizing: border-box;
@@ -55,7 +102,7 @@
 }
 
 .course-info {
-    flex: 1;
+    flex: 2;
     flex-direction: column;
     display: flex;
     justify-content: center;
@@ -64,11 +111,22 @@
 
 /* Stile per l'immagine del corso */
 .card img {
-        height: auto;
-        width: 230px;
-        aspect-ratio: 1 / 1;
+        height: 100%;
+        width: auto;
+    max-width: 60%;
+        aspect-ratio: 2 / 1;
         border-radius: 12px;
 
+}
+
+.before-course-pagination {
+    width: 100%;
+    margin: 3%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 1.4rem;
 }
 
 /* Stile per il titolo del corso */
@@ -105,4 +163,10 @@
 .pagination a.active {
     color: #495057;
     text-decoration: underline;
+}
+
+@media screen and (max-width: 745px) {
+    .card {
+        width: 80%;
+    }
 }

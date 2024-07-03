@@ -56,7 +56,7 @@
 
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="${pageContext.request.contextPath}/script/imageErrorDetect.js"></script>
+    <script src="${pageContext.request.contextPath}/script/imageErrorDetect.js" defer></script>
     <script src="${pageContext.request.contextPath}/script/profilepic.js"></script>
     <script src="${pageContext.request.contextPath}/script/search.js"></script>
     <script src="${pageContext.request.contextPath}/script/sliderClass.js"></script>
@@ -195,9 +195,9 @@
 
 </div>
 <div class="content-container">
-    <div class="creator-info-container">
-        <div class="creator-info">
-            <h2><strong>Categoria:</strong> <%= categoria.getNome() %></h2>
+    <div class="master-category-container">
+        <div class="master-category-info">
+            <h2><strong>Categoria:</strong> <a class="links" href="category?c=<%=categoria.getNome()%>"><%= categoria.getNome() %></a> </h2>
         </div>
     </div>
     <div class="box-info-container">
@@ -223,6 +223,9 @@
             </div>
         </div>
     </div>
+    <h3 class="before-course-pagination">Corsi in &nbsp;<a
+        class="links" href="category?c=<%=categoria.getNome()%>"><%= categoria.getNome()%>
+</a></h3>
     <div class="course-pagination">
         <div id="courses">
             <%
@@ -233,8 +236,10 @@
             <a class="card" href="course?courseID=<%=corso.getIdCorso()%>">
                 <img src="file?file=<%= corso.getImmagine() %>&id=<%= corso.getIdCorso()%>&c=course" alt="<%= corso.getNome() %>">
                 <div class="course-info">
-                <div class="card-title"><%= corso.getNome() %></div>
-                <div class="card-description"><%= corso.getDescrizione() %></div>
+                <p class="card-title"><%= corso.getNome() %></p>
+                <p class="card-description"><%= corso.getDescrizione() %></p>
+                    <p>Creato da &nbsp;<%= corso.getCreatore().getCognome() + " " + corso.getCreatore().getNome()%></p>
+                    <p><%= corso.getPrezzo()%>$</p>
                 </div>
             </a>
             <%
