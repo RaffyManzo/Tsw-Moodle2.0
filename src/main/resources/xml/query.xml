@@ -5,7 +5,7 @@
     <entry key="INSERT_CORSO">INSERT INTO Corso (NomeCategoria, Nome, Descrizione, Immagine, Certificazione, DataCreazione, prezzo, creatore) VALUES (?, ?, ?, ?, ?, ?, ?, ?)</entry>
     <entry key="UPDATE_CORSO">UPDATE Corso SET NomeCategoria = ?, Nome = ?, Descrizione = ?, Immagine = ?, Certificazione = ?, DataCreazione = ?, prezzo = ?,creatore = ? WHERE IDCorso = ?</entry>
     <entry key="DELETE_CORSO">DELETE FROM Corso WHERE IDCorso = ?</entry>
-    <entry key="FIND_ALL_CORSI">SELECT * FROM Corso</entry>
+    <entry key="FIND_ALL_CORSI">SELECT * FROM Corso ORDER BY NumeroAcquisti DESC</entry>
     <entry key="FIND_CORSO_BY_ID">SELECT * FROM Corso WHERE IDCorso = ?</entry>
     <entry key="FIND_CORSI_BY_CATEGORIA">SELECT * FROM Corso WHERE NomeCategoria = ?</entry>
     <entry key="SEARCH_CORSI_BY_NOME">SELECT * FROM Corso WHERE Nome LIKE ?</entry>
@@ -15,12 +15,44 @@
     <entry key="FIND_CORSI_BY_PREZZO">SELECT * FROM Corso WHERE prezzo >= ?</entry>
     <entry key="FIND_CORSI_BY_CREATORE">SELECT * FROM Corso WHERE creatore = ?</entry>
 
+    <entry key="GET_FAVOURITE_CATEGORY">SELECT
+        c.NomeCategoria,
+        COUNT(ca.IDCorso) AS numeroAcquisti
+        FROM
+        corsiacquistati ca
+        JOIN
+        corso c ON ca.IDCorso = c.IDCorso
+        WHERE
+        ca.IDUtente = ?
+        GROUP BY
+        c.NomeCategoria
+        ORDER BY
+        numeroAcquisti DESC
+        LIMIT 1;</entry>
+
 
     <!-- Utenza -->
     <entry key="INSERT_UTENZA">INSERT INTO Utenza (Nome, Cognome, DataNascita, Indirizzo, Citta, Telefono, Email, Password, DataCreazioneAccount, Username, Tipo, Immagine) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)</entry>
     <entry key="UPDATE_UTENZA">UPDATE Utenza SET Nome = ?, Cognome = ?, DataNascita = ?, Indirizzo = ?, Citta = ?, Telefono = ?, Email = ?, Password = ?, DataCreazioneAccount = ?, Username = ?, Tipo = ?, Immagine = ? WHERE IDUtente = ?</entry>
     <entry key="DELETE_UTENZA">DELETE FROM Utenza WHERE IDUtente = ?</entry>
     <entry key="FIND_ALL_UTENZA">SELECT * FROM Utenza</entry>
+    <entry key="GET_COURSE_COUNT_BY_USER_ID">
+        SELECT COUNT(c.IDCorso) AS '#corsi',
+        u.IDUtente,
+        u.Nome,
+        u.Cognome,
+        u.email,
+        u.immagine
+        FROM
+        utenza u JOIN
+        corso c ON u.IDUtente = c.creatore
+        WHERE
+        u.IDUtente = ?
+        GROUP BY
+        u.IDUtente, u.Nome, u.Cognome,
+        u.email, u.immagine
+        ORDER BY
+        '#corsi' DESC</entry>
     <entry key="FIND_UTENZA_BY_ID">SELECT * FROM Utenza WHERE IDUtente = ?</entry>
     <entry key="FIND_UTENZA_BY_NOME">SELECT * FROM Utenza WHERE Nome = ?</entry>
     <entry key="FIND_UTENZA_BY_COGNOME">SELECT * FROM Utenza WHERE Cognome = ?</entry>
@@ -48,6 +80,7 @@
     <entry key="GET_COURSES_OF_ORDER">Select Corso.* from corsiacquistati as ca INNER JOIN corso on ca.idCorso = corso.idcorso where ca.idordine = ?</entry>
     <entry key="GET_ORDER">Select * from ordine where idordine = ?</entry>
     <entry key="CHECK_UUID">SELECT * FROM ordine WHERE uuid = ?</entry>
+    <entry key="UPDATE_COURSE_COUNT">UPDATE corso SET numeroAcquisti = numeroAcquisti + 1 WHERE IDCorso = ?"</entry>
 
 
 
@@ -59,26 +92,44 @@
     <entry key="SEARCH_CATEGORIA_BY_NOME">SELECT * FROM Categoria WHERE Nome LIKE ?</entry>
     <entry key="SEARCH_CATEGORIA_BY_NOME_LIMIT">SELECT * FROM Categoria WHERE Nome LIKE ? LIMIT ?</entry>
 
-    <entry key="COUNT_CATEGORIA_BY_NOME">COUNT(co.*) as numero_corsi
-        FROM Categoria c
-        LEFT JOIN Corso co ON c.NOME = co.NomeCategoria
-        WHERE c.nome LIKE ?</entry>
+    <entry key="CATEGORY_MOST_PURCHASED">
+        WITH CategoriaPiuAcquistata AS (
+        SELECT
+        c.NomeCategoria,
+        COUNT(ca.IDCorso) AS numeroAcquisti
+        FROM
+        corsiacquistati ca
+        JOIN
+        corso c ON ca.IDCorso = c.IDCorso
+        GROUP BY
+        c.NomeCategoria
+        ORDER BY
+        numeroAcquisti DESC
+        LIMIT 1
+        )
+        SELECT
+        c.NomeCategoria
+        FROM
+        corso c
+        JOIN
+        CategoriaPiuAcquistata cpa ON c.NomeCategoria = cpa.NomeCategoria;
+    </entry>
 
 
     <!--  Category page-->
     <entry key="GET_CREATORS_WITH_HIGHER_NUMBER_OF_COURSE">
-        SELECT
+        SELECT COUNT(c.IDCorso) AS '#corsi',
             u.IDUtente,
             u.Nome,
             u.Cognome,
             u.email,
-            u.immagine,
-            COUNT(c.IDCorso) AS #corsi
+            u.immagine
+
         FROM
             utenza u JOIN
             corso c ON u.IDUtente = c.creatore
         WHERE
-            c.NomeCategoria = 'Design'
+            u.IDUtente = ?
         GROUP BY
             u.IDUtente, u.Nome, u.Cognome,
             u.email, u.immagine

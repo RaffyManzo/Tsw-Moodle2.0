@@ -225,7 +225,9 @@ public class CorsoDaoImpl extends AbstractDataAccessObject<Corso> implements Cor
         java.sql.Date dataCreazione = rs.getDate("DataCreazione");
         Utenza creatore = new UtenzaDaoImpl().findByID(rs.getInt("creatore"));
         Double prezzo = rs.getDouble("prezzo");
+        int numeroAcquisti = rs.getInt("numeroAcquisti");
 
-        return new Corso(idCorso, nomeCategoria, nome, descrizione, immagine, certificazione, dataCreazione, creatore, prezzo);
+        return new Corso(idCorso, nomeCategoria, nome, descrizione,
+                immagine, certificazione, dataCreazione, creatore, prezzo, numeroAcquisti);
     }
 }

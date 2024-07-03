@@ -83,7 +83,8 @@ public class OrdineDaoImpl extends AbstractDataAccessObject<Ordine> implements O
 
     private void purchaseCourse(int userID, int courseID, int orderID, Connection conn) throws SQLException {
         try (
-             PreparedStatement ps = prepareStatement(conn, "PURCHASE_COURSE", Statement.RETURN_GENERATED_KEYS)) {
+             PreparedStatement ps = prepareStatement(conn, "PURCHASE_COURSE", Statement.RETURN_GENERATED_KEYS);
+                PreparedStatement psUpdate = prepareStatement(conn, "UPDATE_COURSE_COUNT")) {
 
             ps.setInt(1, courseID);
             ps.setInt(2, userID);
@@ -92,6 +93,10 @@ public class OrdineDaoImpl extends AbstractDataAccessObject<Ordine> implements O
 
             logger.log(Level.INFO, "Acquisto del corso con ID: " + courseID + " per l'utente con ID: " + userID + " completato");
             ps.executeUpdate();
+
+
+            psUpdate.setInt(1, courseID);
+            psUpdate.executeUpdate();
 
         } catch (SQLException e) {
             logger.log(Level.SEVERE, "Errore durante l'acquisto del corso", e);

@@ -4,7 +4,10 @@ import jakarta.servlet.annotation.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.*;
 import model.beans.Corso;
+import model.beans.Utenza;
+import model.dao.CategoriaDaoImpl;
 import model.dao.CorsoDaoImpl;
+import model.dao.UtenzaDaoImpl;
 import org.json.simple.*;
 
 import java.io.IOException;
@@ -14,9 +17,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.logging.Level;
+import java.util.logging.Logger;
 
 @WebServlet(name = "GetCourseInfoServlet", value = "/getCoursesJson")
 public class GetCourseInfoServlet extends HttpServlet {
+    private static final Logger LOGGER = Logger.getLogger(GetCourseInfoServlet.class.getName());
+
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws IOException, ServletException {
 
@@ -30,10 +36,42 @@ public class GetCourseInfoServlet extends HttpServlet {
             case "byCreator":
                 getByCreator(response, request);
                 break;
+            case "yourCategory":
+                getByCategory(request, response);
+                break;
             default:
                 getAll(response);
                 break;
         }
+    }
+
+    private void getByCategory(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+            Utenza user = (Utenza) request.getSession().getAttribute("user");
+            ArrayList<Corso> courses;
+            if(user != null) {
+                String param = new UtenzaDaoImpl().getFavouriteCategory(user.getIdUtente());
+
+                if (param == null) {
+                    List<String> errors = new ArrayList<>();
+                    errors.add("Errore generico");
+                    request.setAttribute("errors", errors);
+                    request.getRequestDispatcher("/WEB-INF/results/public/error.jsp").forward(request, response);
+                }
+                courses = new CorsoDaoImpl().findByCategoria(
+                        param
+                );
+                LOGGER.log(Level.INFO, "Carico i corsi della categoria dell'utente {0}", param);
+            } else {
+                String mostPurchased = new CategoriaDaoImpl().getMostPurchasedCategory();
+                courses = new CorsoDaoImpl().findByCategoria(
+                            mostPurchased);
+
+                LOGGER.log(Level.INFO, "Carico i corsi della categoria {0}", mostPurchased);
+            }
+
+
+            sendResponse(response, courses);
+
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -87,6 +125,7 @@ public class GetCourseInfoServlet extends HttpServlet {
             courseObject.put("price", course.getPrezzo());
             // Usa il metodo toJSON per serializzare l'oggetto creator
             courseObject.put("creator", course.getCreatore().toJSON());
+            courseObject.put("numberPurchases", course.getNumeroAcquisti());
             coursesArray.add(courseObject);
         }
 

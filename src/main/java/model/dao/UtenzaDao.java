@@ -16,7 +16,7 @@ public interface UtenzaDao {
     ArrayList<Utenza> findByCognome(String cognome);
 
     ArrayList<Utenza> findByDateRange(Date startDate, Date endDate);
-
+    public int getNumeroCorsi(int userid);
     Utenza findByEmail(String email);
 
     Utenza findByUsername(String username);

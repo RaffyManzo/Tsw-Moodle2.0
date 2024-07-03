@@ -130,4 +130,21 @@ public class CategoriaDaoImpl extends AbstractDataAccessObject<Categoria> implem
             throw new RuntimeException(e);
         }
     }
+
+    @Override
+    public String getMostPurchasedCategory() {
+        String mostPurchasedCategory = null;
+        try (Connection connection = getConnection();
+             PreparedStatement ps = prepareStatement(connection, "CATEGORY_MOST_PURCHASED");
+             ResultSet rs = ps.executeQuery()) {
+
+            if(rs.next()) {
+                mostPurchasedCategory = rs.getString(1);
+            }
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return mostPurchasedCategory;
+    }
 }

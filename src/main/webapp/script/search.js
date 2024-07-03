@@ -15,8 +15,14 @@ document.addEventListener('DOMContentLoaded', function (){
             fetch(`search?q=${encodeURIComponent(query)}`)
                 .then(response => response.json())
                 .then(data => {
-                    const utenti = data.utenti.sort((a, b) => a.surname.localeCompare(b.surname));
-                    const corsi = data.corsi.sort((a, b) => a.name.localeCompare(b.name));
+                    const utenti = data.utenti.map(utente => {
+                        utente.corsi = utente.corsi || 0;
+                        return utente;
+                    }).sort((a, b) => b.corsi - a.corsi);
+                    const corsi = data.corsi.map(corso => {
+                        corso.numberPurchases = corso.numberPurchases || 0;
+                        return corso;
+                    }).sort((a, b) => b.numberPurchases - a.numberPurchases);
                     const categorie = data.categorie.sort((a, b) => a.name.localeCompare(b.name));
                     renderDropdown(utenti, corsi, categorie);
                 });
