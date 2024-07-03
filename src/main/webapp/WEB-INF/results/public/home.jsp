@@ -58,11 +58,13 @@
     <script src="${pageContext.request.contextPath}/script/search.js"></script>
     <link href="${pageContext.request.contextPath}/css/search.css" rel="stylesheet">
 
+
     <script>
         $(document).ready(function () {
             // Creazione di un'istanza della classe CourseSlider
             new CourseSlider("#trend-course-slider-container", 'getCoursesJson');
             new CourseSlider("#your-course-slider-container", 'getCoursesJson?action=yourCategory');
+
 
         })
     </script>

@@ -43,6 +43,9 @@
     <link href="${pageContext.request.contextPath}/css/header.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/css/delete-margin.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/css/footer.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/css/profile.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/css/search.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/css/slider.css" rel="stylesheet">
 
     <link href="https://fonts.googleapis.com" rel="preconnect">
     <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
@@ -52,7 +55,19 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="${pageContext.request.contextPath}/script/profilepic.js"></script>
     <script src="${pageContext.request.contextPath}/script/search.js"></script>
-    <link href="${pageContext.request.contextPath}/css/search.css" rel="stylesheet">
+    <script src="${pageContext.request.contextPath}/script/sliderClass.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            // Creazione di un'istanza della classe CourseSlider
+            // Passa il parametro dinamico alla tua classe JavaScript
+            let query = "getCoursesJson?action=byCreator"
+
+            // Crea un'istanza di CourseSlider con i parametri dinamici
+            new CourseSlider("#other-course-of-creator", query);
+
+        })
+    </script>
 </head>
 <body>
 <div class="header" id="header">
@@ -186,6 +201,69 @@
             <ul id="search-results"></ul>
         </div>
 
+    </div>
+
+    <div class="content-container">
+        <div class="creator-info-container">
+                <a href="${pageContext.request.contextPath}/profile?id=<%= profile.getIdUtente() %>" class="creator-profile-pic">
+                    <%
+                        String initials = "";
+                        if (profile.getNome() != null && profile.getCognome() != null) {
+                            initials = profile.getNome().charAt(0) + "" + profile.getCognome().charAt(0);
+                        }
+                    %>
+                    <img src="${pageContext.request.contextPath}/file?file=<%= profile.getImg()%>&id=<%= profile.getIdUtente()%>&c=user"
+                         alt="<%= initials %>" id="creator-profile-pic">
+                    <div class="initials" style="display: none;"><%= initials %></div>
+                </a>
+                <div class="creator-info">
+                    <p><strong>Docente:</strong> <%= profile.getNome() + " " + profile.getCognome()%></p>
+                    <p><strong>Data di nascita:</strong> <%= profile.getDataCreazioneAccount()%></p>
+                    <h6 class="line-divider"></h6>
+                    <p><strong>Data creazione account:</strong> <%= profile.getDataCreazioneAccount()%></p>
+                </div>
+            </div>
+        <div class="box-info-container">
+            <div class="box-info">
+                <h2 class="box-info-header">Contatti</h2>
+                <div class="box-info-content">
+                    <p><strong>Email:</strong> <%= profile.getEmail()%></p>
+                    <p><strong>Telefono:</strong> <%= profile.getTelefono()%></p>
+                </div>
+            </div>
+            <div class="box-info">
+                <h2 class="box-info-header">Statistiche</h2>
+                <div class="box-info-content">
+                    <p><strong>Corsi creati:</strong> <%= (Integer)request.getAttribute("countcourse")%></p>
+                    <h6 class="line-divider"></h6>
+                        <%
+                        Map<String, Integer> corsiPerCategoria = (Map<String, Integer>) request.getAttribute("corsipercategoria");
+                        if (corsiPerCategoria != null) {%>
+                            <h3>Corsi creati per categoria</h3>
+                            <%for (String category : corsiPerCategoria.keySet()) {%>
+                                <p><strong><%= category %></strong> <%= corsiPerCategoria.get(category)%></p>
+                            <%}%>
+                        <%}%>
+                </div>
+            </div>
+        </div>
+        <div class="courses-section" id="course-section">
+
+            <h3>Altri corsi di <a
+                    class="course-links dark-link"><%= profile.getCognome() + " " + profile.getNome()%>
+            </a></h3>
+            <div class="slider" >
+                <button class="move-slider-button move-slider-left">
+                    <img src="${pageContext.request.contextPath}/file?file=leftarr.png&c=app" alt="">
+                </button>
+                <div class="slider-element-container" id="other-course-of-creator">
+
+                </div>
+                <button class="move-slider-button move-slider-right">
+                    <img src="${pageContext.request.contextPath}/file?file=rightarr.png&c=app" alt="">
+                </button>
+            </div>
+        </div>
     </div>
     <footer class="footer">
         <div class="footer-container">

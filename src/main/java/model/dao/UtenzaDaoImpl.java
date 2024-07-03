@@ -7,6 +7,8 @@ import model.beans.Utenza;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -318,6 +320,22 @@ public class UtenzaDaoImpl extends AbstractDataAccessObject<Utenza> implements U
             } else {
                 return new CategoriaDaoImpl().getMostPurchasedCategory();
             }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public Map<String, Integer> getCountCourseCategory(int userID) {
+        try (Connection connection = getConnection();
+             PreparedStatement ps = prepareStatement(connection, "COUNT_CATEGORY_COURSE")) {
+            ps.setInt(1, userID);
+
+            ResultSet rs = ps.executeQuery();
+            Map<String, Integer> result = new HashMap<>();
+            while (rs.next()) {
+                result.put(rs.getString(1), rs.getInt(2 ));
+            }
+            return  result;
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

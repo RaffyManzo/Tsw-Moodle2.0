@@ -145,6 +145,7 @@ public class CategoriaDaoImpl extends AbstractDataAccessObject<Categoria> implem
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+
         return mostPurchasedCategory;
     }
 }
