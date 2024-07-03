@@ -85,7 +85,7 @@ public class RegistrationServlet extends HttpServlet {
             );
 
             UtenzaDaoImpl utenzaDao = new UtenzaDaoImpl();
-            boolean success = utenzaDao.insertInto(utenza);
+            boolean success = utenzaDao.insertInto(utenza) != null;
 
             if (success) {
                 request.setAttribute("operation", "registrazione");

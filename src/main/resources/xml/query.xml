@@ -43,7 +43,12 @@
     <entry key="INSERT_CART_ELEMENT">INSERT INTO inserimento (IDCorso, IDCarrello, IDUtente, Quantita) VALUES (?, ?, ?, ?)</entry>
     <entry key="INSERT_CART">INSERT INTO carrello (IDUtente) VALUES (?)</entry>
 
-    <entry key="PURCHASE_COURSE">INSERT INTO corsiacquistati (IDCorso, IDUtente, Totale) VALUES (?, ?, ?)</entry>
+    <entry key="PURCHASE_COURSE">INSERT INTO corsiacquistati (IDCorso, IDUtente, idordine) VALUES (?, ?, ?) </entry>
+    <entry key="ADD_PAYMENT">INSERT INTO ordine (numeroCarta, IDUtente, DataPagamento, totale, uuid) VALUES (?, ?, ?, ?, ?)</entry>
+    <entry key="GET_COURSES_OF_ORDER">Select Corso.* from corsiacquistati as ca INNER JOIN corso on ca.idCorso = corso.idcorso where ca.idordine = ?</entry>
+    <entry key="GET_ORDER">Select * from ordine where idordine = ?</entry>
+    <entry key="CHECK_UUID">SELECT * FROM ordine WHERE uuid = ?</entry>
+
 
 
     <!-- Categoria -->

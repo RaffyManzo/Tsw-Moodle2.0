@@ -13,13 +13,13 @@ import java.util.logging.Logger;
 public class UtenzaDaoImpl extends AbstractDataAccessObject<Utenza> implements UtenzaDao {
 
     ArrayList<Utenza> users = new ArrayList<>();
-    private static final Logger logger = Logger.getLogger(UtenzaDaoImpl.class.getName());
+
 
     @Override
-    public boolean insertInto(Utenza utenza) {
+    public Utenza insertInto(Utenza utenza) {
         boolean success = false;
         try (Connection connection = getConnection();
-             PreparedStatement ps = prepareStatement(connection, "INSERT_UTENZA")) {
+             PreparedStatement ps = prepareStatement(connection, "INSERT_UTENZA", Statement.RETURN_GENERATED_KEYS)) {
             ps.setString(1, utenza.getNome());
             ps.setString(2, utenza.getCognome());
             ps.setDate(3,
@@ -35,13 +35,22 @@ public class UtenzaDaoImpl extends AbstractDataAccessObject<Utenza> implements U
             ps.setString(11, utenza.getTipo());
             ps.setString(12, utenza.getImg());
 
-            int rowsAffected = ps.executeUpdate();
-            success = rowsAffected > 0; // Se l'operazione ha avuto successo, rowsAffected sarà maggiore di 0
+
+            int affectedRows = ps.executeUpdate();
+
+            if (affectedRows > 0) {
+                try (ResultSet rs = ps.getGeneratedKeys()) {
+                    if (rs.next()) {
+                        return getResultAsObject(rs);
+                    }
+                }
+            }
+
 
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        return success;
+        return utenza;
     }
 
     @Override
@@ -280,78 +289,6 @@ public class UtenzaDaoImpl extends AbstractDataAccessObject<Utenza> implements U
         return new Utenza(idUtente, nome, cognome, dataNascita, indirizzo, citta, telefono, email, password, dataCreazioneAccount, username, tipo, img);
     }
 
-    private boolean purchaseCourse(int userID, int courseID, double total) throws SQLException {
-        try (Connection connection = getConnection();
-             PreparedStatement ps = prepareStatement(connection, "PURCHASE_COURSE")) {
-
-            ps.setInt(1, courseID);
-            ps.setInt(2, userID);
-            ps.setDouble(3, total);
-
-
-            logger.log(Level.INFO, "Acquisto del corso con ID: " + courseID + " per l'utente con ID: " + userID + " completato");
-            return ps.execute();
-        } catch (SQLException e) {
-            logger.log(Level.SEVERE, "Errore durante l'acquisto del corso", e);
-            throw e;
-        }
-    }
-
-    public void purchaseCoursesFromCart(Carrello carrello) throws SQLException {
-        Connection connection = null;
-        try {
-
-            connection = DBManager.getConnection();
-            // Ottieni la connessione e inizia la transazione
-            connection.setAutoCommit(false);
-
-            double somma = carrello.getCart().keySet().stream()
-                    .mapToDouble(Corso::getPrezzo)
-                    .sum();
-
-            // Effettua l'acquisto per ogni corso nel carrello
-            for (Corso c : carrello.getCart().keySet()) {
-                logger.log(Level.INFO, "Acquistando corso con ID: " + c.getIdCorso());
-                purchaseCourse(carrello.getIDUtente(), c.getIdCorso(), somma);
-
-            }
-
-            // Svuota il carrello
-            new CartDaoImpl().clearCart(carrello.getIDCarrello());
-            logger.log(Level.INFO, "Transazione completata con successo per l'utente: " + carrello.getIDUtente());
-
-            // Commette la transazione
-            connection.commit();
-
-        } catch (SQLException e) {
-            if (e instanceof SQLIntegrityConstraintViolationException && e.getMessage().contains("Duplicate entry")) {
-                String[] parts = e.getMessage().split("'");
-                String courseId = String.valueOf(parts[1].charAt(0));
-                String userId = parts[1].substring(2);
-                logger.log(Level.SEVERE, "Il corso con ID: " + courseId + " è già stato acquistato dall'utente con ID: " + userId, e);
-                try {
-                    connection.rollback();
-                } catch (SQLException ex) {
-                    ex.printStackTrace();
-                }
-                throw new SQLException("Il corso con ID: " + courseId + " è già stato acquistato dall'utente con ID: " + userId);
-            } else {
-                logger.log(Level.SEVERE, "Errore durante la transazione, rollback eseguito", e);
-                try {
-                    connection.rollback();
-                } catch (SQLException ex) {
-                    ex.printStackTrace();
-                }
-                throw e;
-            }
-        } finally {
-            try {
-                connection.setAutoCommit(true);
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }
-    }
 
 }
 

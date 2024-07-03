@@ -72,15 +72,24 @@ public class CategoriaDaoImpl extends AbstractDataAccessObject<Categoria> implem
     }
 
     @Override
-    protected boolean insertInto(Categoria categoria){
+    protected Categoria insertInto(Categoria categoria){
         try (Connection connection = getConnection();
-             PreparedStatement ps = prepareStatement(connection, "INSERT_CATEGORIA")) {
+             PreparedStatement ps = prepareStatement(connection, "INSERT_CATEGORIA", Statement.RETURN_GENERATED_KEYS)) {
             ps.setString(1, categoria.getNome());
-            ps.executeUpdate();
+
+            int affectedRows = ps.executeUpdate();
+
+            if (affectedRows > 0) {
+                try (ResultSet rs = ps.getGeneratedKeys()) {
+                    if (rs.next()) {
+                        return getResultAsObject(rs);
+                    }
+                }
+            }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        return false;
+        return categoria;
     }
 
     @Override

@@ -8,9 +8,11 @@ import jakarta.servlet.http.*;
 import model.Util.CarrelloService;
 import model.beans.Carrello;
 import model.beans.Corso;
+import model.beans.CreditCard;
 import model.beans.Utenza;
 import model.dao.CartDaoImpl;
 import model.dao.CorsoDaoImpl;
+import model.dao.OrdineDaoImpl;
 import model.dao.UtenzaDaoImpl;
 
 import java.io.IOException;
@@ -58,11 +60,13 @@ public class CheckoutServlet extends HttpServlet {
         UtenzaDaoImpl utenzaDao = new UtenzaDaoImpl();
 
         try {
-            if (checkCardValidity(request)) {
+            CreditCard card = checkCardValidity(request);
+            if (card != null) {
                 session.removeAttribute("cart");
                 session.removeAttribute("cartItemCount");
 
-                utenzaDao.purchaseCoursesFromCart(cart);
+
+                new OrdineDaoImpl().purchaseCoursesFromCart(cart, card);
                 success(request, response, cart);
             } else {
                 error(request, response, "Metodo di pagamento non valido");
@@ -78,13 +82,17 @@ public class CheckoutServlet extends HttpServlet {
         }
     }
 
-    private boolean checkCardValidity( HttpServletRequest request) {
+    private CreditCard checkCardValidity( HttpServletRequest request) {
         String cardNumber = request.getParameter("cardNumber");
         String cardHolder = request.getParameter("cardHolder");
         String expiryDate = request.getParameter("expiryDate");
         String cvc = request.getParameter("cvc");
 
-        return isValidCardNumber(cardNumber) && isValidExpiryDate(expiryDate) && isValidCVC(cvc);
+        if( isValidCardNumber(cardNumber) && isValidExpiryDate(expiryDate) && isValidCVC(cvc)) {
+            return new CreditCard(cardNumber,
+                    cardHolder, expiryDate,
+                    ((Utenza)request.getSession().getAttribute("user")).getIdUtente());
+        } else return null;
     }
 
     private boolean isValidCardNumber(String cardNumber) {

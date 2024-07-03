@@ -87,7 +87,7 @@
                     </span>
             </div>
         </div>
-        <form class='credit-info' method="post" action="checkout?a=purchase">
+        <form class='credit-info' method="post" action="checkout?a=purchase" id="credit-info-form">
             <div class='credit-info-content'>
                 <table class='half-input-table'>
                     <tr>
@@ -121,7 +121,14 @@
                     </tr>
                 </table>
                 <div class="button-checkout-field">
-                    <input type="submit" class='pay-btn' value="Inoltra il pagamento">
+                    <input type="submit" class='pay-btn' onclick="this." value="Inoltra il pagamento">
+                    <script>
+                        $(document).ready(function () {
+                            $('#credit-info-form').one('submit', function() {
+                                $(this).find('input[type="submit"]').attr('disabled', 'disabled');
+                            });
+                        })
+                    </script>
                     <a href="${pageContext.request.contextPath}/shop?action=viewCart" class='pay-btn'>Annulla</a>
                 </div>
             </div>
