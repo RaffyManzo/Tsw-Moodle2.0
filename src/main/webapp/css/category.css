@@ -1,0 +1,108 @@
+* {
+    font-family: "Jura", sans-serif;
+}
+
+.creator-info-container > * {
+    margin: 0 !important;
+}
+
+.creator-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+.creator-info-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 5% 10% 5%;
+    flex-direction: row;
+    box-sizing: border-box;
+}
+
+/* Stile per il contenitore principale */
+.course-pagination {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Stile per ogni scheda del corso */
+.card {
+    background: linear-gradient(to right, #f8f8f8, #e8e8e8);
+    border-radius: 12px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    margin: 20px;
+    overflow: hidden;
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+    padding: 10px;
+    box-sizing: border-box;
+    justify-content: space-between;
+}
+
+.card > * {
+    margin: 2%;
+}
+
+.course-info {
+    flex: 1;
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+/* Stile per l'immagine del corso */
+.card img {
+        height: auto;
+        width: 230px;
+        aspect-ratio: 1 / 1;
+        border-radius: 12px;
+
+}
+
+/* Stile per il titolo del corso */
+.card-title {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    margin: 10px 0;
+}
+
+/* Stile per la descrizione del corso */
+.card-description {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+/* Stile per la paginazione */
+.pagination {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+/* Stile per i link della paginazione */
+.pagination a {
+    color: #007bff;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+/* Stile per il link della pagina corrente */
+.pagination a.active {
+    color: #495057;
+    text-decoration: underline;
+}

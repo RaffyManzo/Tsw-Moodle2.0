@@ -1,6 +1,7 @@
 package model.dao;
 
 import model.beans.Categoria;
+import model.beans.Utenza;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -13,5 +14,7 @@ public interface CategoriaDao {
     int countAllCourseOf(String name) throws SQLException;
     public Map<String, Integer> getCountOfEachCategory(int userID);
     public String getMostPurchasedCategory();
+    public Map<Utenza, Integer> getTeacherWithHigherNumberInCategory(String category);
+    public int getNumberOfCourseCategory(String category);
 
-    }
+}

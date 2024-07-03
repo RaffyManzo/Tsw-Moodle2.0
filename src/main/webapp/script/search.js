@@ -98,7 +98,6 @@ document.addEventListener('DOMContentLoaded', function (){
                         <strong class="search-element-name">${corso.name} (${corso.category})</strong>
                         </div>
                         <div class="search-result-element-details">
-                        <span class="sub-search-element">(Acquisti: ${corso.numberPurchases})</span>
                         <span class="sub-search-element search-bar-price">Prezzo: ${corso.price}$</span>
                         </div>
                     `;
@@ -124,6 +123,7 @@ document.addEventListener('DOMContentLoaded', function (){
                         <span>${categoria.name}</span>
                     `;
                     a.href = `
+                            category?c=${categoria.name}
                             `;
                     item.appendChild(a)
                     searchResults.appendChild(item);

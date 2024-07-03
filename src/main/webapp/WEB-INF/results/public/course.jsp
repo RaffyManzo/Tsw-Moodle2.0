@@ -182,7 +182,11 @@
 <div class="content-container">
     <div class="section-top">
         <div class="course-info">
-            <p style="font-size: 1.4rem;"><a class="course-links">Tutte le categorie</a> > <a class="course-links"><%= corso.getNomeCategoria()%></a></p>
+            <p style="font-size: 1.4rem;"><a class="course-links">Tutte le categorie</a> >
+                <a href="category?c=<%= corso.getNomeCategoria()%>"
+                   class="course-links"><%= corso.getNomeCategoria()%>
+                </a>
+            </p>
 
 
             <div>
