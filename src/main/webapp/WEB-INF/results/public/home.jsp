@@ -265,21 +265,25 @@
                 <a href="category?c=Scrittura">
                     <img src="${pageContext.request.contextPath}/assets/images/sc.png" alt="">
                 </a>
+                <p>Scrittura</p>
             </div>
             <div class="category-circle-box">
                 <a href="category?c=Sviluppo%20web">
                     <img src="${pageContext.request.contextPath}/assets/images/sviluppoweb.png" alt="">
                 </a>
+                <p>Sviluppo web</p>
             </div>
             <div class="category-circle-box">
                 <a href="category?c=Sviluppo%20giochi">
                     <img src="${pageContext.request.contextPath}/assets/images/sviluppoGiochi.png" alt="">
                 </a>
+                <p>Sviluppo giochi</p>
             </div>
             <div class="category-circle-box">
-                <a href="category?c=Programmazione%20backend">
+                <a href="category?c=Programmazione">
                     <img src="${pageContext.request.contextPath}/assets/images/backend.png" alt="">
                 </a>
+                <p>Programmazione</p>
             </div>
         </div>
         <div class="categories-inner-row-container">
@@ -287,21 +291,25 @@
                 <a href="category?c=Fotografia">
                     <img src="${pageContext.request.contextPath}/assets/images/foto.png" alt="">
                 </a>
+                <p>Fotografia</p>
             </div>
             <div class="category-circle-box">
                 <a href="category?c=Trading">
                     <img src="${pageContext.request.contextPath}/assets/images/trading.png" alt="">
                 </a>
+                <p>Trading</p>
             </div>
             <div class="category-circle-box">
                 <a href="category?c=Marketing">
                     <img src="${pageContext.request.contextPath}/assets/images/marketing.png" alt="">
                 </a>
+                <p>Marketing</p>
             </div>
             <div class="category-circle-box">
                 <a href="category?c=Musica">
                     <img src="${pageContext.request.contextPath}/assets/images/musica.png" alt="">
                 </a>
+                <p>Musica</p>
             </div>
         </div>
     </div>

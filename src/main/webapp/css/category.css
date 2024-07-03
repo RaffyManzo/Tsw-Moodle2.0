@@ -84,13 +84,13 @@
     border-radius: 12px;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     margin: 20px;
-    overflow: hidden;
-    width: 40%;
+    width: 50%;
     display: flex;
     flex-direction: row;
     align-items: center;
     text-decoration: none;
-    height: 200px;
+    max-height: 300px;
+
     color: black;
     padding: 10px;
     box-sizing: border-box;
@@ -113,7 +113,7 @@
 .card img {
         height: 100%;
         width: auto;
-    max-width: 60%;
+    max-width: 40%;
         aspect-ratio: 2 / 1;
         border-radius: 12px;
 
