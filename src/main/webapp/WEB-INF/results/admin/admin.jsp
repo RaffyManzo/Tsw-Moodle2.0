@@ -26,7 +26,12 @@
         <h1 class="site-name" id="header-site-name">
             Learn Hub
         </h1>
-        <h1 class="admin-header">Area admin</h1>
+    </div>
+    <span class="vertical-separator"></span>
+    <div class="link-container">
+        <a href="${pageContext.request.contextPath}/logout" class="header-redirect-btn">
+            Logout&nbsp;&nbsp;<img src="${pageContext.request.contextPath}/assets/images/log-out.png" alt="">
+        </a>
     </div>
 </div>
 
