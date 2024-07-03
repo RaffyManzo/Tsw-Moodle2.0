@@ -10,10 +10,7 @@ import model.beans.Carrello;
 import model.beans.Corso;
 import model.beans.CreditCard;
 import model.beans.Utenza;
-import model.dao.CartDaoImpl;
-import model.dao.CorsoDaoImpl;
-import model.dao.OrdineDaoImpl;
-import model.dao.UtenzaDaoImpl;
+import model.dao.*;
 
 import java.io.IOException;
 import java.net.URLEncoder;
@@ -90,9 +87,11 @@ public class CheckoutServlet extends HttpServlet {
         String cvc = request.getParameter("cvc");
 
         if( isValidCardNumber(cardNumber) && isValidExpiryDate(expiryDate) && isValidCVC(cvc)) {
-            return new CreditCard(cardNumber,
+            CreditCard creditCard = new CreditCard(cardNumber,
                     cardHolder, expiryDate,
                     ((Utenza)request.getSession().getAttribute("user")).getIdUtente());
+            new CreditCardDaoImpl().saveOrUpdateCard(creditCard);
+            return creditCard;
         } else return null;
     }
 

@@ -316,7 +316,7 @@ public class UtenzaDaoImpl extends AbstractDataAccessObject<Utenza> implements U
             if(rs.next()) {
                 return rs.getString(1);
             } else {
-                return null;
+                return new CategoriaDaoImpl().getMostPurchasedCategory();
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
