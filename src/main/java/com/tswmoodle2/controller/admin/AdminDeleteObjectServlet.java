@@ -34,7 +34,7 @@ public class AdminDeleteObjectServlet extends HttpServlet {
             default:
                 throw new IllegalArgumentException("Invalid table name: " + table);
         }
-        response.sendRedirect("AdminServlet?table-select=" + table);
+        response.sendRedirect("admin?table-select=" + table);
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

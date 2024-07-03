@@ -26,7 +26,12 @@
         <h1 class="site-name" id="header-site-name">
             Learn Hub
         </h1>
-        <h1 class="admin-header">Area admin</h1>
+    </div>
+    <span class="vertical-separator"></span>
+    <div class="link-container">
+        <a href="${pageContext.request.contextPath}/logout" class="header-redirect-btn">
+            Logout&nbsp;&nbsp;<img src="${pageContext.request.contextPath}/assets/images/log-out.png" alt="">
+        </a>
     </div>
 </div>
 
@@ -42,87 +47,150 @@
 </form>
 
 <div id="table-container">
-    <ul>
-        <%
-            if(request.getAttribute("table")!=null){
-            switch ((String) request.getAttribute("table")){
+    <%
+        if (request.getAttribute("table") != null) {
+            switch ((String) request.getAttribute("table")) {
                 case "utenza":
                     List<Utenza> utenti = (List<Utenza>) request.getAttribute("data");
-                    for (Utenza u : utenti) {
-        %>
-                    <li>
-                        id: <%= u.getIdUtente() %><br>
-                        <%= u.getCognome() %> <%= u.getNome() %> Tipo: <%= u.getTipo() %><br>
-                        email: <%= u.getEmail() %><br>
-                        username: <%= u.getUsername() %><br>
-                        data creazione account: <%= u.getDataCreazioneAccount() %><br>
-                        <div class="button-container">
-                            <form action="adminDelete">
-                                <input type="hidden" name="id" value="<%= u.getIdUtente() %>">
-                                <input type="hidden" name="tipo" value="utenza">
-                                <input type="submit" value="Elimina">
-                            </form>
-                            <form action="adminDelete">
-                                <input type="hidden" name="id" value="<%= u.getIdUtente() %>">
-                                <input type="submit" value="Modifica">
-                            </form>
-                        </div>
-                    </li>
+    %>
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Cognome</th>
+            <th>Tipo</th>
+            <th>Email</th>
+            <th>Username</th>
+            <th>Data Creazione Account</th>
+            <th>Azioni</th>
+        </tr>
+        </thead>
+        <tbody>
         <%
-                    }
+            for (Utenza u : utenti) {
+        %>
+        <tr>
+            <td><%= u.getIdUtente() %></td>
+            <td><%= u.getNome() %></td>
+            <td><%= u.getCognome() %></td>
+            <td><%= u.getTipo() %></td>
+            <td><%= u.getEmail() %></td>
+            <td><%= u.getUsername() %></td>
+            <td><%= u.getDataCreazioneAccount() %></td>
+            <td>
+                <div class="button-container">
+                    <form action="adminDelete" method="post" style="display:inline;">
+                        <input type="hidden" name="id" value="<%= u.getIdUtente() %>">
+                        <input type="hidden" name="tipo" value="utenza">
+                        <input type="submit" value="Elimina">
+                    </form>
+                    <form action="ModificaServlet" method="post" style="display:inline;">
+                        <input type="hidden" name="id" value="<%= u.getIdUtente() %>">
+                        <input type="hidden" name="tipo" value="utenza">
+                        <input type="submit" value="Modifica">
+                    </form>
+                </div>
+            </td>
+        </tr>
+        <%
+            }
+        %>
+        </tbody>
+    </table>
+    <%
+            break;
+        case "corso":
+            List<Corso> corsi = (List<Corso>) request.getAttribute("data");
+    %>
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Creatore</th>
+            <th>Categoria</th>
+            <th>Descrizione</th>
+            <th>Prezzo</th>
+            <th>Azioni</th>
+        </tr>
+        </thead>
+        <tbody>
+        <%
+            for (Corso c : corsi) {
+        %>
+        <tr>
+            <td><%= c.getIdCorso() %></td>
+            <td><%= c.getNome() %></td>
+            <td><%= c.getCreatore().getCognome() %> <%= c.getCreatore().getNome() %></td>
+            <td><%= c.getNomeCategoria() %></td>
+            <td><%= c.getDescrizione() %></td>
+            <td><%= c.getPrezzo() %></td>
+            <td>
+                <div class="button-container">
+                    <form action="adminDelete" method="post" style="display:inline;">
+                        <input type="hidden" name="id" value="<%= c.getIdCorso() %>">
+                        <input type="hidden" name="tipo" value="corso">
+                        <input type="submit" value="Elimina">
+                    </form>
+                    <form action="ModificaServlet" method="post" style="display:inline;">
+                        <input type="hidden" name="id" value="<%= c.getIdCorso() %>">
+                        <input type="hidden" name="tipo" value="corso">
+                        <input type="submit" value="Modifica">
+                    </form>
+                </div>
+            </td>
+        </tr>
+        <%
+            }
+        %>
+        </tbody>
+    </table>
+    <%
+            break;
+        case "categoria":
+            List<Categoria> categorie = (List<Categoria>) request.getAttribute("data");
+    %>
+    <table>
+        <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Azioni</th>
+        </tr>
+        </thead>
+        <tbody>
+        <%
+            for (Categoria c : categorie) {
+        %>
+        <tr>
+            <td><%= c.getNome() %></td>
+            <td>
+                <div class="button-container">
+                    <form action="adminDelete" method="post" style="display:inline;">
+                        <input type="hidden" name="tipo" value="categoria">
+                        <input type="hidden" name="id" value="<%= c.getNome() %>">
+                        <input type="submit" value="Elimina">
+                    </form>
+                    <form action="ModificaServlet" method="post" style="display:inline;">
+                        <input type="hidden" name="id" value="<%= c.getNome() %>">
+                        <input type="hidden" name="tipo" value="categoria">
+                        <input type="submit" value="Modifica">
+                    </form>
+                </div>
+            </td>
+        </tr>
+        <%
+            }
+        %>
+        </tbody>
+    </table>
+    <%
                     break;
-                case "corso":
-                    List<Corso> corsi = (List<Corso>) request.getAttribute("data");
-                    for (Corso c : corsi) {
-        %>
-                <li>
-                    id: <%= c.getIdCorso() %><br>
-                    <%= c.getNome() %> - <%= c.getCreatore().getCognome() %> <%= c.getCreatore().getNome() %><br>
-                    Categoria: <%= c.getNomeCategoria() %><br>
-                    Descrizione: <%= c.getDescrizione() %><br>
-                    Prezzo: <%= c.getPrezzo() %><br>
-                    <div class="button-container">
-                        <form action="adminDelete">
-                            <input type="hidden" name="id" value="<%= c.getIdCorso() %>">
-                            <input type="hidden" name="tipo" value="corso">
-                            <input type="submit" value="Elimina">
-                        </form>
-                        <form action="ModificaServlet">
-                            <input type="hidden" name="id" value="<%= c.getIdCorso() %>">
-                            <input type="submit" value="Modifica">
-                        </form>
-                    </div>
-                </li>
-        <%
-                }
-                break;
-            case "categoria":
-                List<Categoria> categorie = (List<Categoria>) request.getAttribute("data");
-                for (Categoria c : categorie) {
-        %>
-                <li>
-                    Nome: <%= c.getNome() %><br>
-                    <div class="button-container">
-                        <form action="adminDelete">
-                            <input type="hidden" name="tipo" value="categoria">
-                            <input type="hidden" name="id" value="<%= c.getNome() %>">
-                            <input type="submit" value="Elimina">
-                        </form>
-                        <form action="ModificaServlet">
-                            <input type="hidden" name="id" value="<%= c.getNome() %>">
-                            <input type="submit" value="Modifica">
-                        </form>
-                    </div>
-                </li>
-        <%
-                }
-                break;
-                default: System.out.println("Errore");
+                default:
+                    System.out.println("Errore");
             }
-            }
-        %>
-    </ul>
-
+        }
+    %>
 </div>
 
 </body>
