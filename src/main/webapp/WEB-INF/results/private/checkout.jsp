@@ -26,6 +26,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Jura:wght@300..700&display=swap" rel="stylesheet">
     <script src="${pageContext.request.contextPath}/script/imageErrorDetect.js"></script>
     <script src="${pageContext.request.contextPath}/script/checkout.js"></script>
+    <script src="${pageContext.request.contextPath}/script/paymentValidation.js"></script>
 </head>
 <body>
 <div class='container'>
