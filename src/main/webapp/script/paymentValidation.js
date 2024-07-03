@@ -14,31 +14,27 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function validate(form) {
-        // Card Number Validation
         const cardNumberField = document.getElementById('card-number');
         const cardNumber = cardNumberField.value.replace(/\s/g, '');
         if (!/^\d{16}$/.test(cardNumber)) {
             return "Numero di carta non valido";
         }
 
-        // Card Holder Validation
         const cardHolderField = document.getElementById('card-holder');
         const cardHolder = cardHolderField.value.trim();
         if (!/^[A-Za-z\s]+$/.test(cardHolder)) {
             return "Intestatario non valido";
         }
 
-        // Expiry Date Validation
         const expiryDateField = document.getElementById('expiry-date');
         const expiryDate = expiryDateField.value;
         const expiryDateRegex = /^(0[1-9]|1[0-2])\/\d{2}$/;
         const [month, year] = expiryDate.split('/');
-        const currentYear = new Date().getFullYear() % 100; // Get last two digits of current year
+        const currentYear = new Date().getFullYear() % 100;
         if (!expiryDateRegex.test(expiryDate) || parseInt(year) < currentYear) {
             return "Data di scadenza non valida";
         }
 
-        // CVC Validation
         const cvcField = document.getElementById('cvc');
         const cvc = cvcField.value.trim();
         if (!/^\d{3}$/.test(cvc)) {
@@ -55,8 +51,7 @@ document.addEventListener('DOMContentLoaded', function () {
             alert(error);
             return false;
         } else {
-            alert('Form inviato con successo');
-            return true;
+            event.target.submit(); // Proceed with the form submission
         }
     }
 
