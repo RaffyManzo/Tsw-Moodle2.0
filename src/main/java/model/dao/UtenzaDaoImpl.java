@@ -1,19 +1,25 @@
 package model.dao;
 
+import model.DBManager;
+import model.beans.Carrello;
+import model.beans.Corso;
 import model.beans.Utenza;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class UtenzaDaoImpl extends AbstractDataAccessObject<Utenza> implements UtenzaDao {
 
     ArrayList<Utenza> users = new ArrayList<>();
 
+
     @Override
-    public boolean insertInto(Utenza utenza) {
+    public Utenza insertInto(Utenza utenza) {
         boolean success = false;
         try (Connection connection = getConnection();
-             PreparedStatement ps = prepareStatement(connection, "INSERT_UTENZA")) {
+             PreparedStatement ps = prepareStatement(connection, "INSERT_UTENZA", Statement.RETURN_GENERATED_KEYS)) {
             ps.setString(1, utenza.getNome());
             ps.setString(2, utenza.getCognome());
             ps.setDate(3,
@@ -29,13 +35,22 @@ public class UtenzaDaoImpl extends AbstractDataAccessObject<Utenza> implements U
             ps.setString(11, utenza.getTipo());
             ps.setString(12, utenza.getImg());
 
-            int rowsAffected = ps.executeUpdate();
-            success = rowsAffected > 0; // Se l'operazione ha avuto successo, rowsAffected sarà maggiore di 0
+
+            int affectedRows = ps.executeUpdate();
+
+            if (affectedRows > 0) {
+                try (ResultSet rs = ps.getGeneratedKeys()) {
+                    if (rs.next()) {
+                        return getResultAsObject(rs);
+                    }
+                }
+            }
+
 
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        return success;
+        return utenza;
     }
 
     @Override
@@ -273,4 +288,7 @@ public class UtenzaDaoImpl extends AbstractDataAccessObject<Utenza> implements U
 
         return new Utenza(idUtente, nome, cognome, dataNascita, indirizzo, citta, telefono, email, password, dataCreazioneAccount, username, tipo, img);
     }
+
+
 }
+

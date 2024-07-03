@@ -22,7 +22,7 @@ public class SearchServlet extends HttpServlet {
     private static final int DISPLAY_LIMIT = 3;
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-// Imposta gli header per il CORS
+        // Imposta gli header per il CORS
         response.setHeader("Access-Control-Allow-Origin", "*");
         response.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
         response.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");

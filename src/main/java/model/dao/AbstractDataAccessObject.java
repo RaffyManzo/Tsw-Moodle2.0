@@ -25,6 +25,7 @@ public abstract class  AbstractDataAccessObject <T> {
     }
 
 
+
     /**
      * Prepare a statement for a param query
      *
@@ -76,7 +77,7 @@ public abstract class  AbstractDataAccessObject <T> {
      * @throws SQLException
      */
     protected abstract T extractFromResultSet(ResultSet rs) throws SQLException;
-    protected abstract boolean insertInto (T t) throws SQLException;
+    protected abstract T insertInto (T t) throws SQLException;
 
     protected abstract void update(T e);
 

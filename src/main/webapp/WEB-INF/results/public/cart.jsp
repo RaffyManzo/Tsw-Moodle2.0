@@ -177,11 +177,11 @@
                     <h5><%= product.getNome() %></h5>
                     <p><%= product.getDescrizione() %></p>
                     <div class="cart-item-sub-elements">
-                        <div class="quantity-controller">
+                        <!-- <div class="quantity-controller">
                             <a href="shop?action=decreaseQuantity&productId=<%= product.getIdCorso() %>"><strong>-</strong></a>
                             <p><%= quantity %></p>
                             <a href="shop?action=addToCart&productId=<%= product.getIdCorso() %>"><strong>+</strong></a>
-                        </div>
+                        </div> -->
                         <p><%= product.getPrezzo() %>$</p>
                         <form action="shop" method="get" style="display:inline;">
                             <input type="hidden" name="action" value="removeFromCart"/>
@@ -208,7 +208,7 @@
             <h4>Checkout</h4>
             <h1><% double price = 0 ; if (cart != null) { for (Map.Entry<Corso, Integer> entry : cart.entrySet()){
                 price += entry.getKey().getPrezzo() * entry.getValue();}%> <%}%><%= Math.round(price * 100.0) / 100.0 %> $</h1>
-            <a href="${pageContext.request.contextPath}/checkout" class="checkout-btn">
+            <a href="${pageContext.request.contextPath}/checkout?a=redirect" class="checkout-btn">
                 Completa il pagamento
             </a>
         </div>

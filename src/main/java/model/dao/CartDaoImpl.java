@@ -37,13 +37,13 @@ public class CartDaoImpl extends AbstractDataAccessObject<Carrello> implements C
             quantities.add(quantity);
         } while (rs.next());
 
-        return new Carrello(courses, quantities, idCarrello, idStudente);
+        return new Carrello(courses, quantities, idStudente, idCarrello);
     }
 
     @Override
-    protected boolean insertInto(Carrello carrello) throws SQLException {
+    protected Carrello insertInto(Carrello carrello) throws SQLException {
 
-        return false;
+        return null;
     }
 
     public Carrello getCartByUserID(int userID) {
@@ -91,11 +91,13 @@ public class CartDaoImpl extends AbstractDataAccessObject<Carrello> implements C
      * @param idCarrello ID del carrello da svuotare
      * @throws SQLException
      */
-    public void clearCart(int idCarrello) throws SQLException {
+    public void clearCart(int idCarrello){
         try (Connection conn = getConnection();
              PreparedStatement deleteStmt = prepareStatement(conn, "CLEAR_CART")) {
             deleteStmt.setInt(1, idCarrello);
             deleteStmt.executeUpdate();
+        }catch (SQLException e) {
+            throw new RuntimeException(e);
         }
     }
 
@@ -157,7 +159,7 @@ public class CartDaoImpl extends AbstractDataAccessObject<Carrello> implements C
 
 
 
-    public int createCartForUser(int userID) throws SQLException {
+    public int createCartForUser(int userID){
         try (Connection conn = getConnection();
              PreparedStatement stmt = prepareStatement(conn, "INSERT_CART", PreparedStatement.RETURN_GENERATED_KEYS)) {
             stmt.setInt(1, userID);
@@ -169,6 +171,8 @@ public class CartDaoImpl extends AbstractDataAccessObject<Carrello> implements C
                     throw new SQLException("Creating carrello failed, no ID obtained.");
                 }
             }
+        }catch (SQLException e) {
+            throw new RuntimeException(e);
         }
     }
 

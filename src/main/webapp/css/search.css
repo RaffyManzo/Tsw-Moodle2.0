@@ -109,9 +109,23 @@
 }
 
 .dropdown-item img.dropdown-img {
-    width: 30px;
-    height: 30px;
+    height: 40px; /* Dimensione dell'iniziale */
+    width: 40px; /* Dimensione dell'iniziale */
     margin-right: 10px;
     border-radius: 50%;
     background-color: #f1f1f1;
+}
+
+.dropdown-item .initials {
+    height: 40px; /* Dimensione dell'iniziale */
+    width: 40px; /* Dimensione dell'iniziale */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 90%; /* Ingrandisce il testo per coprire meglio l'area */
+    color: #fff;
+    background-color: #596cff; /* Colore di sfondo quando l'immagine non è disponibile */
+    border-radius: 50%; /* Assicura che il div sia circolare */
+    text-transform: uppercase; /* Trasforma le iniziali in maiuscolo */
+    margin-right: 10px; /* Spazio tra le iniziali e il testo */
 }

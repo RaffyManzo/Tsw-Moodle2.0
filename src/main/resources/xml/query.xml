@@ -43,6 +43,14 @@
     <entry key="INSERT_CART_ELEMENT">INSERT INTO inserimento (IDCorso, IDCarrello, IDUtente, Quantita) VALUES (?, ?, ?, ?)</entry>
     <entry key="INSERT_CART">INSERT INTO carrello (IDUtente) VALUES (?)</entry>
 
+    <entry key="PURCHASE_COURSE">INSERT INTO corsiacquistati (IDCorso, IDUtente, idordine) VALUES (?, ?, ?) </entry>
+    <entry key="ADD_PAYMENT">INSERT INTO ordine (numeroCarta, IDUtente, DataPagamento, totale, uuid) VALUES (?, ?, ?, ?, ?)</entry>
+    <entry key="GET_COURSES_OF_ORDER">Select Corso.* from corsiacquistati as ca INNER JOIN corso on ca.idCorso = corso.idcorso where ca.idordine = ?</entry>
+    <entry key="GET_ORDER">Select * from ordine where idordine = ?</entry>
+    <entry key="CHECK_UUID">SELECT * FROM ordine WHERE uuid = ?</entry>
+
+
+
     <!-- Categoria -->
     <entry key="INSERT_CATEGORIA">INSERT INTO Categoria (Nome) VALUES (?)</entry>
     <entry key="UPDATE_CATEGORIA">UPDATE Categoria SET Nome = ? WHERE Nome = ?</entry>
@@ -80,5 +88,5 @@
     </entry>
 
     <!-- Teacher page -->
-    <entry key="COUNT_CATEGORY_COURSE">select corso.nomeCategoria, count(*) from corso inner join utenza on corso.creatore = utenza.IDUtente where IDUtente=? group by corso.nomeCategoria</entry>
+    <entry key="COUNT_CATEGORY_COURSE">select corso.nomeCategoria, count(*) AS count from corso inner join utenza on corso.creatore = utenza.IDUtente where IDUtente=? group by corso.nomeCategoria</entry>
 </properties>

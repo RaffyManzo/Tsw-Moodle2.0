@@ -5,6 +5,7 @@ import model.beans.Utenza;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Set;
 
 public class CorsoDaoImpl extends AbstractDataAccessObject<Corso> implements CorsoDao{
 
@@ -18,9 +19,9 @@ public class CorsoDaoImpl extends AbstractDataAccessObject<Corso> implements Cor
     }
 
     @Override
-    public boolean insertInto(Corso corso)  {
+    public Corso insertInto(Corso corso)  {
         try (Connection connection = getConnection();
-             PreparedStatement ps = prepareStatement(connection, "INSERT_CORSO")) {
+             PreparedStatement ps = prepareStatement(connection, "INSERT_CORSO", Statement.RETURN_GENERATED_KEYS)) {
             ps.setString(1, corso.getNomeCategoria());
             ps.setString(2, corso.getNome());
             ps.setString(3, corso.getDescrizione());
@@ -29,11 +30,20 @@ public class CorsoDaoImpl extends AbstractDataAccessObject<Corso> implements Cor
             ps.setDate(6, corso.getDataCreazione());
             ps.setDouble(8, corso.getPrezzo());
             ps.setInt(9, corso.getCreatore().getIdUtente());
-            ps.executeUpdate();
+
+            int affectedRows = ps.executeUpdate();
+
+            if (affectedRows > 0) {
+                try (ResultSet rs = ps.getGeneratedKeys()) {
+                    if (rs.next()) {
+                        return getResultAsObject(rs);
+                    }
+                }
+            }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        return false;
+        return corso;
     }
 
     @Override
@@ -130,6 +140,22 @@ public class CorsoDaoImpl extends AbstractDataAccessObject<Corso> implements Cor
                 return getResultAsList(rs);
             }
 
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+
+    public ArrayList<Corso> getCourseOfOrder(int idOrder) {
+        try (Connection connection = getConnection();
+             PreparedStatement ps = prepareStatement(connection, "GET_COURSES_OF_ORDER")) {
+
+            ps.setInt(1, idOrder);
+
+
+            try (ResultSet rs = ps.executeQuery()) {
+                return getResultAsList(rs);
+            }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

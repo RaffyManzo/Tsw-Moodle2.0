@@ -42,11 +42,24 @@ document.addEventListener('DOMContentLoaded', function (){
                     const item = document.createElement('li');
                     const a = document.createElement("a");
                     item.classList.add('dropdown-item');
-                    a.innerHTML = `
-                        <img src="file?file=${utente.image}&id=${utente.id}&c=user" alt="${utente.name} ${utente.surname}" class="dropdown-img">
-                        <span>${utente.name} ${utente.surname}</span>
-                    `;
-                    a.href = '';
+                    let initials = '';
+                    if (utente.name && utente.surname) {
+                        initials = utente.name.charAt(0) + utente.surname.charAt(0);
+                    }
+
+                    if (utente.image) {
+                        a.innerHTML = `
+                    <img src="file?file=${utente.image}&id=${utente.id}&c=user" alt="${utente.name} ${utente.surname}" class="dropdown-img">
+                    <span>${utente.name} ${utente.surname}</span>
+                `;
+                    } else {
+                        a.innerHTML = `
+                    <div class="initials">${initials.toUpperCase()}</div>
+                    <span>${utente.name} ${utente.surname}</span>
+                `;
+                    }
+
+                    a.href = `profile?id=${utente.id}`;
                     item.appendChild(a)
                     searchResults.appendChild(item);
 

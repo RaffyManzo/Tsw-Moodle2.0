@@ -14,7 +14,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 @WebFilter(filterName = "AccessControlFilter", urlPatterns = "/*")
-public class AccessControlFilter extends HttpFilter implements Filter {
+public class
+AccessControlFilter extends HttpFilter implements Filter {
 
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)

@@ -3,6 +3,8 @@ package model.dao;
 import model.beans.Categoria;
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class CategoriaDaoImpl extends AbstractDataAccessObject<Categoria> implements CategoriaDao {
     ArrayList<Categoria> categorie = new ArrayList<>();
@@ -70,15 +72,24 @@ public class CategoriaDaoImpl extends AbstractDataAccessObject<Categoria> implem
     }
 
     @Override
-    protected boolean insertInto(Categoria categoria){
+    protected Categoria insertInto(Categoria categoria){
         try (Connection connection = getConnection();
-             PreparedStatement ps = prepareStatement(connection, "INSERT_CATEGORIA")) {
+             PreparedStatement ps = prepareStatement(connection, "INSERT_CATEGORIA", Statement.RETURN_GENERATED_KEYS)) {
             ps.setString(1, categoria.getNome());
-            ps.executeUpdate();
+
+            int affectedRows = ps.executeUpdate();
+
+            if (affectedRows > 0) {
+                try (ResultSet rs = ps.getGeneratedKeys()) {
+                    if (rs.next()) {
+                        return getResultAsObject(rs);
+                    }
+                }
+            }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        return false;
+        return categoria;
     }
 
     @Override
@@ -97,6 +108,24 @@ public class CategoriaDaoImpl extends AbstractDataAccessObject<Categoria> implem
              PreparedStatement ps = prepareStatement(connection, "DELETE_CATEGORIA")) {
             ps.setString(1, nome);
             ps.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public Map<String, Integer> getCountOfEachCategory(int userID) {
+        try (Connection connection = getConnection();
+             PreparedStatement ps = prepareStatement(connection, "COUNT_CATEGORY_COURSE");
+             ResultSet rs = ps.executeQuery()) {
+            Map<String, Integer> result = new HashMap<>();
+
+            while(rs.next()) {
+                result.put(rs.getString(1), rs.getInt(2));
+            }
+
+            return result;
+
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

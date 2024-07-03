@@ -88,7 +88,7 @@
                     </span>
             </div>
         </div>
-        <form class='credit-info' id="credit-info" onsubmit="validateCard()">
+        <form class='credit-info' method="post" action="checkout?a=purchase" id="credit-info-form">
             <div class='credit-info-content'>
                 <table class='half-input-table'>
                     <tr>
@@ -106,29 +106,35 @@
                         </td>
                     </tr>
                 </table>
-                <img src='https://dl.dropboxusercontent.com/s/ubamyu6mzov5c80/visa_logo%20%281%29.png' height='80'
-                     class='credit-card-image' id='credit-card-image'>
+                <img src='https://dl.dropboxusercontent.com/s/ubamyu6mzov5c80/visa_logo%20%281%29.png' height='80' class='credit-card-image' id='credit-card-image'>
                 Numero di carta
-                <input class='input-field' id="card-number" oninput="formatCardNumber()"></input>
+                <input class='input-field' name='cardNumber' required></input>
                 Intestatario della carta
-                <input class='input-field' id="card-holder"></input>
+                <input class='input-field' name='cardHolder' required></input>
                 <table class='half-input-table'>
                     <tr>
-                        <td> Data di scadenza
-                            <input class='input-field' id="expiry-date" oninput=formatExpiryDate()></input>
+                        <td>Data di scadenza
+                            <input class='input-field' name='expiryDate' placeholder='MM/YY' required></input>
                         </td>
                         <td>CVC
-                            <input type="password" class='input-field' id="cvc"></input>
+                            <input class='input-field' name='cvc' required></input>
                         </td>
                     </tr>
                 </table>
                 <div class="button-checkout-field">
-                    <input type="submit" class='pay-btn' value="Inoltra il pagamento">
+                    <input type="submit" class='pay-btn' onclick="this." value="Inoltra il pagamento">
+                    <script>
+                        $(document).ready(function () {
+                            $('#credit-info-form').one('submit', function() {
+                                $(this).find('input[type="submit"]').attr('disabled', 'disabled');
+                            });
+                        })
+                    </script>
                     <a href="${pageContext.request.contextPath}/shop?action=viewCart" class='pay-btn'>Annulla</a>
                 </div>
             </div>
-
         </form>
+
     </div>
 </div>
 
