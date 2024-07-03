@@ -65,10 +65,12 @@ input[type="submit"]:hover {
     gap: 10px; /* Spazio tra i pulsanti */
     padding-top: 10px;
 }
+
 table {
     width: 100%;
     border-collapse: collapse;
 }
+
 th, td, tr {
     border: 1px solid #ddd;
     padding: 15px;
@@ -86,4 +88,74 @@ tr:nth-child(even) td {
 .button-container form {
     display: inline-block;
     margin-right: 10px;
+}
+.form-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.form-group label {
+    width: 200px;
+    margin-right: 20px;
+}
+.form-group input {
+    flex: 1;
+    width: 200px;
+}
+.button-container {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+@media (max-width: 768px) {
+    .form-group {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .form-group label, .form-group input {
+        width: 100%;
+    }
+
+    table, thead, tbody, th, td, tr {
+        display: block;
+        width: 100%;
+    }
+
+    th, td {
+        box-sizing: border-box;
+        width: 100%;
+    }
+
+    th {
+        text-align: right;
+        padding-right: 15px;
+        background-color: #f2f2f2;
+    }
+
+    td {
+        padding-left: 50%;
+        text-align: right;
+    }
+
+    td:before {
+        content: attr(data-label);
+        position: absolute;
+        left: 15px;
+        width: calc(50% - 15px);
+        padding-right: 10px;
+        white-space: nowrap;
+        text-align: left;
+        background-color: #f9f9f9;
+    }
+
+    .button-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    input[type="submit"] {
+        width: 100%;
+    }
 }
