@@ -4,6 +4,8 @@
 <%@ page import="model.beans.Corso" %>
 <%@ page import="model.dao.CartDaoImpl" %>
 <%@ page import="java.sql.SQLException" %>
+<%@ page import="model.dao.UtenzaDaoImpl" %>
+<%@ page import="model.dao.CategoriaDaoImpl" %>
 <%
     Utenza user = (Utenza) request.getSession(false).getAttribute("user");
     if(user != null) {
@@ -59,8 +61,8 @@
     <script>
         $(document).ready(function () {
             // Creazione di un'istanza della classe CourseSlider
-            const courseSliderTrend = new CourseSlider("#trend-course-slider-container", 'getCoursesJson');
-            const courseSliderYour = new CourseSlider("#your-course-slider-container", 'getCoursesJson');
+            new CourseSlider("#trend-course-slider-container", 'getCoursesJson');
+            new CourseSlider("#your-course-slider-container", 'getCoursesJson?action=yourCategory');
 
         })
     </script>
@@ -210,7 +212,7 @@
 <div class="container">
     <div class="section-header">
         <img src="${pageContext.request.contextPath}/file?file=flame%201.png&c=app" alt="">
-        <label>Corsi di tendenza: il meglio selezionato per te</label>
+        <label>Corsi di tendenza</label>
     </div>
     <div class="courses-section">
         <div class="slider" id="trend-courses">
@@ -229,7 +231,11 @@
     <h6 class="line-divider"></h6>
     <div class="section-header">
         <img src="${pageContext.request.contextPath}/file?file=star.png&c=app" alt="">
-        <label>Corsi che potrebbero piacerti: in categoria preferita</label>
+        <%if (user != null) {%>
+        <label id="category-slider-label">Corsi che potrebbero piacerti: Categoria <%= new UtenzaDaoImpl().getFavouriteCategory(user.getIdUtente())%></label>
+        <%} else {%>
+        <label id="category-slider-label">Corsi che potrebbero piacerti: Categoria <%= new CategoriaDaoImpl().getMostPurchasedCategory()%></label>
+        <%}%>
     </div>
     <div class="courses-section" id="course-section">
 

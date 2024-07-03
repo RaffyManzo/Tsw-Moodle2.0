@@ -19,7 +19,7 @@ import java.util.List;
 
 @WebServlet(name = "SearchServlet", value = "/search")
 public class SearchServlet extends HttpServlet {
-    private static final int DISPLAY_LIMIT = 3;
+    private static final int DISPLAY_LIMIT = 5;
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         // Imposta gli header per il CORS
@@ -55,6 +55,7 @@ public class SearchServlet extends HttpServlet {
             utenteObject.put("surname", utente.getCognome());
             utenteObject.put("name", utente.getNome());
             utenteObject.put("image", utente.getImg());
+            utenteObject.put("corsi", new UtenzaDaoImpl().getNumeroCorsi(utente.getIdUtente()));
 
             // aggiungi altri campi necessari
             utentiArray.add(utenteObject);
@@ -74,6 +75,7 @@ public class SearchServlet extends HttpServlet {
             corsoObject.put("image", corso.getImmagine());
             corsoObject.put("price", corso.getPrezzo());
             corsoObject.put("creator", corso.getCreatore().toJSON());
+            corsoObject.put("numberPurchases", corso.getNumeroAcquisti());
 
             corsiArray.add(corsoObject);
         }

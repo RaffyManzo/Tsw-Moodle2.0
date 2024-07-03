@@ -17,10 +17,15 @@ public class Corso {
 
     private final double prezzo;
 
+    public int getNumeroAcquisti() {
+        return numeroAcquisti;
+    }
+
+    private int numeroAcquisti;
 
 
     // Costruttore con argomenti
-    public Corso(int idCorso, String nomeCategoria, String nome, String descrizione, String immagine, String certificazione, Date dataCreazione, Utenza creatore, double prezzo) {
+    public Corso(int idCorso, String nomeCategoria, String nome, String descrizione, String immagine, String certificazione, Date dataCreazione, Utenza creatore, double prezzo,int numeroAcquisti) {
         this.idCorso = idCorso;
         this.nomeCategoria = nomeCategoria;
         this.nome = nome;
@@ -30,6 +35,7 @@ public class Corso {
         this.dataCreazione = dataCreazione;
         this.creatore = creatore;
         this.prezzo = prezzo;
+        this.numeroAcquisti = numeroAcquisti;
     }
 
     // Getter

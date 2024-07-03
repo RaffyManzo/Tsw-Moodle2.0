@@ -208,6 +208,23 @@ public class UtenzaDaoImpl extends AbstractDataAccessObject<Utenza> implements U
     }
 
     @Override
+    public int getNumeroCorsi(int userid) {
+        try (Connection connection = getConnection();
+             PreparedStatement ps = prepareStatement(connection, "GET_COURSE_COUNT_BY_USER_ID")) {
+            ps.setInt(1, userid);
+
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    return rs.getInt(1);
+                }
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return -1;
+    }
+
+    @Override
     public ArrayList<Utenza> findByTipo(String tipo) {
         try (Connection connection = getConnection();
              PreparedStatement ps = prepareStatement(connection, "FIND_UTENZA_BY_TIPO")) {
@@ -290,5 +307,20 @@ public class UtenzaDaoImpl extends AbstractDataAccessObject<Utenza> implements U
     }
 
 
+    public String getFavouriteCategory(int userID) {
+        try (Connection connection = getConnection();
+             PreparedStatement ps = prepareStatement(connection, "GET_FAVOURITE_CATEGORY")) {
+            ps.setInt(1, userID);
+
+            ResultSet rs = ps.executeQuery();
+            if(rs.next()) {
+                return rs.getString(1);
+            } else {
+                return null;
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }
 

@@ -12,4 +12,6 @@ public interface CategoriaDao {
     ArrayList<Categoria> getAllCategorie() throws SQLException;
     int countAllCourseOf(String name) throws SQLException;
     public Map<String, Integer> getCountOfEachCategory(int userID);
-}
+    public String getMostPurchasedCategory();
+
+    }
