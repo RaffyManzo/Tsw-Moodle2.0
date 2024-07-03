@@ -65,3 +65,25 @@ input[type="submit"]:hover {
     gap: 10px; /* Spazio tra i pulsanti */
     padding-top: 10px;
 }
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+th, td, tr {
+    border: 1px solid #ddd;
+    padding: 15px;
+    text-align: left;
+}
+th {
+    background-color: #f2f2f2;
+}
+td {
+    background-color: #fff;
+}
+tr:nth-child(even) td {
+    background-color: #f9f9f9;
+}
+.button-container form {
+    display: inline-block;
+    margin-right: 10px;
+}
