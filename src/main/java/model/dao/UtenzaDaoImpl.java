@@ -3,6 +3,7 @@ package model.dao;
 import model.DBManager;
 import model.beans.Carrello;
 import model.beans.Corso;
+import model.beans.Ordine;
 import model.beans.Utenza;
 
 import java.sql.*;
@@ -291,21 +292,29 @@ public class UtenzaDaoImpl extends AbstractDataAccessObject<Utenza> implements U
 
     @Override
     protected Utenza extractFromResultSet(ResultSet rs) throws SQLException {
-        int idUtente = rs.getInt("IDUtente");
-        String nome = rs.getString("Nome");
-        String cognome = rs.getString("Cognome");
-        Date dataNascita = rs.getDate("DataNascita");
-        String indirizzo = rs.getString("Indirizzo");
-        String citta = rs.getString("Citta");
-        String telefono = rs.getString("Telefono");
-        String email = rs.getString("Email");
-        String password = rs.getString("Password");
-        Date dataCreazioneAccount = rs.getDate("DataCreazioneAccount");
-        String username = rs.getString("Username");
-        String tipo = rs.getString("Tipo");
-        String img = rs.getString("Immagine");
 
-        return new Utenza(idUtente, nome, cognome, dataNascita, indirizzo, citta, telefono, email, password, dataCreazioneAccount, username, tipo, img);
+        if (rs.getMetaData().getColumnCount() == 1) {
+            return new Utenza(rs.getInt(1), null, null, null, null, null,
+                    null, null, null, null, null, null, null);
+        } else {
+            {
+                int idUtente = rs.getInt("IDUtente");
+                String nome = rs.getString("Nome");
+                String cognome = rs.getString("Cognome");
+                Date dataNascita = rs.getDate("DataNascita");
+                String indirizzo = rs.getString("Indirizzo");
+                String citta = rs.getString("Citta");
+                String telefono = rs.getString("Telefono");
+                String email = rs.getString("Email");
+                String password = rs.getString("Password");
+                Date dataCreazioneAccount = rs.getDate("DataCreazioneAccount");
+                String username = rs.getString("Username");
+                String tipo = rs.getString("Tipo");
+                String img = rs.getString("Immagine");
+
+                return new Utenza(idUtente, nome, cognome, dataNascita, indirizzo, citta, telefono, email, password, dataCreazioneAccount, username, tipo, img);
+            }
+        }
     }
 
 

@@ -104,10 +104,11 @@
 
 .modify-pic{
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: flex-start;
+    align-items: flex-start;
     text-decoration: none;
     color: black;
+    flex-direction: column;
 }
 
 .modify-pic label {
@@ -115,6 +116,8 @@
     align-items: center;
     gap: 8px;
     cursor: pointer;
+    margin: 5px;
+    justify-content: flex-start;
 }
 
 .modify-pic  span {

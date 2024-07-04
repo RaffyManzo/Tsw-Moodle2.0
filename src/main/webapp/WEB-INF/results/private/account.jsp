@@ -21,7 +21,9 @@
     <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
     <link href="https://fonts.googleapis.com/css2?family=Jura:wght@300..700&display=swap" rel="stylesheet">
 
+    <script src="${pageContext.request.contextPath}/script/imageErrorDetect.js" defer></script>
 
+    <script src="${pageContext.request.contextPath}/script/accountProfilePicControl.js" defer></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script defer>
         $(document).ready(() => {
@@ -130,11 +132,16 @@
                      src="${pageContext.request.contextPath}/file?file=${user.getImg()}&id=${user.getIdUtente()}&c=user"
                      id="profile-pic" alt="">
             </div>
-            <form class="modify-pic" action="${pageContext.request.contextPath}/uploadImage" method="post" enctype="multipart/form-data" id="uploadForm">
-                <input type="file" id="profilePicture" name="profilePicture" accept="image/*" onchange="document.getElementById('uploadForm').submit()">
+            <form class="modify-pic" action="${pageContext.request.contextPath}/modifyPic" method="post" enctype="multipart/form-data" id="uploadForm">
+                <input type="file" id="profilePicture" name="profilePicture" accept="image/*">
+                <input type="text" id="deletePicture" name="delete" value="FALSE" style="display: none">
                 <label for="profilePicture">
                     <img src="${pageContext.request.contextPath}/assets/images/pen-line.png" alt="Edit" class="edit-icon">
                     <span>Modifica immagine</span>
+                </label>
+                <label for="deletePicture" id="delete-button">
+                    <img src="${pageContext.request.contextPath}/assets/images/trash-2.png" alt="Edit" class="edit-icon" >
+                    <span>Elimina immagine</span>
                 </label>
             </form>
         </div>

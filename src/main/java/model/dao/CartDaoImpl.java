@@ -165,7 +165,7 @@ public class CartDaoImpl extends AbstractDataAccessObject<Carrello> implements C
             stmt.setInt(1, userID);
             stmt.executeUpdate();
             try (ResultSet rs = stmt.getGeneratedKeys()) {
-                if (rs.next()) {
+                if (rs.getMetaData().getColumnCount() == 1) {
                     return rs.getInt(1);
                 } else {
                     throw new SQLException("Creating carrello failed, no ID obtained.");
