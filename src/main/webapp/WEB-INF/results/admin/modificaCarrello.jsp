@@ -37,8 +37,6 @@
                 Integer quantity = entry.getValue();
                 double totale=product.getPrezzo()*quantity;
     %>
-
-
         <div class="cart-item">
             <div class="cart-item-info">
                 <h5><%= product.getNome() %></h5>

@@ -224,15 +224,18 @@ public class ShoppingServlet extends HttpServlet {
     }
 
     private void display(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-        String admin = req.getParameter("admin");
-        if(admin.equals("true")) {
-            String elemento=req.getParameter("id");
-            req.setAttribute("elemento", elemento);
-            RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/results/admin/modificaCarrello.jsp");
-            try {
-                rd.forward(req, resp);
-            } catch (ServletException e) {
-                throw new RuntimeException(e);
+        String admin;
+        if(req.getParameter("admin")!=null) {
+            admin = req.getParameter("admin");
+            if (!admin.equals("true")) {
+                String elemento = req.getParameter("id");
+                req.setAttribute("elemento", elemento);
+                RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/results/admin/modificaCarrello.jsp");
+                try {
+                    rd.forward(req, resp);
+                } catch (ServletException e) {
+                    throw new RuntimeException(e);
+                }
             }
         }
 
