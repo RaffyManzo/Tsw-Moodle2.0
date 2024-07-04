@@ -9,12 +9,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aaf64b38-f287-423c-9dbc-41a4353826d6" name="Changes" comment="fix header bar in admin page">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/admin/admin.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/admin/admin.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/private/account.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/private/account.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/admin.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/admin.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/header.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/header.css" afterDir="false" />
+    <list default="true" id="aaf64b38-f287-423c-9dbc-41a4353826d6" name="Changes" comment="finish lessons and topic in course">
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/public/course.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/public/course.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,9 +23,9 @@
         <option value="HTML File" />
         <option value="SCSS File" />
         <option value="Jsp File" />
-        <option value="Interface" />
-        <option value="Class" />
         <option value="CSS File" />
+        <option value="Class" />
+        <option value="Interface" />
         <option value="JavaScript File" />
       </list>
     </option>
@@ -296,39 +292,7 @@
       <workItem from="1719870421188" duration="8766000" />
       <workItem from="1719912322174" duration="34341000" />
       <workItem from="1719998642882" duration="32645000" />
-      <workItem from="1720087398834" duration="9639000" />
-    </task>
-    <task id="LOCAL-00004" summary="Start HomeServlet.java">
-      <option name="closed" value="true" />
-      <created>1717186828775</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1717186828775</updated>
-    </task>
-    <task id="LOCAL-00005" summary="01-06">
-      <option name="closed" value="true" />
-      <created>1717262558968</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1717262558968</updated>
-    </task>
-    <task id="LOCAL-00006" summary="Load query from XMl, and fixed DBManager and DAO element">
-      <option name="closed" value="true" />
-      <created>1717414679290</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1717414679290</updated>
-    </task>
-    <task id="LOCAL-00007" summary="slider.js finished and fixed">
-      <option name="closed" value="true" />
-      <created>1717432914409</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1717432914409</updated>
+      <workItem from="1720087398834" duration="23342000" />
     </task>
     <task id="LOCAL-00008" summary="deleted slider.js file, and added sliderClass.js">
       <option name="closed" value="true" />
@@ -690,7 +654,39 @@
       <option name="project" value="LOCAL" />
       <updated>1720097804859</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL-00053" summary="fix header bar in admin page">
+      <option name="closed" value="true" />
+      <created>1720099932625</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1720099932625</updated>
+    </task>
+    <task id="LOCAL-00054" summary="fix card storage on payment">
+      <option name="closed" value="true" />
+      <created>1720104777717</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1720104777717</updated>
+    </task>
+    <task id="LOCAL-00055" summary="start lessons and Arguments">
+      <option name="closed" value="true" />
+      <created>1720134475258</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1720134475258</updated>
+    </task>
+    <task id="LOCAL-00056" summary="finish lessons and topic in course">
+      <option name="closed" value="true" />
+      <created>1720136208695</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1720136208695</updated>
+    </task>
+    <option name="localTasksCounter" value="57" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -708,9 +704,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="account.jsp in progress" />
-    <MESSAGE value="account.jsp: left delete account" />
-    <MESSAGE value="account.jsp: implemented change profile pic &#10;modified FileServlet.java file pick. Upload folder now is outside webapp, in CATALINA.HOME Folder" />
     <MESSAGE value="non mi ricordo" />
     <MESSAGE value="Implement AccountOperationFilter.java and delete option in AccountServlet.java" />
     <MESSAGE value="Implements RegistrationServlet" />
@@ -733,6 +726,9 @@
     <MESSAGE value="fix category.css image size" />
     <MESSAGE value="fix cart error and add remove account image" />
     <MESSAGE value="fix header bar in admin page" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix header bar in admin page" />
+    <MESSAGE value="fix card storage on payment" />
+    <MESSAGE value="start lessons and Arguments" />
+    <MESSAGE value="finish lessons and topic in course" />
+    <option name="LAST_COMMIT_MESSAGE" value="finish lessons and topic in course" />
   </component>
 </project>

@@ -7,9 +7,8 @@
 <%
     Utenza user = (Utenza) request.getSession(false).getAttribute("user");
     if(user != null) {
-        try {
-            Carrello carrello = new Carrello((Map<Corso, Integer>) request.getSession(false).getAttribute("cart"),
-                    user.getIdUtente(), new CartDaoImpl().getCartIDByUser(user.getIdUtente()));
+        Carrello carrello = new Carrello((Map<Corso, Integer>) request.getSession(false).getAttribute("cart"),
+                user.getIdUtente(), (Integer) request.getAttribute("cartID"));
 
 
             if (!carrello.getCart().isEmpty()) {
@@ -18,9 +17,6 @@
                 request.getSession(false).setAttribute("cartItemCount",
                         carrello.getCart().values().stream().reduce(0, Integer::sum));
             }
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
     }
 
     Utenza profile = (Utenza) request.getAttribute("profile");

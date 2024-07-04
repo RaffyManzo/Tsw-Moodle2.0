@@ -30,18 +30,23 @@ public class TeacherProfileServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String userID = request.getParameter("id");
+        String profileID = request.getParameter("id");
 
         try {
-            Utenza user = new UtenzaDaoImpl().findByID(Integer.parseInt(userID));
-            if(!user.getTipo().equals("D")) {
+            Utenza profile = new UtenzaDaoImpl().findByID(Integer.parseInt(profileID));
+            if(!profile.getTipo().equals("D")) {
                 errorOccurs(request, response);
             }
 
-            request.setAttribute("profile", user);
-            request.setAttribute("corsipercategoria", new UtenzaDaoImpl().getCountCourseCategory(user.getIdUtente()));
-            request.setAttribute("countcourse", new UtenzaDaoImpl().getNumeroCorsi(user.getIdUtente()));
-            request.getSession().setAttribute("c", Integer.parseInt(userID));
+            request.setAttribute("profile", profile);
+            request.setAttribute("corsipercategoria", new UtenzaDaoImpl().getCountCourseCategory(profile.getIdUtente()));
+            request.setAttribute("countcourse", new UtenzaDaoImpl().getNumeroCorsi(profile.getIdUtente()));
+            request.getSession().setAttribute("c", Integer.parseInt(profileID));
+
+            Utenza user = (Utenza) request.getSession().getAttribute("profile");
+            if(user != null)
+                request.setAttribute("cartID", new CartDaoImpl().getCartIDByUser(user.getIdUtente()));
+            
             request.getRequestDispatcher("/WEB-INF/results/public/profile.jsp").forward(request, response);
 
         } catch(Exception e) {

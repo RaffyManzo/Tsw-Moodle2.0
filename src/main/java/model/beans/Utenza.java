@@ -5,18 +5,65 @@ import org.json.simple.JSONObject;
 import java.util.Date;
 
 public class Utenza {
-    private final int idUtente;
-    private final String nome;
-    private final String cognome;
-    private final Date dataNascita;
-    private final String indirizzo;
-    private final String citta;
+    private  int idUtente;
+    private  String nome;
+    private  String cognome;
+    private  Date dataNascita;
+    private  String indirizzo;
+    private  String citta;
     private String telefono;
-    private final String email;
-    private final String password;
-    private final Date dataCreazioneAccount;
-    private final String username;
-    private final String tipo;
+    private  String email;
+
+    private  String password;
+    private  Date dataCreazioneAccount;
+    private  String username;
+
+    public void setIdUtente(int idUtente) {
+        this.idUtente = idUtente;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public void setCognome(String cognome) {
+        this.cognome = cognome;
+    }
+
+    public void setDataNascita(Date dataNascita) {
+        this.dataNascita = dataNascita;
+    }
+
+    public void setIndirizzo(String indirizzo) {
+        this.indirizzo = indirizzo;
+    }
+
+    public void setCitta(String citta) {
+        this.citta = citta;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public void setDataCreazioneAccount(Date dataCreazioneAccount) {
+        this.dataCreazioneAccount = dataCreazioneAccount;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
+
+    private  String tipo;
 
     private String img;
 

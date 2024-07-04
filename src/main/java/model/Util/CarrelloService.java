@@ -25,14 +25,10 @@ public class CarrelloService {
             return null;
         }
 
-        try {
             int carrelloID = carrelloDAO.getCartIDByUser(user.getIdUtente());
             if (carrelloID < 0) {
                 carrelloID = carrelloDAO.createCartForUser(user.getIdUtente());
             }
             return new Carrello(user.getIdUtente(), carrelloID);
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
     }
 }

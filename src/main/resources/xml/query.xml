@@ -147,6 +147,22 @@
     <entry key="UPDATE_CREDIT_CARD">UPDATE Carta SET numero = ?, titolare = ?, datascadenza = ?, IDUtente = ?</entry>
     <entry key="GET_CREDIT_CARD_BY_USER_ID">SELECT * FROM Carta where IDUtente = ?</entry>
 
+    <!-- Queries per Lezione -->
+    <entry key="INSERT_LEZIONE">INSERT INTO lezione (descrizione, titolo, idCorso) VALUES (?, ?, ?)</entry>
+    <entry key="UPDATE_LEZIONE">UPDATE lezione SET descrizione = ?, titolo = ?, idCorso = ? WHERE idlezione = ?</entry>
+    <entry key="DELETE_LEZIONE">DELETE FROM lezione WHERE idlezione = ?</entry>
+    <entry key="FIND_LEZIONE_BY_ID">SELECT * FROM lezione WHERE idlezione = ?</entry>
+    <entry key="FIND_LEZIONE_BY_TITOLO">SELECT * FROM lezione WHERE titolo LIKE ?</entry>
+    <entry key="FIND_ALL_LEZIONI_BY_CORSO_ID">SELECT * FROM lezione WHERE idCorso = ?</entry>
+
+    <!-- Queries per Argomento -->
+    <entry key="INSERT_ARGOMENTO">INSERT INTO argomento (dataCaricamento, nome, descrizione, idLezione) VALUES (?, ?, ?, ?)</entry>
+    <entry key="UPDATE_ARGOMENTO">UPDATE argomento SET dataCaricamento = ?, nome = ?, descrizione = ?, idLezione = ? WHERE idargomento = ?</entry>
+    <entry key="DELETE_ARGOMENTO">DELETE FROM argomento WHERE idargomento = ?</entry>
+    <entry key="FIND_ARGOMENTO_BY_ID">SELECT * FROM argomento WHERE idargomento = ?</entry>
+    <entry key="FIND_ARGOMENTO_BY_NOME">SELECT * FROM argomento WHERE nome LIKE ?</entry>
+    <entry key="FIND_ALL_ARGOMENTI_BY_LEZIONE_ID">SELECT * FROM argomento WHERE idLezione = ?</entry>
+    <entry key="FIND_ALL_ARGOMENTI_COUNT_BY_CORSO_ID">SELECT COUNT(*) FROM argomento a JOIN lezione l ON a.idLezione = l.idargomento WHERE l.idCorso = ?</entry>
 
     <!-- Teacher page -->
     <entry key="COUNT_CATEGORY_COURSE">select corso.nomeCategoria, count(*) AS count from corso inner join utenza on corso.creatore = utenza.IDUtente where IDUtente=? group by corso.nomeCategoria</entry>

@@ -1,5 +1,8 @@
 <%@ page import="model.beans.Corso" %>
-<%@ page import="model.beans.Utenza" %><%--
+<%@ page import="model.beans.Utenza" %>
+<%@ page import="model.beans.Lezione" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="model.beans.Argomento" %><%--
   Created by IntelliJ IDEA.
   User: raffa
   Date: 26/06/2024
@@ -21,6 +24,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="${pageContext.request.contextPath}/script/sliderClass.js"></script>
     <script src="${pageContext.request.contextPath}/script/profilepic.js"></script>
+    <script src="${pageContext.request.contextPath}/script/lessonsCoursePage.js"></script>
     <link href="${pageContext.request.contextPath}/css/slider.css" rel="stylesheet">
     <script src="${pageContext.request.contextPath}/script/search.js"></script>
     <link href="${pageContext.request.contextPath}/css/search.css" rel="stylesheet">
@@ -210,6 +214,27 @@
         </div>
     </div>
 
+    <div class="lessons-container">
+        <%if(request.getAttribute("lezioni") != null) {%>
+        <h2>Contenuto del corso</h2>
+        <% for(Lezione lezione : (ArrayList<Lezione>)request.getAttribute("lezioni")) {%>
+        <button class="accordion"><%= lezione.getTitolo()%></button>
+
+        <div class="panel">
+        <% for(Argomento argomento : lezione.getArgomenti()) {%>
+
+            <p><%= argomento.getNome()%></p>
+
+        <%}%>
+        </div>
+        <%}%>
+
+        <%} else {%>
+        <p>Il corso ha né lezioni ne argomenti... <br>
+            Attendi vengano caricati da <%= corso.getCreatore().getNome() + " " + corso.getCreatore().getCognome()%></p>
+        <%}%>
+
+    </div>
     <div class="course-creator-section">
         <%
             Utenza creator = corso.getCreatore();

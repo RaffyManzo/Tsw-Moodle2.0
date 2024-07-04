@@ -187,7 +187,7 @@ public class CartDaoImpl extends AbstractDataAccessObject<Carrello> implements C
     }
 
 
-    public int getCartIDByUser(int IDUtente) throws SQLException {
+    public int getCartIDByUser(int IDUtente)  {
         try (Connection conn = getConnection()) {
             try (PreparedStatement ps = prepareStatement(conn, "GET_CART_ID_BY_USER")) {
                 ps.setInt(1, IDUtente);
@@ -202,6 +202,8 @@ public class CartDaoImpl extends AbstractDataAccessObject<Carrello> implements C
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }
+        }catch (SQLException e) {
+            throw new RuntimeException(e);
         }
         return -1;
     }
