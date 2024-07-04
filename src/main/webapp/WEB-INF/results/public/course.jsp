@@ -213,7 +213,9 @@
                 carrello</a>
         </div>
     </div>
+
     <div class="lessons-container">
+        <%if(request.getAttribute("lezioni") != null) {%>
         <h2>Contenuto del corso</h2>
         <% for(Lezione lezione : (ArrayList<Lezione>)request.getAttribute("lezioni")) {%>
         <button class="accordion"><%= lezione.getTitolo()%></button>
@@ -226,6 +228,12 @@
         <%}%>
         </div>
         <%}%>
+
+        <%} else {%>
+        <p>Il corso ha né lezioni ne argomenti... <br>
+            Attendi vengano caricati da <%= corso.getCreatore().getNome() + " " + corso.getCreatore().getCognome()%></p>
+        <%}%>
+
     </div>
     <div class="course-creator-section">
         <%

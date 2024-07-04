@@ -9,14 +9,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aaf64b38-f287-423c-9dbc-41a4353826d6" name="Changes" comment="start lessons and Arguments">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/CourseServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/CourseServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Util/CarrelloService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Util/CarrelloService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/dao/ArgomentoDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/dao/ArgomentoDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/dao/LezioneDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/dao/LezioneDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/course.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/course.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/script/lessonsCoursePage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/script/lessonsCoursePage.js" afterDir="false" />
+    <list default="true" id="aaf64b38-f287-423c-9dbc-41a4353826d6" name="Changes" comment="finish lessons and topic in course">
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/public/course.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/public/course.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -298,15 +292,7 @@
       <workItem from="1719870421188" duration="8766000" />
       <workItem from="1719912322174" duration="34341000" />
       <workItem from="1719998642882" duration="32645000" />
-      <workItem from="1720087398834" duration="22930000" />
-    </task>
-    <task id="LOCAL-00007" summary="slider.js finished and fixed">
-      <option name="closed" value="true" />
-      <created>1717432914409</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1717432914409</updated>
+      <workItem from="1720087398834" duration="23342000" />
     </task>
     <task id="LOCAL-00008" summary="deleted slider.js file, and added sliderClass.js">
       <option name="closed" value="true" />
@@ -692,7 +678,15 @@
       <option name="project" value="LOCAL" />
       <updated>1720134475258</updated>
     </task>
-    <option name="localTasksCounter" value="56" />
+    <task id="LOCAL-00056" summary="finish lessons and topic in course">
+      <option name="closed" value="true" />
+      <created>1720136208695</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1720136208695</updated>
+    </task>
+    <option name="localTasksCounter" value="57" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -710,7 +704,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="account.jsp: implemented change profile pic &#10;modified FileServlet.java file pick. Upload folder now is outside webapp, in CATALINA.HOME Folder" />
     <MESSAGE value="non mi ricordo" />
     <MESSAGE value="Implement AccountOperationFilter.java and delete option in AccountServlet.java" />
     <MESSAGE value="Implements RegistrationServlet" />
@@ -735,6 +728,7 @@
     <MESSAGE value="fix header bar in admin page" />
     <MESSAGE value="fix card storage on payment" />
     <MESSAGE value="start lessons and Arguments" />
-    <option name="LAST_COMMIT_MESSAGE" value="start lessons and Arguments" />
+    <MESSAGE value="finish lessons and topic in course" />
+    <option name="LAST_COMMIT_MESSAGE" value="finish lessons and topic in course" />
   </component>
 </project>
