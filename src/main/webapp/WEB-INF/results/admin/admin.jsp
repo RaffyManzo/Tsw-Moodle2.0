@@ -53,6 +53,22 @@
                 case "utenza":
                     List<Utenza> utenti = (List<Utenza>) request.getAttribute("data");
     %>
+
+    <form action="adminSearchFilter">
+        <input type="hidden" name="table" value="utenza">
+        <div class="filter-container">
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username">
+                <div class="form-group">
+                    <label for="tipoUtente">Tipo:</label>
+                    <input type="text" id="tipoUtente" name="tipoUtente" maxlength="1" pattern="[A-Za-z]">
+                    <input type="submit" value="Filtra">
+                </div>
+            </div>
+        </div>
+    </form>
+
     <table>
         <thead>
         <tr>
@@ -70,6 +86,7 @@
         <%
             for (Utenza u : utenti) {
         %>
+
         <tr>
             <td><%= u.getIdUtente() %></td>
             <td><%= u.getNome() %></td>
@@ -103,6 +120,22 @@
         case "corso":
             List<Corso> corsi = (List<Corso>) request.getAttribute("data");
     %>
+
+    <form action="adminSearchFilter">
+        <input type="hidden" name="table" value="utenza">
+        <div class="filter-container">
+            <div class="form-group">
+                <label for="nome">Nome corso:</label>
+                <input type="text" id="nome" name="nome">
+                <div class="form-group">
+                    <label for="nomeCategoria">Nome categoria:</label>
+                    <input type="text" id="nomeCategoria" name="nomeCategoria">
+                    <input type="submit" value="Filtra">
+                </div>
+            </div>
+        </div>
+    </form>
+
     <table>
         <thead>
         <tr>
@@ -151,6 +184,16 @@
         case "categoria":
             List<Categoria> categorie = (List<Categoria>) request.getAttribute("data");
     %>
+
+    <form action="adminSearchFilter">
+        <input type="hidden" name="table" value="utenza">
+        <div class="filter-container">
+            <label for="nome">Nome categoria:</label>
+            <input type="text" name="nome">
+            <input type="submit" value="Filtra">
+        </div>
+    </form>
+
     <table>
         <thead>
         <tr>
