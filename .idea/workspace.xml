@@ -9,10 +9,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aaf64b38-f287-423c-9dbc-41a4353826d6" name="Changes" comment="fix cart error and add remove account image">
+    <list default="true" id="aaf64b38-f287-423c-9dbc-41a4353826d6" name="Changes" comment="fix header bar in admin page">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/admin/admin.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/admin/admin.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/private/account.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/private/account.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/css/admin.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/admin.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/header.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/header.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -294,15 +296,7 @@
       <workItem from="1719870421188" duration="8766000" />
       <workItem from="1719912322174" duration="34341000" />
       <workItem from="1719998642882" duration="32645000" />
-      <workItem from="1720087398834" duration="7158000" />
-    </task>
-    <task id="LOCAL-00003" summary="Fixed imageServlet and convert it to FileServlet&#10;Begin DAOpattern">
-      <option name="closed" value="true" />
-      <created>1717183196877</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1717183196877</updated>
+      <workItem from="1720087398834" duration="9639000" />
     </task>
     <task id="LOCAL-00004" summary="Start HomeServlet.java">
       <option name="closed" value="true" />
@@ -688,7 +682,15 @@
       <option name="project" value="LOCAL" />
       <updated>1720093860309</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="fix header bar in admin page">
+      <option name="closed" value="true" />
+      <created>1720097804859</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1720097804859</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -706,7 +708,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Add an image in resources&#10;Start with category.jsp&#10;Fix conflict with session cart and db cart&#10;Start with account.jsp" />
     <MESSAGE value="account.jsp in progress" />
     <MESSAGE value="account.jsp: left delete account" />
     <MESSAGE value="account.jsp: implemented change profile pic &#10;modified FileServlet.java file pick. Upload folder now is outside webapp, in CATALINA.HOME Folder" />
@@ -731,6 +732,7 @@
     <MESSAGE value="finished category.jsp and fix imageErrorDetect.js" />
     <MESSAGE value="fix category.css image size" />
     <MESSAGE value="fix cart error and add remove account image" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix cart error and add remove account image" />
+    <MESSAGE value="fix header bar in admin page" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix header bar in admin page" />
   </component>
 </project>

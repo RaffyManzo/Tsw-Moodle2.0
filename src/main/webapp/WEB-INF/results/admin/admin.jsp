@@ -15,6 +15,8 @@
     <title>Learn Hub - Area admin</title>
     <link href="${pageContext.request.contextPath}/css/header.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/css/admin.css" rel="stylesheet">
+
+    <script src="${pageContext.request.contextPath}/script/profilepic.js"></script>
 </head>
 <body>
 <div class="header" id="header">
@@ -24,7 +26,7 @@
     </div>!-->
 
     <div class="header-main-info" id="header-main-info">
-        <a href="${pageContext.request.contextPath}/home" class="logo-image" id="header-logo-image">
+        <a href="${pageContext.request.contextPath}/admin" class="logo-image" id="header-logo-image">
             <img src="${pageContext.request.contextPath}/assets/images/logo.png">
         </a>
         <h1 class="site-name" id="header-site-name">
@@ -42,16 +44,6 @@
     <label id="hamburger-menu" for="hamburger-input">
         <nav id="sidebar-menu">
             <div class="ul">
-                <div class="link-container">
-                    <% if (user != null) {
-                    %>
-                    <p class="header-text">Area admin</p>
-
-                    <% } else { %>
-                    <a href="${pageContext.request.contextPath}/login.html" class="header-redirect-btn"
-                       id="header-redirect-to-login">Login</a> <%}%>
-                    <% %>
-                </div>
                 <div class="link-container">
                     <% if (user != null) {
                     %>
@@ -102,23 +94,21 @@
             <% } else { %>
             <div class="link-container header-button registration-button">
                 <a href="${pageContext.request.contextPath}/registrazione.html" class="header-redirect-btn"
-                   id="header-redirect-to-registration">Registrati</a><%}%>
-                <% %>
+                   id="header-redirect-to-registration">Registrati</a>
 
-            </div>
-            <span class="vertical-separator"></span>
-            <%if(user != null) {%>
-            <span class="vertical-separator"></span>
-            <div class="link-container">
-                <a href="${pageContext.request.contextPath}/logout" class="header-redirect-btn">
-                    Logout&nbsp;&nbsp;<img src="${pageContext.request.contextPath}/assets/images/log-out.png" alt="">
-                </a>
             </div>
             <%}%>
         </div>
-
+        <%if(user != null) {%>
+        <span class="vertical-separator"></span>
+        <div class="link-container">
+            <a href="${pageContext.request.contextPath}/logout" class="header-redirect-btn">
+                Logout&nbsp;&nbsp;<img src="${pageContext.request.contextPath}/assets/images/log-out.png" alt="">
+            </a>
+        </div>
+        <%}%>
     </div>
-
+</div>
 <form action="admin">
     <div class="controls" >
         <select id="table-select" name="table-select">

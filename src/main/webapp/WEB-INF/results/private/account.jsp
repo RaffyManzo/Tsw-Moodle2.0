@@ -68,7 +68,7 @@
 <body>
 <div class="header" id="header">
     <div class="header-main-info" id="header-main-info">
-        <a href="${pageContext.request.contextPath}/home" class="logo-image" id="header-logo-image">
+        <a href="${pageContext.request.contextPath}/<%= user.getTipo().equals("A") ? "admin" : "home" %>" class="logo-image" id="header-logo-image">
             <img src="${pageContext.request.contextPath}/assets/images/logo.png">
         </a>
         <h1 class="site-name" id="header-site-name">
@@ -88,8 +88,8 @@
                 <div class="link-container">
                     <% if (user != null) {
                     %>
-                    <a href="${pageContext.request.contextPath}/dashboard" class="header-redirect-btn"
-                       id="li-header-redirect-to-dashboard">Vai alla tua dashboard</a>
+                    <a href="${pageContext.request.contextPath}/<%= user.getTipo().equals("A") ? "admin" : "dashboard" %>" class="header-redirect-btn"
+                       id="li-header-redirect-to-dashboard"><%= user.getTipo().equals("A") ? "Pagina di admin" : "Vai alla dashboard" %>"</a>
 
                     <% } else { %>
                     <a href="${pageContext.request.contextPath}/login.html" class="header-redirect-btn"
@@ -106,12 +106,19 @@
     </label>
     <div class="header-links" id="header-links">
         <span class="vertical-separator"></span>
+
+        <% if(user.getTipo().equals("A")) {%>
+        <div class="link-container">
+            <p class="header-text">Area admin</p>
+        </div>
+        <%} else {%>
         <div class="link-container header-button dashboard-button">
 
             <a href="${pageContext.request.contextPath}/dashboard" class="header-redirect-btn"
                id="header-redirect-to-dashboard">Vai alla tua dashboard</a>
 
         </div>
+        <%}%>
         <span class="vertical-separator"></span>
         <div class="link-container">
             <a href="${pageContext.request.contextPath}/logout" class="header-redirect-btn">
