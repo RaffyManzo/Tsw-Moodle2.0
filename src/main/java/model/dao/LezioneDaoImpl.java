@@ -102,7 +102,7 @@ public class LezioneDaoImpl extends AbstractDataAccessObject<Lezione> implements
         if (rs.getMetaData().getColumnCount() == 1) {
             return new Lezione(rs.getInt(1), null, null, 0, null);
         } else {
-            int id = rs.getInt("id");
+            int id = rs.getInt("IDLezione");
             String descrizione = rs.getString("descrizione");
             String titolo = rs.getString("titolo");
             int idCorso = rs.getInt("idCorso");

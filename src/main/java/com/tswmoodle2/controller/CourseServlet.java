@@ -27,12 +27,16 @@ public class CourseServlet extends HttpServlet {
             if(corso == null) {
                 errorOccurs(request, response);
             } else {
+
                 ArrayList<Lezione> lezioni = new LezioneDaoImpl().findAllByCorsoId(corso.getIdCorso());
 
-                for(Lezione l : lezioni) {
-                    l.setArgomenti(new ArgomentoDaoImpl().findAllByLezioneId(l.getId()));
+                if (!lezioni.isEmpty() ) {
+
+                    for (Lezione l : lezioni) {
+                        l.setArgomenti(new ArgomentoDaoImpl().findAllByLezioneId(l.getId()));
+                    }
+                    request.setAttribute("lezioni", lezioni);
                 }
-                request.setAttribute("lezioni", lezioni);
             }
 
 

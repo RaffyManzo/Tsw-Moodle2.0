@@ -117,7 +117,7 @@ public class ArgomentoDaoImpl extends AbstractDataAccessObject<Argomento> implem
 
     @Override
     protected Argomento extractFromResultSet(ResultSet rs) throws SQLException {
-        int id = rs.getInt("id");
+        int id = rs.getInt("IDArgomento");
         Date dataCaricamento = rs.getDate("dataCaricamento");
         String nome = rs.getString("nome");
         String descrizione = rs.getString("descrizione");
