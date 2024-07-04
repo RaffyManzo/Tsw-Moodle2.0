@@ -10,7 +10,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aaf64b38-f287-423c-9dbc-41a4353826d6" name="Changes" comment="finish lessons and topic in course">
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/public/course.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/public/course.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/CheckoutServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/CheckoutServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/admin/VisualizzaCarrelloServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/admin/VisualizzaCarrelloServlet.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -292,15 +294,7 @@
       <workItem from="1719870421188" duration="8766000" />
       <workItem from="1719912322174" duration="34341000" />
       <workItem from="1719998642882" duration="32645000" />
-      <workItem from="1720087398834" duration="23342000" />
-    </task>
-    <task id="LOCAL-00008" summary="deleted slider.js file, and added sliderClass.js">
-      <option name="closed" value="true" />
-      <created>1717456363610</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1717456363610</updated>
+      <workItem from="1720087398834" duration="24156000" />
     </task>
     <task id="LOCAL-00009" summary="Add categories to home, fix some bug">
       <option name="closed" value="true" />
@@ -686,7 +680,15 @@
       <option name="project" value="LOCAL" />
       <updated>1720136208695</updated>
     </task>
-    <option name="localTasksCounter" value="57" />
+    <task id="LOCAL-00057" summary="finish lessons and topic in course">
+      <option name="closed" value="true" />
+      <created>1720136477752</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1720136477752</updated>
+    </task>
+    <option name="localTasksCounter" value="58" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

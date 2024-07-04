@@ -28,27 +28,29 @@ public class CheckoutServlet extends HttpServlet {
 
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        Utenza user = ((Utenza)request.getSession().getAttribute("user"));
+        if(user != null) {
+            if (user.getTipo().equals("S")) {
+                String action = request.getParameter("a");
 
-        if(((Utenza)request.getSession().getAttribute("user")).getTipo().equals("S")) {
-            String action = request.getParameter("a");
+                if (!checkAccount(request)) {
+                    error(request, response, "Utente non autenticato");
+                    return;
+                }
 
-            if (!checkAccount(request)) {
-                error(request, response, "Utente non autenticato");
-                return;
+                switch (Objects.requireNonNull(action)) {
+                    case "redirect":
+                        redirectToCheckoutPage(request, response);
+                        break;
+                    case "purchase":
+                        purchaseCourses(request, response);
+                        break;
+                    default:
+                        error(request, response, "Parametro non valido");
+                        break;
+                }
+
             }
-
-            switch (Objects.requireNonNull(action)) {
-                case "redirect":
-                    redirectToCheckoutPage(request, response);
-                    break;
-                case "purchase":
-                    purchaseCourses(request, response);
-                    break;
-                default:
-                    error(request, response, "Parametro non valido");
-                    break;
-            }
-
         }
     }
 
