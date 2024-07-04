@@ -63,7 +63,7 @@ Header banner on top of each pages
     height: 100%;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
     justify-items: center;
     align-items: center;
     width: 170px !important;

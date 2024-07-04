@@ -9,16 +9,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aaf64b38-f287-423c-9dbc-41a4353826d6" name="Changes" comment="fix category.css image size">
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/images/trash-2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/script/accountProfilePicControl.js" afterDir="false" />
+    <list default="true" id="aaf64b38-f287-423c-9dbc-41a4353826d6" name="Changes" comment="fix cart error and add remove account image">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/UploadImageServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/UploadImageServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/dao/UtenzaDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/dao/UtenzaDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/xml/query.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/xml/query.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/admin/admin.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/admin/admin.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/private/account.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/private/account.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/account.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/account.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/css/admin.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/admin.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -301,15 +294,7 @@
       <workItem from="1719870421188" duration="8766000" />
       <workItem from="1719912322174" duration="34341000" />
       <workItem from="1719998642882" duration="32645000" />
-      <workItem from="1720087398834" duration="5371000" />
-    </task>
-    <task id="LOCAL-00002" summary="Added registration form&#10;Added image picker servlet&#10;Added css and some fix">
-      <option name="closed" value="true" />
-      <created>1716936161136</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1716936161136</updated>
+      <workItem from="1720087398834" duration="7158000" />
     </task>
     <task id="LOCAL-00003" summary="Fixed imageServlet and convert it to FileServlet&#10;Begin DAOpattern">
       <option name="closed" value="true" />
@@ -695,7 +680,15 @@
       <option name="project" value="LOCAL" />
       <updated>1720048360831</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="fix cart error and add remove account image">
+      <option name="closed" value="true" />
+      <created>1720093860308</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1720093860309</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -713,7 +706,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Responsive course.css" />
     <MESSAGE value="Add an image in resources&#10;Start with category.jsp&#10;Fix conflict with session cart and db cart&#10;Start with account.jsp" />
     <MESSAGE value="account.jsp in progress" />
     <MESSAGE value="account.jsp: left delete account" />
@@ -738,6 +730,7 @@
     <MESSAGE value="Start category.jsp" />
     <MESSAGE value="finished category.jsp and fix imageErrorDetect.js" />
     <MESSAGE value="fix category.css image size" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix category.css image size" />
+    <MESSAGE value="fix cart error and add remove account image" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix cart error and add remove account image" />
   </component>
 </project>
