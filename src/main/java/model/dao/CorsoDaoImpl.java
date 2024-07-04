@@ -27,7 +27,7 @@ public class CorsoDaoImpl extends AbstractDataAccessObject<Corso> implements Cor
             ps.setString(3, corso.getDescrizione());
             ps.setString(4, corso.getImmagine());
             ps.setString(5, corso.getCertificazione());
-            ps.setDate(6, corso.getDataCreazione());
+            ps.setDate(6, new java.sql.Date(corso.getDataCreazione().getTime()));
             ps.setDouble(8, corso.getPrezzo());
             ps.setInt(9, corso.getCreatore().getIdUtente());
 
@@ -55,10 +55,10 @@ public class CorsoDaoImpl extends AbstractDataAccessObject<Corso> implements Cor
             ps.setString(3, corso.getDescrizione());
             ps.setString(4, corso.getImmagine());
             ps.setString(5, corso.getCertificazione());
-            ps.setDate(6, corso.getDataCreazione());
-            ps.setInt(7, corso.getIdCorso());
-            ps.setDouble(8, corso.getPrezzo());
-            ps.setInt(9, corso.getCreatore().getIdUtente());
+            ps.setDate(6, new java.sql.Date(corso.getDataCreazione().getTime()));
+            ps.setInt(9, corso.getIdCorso());
+            ps.setDouble(7, corso.getPrezzo());
+            ps.setInt(8, corso.getCreatore().getIdUtente());
             ps.executeUpdate();
         } catch (SQLException exception) {
             throw new RuntimeException(exception);

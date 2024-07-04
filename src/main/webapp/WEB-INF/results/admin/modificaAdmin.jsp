@@ -41,7 +41,7 @@
         <form action="ModificaServlet">
             <div class="form-group">
                 <label for="idUtente">ID:</label>
-                <input type="text" id="idUtente" name="idUtente" value="<%= u.getIdUtente() %>" readonly>
+                <input type="text" id="idUtente" name="id" value="<%= u.getIdUtente() %>" readonly>
             </div>
             <div class="form-group">
                 <label for="cognome">Cognome:</label>
@@ -67,13 +67,32 @@
                 <label for="dataCreazioneAccount">Data Creazione Account:</label>
                 <input type="text" id="dataCreazioneAccount" name="dataCreazioneAccount" value="<%= u.getDataCreazioneAccount() %>" readonly>
             </div>
+            <div class="form-group">
+                <label for="dataNascita">Data di Nascita:</label>
+                <input type="date" id="dataNascita" name="dataNascita" value="<%= u.getDataNascita() %>">
+            </div>
+            <div class="form-group">
+                <label for="indirizzo">Indirizzo:</label>
+                <input type="text" id="indirizzo" name="indirizzo" value="<%= u.getIndirizzo() %>">
+            </div>
+            <div class="form-group">
+                <label for="citta">Città:</label>
+                <input type="text" id="citta" name="citta" value="<%= u.getCitta() %>">
+            </div>
+            <div class="form-group">
+                <label for="telefono">Telefono:</label>
+                <input type="tel" id="telefono" name="telefono" value="<%= u.getTelefono() %>">
+            </div>
+            <input type="hidden" id="password" name="password" value="<%= u.getPassword() %>">
             <input type="hidden" name="tipo" value="utenza">
+            <input type="hidden" name="immagine" value="<%= u.getImg() %>">
             <div class="button-container">
                 <input type="submit" value="Salva Modifiche">
                 <form action="VisualizzaCarrelloServlet" method="get">
                     <input type="hidden" name="idUtente" value="<%= u.getIdUtente() %>">
                     <input type="submit" value="Visualizza il carrello dell'utente">
                 </form>
+                <button type="button" onclick="window.history.back();">Indietro</button>
             </div>
         </form>
     </div>
@@ -87,15 +106,15 @@
         <form action="ModificaServlet" method="post">
             <div class="form-group">
                 <label for="idCorso">ID:</label>
-                <input type="text" id="idCorso" name="idCorso" value="<%= c.getIdCorso() %>" readonly>
+                <input type="text" id="idCorso" name="id" value="<%= c.getIdCorso() %>" readonly>
             </div>
             <div class="form-group">
                 <label for="nomec">Nome:</label>
                 <input type="text" id="nomec" name="nome" value="<%= c.getNome() %>">
             </div>
             <div class="form-group">
-                <label for="creatore">Creatore:</label>
-                <input type="text" id="creatore" name="creatore" value="<%= c.getCreatore().getCognome() %> <%= c.getCreatore().getNome() %>">
+                <label for="creatore">Id creatore:</label>
+                <input type="text" id="creatore" name="creatore" value="<%= c.getCreatore().getIdUtente() %>">
             </div>
             <div class="form-group">
                 <label for="categoria">Categoria:</label>
@@ -109,28 +128,23 @@
                 <label for="prezzo">Prezzo:</label>
                 <input type="number" id="prezzo" name="prezzo" value="<%= c.getPrezzo() %>">
             </div>
+            <div class="form-group">
+                <label for="certificazione">Certificazione:</label>
+                <input type="text" id="certificazione" name="certificazione" value="<%= c.getCertificazione() %>">
+            </div>
+            <div class="form-group">
+                <label for="creazione">Creazione:</label>
+                <input type="date" id="creazione" name="creazione" value="<%= c.getDataCreazione() %>">
+            </div>
+            <div class="form-group">
+                <label for="acquisti">Numero di acquisti:</label>
+                <input type="number" id="acquisti" name="acquisti" value="<%= c.getNumeroAcquisti() %>">
+            </div>
+            <input type="hidden" name="immagine" value="<%= c.getImmagine() %>">
             <input type="hidden" name="tipo" value="corso">
             <div class="button-container">
                 <input type="submit" value="Salva Modifiche">
-            </div>
-        </form>
-    </div>
-    <%
-            break;
-        case "categoria":
-            CategoriaDaoImpl categoria = new CategoriaDaoImpl();
-            List<Categoria> a=categoria.findByNome(request.getAttribute("elemento").toString());
-            Categoria cat = a.getFirst();
-    %>
-    <div class="form-container">
-        <form action="ModificaServlet" method="post">
-            <div class="form-group">
-                <label for="nomecat">Nome:</label>
-                <input type="text" id="nomecat" name="nome" value="<%= cat.getNome() %>">
-            </div>
-            <input type="hidden" name="tipo" value="categoria">
-            <div class="button-container">
-                <input type="submit" value="Salva Modifiche">
+                <button type="button" onclick="window.history.back();">Indietro</button>
             </div>
         </form>
     </div>

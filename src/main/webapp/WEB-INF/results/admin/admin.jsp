@@ -171,11 +171,6 @@
                         <input type="hidden" name="id" value="<%= c.getNome() %>">
                         <input type="submit" value="Elimina">
                     </form>
-                    <form action="ModificaServlet" method="post" style="display:inline;">
-                        <input type="hidden" name="id" value="<%= c.getNome() %>">
-                        <input type="hidden" name="tipo" value="categoria">
-                        <input type="submit" value="Modifica">
-                    </form>
                 </div>
             </td>
         </tr>
