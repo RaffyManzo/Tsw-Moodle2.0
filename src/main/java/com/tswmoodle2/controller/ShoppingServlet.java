@@ -1,6 +1,5 @@
 package com.tswmoodle2.controller;
 
-import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -97,7 +96,7 @@ public class ShoppingServlet extends HttpServlet {
             throws ServletException, IOException {
         doGet(req, resp);
     }
-    private void emptyCart(HttpServletRequest req, HttpServletResponse resp) throws IOException, SQLException, ServletException {
+    private void emptyCart(HttpServletRequest req, HttpServletResponse resp) throws IOException, SQLException {
         HttpSession session = req.getSession(false);
         if (session != null) {
             session.removeAttribute(KEY_CART);
@@ -123,7 +122,7 @@ public class ShoppingServlet extends HttpServlet {
     }
 
     @SuppressWarnings("unchecked")
-    private void removeFromCart(HttpServletRequest req, HttpServletResponse resp) throws IOException, SQLException, ServletException {
+    private void removeFromCart(HttpServletRequest req, HttpServletResponse resp) throws IOException, SQLException {
         String productIdParam = req.getParameter("productId");
         if (productIdParam != null) {
             Integer productId = Integer.parseInt(productIdParam);
@@ -154,7 +153,7 @@ public class ShoppingServlet extends HttpServlet {
     }
 
     @SuppressWarnings("unchecked")
-    private void addToCart(HttpServletRequest req, HttpServletResponse resp) throws IOException, SQLException, ServletException {
+    private void addToCart(HttpServletRequest req, HttpServletResponse resp) throws IOException, SQLException {
         String productIdParam = req.getParameter("productId");
         if (productIdParam != null) {
             Integer productId = Integer.parseInt(productIdParam);
@@ -224,21 +223,6 @@ public class ShoppingServlet extends HttpServlet {
     }
 
     private void display(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-        String admin;
-        if(req.getParameter("admin")!=null) {
-            admin = req.getParameter("admin");
-            if (!admin.equals("true")) {
-                String elemento = req.getParameter("id");
-                req.setAttribute("elemento", elemento);
-                RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/results/admin/modificaCarrello.jsp");
-                try {
-                    rd.forward(req, resp);
-                } catch (ServletException e) {
-                    throw new RuntimeException(e);
-                }
-            }
-        }
-
         String referer = req.getHeader("Referer");
 
         if (referer != null && referer.contains("cart")) {
