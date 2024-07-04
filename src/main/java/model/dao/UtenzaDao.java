@@ -29,4 +29,5 @@ public interface UtenzaDao {
 
     ArrayList<Utenza> searchByCognomeOrUsername(String tipo);
     ArrayList<Utenza> searchByCognomeOrUsernameLimited(String nome, int limit);
+    ArrayList<Utenza> searchByUsername(String username);
 }

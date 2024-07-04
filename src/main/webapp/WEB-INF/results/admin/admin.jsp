@@ -118,7 +118,7 @@
     %>
 
     <form action="adminSearchFilter">
-        <input type="hidden" name="table" value="utenza">
+        <input type="hidden" name="table" value="corso">
         <div class="filter-container">
                     <label for="nomeCategoria">Nome categoria:</label>
                     <input type="text" id="nomeCategoria" name="nomeCategoria">
@@ -176,7 +176,7 @@
     %>
 
     <form action="adminSearchFilter">
-        <input type="hidden" name="table" value="utenza">
+        <input type="hidden" name="table" value="categoria">
         <div class="filter-container">
             <label for="nomeCat">Nome categoria:</label>
             <input type="text" id="nomeCat" name="nomeCat">

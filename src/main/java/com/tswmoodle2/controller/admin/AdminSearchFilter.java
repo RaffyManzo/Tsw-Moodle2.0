@@ -38,7 +38,7 @@ public class AdminSearchFilter extends HttpServlet {
                 filteredData = c.findByCategoria(nomeCategoria);
                 break;
             case "categoria":
-                String nomeCategoriaFiltro = request.getParameter("nome");
+                String nomeCategoriaFiltro = request.getParameter("nomeCat");
                 CategoriaDaoImpl cat=new CategoriaDaoImpl();
                 filteredData = cat.findByNome(nomeCategoriaFiltro);
                 break;
