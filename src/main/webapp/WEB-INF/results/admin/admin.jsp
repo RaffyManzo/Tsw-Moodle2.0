@@ -15,100 +15,26 @@
     <title>Learn Hub - Area admin</title>
     <link href="${pageContext.request.contextPath}/css/header.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/css/admin.css" rel="stylesheet">
-
-    <script src="${pageContext.request.contextPath}/script/profilepic.js"></script>
 </head>
 <body>
-<div class="header" id="header">
-    <!-- <div class="link-container">
-        <a href="${pageContext.request.contextPath}/AdminServlet"
-           class="header-redirect-btn" >admin </a>
-    </div>!-->
 
+<div class="header" id="header">
     <div class="header-main-info" id="header-main-info">
-        <a href="${pageContext.request.contextPath}/admin" class="logo-image" id="header-logo-image">
+        <a href="${pageContext.request.contextPath}/home" class="logo-image" id="header-logo-image">
             <img src="${pageContext.request.contextPath}/assets/images/logo.png">
         </a>
         <h1 class="site-name" id="header-site-name">
             Learn Hub
         </h1>
-
     </div>
-    <!-- We add the checkbox -->
-    <input type="checkbox" id="hamburger-input" class="burger-shower"/>
-
-    <!--
-      We use a `label` element with the `for` attribute
-      with the same value as  our label `id` attribute
-    -->
-    <label id="hamburger-menu" for="hamburger-input">
-        <nav id="sidebar-menu">
-            <div class="ul">
-                <div class="link-container">
-                    <% if (user != null) {
-                    %>
-                    <a href="${pageContext.request.contextPath}/account" class="header-redirect-btn"
-                       id="header-redirect-to-profile">My account</a>
-
-                    <% } %>
-                </div>
-                <%if(user != null) {%>
-                <div class="link-container">
-                    <a href="${pageContext.request.contextPath}/logout" class="header-redirect-btn">
-                        Logout
-                    </a>
-                </div>
-                <%}%>
-            </div>
-        </nav>
-    </label>
-    <div class="header-links" id="header-links">
-
-        <span class="vertical-separator"></span>
-        <div class="link-container">
-            <% if (user != null) {
-            %>
-            <p class="header-text">Area admin</p>
-
-            <% } else { %>
-            <a href="${pageContext.request.contextPath}/login.html" class="header-redirect-btn"
-               id="header-redirect-to-login">Login</a> <%}%>
-            <% %>
-
-        </div>
-        <span class="vertical-separator"></span>
-        <% if (user != null) {
-            String initials = "";
-            if (user.getNome() != null && user.getCognome() != null) {
-                initials = user.getNome().charAt(0) + "" + user.getCognome().charAt(0);
-            }
-
-        %>
-        <div class="link-container header-button account-button">
-
-            <a href="${pageContext.request.contextPath}/account" class="header-redirect-btn"
-               id="header-redirect-to-profile">
-                <img src="${pageContext.request.contextPath}/file?file=${user.getImg()}&id=${user.getIdUtente()}&c=user" alt="<%= initials %>" id="profile-pic">
-                <div class="initials" style="display: none;"><%= initials %></div></a>
-
-            <% } else { %>
-            <div class="link-container header-button registration-button">
-                <a href="${pageContext.request.contextPath}/registrazione.html" class="header-redirect-btn"
-                   id="header-redirect-to-registration">Registrati</a>
-
-            </div>
-            <%}%>
-        </div>
-        <%if(user != null) {%>
-        <span class="vertical-separator"></span>
-        <div class="link-container">
-            <a href="${pageContext.request.contextPath}/logout" class="header-redirect-btn">
-                Logout&nbsp;&nbsp;<img src="${pageContext.request.contextPath}/assets/images/log-out.png" alt="">
-            </a>
-        </div>
-        <%}%>
+    <span class="vertical-separator"></span>
+    <div class="link-container">
+        <a href="${pageContext.request.contextPath}/logout" class="header-redirect-btn">
+            Logout&nbsp;&nbsp;<img src="${pageContext.request.contextPath}/assets/images/log-out.png" alt="">
+        </a>
     </div>
 </div>
+
 <form action="admin">
     <div class="controls" >
         <select id="table-select" name="table-select">
@@ -127,6 +53,18 @@
                 case "utenza":
                     List<Utenza> utenti = (List<Utenza>) request.getAttribute("data");
     %>
+
+    <form action="adminSearchFilter">
+        <input type="hidden" name="table" value="utenza">
+        <div class="filter-container">
+            <div class="form-group">
+                    <label for="tipoUtente">Tipo:</label>
+                    <input type="text" id="tipoUtente" name="tipoUtente" maxlength="1" pattern="[DAS]">
+                    <input type="submit" value="Filtra">
+            </div>
+        </div>
+    </form>
+
     <table>
         <thead>
         <tr>
@@ -144,6 +82,7 @@
         <%
             for (Utenza u : utenti) {
         %>
+
         <tr>
             <td><%= u.getIdUtente() %></td>
             <td><%= u.getNome() %></td>
@@ -177,6 +116,16 @@
         case "corso":
             List<Corso> corsi = (List<Corso>) request.getAttribute("data");
     %>
+
+    <form action="adminSearchFilter">
+        <input type="hidden" name="table" value="corso">
+        <div class="filter-container">
+                    <label for="nomeCategoria">Nome categoria:</label>
+                    <input type="text" id="nomeCategoria" name="nomeCategoria">
+                    <input type="submit" value="Filtra">
+        </div>
+    </form>
+
     <table>
         <thead>
         <tr>
@@ -225,6 +174,16 @@
         case "categoria":
             List<Categoria> categorie = (List<Categoria>) request.getAttribute("data");
     %>
+
+    <form action="adminSearchFilter">
+        <input type="hidden" name="table" value="categoria">
+        <div class="filter-container">
+            <label for="nomeCat">Nome categoria:</label>
+            <input type="text" id="nomeCat" name="nomeCat">
+            <input type="submit" value="Filtra">
+        </div>
+    </form>
+
     <table>
         <thead>
         <tr>

@@ -58,6 +58,7 @@ public class ModificaServlet extends HttpServlet {
                 c.update(corso);
                 break;
         }
+
         response.sendRedirect("admin?table-select=" + tipo);
     }
 

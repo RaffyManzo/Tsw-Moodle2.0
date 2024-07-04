@@ -85,6 +85,16 @@ public class CartDaoImpl extends AbstractDataAccessObject<Carrello> implements C
 
     }
 
+    public void deleteCarrello(int IDCarrello) {
+        try (Connection connection = getConnection();
+             PreparedStatement ps = prepareStatement(connection, "DELETE_CART")) {
+            ps.setInt(1, IDCarrello);
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     /**
      * Svuota completamente il carrello.
      *

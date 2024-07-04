@@ -6,6 +6,6 @@ public interface CartDao {
     void deleteFromCarrello(int IDCorso, int IDCarrello, int IDUtente);
 
     void saveOrUpdateCarrello(Carrello carrello);
-
+    void deleteCarrello(int IDCarrello);
 
 }
