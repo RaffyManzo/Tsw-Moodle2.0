@@ -113,9 +113,10 @@ tr:nth-child(even) td {
     width: auto; /* Auto width for labels */
 }
 
-.form-group input[type="text"] {
+.form-group input {
     padding: 5px; /* Padding inside input boxes */
     width: 150px; /* Set a fixed width for inputs */
+    margin-top: 5px;
 }
 
 /* Responsive design */

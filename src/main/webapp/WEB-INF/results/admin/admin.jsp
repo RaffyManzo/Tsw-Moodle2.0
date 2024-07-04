@@ -58,13 +58,9 @@
         <input type="hidden" name="table" value="utenza">
         <div class="filter-container">
             <div class="form-group">
-                <label for="username">Username:</label>
-                <input type="text" id="username" name="username">
-                <div class="form-group">
                     <label for="tipoUtente">Tipo:</label>
-                    <input type="text" id="tipoUtente" name="tipoUtente" maxlength="1" pattern="[A-Za-z]">
+                    <input type="text" id="tipoUtente" name="tipoUtente" maxlength="1" pattern="[DAS]">
                     <input type="submit" value="Filtra">
-                </div>
             </div>
         </div>
     </form>
@@ -124,15 +120,9 @@
     <form action="adminSearchFilter">
         <input type="hidden" name="table" value="utenza">
         <div class="filter-container">
-            <div class="form-group">
-                <label for="nome">Nome corso:</label>
-                <input type="text" id="nome" name="nome">
-                <div class="form-group">
                     <label for="nomeCategoria">Nome categoria:</label>
                     <input type="text" id="nomeCategoria" name="nomeCategoria">
                     <input type="submit" value="Filtra">
-                </div>
-            </div>
         </div>
     </form>
 
@@ -188,8 +178,8 @@
     <form action="adminSearchFilter">
         <input type="hidden" name="table" value="utenza">
         <div class="filter-container">
-            <label for="nome">Nome categoria:</label>
-            <input type="text" name="nome">
+            <label for="nomeCat">Nome categoria:</label>
+            <input type="text" id="nomeCat" name="nomeCat">
             <input type="submit" value="Filtra">
         </div>
     </form>
