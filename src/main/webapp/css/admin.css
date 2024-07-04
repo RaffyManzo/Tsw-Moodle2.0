@@ -1,5 +1,8 @@
+* {
+    font-family: "Jura", sans-serif;
+}
+
 body {
-    font-family: Arial, sans-serif;
     margin: 20px;
     padding: 20px;
     background-color: #f4f4f4;
@@ -9,17 +12,6 @@ body {
     position: relative;
 }
 
-.admin-header {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    color: white;
-    font-family: "Jura", serif;
-    font-size: 25px;
-
-    font-weight: 700;
-    font-style: normal;
-}
 
 h1 {
     color: #333;

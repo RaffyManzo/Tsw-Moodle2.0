@@ -19,7 +19,7 @@ import jakarta.servlet.http.Part;
 import model.beans.Utenza;
 import model.dao.UtenzaDaoImpl;
 
-@WebServlet(name = "UploadImageServlet", urlPatterns = "/uploadImage")
+@WebServlet(name = "UploadImageServlet", urlPatterns = "/modifyPic")
 @MultipartConfig
 public class UploadImageServlet extends HttpServlet {
 
@@ -44,60 +44,74 @@ public class UploadImageServlet extends HttpServlet {
             return;
         }
 
-        Part filePart = request.getPart("profilePicture");
-        if (filePart == null) {
-            LOGGER.log(Level.SEVERE, "No file uploaded or file part name mismatch.");
-            response.sendError(HttpServletResponse.SC_BAD_REQUEST, "No file uploaded.");
-            return;
-        }
+        if(deletePic(request, response)) {
+            response.sendRedirect("account");
+        } else {
 
-        String fileName = getFileName(filePart);
-        if (fileName == null || fileName.isEmpty()) {
-            LOGGER.log(Level.SEVERE, "File name could not be determined.");
-            response.sendError(HttpServletResponse.SC_BAD_REQUEST, "File name could not be determined.");
-            return;
-        }
+            Part filePart = request.getPart("profilePicture");
+            if (filePart == null) {
+                LOGGER.log(Level.SEVERE, "No file uploaded or file part name mismatch.");
+                response.sendError(HttpServletResponse.SC_BAD_REQUEST, "No file uploaded.");
+                return;
+            }
 
-        String uploadPath = UPLOAD_FOLDER + SEPARATOR + "user" + SEPARATOR + user.getIdUtente();
-        LOGGER.log(Level.INFO, "Path for upload: {0}", uploadPath);
+            String fileName = getFileName(filePart);
+            if (fileName == null || fileName.isEmpty()) {
+                LOGGER.log(Level.SEVERE, "File name could not be determined.");
+                response.sendError(HttpServletResponse.SC_BAD_REQUEST, "File name could not be determined.");
+                return;
+            }
 
-        File uploadDir = new File(uploadPath);
-        if (!uploadDir.exists()) {
-            try {
-                Path createdPath = Files.createDirectories(uploadDir.toPath());
-                LOGGER.log(Level.INFO, "Directory created or already exists at: {0}", createdPath.toString());
-                // Verifica esistenza directory
-                if (Files.exists(createdPath)) {
-                    LOGGER.log(Level.INFO, "Confirmed: Directory exists at: {0}", createdPath.toString());
-                } else {
-                    LOGGER.log(Level.SEVERE, "Directory creation failed: {0}", createdPath.toString());
+            String uploadPath = UPLOAD_FOLDER + SEPARATOR + "user" + SEPARATOR + user.getIdUtente();
+            LOGGER.log(Level.INFO, "Path for upload: {0}", uploadPath);
+
+            File uploadDir = new File(uploadPath);
+            if (!uploadDir.exists()) {
+                try {
+                    Path createdPath = Files.createDirectories(uploadDir.toPath());
+                    LOGGER.log(Level.INFO, "Directory created or already exists at: {0}", createdPath.toString());
+                    // Verifica esistenza directory
+                    if (Files.exists(createdPath)) {
+                        LOGGER.log(Level.INFO, "Confirmed: Directory exists at: {0}", createdPath.toString());
+                    } else {
+                        LOGGER.log(Level.SEVERE, "Directory creation failed: {0}", createdPath.toString());
+                        response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Failed to create upload directory.");
+                        return;
+                    }
+                } catch (IOException e) {
+                    LOGGER.log(Level.SEVERE, "Failed to create directory: " + e.getMessage(), e);
                     response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Failed to create upload directory.");
                     return;
                 }
-            } catch (IOException e) {
-                LOGGER.log(Level.SEVERE, "Failed to create directory: " + e.getMessage(), e);
-                response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Failed to create upload directory.");
-                return;
             }
+
+            String filePath = uploadPath + SEPARATOR + fileName;
+            LOGGER.log(Level.INFO, "File path: {0}", filePath);
+
+            // Check if the file already exists
+            File existingFile = new File(filePath);
+            if (existingFile.exists()) {
+                LOGGER.log(Level.INFO, "File already exists: {0}", filePath);
+                // Option 1: Delete the existing file
+
+            } else {
+
+                try (InputStream input = filePart.getInputStream()) {
+
+                    Files.copy(input, Path.of(filePath));
+                } catch (IOException ex) {
+                    LOGGER.log(Level.SEVERE, "Failed to save uploaded file: " + ex.getMessage(), ex);
+                    response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Failed to save uploaded file.");
+                    return;
+                }
+            }
+
+            user.setImage(fileName);
+            new UtenzaDaoImpl().update(user);
+            request.getSession().setAttribute("user", user);
+
+            response.sendRedirect("account");
         }
-
-        String filePath = uploadPath + SEPARATOR + fileName;
-        LOGGER.log(Level.INFO, "File path: {0}", filePath);
-
-        try (InputStream input = filePart.getInputStream()) {
-
-            Files.copy(input, Path.of(filePath));
-        } catch (IOException ex) {
-            LOGGER.log(Level.SEVERE, "Failed to save uploaded file: " + ex.getMessage(), ex);
-            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Failed to save uploaded file.");
-            return;
-        }
-
-        user.setImage(fileName);
-        new UtenzaDaoImpl().update(user);
-        request.getSession().setAttribute("user", user);
-
-        response.sendRedirect("account");
     }
 
     private String getFileName(Part part) {
@@ -107,5 +121,19 @@ public class UploadImageServlet extends HttpServlet {
             }
         }
         return null;
+    }
+
+    private boolean deletePic(HttpServletRequest request, HttpServletResponse response) {
+        String delete = request.getParameter("delete");
+        if(delete.equals("TRUE")) {
+            Utenza user = (Utenza) request.getSession().getAttribute("user");
+
+            user.setImage("");
+            new UtenzaDaoImpl().update(user);
+            request.getSession().setAttribute("user", user);
+
+            return true;
+        } else
+            return false;
     }
 }

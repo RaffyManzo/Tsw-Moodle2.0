@@ -21,7 +21,9 @@
     <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
     <link href="https://fonts.googleapis.com/css2?family=Jura:wght@300..700&display=swap" rel="stylesheet">
 
+    <script src="${pageContext.request.contextPath}/script/imageErrorDetect.js" defer></script>
 
+    <script src="${pageContext.request.contextPath}/script/accountProfilePicControl.js" defer></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script defer>
         $(document).ready(() => {
@@ -66,7 +68,7 @@
 <body>
 <div class="header" id="header">
     <div class="header-main-info" id="header-main-info">
-        <a href="${pageContext.request.contextPath}/home" class="logo-image" id="header-logo-image">
+        <a href="${pageContext.request.contextPath}/<%= user.getTipo().equals("A") ? "admin" : "home" %>" class="logo-image" id="header-logo-image">
             <img src="${pageContext.request.contextPath}/assets/images/logo.png">
         </a>
         <h1 class="site-name" id="header-site-name">
@@ -86,8 +88,8 @@
                 <div class="link-container">
                     <% if (user != null) {
                     %>
-                    <a href="${pageContext.request.contextPath}/dashboard" class="header-redirect-btn"
-                       id="li-header-redirect-to-dashboard">Vai alla tua dashboard</a>
+                    <a href="${pageContext.request.contextPath}/<%= user.getTipo().equals("A") ? "admin" : "dashboard" %>" class="header-redirect-btn"
+                       id="li-header-redirect-to-dashboard"><%= user.getTipo().equals("A") ? "Pagina di admin" : "Vai alla dashboard" %>"</a>
 
                     <% } else { %>
                     <a href="${pageContext.request.contextPath}/login.html" class="header-redirect-btn"
@@ -104,12 +106,19 @@
     </label>
     <div class="header-links" id="header-links">
         <span class="vertical-separator"></span>
+
+        <% if(user.getTipo().equals("A")) {%>
+        <div class="link-container">
+            <p class="header-text">Area admin</p>
+        </div>
+        <%} else {%>
         <div class="link-container header-button dashboard-button">
 
             <a href="${pageContext.request.contextPath}/dashboard" class="header-redirect-btn"
                id="header-redirect-to-dashboard">Vai alla tua dashboard</a>
 
         </div>
+        <%}%>
         <span class="vertical-separator"></span>
         <div class="link-container">
             <a href="${pageContext.request.contextPath}/logout" class="header-redirect-btn">
@@ -130,11 +139,16 @@
                      src="${pageContext.request.contextPath}/file?file=${user.getImg()}&id=${user.getIdUtente()}&c=user"
                      id="profile-pic" alt="">
             </div>
-            <form class="modify-pic" action="${pageContext.request.contextPath}/uploadImage" method="post" enctype="multipart/form-data" id="uploadForm">
-                <input type="file" id="profilePicture" name="profilePicture" accept="image/*" onchange="document.getElementById('uploadForm').submit()">
+            <form class="modify-pic" action="${pageContext.request.contextPath}/modifyPic" method="post" enctype="multipart/form-data" id="uploadForm">
+                <input type="file" id="profilePicture" name="profilePicture" accept="image/*">
+                <input type="text" id="deletePicture" name="delete" value="FALSE" style="display: none">
                 <label for="profilePicture">
                     <img src="${pageContext.request.contextPath}/assets/images/pen-line.png" alt="Edit" class="edit-icon">
                     <span>Modifica immagine</span>
+                </label>
+                <label for="deletePicture" id="delete-button">
+                    <img src="${pageContext.request.contextPath}/assets/images/trash-2.png" alt="Edit" class="edit-icon" >
+                    <span>Elimina immagine</span>
                 </label>
             </form>
         </div>

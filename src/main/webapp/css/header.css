@@ -59,16 +59,31 @@ Header banner on top of each pages
     color: white;
 }
 
+
+.header-text {
+    color: white;
+    font-family: "Jura", serif;
+    font-size: 25px;
+    margin: 0 2%;
+    font-weight: 700;
+    font-style: normal;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
 .link-container {
     height: 100%;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
     justify-items: center;
     align-items: center;
     width: 170px !important;
 
-    margin: 15px;
+    margin: 0 15px;
 }
 
 .vertical-separator {
@@ -120,7 +135,7 @@ Header banner on top of each pages
     width: 200px;
     height: fit-content;
     background-color: #4E5690;
-    padding: 0px 10px;
+    padding: 10px !important;
     box-sizing: border-box;
     border-radius: 0 0 0 5px ;
     z-index: 1;
@@ -158,6 +173,17 @@ Header banner on top of each pages
     text-align: center;
     margin-left: 15px;
     color: white;
+
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.ul > div > * {
+    text-align: left;
+    margin: 5px 0;
 }
 
 #hamburger-input:checked + #hamburger-menu #sidebar-menu {
