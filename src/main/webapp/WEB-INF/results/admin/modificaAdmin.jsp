@@ -1,12 +1,7 @@
 <%@ page import="model.beans.Utenza" %>
 <%@ page import="model.beans.Corso" %>
-<%@ page import="java.util.List" %>
-<%@ page import="model.beans.Categoria" %>
-<%@ page import="java.util.Objects" %>
 <%@ page import="model.dao.UtenzaDaoImpl" %>
 <%@ page import="model.dao.CorsoDaoImpl" %>
-<%@ page import="model.dao.CategoriaDaoImpl" %>
-<%@ page import="java.util.ArrayList" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -19,7 +14,7 @@
 <body>
 <div class="header" id="header">
     <div class="header-main-info" id="header-main-info">
-        <a href="${pageContext.request.contextPath}/home" class="logo-image" id="header-logo-image">
+        <a href="${pageContext.request.contextPath}/admin" class="logo-image" id="header-logo-image">
             <img src="${pageContext.request.contextPath}/assets/images/logo.png">
         </a>
         <h1 class="site-name" id="header-site-name">
@@ -83,18 +78,28 @@
                 <label for="telefono">Telefono:</label>
                 <input type="tel" id="telefono" name="telefono" value="<%= u.getTelefono() %>">
             </div>
+            <div class="form-group">
+                <label for="immagineu">Immagine:</label>
+                <input name="immagine" id="immagineu" value="<%= u.getImg() %>">
+            </div>
             <input type="hidden" id="password" name="password" value="<%= u.getPassword() %>">
             <input type="hidden" name="tipo" value="utenza">
-            <input type="hidden" name="immagine" value="<%= u.getImg() %>">
             <div class="button-container">
                 <input type="submit" value="Salva Modifiche">
-                <form action="VisualizzaCarrelloServlet" method="get">
-                    <input type="hidden" name="idUtente" value="<%= u.getIdUtente() %>">
-                    <input type="submit" value="Visualizza il carrello dell'utente">
-                </form>
                 <button type="button" onclick="window.history.back();">Indietro</button>
             </div>
         </form>
+        <%
+            if(u.getTipo().equals("S")){
+        %>
+        <form action="VisualizzaCarrelloServlet">
+            <input type="hidden" name="tipo" value="utenza">
+            <input type="hidden" name="id" value="<%= u.getIdUtente() %>">
+            <input type="submit" value="Visualizza il carrello dell'utente">
+        </form>
+        <%
+            }
+        %>
     </div>
     <%
             break;
@@ -140,7 +145,10 @@
                 <label for="acquisti">Numero di acquisti:</label>
                 <input type="number" id="acquisti" name="acquisti" value="<%= c.getNumeroAcquisti() %>">
             </div>
-            <input type="hidden" name="immagine" value="<%= c.getImmagine() %>">
+            <div class="form-group">
+                <label for="immagine">Immagine:</label>
+                <input name="immagine" id="immagine" value="<%= c.getImmagine() %>">
+            </div>
             <input type="hidden" name="tipo" value="corso">
             <div class="button-container">
                 <input type="submit" value="Salva Modifiche">
