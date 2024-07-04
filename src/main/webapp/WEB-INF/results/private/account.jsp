@@ -215,16 +215,17 @@
             </div>
             <h3>Modifica password </h3>
             <form action="${pageContext.request.contextPath}/account" METHOD="post" class="field-row-container">
+                <input style="display: none" type="text" name="action" value="modify-password">
                 <div class="input-box">
                     <div class="field-input-box-container ">
                         <label>Password</label>
-                        <input class="input-field" type="password">
+                        <input class="input-field" type="password" name="password">
                     </div>
                 </div>
                 <div class="input-box">
                     <div class="field-input-box-container ">
                         <label>Conferma password</label>
-                        <input class="input-field" type="password">
+                        <input class="input-field" type="password" name="password-check">
                     </div>
                 </div>
                 <button type="submit" class="confirm-password-btn"><img

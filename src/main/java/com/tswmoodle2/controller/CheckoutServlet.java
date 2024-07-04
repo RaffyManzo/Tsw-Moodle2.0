@@ -15,6 +15,7 @@ import model.dao.*;
 import java.io.IOException;
 import java.net.URLEncoder;
 import java.sql.SQLException;
+import java.sql.SQLIntegrityConstraintViolationException;
 import java.time.LocalDate;
 import java.time.temporal.TemporalAdjusters;
 import java.util.ArrayList;
@@ -56,10 +57,13 @@ public class CheckoutServlet extends HttpServlet {
         Utenza user = ((Utenza)session.getAttribute("user"));
         Carrello cart = new CartDaoImpl().getCartByUserID(user.getIdUtente());
         UtenzaDaoImpl utenzaDao = new UtenzaDaoImpl();
+        int cartItem = (Integer)session.getAttribute("cartItemCount");
+
 
         try {
             CreditCard card = checkCardValidity(request);
             if (card != null) {
+
                 session.removeAttribute("cart");
                 session.removeAttribute("cartItemCount");
 
@@ -90,7 +94,7 @@ public class CheckoutServlet extends HttpServlet {
             CreditCard creditCard = new CreditCard(cardNumber,
                     cardHolder, expiryDate,
                     ((Utenza)request.getSession().getAttribute("user")).getIdUtente());
-            new CreditCardDaoImpl().saveOrUpdateCard(creditCard);
+            new CreditCardDaoImpl().saveCard(creditCard);
             return creditCard;
         } else return null;
     }

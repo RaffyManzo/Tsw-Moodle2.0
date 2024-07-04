@@ -72,11 +72,7 @@ public class CreditCardDaoImpl extends AbstractDataAccessObject<CreditCard> impl
     }
 
     @Override
-    public void saveOrUpdateCard(CreditCard card) {
-        if(findByUserID(card.getIdUtente()) != null) {
-            update(card);
-        } else {
-            insertInto(card);
-        }
+    public void saveCard(CreditCard card) {
+        insertInto(card);
     }
 }

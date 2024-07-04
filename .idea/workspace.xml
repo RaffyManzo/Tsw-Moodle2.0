@@ -11,10 +11,12 @@
   <component name="ChangeListManager">
     <list default="true" id="aaf64b38-f287-423c-9dbc-41a4353826d6" name="Changes" comment="fix header bar in admin page">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/admin/admin.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/admin/admin.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/AccountServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/AccountServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/CheckoutServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/CheckoutServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/beans/Utenza.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/beans/Utenza.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/dao/CreditCardDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/dao/CreditCardDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/dao/CreditCardDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/dao/CreditCardDaoImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/private/account.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/private/account.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/admin.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/admin.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/header.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/header.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -296,15 +298,7 @@
       <workItem from="1719870421188" duration="8766000" />
       <workItem from="1719912322174" duration="34341000" />
       <workItem from="1719998642882" duration="32645000" />
-      <workItem from="1720087398834" duration="9639000" />
-    </task>
-    <task id="LOCAL-00004" summary="Start HomeServlet.java">
-      <option name="closed" value="true" />
-      <created>1717186828775</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1717186828775</updated>
+      <workItem from="1720087398834" duration="13724000" />
     </task>
     <task id="LOCAL-00005" summary="01-06">
       <option name="closed" value="true" />
@@ -690,7 +684,15 @@
       <option name="project" value="LOCAL" />
       <updated>1720097804859</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL-00053" summary="fix header bar in admin page">
+      <option name="closed" value="true" />
+      <created>1720099932625</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1720099932625</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

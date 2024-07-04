@@ -4,6 +4,6 @@ import model.beans.CreditCard;
 
 public interface CreditCardDao {
     public CreditCard findByUserID(int id);
-    public void saveOrUpdateCard(CreditCard card);
+    public void saveCard(CreditCard card);
 
     }
