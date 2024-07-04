@@ -8,6 +8,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import model.beans.Categoria;
 import model.beans.Corso;
 import model.beans.Utenza;
+import model.dao.CartDaoImpl;
 import model.dao.CategoriaDaoImpl;
 import model.dao.CorsoDaoImpl;
 import model.dao.UtenzaDaoImpl;
@@ -32,6 +33,10 @@ public class CategoryServlet extends HttpServlet {
                         new CategoriaDaoImpl().getTeacherWithHigherNumberInCategory(categoria.getNome()));
 
                 pagination(request, response);
+
+                Utenza user = (Utenza) request.getSession().getAttribute("user");
+                if(user != null)
+                    request.setAttribute("cartID", new CartDaoImpl().getCartIDByUser(user.getIdUtente()));
 
                 request.getRequestDispatcher("/WEB-INF/results/public/category.jsp").forward(request, response);
 

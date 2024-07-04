@@ -6,14 +6,17 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import model.beans.Corso;
+import model.beans.Lezione;
+import model.dao.ArgomentoDaoImpl;
 import model.dao.CorsoDaoImpl;
+import model.dao.LezioneDaoImpl;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-@WebServlet(name = "DisplayCourseServlet", value = "/course")
-public class DisplayCourseServlet extends HttpServlet {
+@WebServlet(name = "CourseServlet", value = "/course")
+public class CourseServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String param = request.getParameter("courseID");
 
@@ -21,8 +24,18 @@ public class DisplayCourseServlet extends HttpServlet {
 
             Corso corso =  new CorsoDaoImpl().findByID(Integer.parseInt(param));
 
-            if(corso == null)
+            if(corso == null) {
                 errorOccurs(request, response);
+            } else {
+                ArrayList<Lezione> lezioni = new LezioneDaoImpl().findAllByCorsoId(corso.getIdCorso());
+
+                for(Lezione l : lezioni) {
+                    l.setArgomenti(new ArgomentoDaoImpl().findAllByLezioneId(l.getId()));
+                }
+                request.setAttribute("lezioni", lezioni);
+            }
+
+
 
             request.setAttribute("course", corso);
 

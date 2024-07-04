@@ -9,14 +9,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aaf64b38-f287-423c-9dbc-41a4353826d6" name="Changes" comment="fix header bar in admin page">
+    <list default="true" id="aaf64b38-f287-423c-9dbc-41a4353826d6" name="Changes" comment="fix card storage on payment">
+      <change afterPath="$PROJECT_DIR$/src/main/java/model/beans/Argomento.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/model/beans/Lezione.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/model/dao/ArgomentoDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/model/dao/ArgomentoDaoImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/model/dao/LezioneDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/model/dao/LezioneDaoImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/AccountServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/AccountServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/CheckoutServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/CheckoutServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/beans/Utenza.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/beans/Utenza.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/dao/CreditCardDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/dao/CreditCardDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/dao/CreditCardDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/dao/CreditCardDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/private/account.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/private/account.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/CategoryServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/CategoryServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/DisplayCourseServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/CourseServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/HomeServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/HomeServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/TeacherProfileServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/TeacherProfileServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/dao/CartDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/dao/CartDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/xml/query.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/xml/query.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/public/category.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/public/category.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/public/course.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/public/course.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/public/home.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/public/home.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/public/profile.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/public/profile.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/course.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/course.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,10 +40,10 @@
         <option value="HTML File" />
         <option value="SCSS File" />
         <option value="Jsp File" />
-        <option value="Interface" />
-        <option value="Class" />
         <option value="CSS File" />
         <option value="JavaScript File" />
+        <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -298,15 +309,7 @@
       <workItem from="1719870421188" duration="8766000" />
       <workItem from="1719912322174" duration="34341000" />
       <workItem from="1719998642882" duration="32645000" />
-      <workItem from="1720087398834" duration="13724000" />
-    </task>
-    <task id="LOCAL-00005" summary="01-06">
-      <option name="closed" value="true" />
-      <created>1717262558968</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1717262558968</updated>
+      <workItem from="1720087398834" duration="21164000" />
     </task>
     <task id="LOCAL-00006" summary="Load query from XMl, and fixed DBManager and DAO element">
       <option name="closed" value="true" />
@@ -692,7 +695,15 @@
       <option name="project" value="LOCAL" />
       <updated>1720099932625</updated>
     </task>
-    <option name="localTasksCounter" value="54" />
+    <task id="LOCAL-00054" summary="fix card storage on payment">
+      <option name="closed" value="true" />
+      <created>1720104777717</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1720104777717</updated>
+    </task>
+    <option name="localTasksCounter" value="55" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -710,7 +721,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="account.jsp in progress" />
     <MESSAGE value="account.jsp: left delete account" />
     <MESSAGE value="account.jsp: implemented change profile pic &#10;modified FileServlet.java file pick. Upload folder now is outside webapp, in CATALINA.HOME Folder" />
     <MESSAGE value="non mi ricordo" />
@@ -735,6 +745,7 @@
     <MESSAGE value="fix category.css image size" />
     <MESSAGE value="fix cart error and add remove account image" />
     <MESSAGE value="fix header bar in admin page" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix header bar in admin page" />
+    <MESSAGE value="fix card storage on payment" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix card storage on payment" />
   </component>
 </project>
