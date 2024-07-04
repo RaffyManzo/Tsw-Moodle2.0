@@ -75,6 +75,7 @@
     <entry key="UPDATE_CART_ELEMENT">UPDATE inserimento SET Quantita = ? WHERE IDCorso = ? AND IDCarrello = ? AND IDUtente = ?</entry>
     <entry key="INSERT_CART_ELEMENT">INSERT INTO inserimento (IDCorso, IDCarrello, IDUtente, Quantita) VALUES (?, ?, ?, ?)</entry>
     <entry key="INSERT_CART">INSERT INTO carrello (IDUtente) VALUES (?)</entry>
+    <entry key="DELETE_CART">DELETE FROM carrello WHERE IDCarrello = ?</entry>
 
     <entry key="PURCHASE_COURSE">INSERT INTO corsiacquistati (IDCorso, IDUtente, idordine) VALUES (?, ?, ?) </entry>
     <entry key="ADD_PAYMENT">INSERT INTO ordine (numeroCarta, IDUtente, DataPagamento, totale, uuid) VALUES (?, ?, ?, ?, ?)</entry>

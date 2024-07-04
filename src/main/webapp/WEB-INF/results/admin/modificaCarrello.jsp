@@ -30,12 +30,13 @@
         int idUtente = Integer.parseInt(request.getAttribute("elemento").toString());
         CartDaoImpl c=new CartDaoImpl();
         Carrello carrello=c.getCartByUserID(idUtente);
-        Map<Corso, Integer> cart =carrello.getCart();
-        if (cart != null && !cart.isEmpty()) {
-            for (Map.Entry<Corso, Integer> entry : cart.entrySet()) {
-                Corso product = entry.getKey();
-                Integer quantity = entry.getValue();
-                double totale=product.getPrezzo()*quantity;
+        if(carrello!=null){
+            Map<Corso, Integer> cart =carrello.getCart();
+            if (cart != null && !cart.isEmpty()) {
+                for (Map.Entry<Corso, Integer> entry : cart.entrySet()) {
+                    Corso product = entry.getKey();
+                    Integer quantity = entry.getValue();
+                    double totale=product.getPrezzo()*quantity;
     %>
         <div class="cart-item">
             <div class="cart-item-info">
@@ -45,8 +46,7 @@
                     <p><%= product.getPrezzo() %>$</p>
                     <p>Quantità: <%= quantity %></p>
                     <p>Totale: <%= totale %>$</p>
-                    <form action="shop" method="get" style="display:inline;">
-                        <input type="hidden" name="action" value="removeFromCart"/>
+                    <form action="VisualizzaCarrelloServlet" method="get" style="display:inline;">
                         <input type="hidden" name="id" value="<%= idUtente %>"/>
                         <input type="hidden" name="admin" value="true"/>
                         <input type="hidden" name="productId" value="<%= product.getIdCorso() %>"/>
@@ -60,14 +60,17 @@
                 </div>
             </div>
         </div>
-            <% }} else {
+            <% }}} else {
             %>
         <p id="empty-cart">Il carrello è vuoto</p>
             <%
                 }
+
             %>
-        <div class="button-container">
-            <button type="button" onclick="window.history.back();">Indietro</button>
-        </div>
+        <form action="ModificaServlet">
+            <input type="hidden" name="tipo" value="utenza">
+            <input type="hidden" name="id" value="<%= idUtente %>">
+            <input type="submit" value="Indietro">
+        </form>
 </body>
 </html>

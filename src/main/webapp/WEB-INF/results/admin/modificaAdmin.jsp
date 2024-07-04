@@ -86,7 +86,10 @@
             <input type="hidden" name="tipo" value="utenza">
             <div class="button-container">
                 <input type="submit" value="Salva Modifiche">
-                <button type="button" onclick="window.history.back();">Indietro</button>
+                <form action="admin">
+                    <input type="hidden" name="table-select" value="utenza">
+                    <input type="submit" value="Indietro">
+                </form>
             </div>
         </form>
         <%
@@ -152,7 +155,10 @@
             <input type="hidden" name="tipo" value="corso">
             <div class="button-container">
                 <input type="submit" value="Salva Modifiche">
-                <button type="button" onclick="window.history.back();">Indietro</button>
+                <form action="admin">
+                    <input type="hidden" name="table-select" value="corso">
+                    <input type="submit" value="Indietro">
+                </form>
             </div>
         </form>
     </div>
