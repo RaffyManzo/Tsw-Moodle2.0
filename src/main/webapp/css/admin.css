@@ -51,6 +51,21 @@ input[type="submit"] {
     transition: background-color 0.3s; /* Transizione per il cambio di colore */
 }
 
+button{
+    background-color: #92A0FF; /* Colore del pulsante */
+    color: white; /* Colore del testo */
+    border: none; /* Rimuove i bordi predefiniti */
+    border-radius: 12px; /* Bordi arrotondati */
+    padding: 10px 20px; /* Spaziatura interna */
+    font-size: 16px; /* Dimensione del testo */
+    cursor: pointer; /* Cambia il cursore al passaggio del mouse */
+    transition: background-color 0.3s; /* Transizione per il cambio di colore */
+}
+
+button:hover {
+    background-color: #7582fd;
+}
+
 input[type="submit"]:hover {
     background-color: #7582fd;
 }
