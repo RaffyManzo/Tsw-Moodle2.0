@@ -93,6 +93,13 @@ class CourseSlider {
                 // Gestione degli errori
                 console.error('Errore nel recupero dei dati:', error.message);
                 alert('Errore nel recupero dei dati: ' + error.message);
+                // Risali a 'your-courses'
+                var yourCourses = this.container.closest('.courses-section');
+                yourCourses.css("display", "none")
+
+                // Risali a 'section-header'
+                var sectionHeader = this.container.closest('.section-header');
+                sectionHeader.css("display", "none")
             });
     }
 

@@ -21,9 +21,12 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="${pageContext.request.contextPath}/script/sliderClass.js"></script>
     <script src="${pageContext.request.contextPath}/script/profilepic.js"></script>
-
+    <link href="${pageContext.request.contextPath}/css/slider.css" rel="stylesheet">
     <script src="${pageContext.request.contextPath}/script/search.js"></script>
     <link href="${pageContext.request.contextPath}/css/search.css" rel="stylesheet">
+
+    <script src="${pageContext.request.contextPath}/script/imageErrorDetect.js" defer></script>
+
 
     <script>
         $(document).ready(function () {
@@ -181,7 +184,11 @@
 <div class="content-container">
     <div class="section-top">
         <div class="course-info">
-            <p style="font-size: 1.4rem;"><a class="course-links">Tutte le categorie</a> > <a class="course-links"><%= corso.getNomeCategoria()%></a></p>
+            <p style="font-size: 1.4rem;"><a class="course-links">Tutte le categorie</a> >
+                <a href="category?c=<%= corso.getNomeCategoria()%>"
+                   class="course-links"><%= corso.getNomeCategoria()%>
+                </a>
+            </p>
 
 
             <div>
@@ -196,7 +203,7 @@
         </div>
         <div class="overlayed add-to-cart-container">
             <img src="file?file=<%= corso.getIdCorso() %>/<%= corso.getImmagine()%>&c=course" alt="">
-            <h2>Prezzo: <strong><%= corso.getPrezzo()%>
+            <h2>Prezzo: <strong><%= corso.getPrezzo()%> $
             </strong></h2>
             <a href="shop?action=addToCart&productId=<%=corso.getIdCorso()%>" class="add-to-cart-button">Aggiungi al
                 carrello</a>
@@ -216,7 +223,8 @@
                 initials = creator.getNome().charAt(0) + "" + creator.getCognome().charAt(0);
                 }
                 %>
-                <img src="${pageContext.request.contextPath}/file?file=<%= creator.getImg()%>&id=<%= creator.getIdUtente()%>&c=user" alt="<%= initials %>" id="creator-profile-pic">
+                <img src="${pageContext.request.contextPath}/file?file=<%= creator.getImg()%>&id=<%= creator.getIdUtente()%>&c=user"
+                     alt="<%= initials %>" id="creator-profile-pic">
                 <div class="initials" style="display: none;"><%= initials %></div>
             </a>
             <div class="creator-info">

@@ -1,0 +1,172 @@
+* {
+    font-family: "Jura", sans-serif;
+}
+
+.master-category-container {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    background-color: #2d2f31;
+    padding: 0 10%;
+    box-sizing: border-box;
+
+}
+
+#courses {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.links {
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: 0;
+    font-size: 1.4rem;
+
+    padding: .4rem 0;
+    white-space: nowrap;
+    scroll-snap-align: start;
+
+    color: #c0c4fc;
+    text-decoration: none;
+}
+
+.master-category-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    color: #fff;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.creator-info-container > * {
+    margin: 0 !important;
+}
+
+.creator-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+.creator-info-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 5% 10% 5%;
+    flex-direction: row;
+    box-sizing: border-box;
+}
+
+/* Stile per il contenitore principale */
+.course-pagination {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Stile per ogni scheda del corso */
+.card {
+    background: linear-gradient(to right, #f8f8f8, #e8e8e8);
+    border-radius: 12px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    margin: 20px;
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-decoration: none;
+    max-height: 300px;
+
+    color: black;
+    padding: 10px;
+    box-sizing: border-box;
+    justify-content: space-between;
+}
+
+.card > * {
+    margin: 2%;
+}
+
+.course-info {
+    flex: 2;
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+/* Stile per l'immagine del corso */
+.card img {
+        height: 100%;
+        width: auto;
+    max-width: 40%;
+        aspect-ratio: 2 / 1;
+        border-radius: 12px;
+
+}
+
+.before-course-pagination {
+    width: 100%;
+    margin: 3%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 1.4rem;
+}
+
+/* Stile per il titolo del corso */
+.card-title {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    margin: 10px 0;
+}
+
+/* Stile per la descrizione del corso */
+.card-description {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+/* Stile per la paginazione */
+.pagination {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+/* Stile per i link della paginazione */
+.pagination a {
+    color: #007bff;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+/* Stile per il link della pagina corrente */
+.pagination a.active {
+    color: #495057;
+    text-decoration: underline;
+}
+
+@media screen and (max-width: 745px) {
+    .card {
+        width: 80%;
+    }
+}

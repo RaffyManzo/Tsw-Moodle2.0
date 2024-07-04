@@ -2,9 +2,8 @@ package model.dao;
 
 import model.beans.Corso;
 
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
-import java.sql.Date;
 import java.util.List;
 
 public interface CorsoDao {
@@ -17,6 +16,11 @@ public interface CorsoDao {
     ArrayList<Corso> findByCertificazione(String certificazione) throws SQLException;
     public ArrayList<Corso> findByPrezzo(double prezzo);
     public ArrayList<Corso> findByCreatore(int IDUtente);
+
+    public ArrayList<Corso> findByCategoryPaginated(String categoryId, int page, int itemsPerPage);
+    public int countByCategory(String categoryId);
+    public ArrayList<Corso> findAllPaginated(int page, int itemsPerPage);
+    public int countAll();
 
 }
 

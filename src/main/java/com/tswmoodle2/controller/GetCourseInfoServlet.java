@@ -63,8 +63,9 @@ public class GetCourseInfoServlet extends HttpServlet {
                 LOGGER.log(Level.INFO, "Carico i corsi della categoria dell'utente {0}", param);
             } else {
                 String mostPurchased = new CategoriaDaoImpl().getMostPurchasedCategory();
-                courses = new CorsoDaoImpl().findByCategoria(
-                            mostPurchased);
+
+                courses = mostPurchased != null ? new CorsoDaoImpl().findByCategoria(
+                            mostPurchased) : new CorsoDaoImpl().getAllCourses();
 
                 LOGGER.log(Level.INFO, "Carico i corsi della categoria {0}", mostPurchased);
             }

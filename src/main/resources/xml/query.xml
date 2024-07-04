@@ -80,7 +80,7 @@
     <entry key="GET_COURSES_OF_ORDER">Select Corso.* from corsiacquistati as ca INNER JOIN corso on ca.idCorso = corso.idcorso where ca.idordine = ?</entry>
     <entry key="GET_ORDER">Select * from ordine where idordine = ?</entry>
     <entry key="CHECK_UUID">SELECT * FROM ordine WHERE uuid = ?</entry>
-    <entry key="UPDATE_COURSE_COUNT">UPDATE corso SET numeroAcquisti = numeroAcquisti + 1 WHERE IDCorso = ?"</entry>
+    <entry key="UPDATE_COURSE_COUNT">UPDATE corso SET numeroAcquisti = numeroAcquisti + 1 WHERE IDCorso = ?</entry>
 
 
 
@@ -91,6 +91,10 @@
     <entry key="FIND_ALL_CATEGORIE">SELECT * FROM Categoria</entry>
     <entry key="SEARCH_CATEGORIA_BY_NOME">SELECT * FROM Categoria WHERE Nome LIKE ?</entry>
     <entry key="SEARCH_CATEGORIA_BY_NOME_LIMIT">SELECT * FROM Categoria WHERE Nome LIKE ? LIMIT ?</entry>
+    <entry key="SELECT_CORSI_BY_CATEGORY_PAGINATED">SELECT * FROM corso WHERE nomecategoria = ? LIMIT ? OFFSET ?</entry>
+    <entry key="COUNT_CORSI_BY_CATEGORY">SELECT COUNT(*) FROM corso WHERE nomecategoria = ?</entry>
+    <entry key="SELECT_ALL_CORSI_PAGINATED">SELECT * FROM corso LIMIT ? OFFSET ?</entry>
+    <entry key="COUNT_ALL_CORSI">SELECT COUNT(*) FROM corso</entry>
 
     <entry key="CATEGORY_MOST_PURCHASED">
         WITH CategoriaPiuAcquistata AS (
@@ -119,24 +123,27 @@
     <!--  Category page-->
     <entry key="GET_CREATORS_WITH_HIGHER_NUMBER_OF_COURSE">
         SELECT COUNT(c.IDCorso) AS '#corsi',
-            u.IDUtente,
-            u.Nome,
-            u.Cognome,
-            u.email,
-            u.immagine
+            u.*
 
         FROM
             utenza u JOIN
             corso c ON u.IDUtente = c.creatore
         WHERE
-            u.IDUtente = ?
+            c.nomeCategoria = ?
         GROUP BY
             u.IDUtente, u.Nome, u.Cognome,
             u.email, u.immagine
         ORDER BY
-            NumeroCorsi DESC
+        '#corsi' DESC
         LIMIT 5;
     </entry>
+    <entry key="GET_COUNT_OF_CATEGORY">SELECT count(*) from corso where nomeCategoria = ?</entry>
+
+    <!-- CREDIT CARD -->
+    <entry key="INSERT_CREDIT_CARD">INSERT INTO Carta VALUES (?, ?, ?, ?)</entry>
+    <entry key="UPDATE_CREDIT_CARD">UPDATE Carta SET numero = ?, titolare = ?, datascadenza = ?, IDUtente = ?</entry>
+    <entry key="GET_CREDIT_CARD_BY_USER_ID">SELECT * FROM Carta where IDUtente = ?</entry>
+
 
     <!-- Teacher page -->
     <entry key="COUNT_CATEGORY_COURSE">select corso.nomeCategoria, count(*) AS count from corso inner join utenza on corso.creatore = utenza.IDUtente where IDUtente=? group by corso.nomeCategoria</entry>

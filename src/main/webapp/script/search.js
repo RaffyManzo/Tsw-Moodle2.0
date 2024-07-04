@@ -55,13 +55,24 @@ document.addEventListener('DOMContentLoaded', function (){
 
                     if (utente.image) {
                         a.innerHTML = `
+                    <div class="search-result-element-info">
                     <img src="file?file=${utente.image}&id=${utente.id}&c=user" alt="${utente.name} ${utente.surname}" class="dropdown-img">
-                    <span>${utente.name} ${utente.surname}</span>
+                    <strong  class="search-element-name">${utente.name} ${utente.surname}</strong>
+                    </div>
+                    <div class="search-result-element-details">
+                    <span class="sub-search-element">(${utente.corsi} corsi creati)</span>
+                    </div>
                 `;
                     } else {
                         a.innerHTML = `
+                    <div class="search-result-element-info">
+
                     <div class="initials">${initials.toUpperCase()}</div>
-                    <span>${utente.name} ${utente.surname}</span>
+                    <strong  class="search-element-name">${utente.name} ${utente.surname}</strong>
+                    </div>
+                    <div class="search-result-element-details">
+                    <span class="sub-search-element">(${utente.corsi} corsi creati)</span>
+                    </div>
                 `;
                     }
 
@@ -82,8 +93,13 @@ document.addEventListener('DOMContentLoaded', function (){
                     item.classList.add('dropdown-item');
                     const a = document.createElement("a");
                     a.innerHTML = `
+                        <div class="search-result-element-info">
                         <img src="file?file=${corso.image}&id=${corso.id}&c=course" alt="${corso.name}" class="dropdown-img">
-                        <span>${corso.name} (${corso.category})</span>
+                        <strong class="search-element-name">${corso.name} (${corso.category})</strong>
+                        </div>
+                        <div class="search-result-element-details">
+                        <span class="sub-search-element search-bar-price">Prezzo: ${corso.price}$</span>
+                        </div>
                     `;
 
                     a.href = `
@@ -107,6 +123,7 @@ document.addEventListener('DOMContentLoaded', function (){
                         <span>${categoria.name}</span>
                     `;
                     a.href = `
+                            category?c=${categoria.name}
                             `;
                     item.appendChild(a)
                     searchResults.appendChild(item);

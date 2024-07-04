@@ -215,6 +215,77 @@ public class CorsoDaoImpl extends AbstractDataAccessObject<Corso> implements Cor
     }
 
     @Override
+    public ArrayList<Corso> findByCategoryPaginated(String categoryId, int page, int itemsPerPage) {
+        int offset = (page - 1) * itemsPerPage;
+
+        try (Connection conn = getConnection();
+             PreparedStatement ps = prepareStatement(conn, "SELECT_CORSI_BY_CATEGORY_PAGINATED")) {
+
+            ps.setString(1, categoryId);
+            ps.setInt(2, itemsPerPage);
+            ps.setInt(3, offset);
+             ResultSet rs = ps.executeQuery();
+
+            return getResultAsList(rs);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+
+    @Override
+    public int countByCategory(String categoryId) {
+        try (Connection conn = getConnection();
+             PreparedStatement ps = prepareStatement(conn, "COUNT_CORSI_BY_CATEGORY")) {
+            ps.setString(1, categoryId);
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) {
+                return rs.getInt(1);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return 0;
+    }
+
+    @Override
+    public ArrayList<Corso> findAllPaginated(int page, int itemsPerPage) {
+        int offset = (page - 1) * itemsPerPage;
+
+        try (Connection conn = getConnection();
+             PreparedStatement ps = prepareStatement(conn, "SELECT_ALL_CORSI_PAGINATED")) {
+
+            ps.setInt(1, itemsPerPage);
+            ps.setInt(2, offset);
+            ResultSet rs = ps.executeQuery();
+
+            return getResultAsList(rs);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    @Override
+    public int countAll() {
+        try (Connection conn = getConnection();
+             PreparedStatement stmt = prepareStatement(conn, "COUNT_ALL_CORSI");
+             ResultSet rs = stmt.executeQuery()) {
+
+            if (rs.next()) {
+                return rs.getInt(1);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return 0;
+    }
+
+    @Override
     protected Corso extractFromResultSet(ResultSet rs) throws SQLException {
         int idCorso = rs.getInt("IDCorso");
         String nomeCategoria = rs.getString("NomeCategoria");

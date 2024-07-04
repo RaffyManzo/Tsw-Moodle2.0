@@ -13,6 +13,7 @@
     background-color: #F1F1E6;
 }
 
+
 /* Search box styling */
 .search-box {
     display: flex;
@@ -108,6 +109,13 @@
     color: black;
 }
 
+.search-result-element-info {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    flex: 2;
+}
+
 .dropdown-item img.dropdown-img {
     height: 40px; /* Dimensione dell'iniziale */
     width: 40px; /* Dimensione dell'iniziale */
@@ -116,6 +124,22 @@
     background-color: #f1f1f1;
 }
 
+.sub-search-element {
+    font-size: 14px;
+    margin: 0 2%;
+    flex: 1;
+}
+
+.search-element-name {
+    font-weight: bolder;
+
+}
+
+.search-result-element-details {
+    display: flex;
+    flex: 1;
+    gap: 10px; /* Modifica questo valore per regolare la distanza tra gli elementi */
+}
 .dropdown-item .initials {
     height: 40px; /* Dimensione dell'iniziale */
     width: 40px; /* Dimensione dell'iniziale */

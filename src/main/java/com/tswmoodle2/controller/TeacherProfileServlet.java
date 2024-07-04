@@ -39,6 +39,9 @@ public class TeacherProfileServlet extends HttpServlet {
             }
 
             request.setAttribute("profile", user);
+            request.setAttribute("corsipercategoria", new UtenzaDaoImpl().getCountCourseCategory(user.getIdUtente()));
+            request.setAttribute("countcourse", new UtenzaDaoImpl().getNumeroCorsi(user.getIdUtente()));
+            request.getSession().setAttribute("c", Integer.parseInt(userID));
             request.getRequestDispatcher("/WEB-INF/results/public/profile.jsp").forward(request, response);
 
         } catch(Exception e) {

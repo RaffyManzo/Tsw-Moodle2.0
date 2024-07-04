@@ -54,7 +54,8 @@
     align-items: center;
     padding: 10px;
 
-    background-color: #efefef;
+    background: linear-gradient(to right, #f8f8f8, #e8e8e8);
+
     box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 12px;
     margin: 30px;

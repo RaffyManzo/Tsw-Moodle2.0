@@ -58,11 +58,13 @@
     <script src="${pageContext.request.contextPath}/script/search.js"></script>
     <link href="${pageContext.request.contextPath}/css/search.css" rel="stylesheet">
 
+
     <script>
         $(document).ready(function () {
             // Creazione di un'istanza della classe CourseSlider
             new CourseSlider("#trend-course-slider-container", 'getCoursesJson');
             new CourseSlider("#your-course-slider-container", 'getCoursesJson?action=yourCategory');
+
 
         })
     </script>
@@ -260,46 +262,54 @@
     <div class="categories-container" id="categories-container">
         <div class="categories-inner-row-container">
             <div class="category-circle-box">
-                <a href="">
+                <a href="category?c=Scrittura">
                     <img src="${pageContext.request.contextPath}/assets/images/sc.png" alt="">
                 </a>
+                <p>Scrittura</p>
             </div>
             <div class="category-circle-box">
-                <a href="">
+                <a href="category?c=Sviluppo%20web">
                     <img src="${pageContext.request.contextPath}/assets/images/sviluppoweb.png" alt="">
                 </a>
+                <p>Sviluppo web</p>
             </div>
             <div class="category-circle-box">
-                <a href="">
+                <a href="category?c=Sviluppo%20giochi">
                     <img src="${pageContext.request.contextPath}/assets/images/sviluppoGiochi.png" alt="">
                 </a>
+                <p>Sviluppo giochi</p>
             </div>
             <div class="category-circle-box">
-                <a href="">
+                <a href="category?c=Programmazione">
                     <img src="${pageContext.request.contextPath}/assets/images/backend.png" alt="">
                 </a>
+                <p>Programmazione</p>
             </div>
         </div>
         <div class="categories-inner-row-container">
             <div class="category-circle-box">
-                <a href="">
+                <a href="category?c=Fotografia">
                     <img src="${pageContext.request.contextPath}/assets/images/foto.png" alt="">
                 </a>
+                <p>Fotografia</p>
             </div>
             <div class="category-circle-box">
-                <a href="">
+                <a href="category?c=Trading">
                     <img src="${pageContext.request.contextPath}/assets/images/trading.png" alt="">
                 </a>
+                <p>Trading</p>
             </div>
             <div class="category-circle-box">
-                <a href="">
+                <a href="category?c=Marketing">
                     <img src="${pageContext.request.contextPath}/assets/images/marketing.png" alt="">
                 </a>
+                <p>Marketing</p>
             </div>
             <div class="category-circle-box">
-                <a href="">
+                <a href="category?c=Musica">
                     <img src="${pageContext.request.contextPath}/assets/images/musica.png" alt="">
                 </a>
+                <p>Musica</p>
             </div>
         </div>
     </div>

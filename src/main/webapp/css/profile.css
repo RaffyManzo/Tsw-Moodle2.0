@@ -1,0 +1,182 @@
+* {
+    font-family: "Jura", sans-serif;
+}
+
+.content-container {
+    position: relative;
+    width: 100%;
+    top: 100px
+}
+
+.content-container >*:last-child {
+    margin-bottom: 100px !important;
+}
+
+.creator-info-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    padding: 5% 10% 5%;
+    flex-direction: row;
+    box-sizing: border-box;
+}
+
+.creator-info-container > *:first-child {
+    margin-left: 15%;
+}
+
+.creator-info-container > *:last-child {
+    margin-left: 5%;
+}
+
+.creator-info {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    width: 100%;
+}
+
+.creator-info * {
+    font-size: 20px;
+
+}
+
+.creator-info-container .initials {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    font-size: 3rem; /* Ingrandisce il testo per coprire meglio l'area */
+    color: #fff;
+    background-color: #596cff; /* Colore di sfondo quando l'immagine non è disponibile */
+    border-radius: 50%; /* Assicura che il div sia circolare */
+    text-transform: uppercase; /* Trasforma le iniziali in maiuscolo */
+    text-align: center; /* Allinea il testo al centro */
+    line-height: 1; /* Assicura che il testo sia verticalmente centrato */
+}
+
+.creator-info-container #creator-profile-pic {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    object-fit: cover; /* Assicura che l'immagine copra tutto lo spazio disponibile */
+    border-radius: 50%; /* Assicura che l'immagine sia circolare */
+}
+
+.creator-profile-pic {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    width: 230px;
+    aspect-ratio: 1 / 1; /* Mantiene l'elemento quadrato */
+    border-radius: 50%; /* Rende l'elemento circolare */
+    overflow: hidden;
+    background-color: #ccc; /* Colore di sfondo predefinito */
+
+    text-decoration: none;
+}
+
+.line-divider {
+    border-bottom: 1px solid black;
+    width: 70%;
+    margin: 2% 5px;
+}
+
+.box-info-container {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 20px;
+    align-items: stretch;
+
+}
+
+
+.box-info {
+    background: linear-gradient(to right, #f8f8f8, #e8e8e8);
+    border-radius: 15px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+    width: 45%;
+    padding: 20px;
+    box-sizing: border-box;
+
+    flex: 1 1 2%;
+    margin: 15px;
+}
+
+.box-info-header {
+    color: #333;
+    margin-bottom: 20px; /* Aggiunto più spazio qui */
+    font-size: 20px;
+    text-transform: uppercase; /* Rende il testo tutto maiuscolo per un aspetto più estetico */
+}
+
+.box-info-content {
+    color: #666;
+    padding-top: 20px; /* Aggiunto più spazio qui */
+}
+
+.box-info-content h3 {
+    color: #333;
+}
+
+.box-info-content p {
+    margin: 10px 0;
+}
+
+.courses-section h3{
+    width: 100%;
+    text-align: center;
+    font-size: 20px;
+}
+
+@media (max-width: 1200px) {
+
+
+    .course-creator-section {
+        margin-top: 50px;
+    }
+}
+@media (max-width: 745px) {
+
+    .course-creator-section {
+        margin-top: 25%;
+    }
+    .box-info-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .creator-info-container {
+        flex-direction: column;
+    }
+
+    .creator-info-container *:not(a *, a) {
+        margin: 10px !important;
+        width: 100%;
+        align-items: center;
+        text-align: center;
+        display: flex;
+    }
+
+    .creator-info strong {
+        text-align: left !important;
+        flex: 1;
+    }
+
+    .box-info {
+        width: 90%;
+        margin: 2% 0;
+    }
+
+
+    .creator-info-container > * {
+        margin-left: 5%;
+    }
+}
