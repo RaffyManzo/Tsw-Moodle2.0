@@ -37,7 +37,7 @@ public class ModificaServlet extends HttpServlet {
                     utenza = new Utenza(Integer.parseInt(elemento), nome, request.getParameter("cognome"), parseDate(request.getParameter("dataNascita")),
                             request.getParameter("indirizzo"), request.getParameter("citta"), request.getParameter("telefono"),
                             request.getParameter("email"), request.getParameter("password"), parseDate(request.getParameter("dataCreazioneAccount")),
-                            request.getParameter("username"), request.getParameter("tipo"), request.getParameter("immagine"));
+                            request.getParameter("username"), request.getParameter("tipoUtente"), request.getParameter("immagine"));
                 } catch (ParseException e) {
                     throw new RuntimeException(e);
                 }

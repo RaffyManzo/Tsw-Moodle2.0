@@ -52,8 +52,8 @@
                 <input type="text" id="nome" name="nome" value="<%= u.getNome() %>">
             </div>
             <div class="form-group">
-                <label for="tipo">Tipo:</label>
-                <input type="text" id="tipo" name="tipo" value="<%= u.getTipo() %>">
+                <label for="tipoUtente">Tipo:</label>
+                <input type="text" id="tipoUtente" name="tipoUtente" value="<%= u.getTipo() %>">
             </div>
             <div class="form-group">
                 <label for="email">Email:</label>
