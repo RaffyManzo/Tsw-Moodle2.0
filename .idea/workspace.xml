@@ -9,10 +9,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aaf64b38-f287-423c-9dbc-41a4353826d6" name="Changes" comment="finish lessons and topic in course">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="aaf64b38-f287-423c-9dbc-41a4353826d6" name="Changes" comment="fix checkout and added image">
       <change beforePath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/CheckoutServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/CheckoutServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/admin/VisualizzaCarrelloServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/admin/VisualizzaCarrelloServlet.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -294,15 +292,7 @@
       <workItem from="1719870421188" duration="8766000" />
       <workItem from="1719912322174" duration="34341000" />
       <workItem from="1719998642882" duration="32645000" />
-      <workItem from="1720087398834" duration="24156000" />
-    </task>
-    <task id="LOCAL-00009" summary="Add categories to home, fix some bug">
-      <option name="closed" value="true" />
-      <created>1718377072403</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1718377072403</updated>
+      <workItem from="1720087398834" duration="24466000" />
     </task>
     <task id="LOCAL-00010" summary="fetch api instead JQuery AJAX">
       <option name="closed" value="true" />
@@ -688,7 +678,15 @@
       <option name="project" value="LOCAL" />
       <updated>1720136477752</updated>
     </task>
-    <option name="localTasksCounter" value="58" />
+    <task id="LOCAL-00058" summary="fix checkout and added image">
+      <option name="closed" value="true" />
+      <created>1720137287962</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1720137287962</updated>
+    </task>
+    <option name="localTasksCounter" value="59" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -706,7 +704,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="non mi ricordo" />
     <MESSAGE value="Implement AccountOperationFilter.java and delete option in AccountServlet.java" />
     <MESSAGE value="Implements RegistrationServlet" />
     <MESSAGE value="fix RegistrationServlet" />
@@ -731,6 +728,7 @@
     <MESSAGE value="fix card storage on payment" />
     <MESSAGE value="start lessons and Arguments" />
     <MESSAGE value="finish lessons and topic in course" />
-    <option name="LAST_COMMIT_MESSAGE" value="finish lessons and topic in course" />
+    <MESSAGE value="fix checkout and added image" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix checkout and added image" />
   </component>
 </project>

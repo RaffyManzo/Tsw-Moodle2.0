@@ -51,6 +51,9 @@ public class CheckoutServlet extends HttpServlet {
                 }
 
             }
+        } else {
+            String referer = request.getHeader("Referer");
+            response.sendRedirect(referer);
         }
     }
 
@@ -96,7 +99,10 @@ public class CheckoutServlet extends HttpServlet {
             CreditCard creditCard = new CreditCard(cardNumber,
                     cardHolder, expiryDate,
                     ((Utenza)request.getSession().getAttribute("user")).getIdUtente());
-            new CreditCardDaoImpl().saveCard(creditCard);
+
+            if(new CreditCardDaoImpl().findByNumber(creditCard.getNumeroCarta()) == null) {
+                new CreditCardDaoImpl().saveCard(creditCard);
+            }
             return creditCard;
         } else return null;
     }
