@@ -1,14 +1,12 @@
 package model.dao;
 
 import model.DBManager;
-import model.beans.Carrello;
-import model.beans.Corso;
-import model.beans.CreditCard;
-import model.beans.Ordine;
+import model.beans.*;
 
 import java.sql.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.UUID;
@@ -16,6 +14,9 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class OrdineDaoImpl extends AbstractDataAccessObject<Ordine> implements OrdineDao{
+
+    ArrayList<Ordine> ordini = new ArrayList<>();
+
     private static final Logger logger = Logger.getLogger(OrdineDaoImpl.class.getName());
     @Override
     protected Ordine extractFromResultSet(ResultSet rs) throws SQLException {
@@ -31,6 +32,22 @@ public class OrdineDaoImpl extends AbstractDataAccessObject<Ordine> implements O
                     rs.getTimestamp(6),
                     UUID.fromString(rs.getString(7))
             );
+        }
+    }
+
+    @Override
+    public ArrayList<Ordine> findByUtenteId(int idUtente, int IdOrdine)  {
+        try (Connection connection = getConnection();
+             PreparedStatement ps = prepareStatement(connection, "SEARCH_ORDINE_BY_UTENTE_ID")) {
+            ps.setString(1, "%" + idUtente + "%");
+            ps.setString(2, "%" + IdOrdine + "%");
+
+            try (ResultSet rs = ps.executeQuery()) {
+                return getResultAsList(rs);
+            }
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
     }
 
@@ -64,6 +81,18 @@ public class OrdineDaoImpl extends AbstractDataAccessObject<Ordine> implements O
     @Override
     protected void update(Ordine e) {
 
+    }
+
+    @Override
+    public ArrayList<Ordine> getAllOrdini()  {
+        try (Connection connection = getConnection();
+             PreparedStatement ps = prepareStatement(connection, "FIND_ALL_ORDINI");
+             ResultSet rs = ps.executeQuery()) {
+            ordini.addAll(getResultAsList(rs));
+            return ordini;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public Ordine findOrderByID(int id) {
@@ -177,6 +206,18 @@ public class OrdineDaoImpl extends AbstractDataAccessObject<Ordine> implements O
             }
         }
     }
+
+    @Override
+    public void delete(int id) {
+        try (Connection connection = getConnection();
+             PreparedStatement ps = prepareStatement(connection, "DELETE_ORDINE")) {
+            ps.setInt(1, id);
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
 
     protected Ordine addPayment(Carrello carrello, CreditCard card) throws SQLException {
         double somma = carrello.getCart().keySet().stream()

@@ -7,6 +7,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import model.dao.CategoriaDaoImpl;
 import model.dao.CorsoDaoImpl;
+import model.dao.OrdineDaoImpl;
 import model.dao.UtenzaDaoImpl;
 
 import java.io.IOException;
@@ -30,6 +31,11 @@ public class AdminDeleteObjectServlet extends HttpServlet {
                 CategoriaDaoImpl ca = new CategoriaDaoImpl();
                 String idca = request.getParameter("id");
                 ca.delete(idca);
+                break;
+            case "ordine":
+                OrdineDaoImpl o = new OrdineDaoImpl();
+                int ido = Integer.parseInt(request.getParameter("id"));
+                o.delete(ido);
                 break;
             default:
                 throw new IllegalArgumentException("Invalid table name: " + table);

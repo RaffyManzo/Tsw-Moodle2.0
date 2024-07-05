@@ -9,6 +9,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import model.dao.CategoriaDaoImpl;
 import model.dao.CorsoDaoImpl;
+import model.dao.OrdineDaoImpl;
 import model.dao.UtenzaDaoImpl;
 
 import java.io.IOException;
@@ -62,9 +63,10 @@ public class AdminServlet extends HttpServlet {
                 CategoriaDaoImpl ca = new CategoriaDaoImpl();
                 data = ca.getCategorie();
                 break;
-            case "lezione":
-                //data = YourDaoImpl.getLezioneData();
-                // break;
+            case "ordine":
+                OrdineDaoImpl o = new OrdineDaoImpl();
+                data=o.getAllOrdini();
+                break;
             default:
                 throw new IllegalArgumentException("Invalid table name: " + table);
         }

@@ -241,6 +241,24 @@ public class UtenzaDaoImpl extends AbstractDataAccessObject<Utenza> implements U
     }
 
     @Override
+    public ArrayList<Utenza> findByTipoEmail(String tipo, String email){
+        try (Connection connection = getConnection();
+             PreparedStatement ps = prepareStatement(connection, "SEARCH_UTENZA_BY_TIPO_EMAIL")) {
+            if (tipo == null) tipo = "";
+            if (email == null) email = "";
+            ps.setString(1, "%" + tipo + "%");
+            ps.setString(2, "%" + email + "%");
+
+            try (ResultSet rs = ps.executeQuery()) {
+                return getResultAsList(rs);
+            }
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
     public ArrayList<Utenza> findByTipo(String tipo) {
         try (Connection connection = getConnection();
              PreparedStatement ps = prepareStatement(connection, "FIND_UTENZA_BY_TIPO")) {
