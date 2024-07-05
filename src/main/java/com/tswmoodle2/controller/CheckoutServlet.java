@@ -50,10 +50,11 @@ public class CheckoutServlet extends HttpServlet {
                         break;
                 }
 
+            } else {
+                error(request, response, "Il tuo account non supporta questa funzionalitá, prova a creare un account studente");
             }
         } else {
-            String referer = request.getHeader("Referer");
-            response.sendRedirect(referer);
+            error(request, response, "Funzionalitá riservata, effettua il login");
         }
     }
 

@@ -1,6 +1,8 @@
 <%@ page import="model.beans.Corso" %>
 <%@ page import="java.util.Map" %>
 <%@ page import="model.beans.Utenza" %>
+<%@ include file="session.jsp" %>
+
 <%@ page import="model.beans.Carrello" %><%--
   Created by IntelliJ IDEA.
   User: raffa

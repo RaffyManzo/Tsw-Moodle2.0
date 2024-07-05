@@ -1,4 +1,4 @@
-package com.tswmoodle2.controller.listener;
+package com.tswmoodle2.controller.session;
 
 import jakarta.servlet.annotation.WebListener;
 import jakarta.servlet.http.HttpSession;
@@ -10,13 +10,13 @@ import model.beans.Corso;
 import model.beans.Utenza;
 import model.dao.CartDaoImpl;
 
-import java.sql.SQLException;
 import java.util.Map;
 
 @WebListener
 public class SessionListener implements HttpSessionListener {
     @Override
     public void sessionCreated(HttpSessionEvent se) {
+        se.getSession().setMaxInactiveInterval(900); // 15 minuti
     }
 
     @Override

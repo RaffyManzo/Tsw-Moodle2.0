@@ -9,8 +9,33 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aaf64b38-f287-423c-9dbc-41a4353826d6" name="Changes" comment="fix checkout and added image">
+    <list default="true" id="aaf64b38-f287-423c-9dbc-41a4353826d6" name="Changes" comment="fix card duplicate key">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/session/SessionController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/private/session.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/css/sessionPopUp.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/script/sessionPopUp.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/CategoryServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/CategoryServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/CheckoutServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/CheckoutServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/CourseServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/CourseServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/HomeServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/HomeServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/ShoppingServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/ShoppingServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/TeacherProfileServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/TeacherProfileServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/filter/AccessControlFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/filter/AccessControlFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/listener/SessionListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/session/SessionListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/admin/admin.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/admin/admin.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/admin/modificaAdmin.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/admin/modificaAdmin.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/admin/modificaCarrello.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/admin/modificaCarrello.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/private/account.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/private/account.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/private/checkout.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/private/checkout.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/public/cart.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/public/cart.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/public/category.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/public/category.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/public/course.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/public/course.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/public/home.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/public/home.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/public/profile.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/public/profile.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/course.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/course.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/search.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/search.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/script/search.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/script/search.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,11 +47,11 @@
       <list>
         <option value="HTML File" />
         <option value="SCSS File" />
-        <option value="Jsp File" />
-        <option value="CSS File" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
         <option value="JavaScript File" />
+        <option value="CSS File" />
+        <option value="Jsp File" />
       </list>
     </option>
   </component>
@@ -292,15 +317,8 @@
       <workItem from="1719870421188" duration="8766000" />
       <workItem from="1719912322174" duration="34341000" />
       <workItem from="1719998642882" duration="32645000" />
-      <workItem from="1720087398834" duration="24466000" />
-    </task>
-    <task id="LOCAL-00010" summary="fetch api instead JQuery AJAX">
-      <option name="closed" value="true" />
-      <created>1718378348057</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1718378348057</updated>
+      <workItem from="1720087398834" duration="26805000" />
+      <workItem from="1720174916713" duration="6385000" />
     </task>
     <task id="LOCAL-00011" summary="Error page, login servelt, fix to db">
       <option name="closed" value="true" />
@@ -686,7 +704,15 @@
       <option name="project" value="LOCAL" />
       <updated>1720137287962</updated>
     </task>
-    <option name="localTasksCounter" value="59" />
+    <task id="LOCAL-00059" summary="fix card duplicate key">
+      <option name="closed" value="true" />
+      <created>1720137798309</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1720137798309</updated>
+    </task>
+    <option name="localTasksCounter" value="60" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -704,7 +730,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Implement AccountOperationFilter.java and delete option in AccountServlet.java" />
     <MESSAGE value="Implements RegistrationServlet" />
     <MESSAGE value="fix RegistrationServlet" />
     <MESSAGE value="added success.jsp" />
@@ -729,6 +754,7 @@
     <MESSAGE value="start lessons and Arguments" />
     <MESSAGE value="finish lessons and topic in course" />
     <MESSAGE value="fix checkout and added image" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix checkout and added image" />
+    <MESSAGE value="fix card duplicate key" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix card duplicate key" />
   </component>
 </project>

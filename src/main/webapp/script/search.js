@@ -94,7 +94,7 @@ document.addEventListener('DOMContentLoaded', function (){
                     const a = document.createElement("a");
                     a.innerHTML = `
                         <div class="search-result-element-info">
-                        <img src="file?file=${corso.image}&id=${corso.id}&c=course" alt="${corso.name}" class="dropdown-img">
+                        <img src="file?file=${corso.image}&id=${corso.id}&c=course" alt="" class="dropdown-img">
                         <strong class="search-element-name">${corso.name} (${corso.category})</strong>
                         </div>
                         <div class="search-result-element-details">

@@ -1,6 +1,8 @@
 <%@ page import="model.beans.Utenza" %>
 <%@ page import="model.beans.Corso" %>
 <%@ page import="java.util.List" %>
+<%@ include file="../private/session.jsp" %>
+
 <%@ page import="model.beans.Categoria" %>
 <%@ page import="model.beans.Ordine" %>
 <%

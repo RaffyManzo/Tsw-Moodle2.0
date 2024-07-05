@@ -1,0 +1,53 @@
+.popup {
+    display: none;
+    position: fixed;
+    z-index: 9;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid #ccc;
+    background: #fff;
+    padding: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+
+}
+.popup-header {
+    font-size: 20px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #f44336;
+    padding: 10px;
+}
+.popup-content {
+    margin: 20px 0;
+    font-size: 16px;
+}
+.popup-footer {
+    display: flex;
+    justify-content: center;
+}
+.popup-footer button {
+    padding: 10px 20px;
+    margin: 0 5px;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+}
+.continue-button {
+    background-color: #4E569F;
+}
+.logoff-button {
+    background-color: #ff5252;
+}
+.close-button {
+    position: absolute;
+    top: 10px;
+    color: #515151;
+    right: 10px;
+    cursor: pointer;
+    height: 10px;
+    aspect-ratio: 1 / 1 ;
+    margin: 10px;
+    width: auto;
+}

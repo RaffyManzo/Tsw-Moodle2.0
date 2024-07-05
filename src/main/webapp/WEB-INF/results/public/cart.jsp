@@ -2,6 +2,10 @@
 <%@ page import="java.util.Map" %>
 <%@ page import="model.beans.Corso" %>
 <%@ page import="model.beans.Utenza" %>
+<%@ page import="model.beans.Categoria" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ include file="../private/session.jsp" %>
+
 <%
     Utenza user = (Utenza) session.getAttribute("user");
     Map<Corso, Integer> cart = (Map<Corso, Integer>) request.getAttribute("cart");
@@ -130,6 +134,7 @@
         </div>
     </div>
 </div>
+
 <div class="search-bar-container">
     <div class="search-box">
         <button id="search-button">
@@ -138,11 +143,23 @@
         <input type="text" id="search-bar" placeholder="Cerca corsi, categorie o docenti...">
 
     </div>
+
     <div id="dropdown" class="dropdown-content">
         <ul id="search-results"></ul>
     </div>
 
+    <div class="select">
+        <!-- country names and country code -->
+        <select class="categories" name="category">
+            <option value="" style="background-color: #edeeff">Categorie</option>
+            <% for (Categoria c : (ArrayList<Categoria>)request.getAttribute("categories")) {%>
+            <option onclick='window.location = "category?c=" + "<%= c.getNome() %>"' value=''><%= c.getNome()%></option>
+
+            <%}%>
+        </select>
+    </div>
 </div>
+
 <div class="container">
     <h1>Il tuo carrello</h1>
     <%  Integer total = 0;

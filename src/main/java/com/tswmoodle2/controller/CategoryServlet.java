@@ -38,6 +38,8 @@ public class CategoryServlet extends HttpServlet {
                 if(user != null)
                     request.setAttribute("cartID", new CartDaoImpl().getCartIDByUser(user.getIdUtente()));
 
+                request.setAttribute("categories", new CategoriaDaoImpl().getAllCategorie());
+
                 request.getRequestDispatcher("/WEB-INF/results/public/category.jsp").forward(request, response);
 
             } catch (Exception e) {

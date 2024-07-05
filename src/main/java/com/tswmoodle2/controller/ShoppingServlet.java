@@ -12,6 +12,7 @@ import model.beans.Carrello;
 import model.beans.Corso;
 import model.beans.Utenza;
 import model.dao.CartDaoImpl;
+import model.dao.CategoriaDaoImpl;
 import model.dao.CorsoDaoImpl;
 
 import java.io.IOException;
@@ -54,6 +55,9 @@ public class ShoppingServlet extends HttpServlet {
             action = "viewCart";
         }
         LOGGER.log(Level.INFO, "Action: {0}", action);
+
+        req.setAttribute("categories", new CategoriaDaoImpl().getAllCategorie());
+
 
         switch (action) {
             case "addToCart":

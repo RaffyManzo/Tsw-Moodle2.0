@@ -30,6 +30,31 @@
     box-sizing: border-box;
 }
 
+.select {
+    display: flex;
+    height: 80%;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30%;
+
+    margin: 0 20px;
+}
+
+.categories {
+    border: none;
+    color: black;
+    font-family: "Jura", sans-serif;
+    font-size: 16px;
+    font-weight: normal;
+    text-align: left;
+    width: 100%;
+    padding: 10px;
+    height: 42px;
+    border-radius: 12px;
+    background-color: white;
+
+}
+
 /* Input field styling */
 #search-bar {
     border: none;
