@@ -72,6 +72,22 @@ public class CreditCardDaoImpl extends AbstractDataAccessObject<CreditCard> impl
     }
 
     @Override
+    public CreditCard findByNumber(String number) {
+        try (Connection connection = getConnection();
+             PreparedStatement ps = prepareStatement(connection, "GET_CREDIT_CARD_BY_CARD_NUMBER")) {
+            ps.setString(1, number);
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    return getResultAsObject(rs);
+                }
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return null;
+    }
+
+    @Override
     public void saveCard(CreditCard card) {
         insertInto(card);
     }
