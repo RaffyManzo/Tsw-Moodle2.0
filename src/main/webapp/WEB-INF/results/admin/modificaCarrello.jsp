@@ -1,4 +1,3 @@
-<%@ page import="model.beans.Utenza" %>
 <%@ page import="model.beans.Corso" %>
 <%@ page import="model.dao.CartDaoImpl" %>
 <%@ page import="model.beans.Carrello" %>
@@ -72,5 +71,6 @@
             <input type="hidden" name="id" value="<%= idUtente %>">
             <input type="submit" value="Indietro">
         </form>
+</div>
 </body>
 </html>
