@@ -27,6 +27,37 @@ AccessControlFilter extends HttpFilter implements Filter {
         CustomHttpServletRequestWrapper wrappedRequest = new CustomHttpServletRequestWrapper(httpServletRequest);
         CustomHttpServletResponseWrapper wrappedResponse = new CustomHttpServletResponseWrapper(httpServletRequest, httpServletResponse);
 
+        manageSessionExpire(httpServletRequest, httpServletResponse);
+
+
+        // Proceed with the request
+        chain.doFilter(wrappedRequest, wrappedResponse);
+    }
+
+    private void manageSessionExpire(HttpServletRequest request, HttpServletResponse response) {
+        HttpSession session = request.getSession(false);
+
+        if (session != null) {
+            Long lastAccessedTime = (Long) session.getAttribute("lastAccessedTime");
+            long currentTime = System.currentTimeMillis();
+
+            if (lastAccessedTime != null) {
+                long timeSinceLastAccess = currentTime - lastAccessedTime;
+                long remainingTime = session.getMaxInactiveInterval() * 1000L - timeSinceLastAccess;
+
+                // Avvisa l'utente se la sessione sta per scadere (ad esempio, entro 1 minuto)
+                if (remainingTime < 60000) { // 1 minuto
+                    // Esegui l'azione per avvisare l'utente, ad esempio impostando un attributo di richiesta
+                    request.setAttribute("sessionExpiringSoon", true);
+                }
+            }
+
+            // Aggiorna l'ultimo tempo di accesso
+            session.setAttribute("lastAccessedTime", currentTime);
+        }
+    }
+
+    private boolean control(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws IOException {
         // Recuperiamo il percorso della richiesta
         String path = httpServletRequest.getServletPath();
 
@@ -43,36 +74,10 @@ AccessControlFilter extends HttpFilter implements Filter {
             List<String> errors = new ArrayList<>();
             errors.add("Non hai i permessi per accedere a questa risorsa");
             httpServletRequest.setAttribute("errors", errors);
-            wrappedResponse.sendRedirect(httpServletRequest.getContextPath() + "/WEB-INF/results/public/error.jsp");
-            return; // Stop further processing
+            httpServletResponse.sendRedirect(httpServletRequest.getContextPath() + "/WEB-INF/results/public/error.jsp");
+            return true; // Stop further processing
         }
 
-        // Proceed with the request
-        chain.doFilter(wrappedRequest, wrappedResponse);
-
-        /*
-        // Se l'utente è autenticato e sta cercando di accedere alla pagina di login o registrazione, reindirizzalo alla home
-        if (isAdmin != null && isALoginRequest) {
-            httpServletResponse.sendRedirect(httpServletRequest.getContextPath() + "/home");
-            return; // Aggiungiamo return per assicurare che la catena di filtri venga bloccata
-        }
-
-        // Se l'utente non è autenticato e sta tentando di accedere a una risorsa protetta
-        if (isAdmin == null && !isPublicResource) {
-            List<String> errors = new ArrayList<>();
-            errors.add("Non hai i permessi per accedere a questa risorsa");
-            httpServletRequest.setAttribute("errors", errors);
-            httpServletRequest.getRequestDispatcher("/WEB-INF/results/public/error.jsp").forward(request, response);
-            return;
-        }
-
-        // Se l'utente non è un amministratore e sta tentando di accedere a una risorsa admin
-        if (isAdmin != null && !isAdmin && isAdminResource) {
-            List<String> errors = new ArrayList<>();
-            errors.add("Non hai i permessi per accedere a questa risorsa");
-            httpServletRequest.setAttribute("errors", errors);
-            httpServletRequest.getRequestDispatcher("/WEB-INF/results/public/error.jsp").forward(request, response);
-            return;
-        } */
+        return false;
     }
 }

@@ -6,6 +6,8 @@
 <%@ page import="model.beans.Carrello" %>
 <%@ page import="model.beans.Categoria" %>
 <%@ page import="java.util.ArrayList" %>
+<%@ include file="../private/session.jsp" %>
+
 <%
     Utenza user = (Utenza) request.getSession(false).getAttribute("user");
     if(user != null) {
@@ -36,7 +38,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Categoria: </title>
+    <title>Categoria: <%= categoria.getNome()%></title>
 
     <meta charset="UTF-8">
     <link href="${pageContext.request.contextPath}/css/header.css" rel="stylesheet">
@@ -186,11 +188,23 @@
         <input type="text" id="search-bar" placeholder="Cerca corsi, categorie o docenti...">
 
     </div>
+
     <div id="dropdown" class="dropdown-content">
         <ul id="search-results"></ul>
     </div>
 
+    <div class="select">
+        <!-- country names and country code -->
+        <select class="categories" name="category">
+            <option value="" style="background-color: #edeeff">Categorie</option>
+            <% for (Categoria c : (ArrayList<Categoria>)request.getAttribute("categories")) {%>
+            <option onclick='window.location = "category?c=" + "<%= c.getNome() %>"' value=''><%= c.getNome()%></option>
+
+            <%}%>
+        </select>
+    </div>
 </div>
+
 <div class="content-container">
     <div class="master-category-container">
         <div class="master-category-info">

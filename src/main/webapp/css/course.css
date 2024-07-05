@@ -241,8 +241,7 @@
     padding: 0 15px;
     box-sizing: border-box;
 
-    border-left: 1px solid #d1d7dc;
-    border-right: 1px solid #d1d7dc;
+    border: 1px solid #d1d7dc;
 
 }
 

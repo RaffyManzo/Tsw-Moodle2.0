@@ -1,8 +1,7 @@
-<%@ page import="model.beans.Corso" %>
-<%@ page import="model.beans.Utenza" %>
-<%@ page import="model.beans.Lezione" %>
 <%@ page import="java.util.ArrayList" %>
-<%@ page import="model.beans.Argomento" %><%--
+<%@ include file="../private/session.jsp" %>
+
+<%@ page import="model.beans.*" %><%--
   Created by IntelliJ IDEA.
   User: raffa
   Date: 26/06/2024
@@ -172,6 +171,7 @@
         </div>
     </div>
 </div>
+
 <div class="search-bar-container">
     <div class="search-box">
         <button id="search-button">
@@ -180,11 +180,23 @@
         <input type="text" id="search-bar" placeholder="Cerca corsi, categorie o docenti...">
 
     </div>
+
     <div id="dropdown" class="dropdown-content">
         <ul id="search-results"></ul>
     </div>
 
+    <div class="select">
+        <!-- country names and country code -->
+        <select class="categories" name="category">
+            <option value="" style="background-color: #edeeff">Categorie</option>
+            <% for (Categoria c : (ArrayList<Categoria>)request.getAttribute("categories")) {%>
+            <option onclick='window.location = "category?c=" + "<%= c.getNome() %>"' value=''><%= c.getNome()%></option>
+
+            <%}%>
+        </select>
+    </div>
 </div>
+
 <div class="content-container">
     <div class="section-top">
         <div class="course-info">

@@ -8,6 +8,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import model.beans.Corso;
 import model.beans.Lezione;
 import model.dao.ArgomentoDaoImpl;
+import model.dao.CategoriaDaoImpl;
 import model.dao.CorsoDaoImpl;
 import model.dao.LezioneDaoImpl;
 
@@ -38,6 +39,8 @@ public class CourseServlet extends HttpServlet {
                     request.setAttribute("lezioni", lezioni);
                 }
             }
+
+            request.setAttribute("categories", new CategoriaDaoImpl().getAllCategorie());
 
 
 

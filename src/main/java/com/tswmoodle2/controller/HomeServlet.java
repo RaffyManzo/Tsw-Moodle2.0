@@ -6,6 +6,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.*;
 import model.beans.Utenza;
 import model.dao.CartDaoImpl;
+import model.dao.CategoriaDaoImpl;
 import model.dao.CorsoDaoImpl;
 
 import java.io.IOException;
@@ -18,6 +19,8 @@ public class HomeServlet extends HttpServlet {
         Utenza user = (Utenza) request.getSession().getAttribute("user");
         if(user != null)
             request.setAttribute("cartID", new CartDaoImpl().getCartIDByUser(user.getIdUtente()));
+
+        request.setAttribute("categories", new CategoriaDaoImpl().getAllCategorie());
 
         RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/results/public/home.jsp");
         rd.forward(request, response);

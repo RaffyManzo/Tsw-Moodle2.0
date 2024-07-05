@@ -2,6 +2,8 @@
 <%@ page import="model.beans.Corso" %>
 <%@ page import="model.dao.CartDaoImpl" %>
 <%@ page import="model.beans.Carrello" %>
+<%@ include file="../private/session.jsp" %>
+
 <%@ page import="java.util.Map" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>

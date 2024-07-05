@@ -2,6 +2,8 @@
 <%@ page import="model.beans.Corso" %>
 <%@ page import="model.dao.UtenzaDaoImpl" %>
 <%@ page import="model.dao.CorsoDaoImpl" %>
+<%@ include file="../private/session.jsp" %>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>

@@ -12,6 +12,7 @@ import model.beans.Carrello;
 import model.beans.Corso;
 import model.beans.Utenza;
 import model.dao.CartDaoImpl;
+import model.dao.CategoriaDaoImpl;
 import model.dao.CorsoDaoImpl;
 import model.dao.UtenzaDaoImpl;
 
@@ -46,7 +47,10 @@ public class TeacherProfileServlet extends HttpServlet {
             Utenza user = (Utenza) request.getSession().getAttribute("profile");
             if(user != null)
                 request.setAttribute("cartID", new CartDaoImpl().getCartIDByUser(user.getIdUtente()));
-            
+
+            request.setAttribute("categories", new CategoriaDaoImpl().getAllCategorie());
+
+
             request.getRequestDispatcher("/WEB-INF/results/public/profile.jsp").forward(request, response);
 
         } catch(Exception e) {

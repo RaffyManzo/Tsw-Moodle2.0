@@ -6,6 +6,10 @@
 <%@ page import="java.sql.SQLException" %>
 <%@ page import="model.dao.UtenzaDaoImpl" %>
 <%@ page import="model.dao.CategoriaDaoImpl" %>
+<%@ page import="model.beans.Categoria" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ include file="../private/session.jsp" %>
+
 <%
     Utenza user = (Utenza) request.getSession(false).getAttribute("user");
     if(user != null) {
@@ -194,10 +198,21 @@
             <input type="text" id="search-bar" placeholder="Cerca corsi, categorie o docenti...">
 
         </div>
+
         <div id="dropdown" class="dropdown-content">
             <ul id="search-results"></ul>
         </div>
 
+        <div class="select">
+            <!-- country names and country code -->
+            <select class="categories" name="category">
+                <option value="" style="background-color: #edeeff">Categorie</option>
+                <% for (Categoria c : (ArrayList<Categoria>)request.getAttribute("categories")) {%>
+                <option onclick='window.location = "category?c=" + "<%= c.getNome() %>"' value=''><%= c.getNome()%></option>
+
+                <%}%>
+            </select>
+        </div>
     </div>
 
     <div class="banner">
