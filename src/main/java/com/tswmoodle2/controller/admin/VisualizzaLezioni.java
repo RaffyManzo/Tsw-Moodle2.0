@@ -6,7 +6,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import model.dao.CartDaoImpl;
+import model.dao.LezioneDaoImpl;
 
 import java.io.IOException;
 
@@ -15,13 +15,13 @@ public class VisualizzaLezioni extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String id=request.getParameter("idCorsoV");
         request.setAttribute("elemento", id);
-        /*String courseId=request.getParameter("productId");
-        if(courseId!=null) {
-            CartDaoImpl c=new CartDaoImpl();
-                c.deleteFromCarrello(c.getCartIDByUser(Integer.parseInt(userId)), Integer.parseInt(userId), Integer.parseInt(courseId));
-            RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/results/admin/modificaCarrello.jsp");
+        String idLezione=request.getParameter("idLezione");
+        if(idLezione!=null) {
+            LezioneDaoImpl l=new LezioneDaoImpl();
+            l.delete(Integer.parseInt(idLezione));
+            RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/results/admin/modificaCorsi.jsp");
             rd.forward(request, response);
-        }*/
+        }
         RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/results/admin/modificaCorsi.jsp");
         rd.forward(request, response);
     }
