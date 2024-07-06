@@ -4,6 +4,7 @@
 <%@ include file="../private/session.jsp" %>
 
 <%@ page import="model.beans.Categoria" %>
+<%@ page import="model.beans.Ordine" %>
 <%
     //da spostare in privato ma ora è qui per vedere se funziona e non fare il login ogni volta
     Utenza user = (Utenza) request.getSession(false).getAttribute("user");
@@ -43,6 +44,7 @@
             <option value="utenza" <%= request.getAttribute("table") != null && request.getAttribute("table").equals("utenza") ? "selected" : "" %>>Utenza</option>
             <option value="corso" <%= request.getAttribute("table") != null && request.getAttribute("table").equals("corso") ? "selected" : "" %>>Corso</option>
             <option value="categoria" <%= request.getAttribute("table") != null && request.getAttribute("table").equals("categoria") ? "selected" : "" %>>Categoria</option>
+            <option value="ordine" <%= request.getAttribute("table") != null && request.getAttribute("table").equals("ordine") ? "selected" : "" %>>Ordine</option>
         </select>
         <input id="load-table" type="submit" value="Carica dati"/>
     </div>
@@ -60,9 +62,11 @@
         <input type="hidden" name="table" value="utenza">
         <div class="filter-container">
             <div class="form-group">
-                    <label for="tipoUtente">Tipo:</label>
-                    <input type="text" id="tipoUtente" name="tipoUtente" maxlength="1" pattern="[DAS]">
-                    <input type="submit" value="Filtra">
+                <label for="emailUtente">Email:</label>
+                <input type="text" id="emailUtente" name="emailUtente">
+                <label for="tipoUtente">Tipo:</label>
+                <input type="text" id="tipoUtente" name="tipoUtente" maxlength="1" pattern="[DAS]">
+                <input type="submit" value="Filtra">
             </div>
         </div>
     </form>
@@ -122,9 +126,11 @@
     <form action="adminSearchFilter">
         <input type="hidden" name="table" value="corso">
         <div class="filter-container">
-                    <label for="nomeCategoria">Nome categoria:</label>
-                    <input type="text" id="nomeCategoria" name="nomeCategoria">
-                    <input type="submit" value="Filtra">
+            <label for="nomeCorso">Nome corso:</label>
+            <input type="text" id="nomeCorso" name="nomeCorso">
+            <label for="nomeCategoria">Nome categoria:</label>
+            <input type="text" id="nomeCategoria" name="nomeCategoria">
+            <input type="submit" value="Filtra">
         </div>
     </form>
 
@@ -204,6 +210,63 @@
                     <form action="adminDelete" method="post" style="display:inline;">
                         <input type="hidden" name="tipo" value="categoria">
                         <input type="hidden" name="id" value="<%= c.getNome() %>">
+                        <input type="submit" value="Elimina">
+                    </form>
+                </div>
+            </td>
+        </tr>
+        <%
+            }
+        %>
+        </tbody>
+    </table>
+    <%
+            break;
+        case "ordine":
+            List<Ordine> ordini = (List<Ordine>) request.getAttribute("data");
+    %>
+
+    <form action="adminSearchFilter">
+        <input type="hidden" name="table" value="ordine">
+        <div class="filter-container">
+            <label for="IDUtente">Id utente:</label>
+            <input type="number" id="IDUtente" name="IDUtente">
+            <label for="IDordine">Id ordine:</label>
+            <input type="number" id="IDordine" name="IDordine">
+            <input type="submit" value="Filtra">
+        </div>
+    </form>
+
+    <table>
+        <thead>
+        <tr>
+            <th>ID Ordine</th>
+            <th>Numero Carta</th>
+            <th>ID Utente</th>
+            <th>Data Pagamento</th>
+            <th>Totale</th>
+            <th>Timestamp</th>
+            <th>UUID</th>
+            <th>Azioni</th>
+        </tr>
+        </thead>
+        <tbody>
+        <%
+            for (Ordine o : ordini) {
+        %>
+        <tr>
+            <td><%= o.getId() %></td>
+            <td><%= o.getNumeroCarta() %></td>
+            <td><%= o.getIdutente() %></td>
+            <td><%= o.getDataPagamento() %></td>
+            <td><%= o.getTotale() %></td>
+            <td><%= o.getTimestamp() %></td>
+            <td><%= o.getUuid() %></td>
+            <td>
+                <div class="button-container">
+                    <form action="adminDelete" method="post" style="display:inline;">
+                        <input type="hidden" name="id" value="<%= o.getId() %>">
+                        <input type="hidden" name="tipo" value="ordine">
                         <input type="submit" value="Elimina">
                     </form>
                 </div>

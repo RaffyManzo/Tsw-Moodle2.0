@@ -5,6 +5,7 @@
     <entry key="INSERT_CORSO">INSERT INTO Corso (NomeCategoria, Nome, Descrizione, Immagine, Certificazione, DataCreazione, prezzo, creatore) VALUES (?, ?, ?, ?, ?, ?, ?, ?)</entry>
     <entry key="UPDATE_CORSO">UPDATE Corso SET NomeCategoria = ?, Nome = ?, Descrizione = ?, Immagine = ?, Certificazione = ?, DataCreazione = ?, prezzo = ?,creatore = ? WHERE IDCorso = ?</entry>
     <entry key="DELETE_CORSO">DELETE FROM Corso WHERE IDCorso = ?</entry>
+    <entry key="SEARCH_CORSO_BY_CATEGORIA_NOME">SELECT * FROM Corso WHERE NomeCategoria LIKE ? AND Nome LIKE ?</entry>
     <entry key="FIND_ALL_CORSI">SELECT * FROM Corso ORDER BY NumeroAcquisti DESC</entry>
     <entry key="FIND_CORSO_BY_ID">SELECT * FROM Corso WHERE IDCorso = ?</entry>
     <entry key="FIND_CORSI_BY_CATEGORIA">SELECT * FROM Corso WHERE NomeCategoria = ?</entry>
@@ -66,6 +67,12 @@
     <entry key="FIND_UTENZA_BY_CITTA">SELECT * FROM Utenza WHERE Citta = ?</entry>
     <entry key="FIND_UTENZA_BY_SURNAME_OR_USERNAME">SELECT * FROM Utenza WHERE Tipo = "D" AND (Cognome LIKE ? OR Username LIKE ?)</entry>
     <entry key="FIND_UTENZA_BY_SURNAME_OR_USERNAME_LIMIT">SELECT * FROM Utenza WHERE Tipo = "D" AND (Cognome LIKE ? OR Username LIKE ?) LIMIT ?</entry>
+    <entry key="SEARCH_UTENZA_BY_TIPO_EMAIL">SELECT * FROM Utenza WHERE (Tipo LIKE ? AND Email LIKE ?)</entry>
+
+    <!-- Ordine -->
+    <entry key="DELETE_ORDINE">DELETE FROM ordine WHERE idordine = ?</entry>
+    <entry key="FIND_ALL_ORDINI">SELECT * FROM ordine</entry>
+    <entry key="SEARCH_ORDINE_BY_UTENTE_ID">SELECT * FROM ordine WHERE IDUtente LIKE ? OR idordine LIKE ?</entry>
 
     <!-- Carrello -->
     <entry key="GET_CART_ID_BY_USER">SELECT * FROM carrello where IDUtente = ?</entry>

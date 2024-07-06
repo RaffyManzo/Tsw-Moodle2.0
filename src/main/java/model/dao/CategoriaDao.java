@@ -16,5 +16,6 @@ public interface CategoriaDao {
     public String getMostPurchasedCategory();
     public Map<Utenza, Integer> getTeacherWithHigherNumberInCategory(String category);
     public int getNumberOfCourseCategory(String category);
+    void delete(String nome);
 
 }
