@@ -12,7 +12,7 @@ function startCountdown() {
             clearInterval(countdown);
             logOff();
         }
-    }, 780000); // TEST default=780000 test=10000
+    }, 1000); // Update every second
 }
 
 function showPopup() {
@@ -34,7 +34,7 @@ function renewSession() {
     })
         .then(response => response.text())
         .then(data => {
-            countdownTime = 62; // TEST default=62 test=10
+            countdownTime = 62; // Reset countdown time to 62 seconds
             hidePopup();
         });
 }
@@ -55,5 +55,5 @@ function logOff() {
 
 window.onload = function() {
     // Show popup after 13 minutes of inactivity
-    setTimeout(showPopup, 10000); // 13 minutes in milliseconds TEST
+    setTimeout(showPopup, 13 * 60 * 1000); // 13 minutes in milliseconds
 };
