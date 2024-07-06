@@ -9,9 +9,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aaf64b38-f287-423c-9dbc-41a4353826d6" name="Changes" comment="Added session controls and renew">
+    <list default="true" id="aaf64b38-f287-423c-9dbc-41a4353826d6" name="Changes" comment="fix session popup timer">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/script/sessionPopUp.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/script/sessionPopUp.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/dao/OrdineDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/dao/OrdineDaoImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -295,15 +295,7 @@
       <workItem from="1719998642882" duration="32645000" />
       <workItem from="1720087398834" duration="26805000" />
       <workItem from="1720174916713" duration="7828000" />
-      <workItem from="1720261044709" duration="342000" />
-    </task>
-    <task id="LOCAL-00012" summary="finished footer">
-      <option name="closed" value="true" />
-      <created>1718700835043</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1718700835043</updated>
+      <workItem from="1720261044709" duration="2336000" />
     </task>
     <task id="LOCAL-00013" summary="Fix getResultAsObject and LoginServlet.java">
       <option name="closed" value="true" />
@@ -689,7 +681,15 @@
       <option name="project" value="LOCAL" />
       <updated>1720195071200</updated>
     </task>
-    <option name="localTasksCounter" value="61" />
+    <task id="LOCAL-00061" summary="fix session popup timer">
+      <option name="closed" value="true" />
+      <created>1720261461193</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1720261461194</updated>
+    </task>
+    <option name="localTasksCounter" value="62" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -707,7 +707,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fix RegistrationServlet" />
     <MESSAGE value="added success.jsp" />
     <MESSAGE value="fixed UploadImageServlet.java" />
     <MESSAGE value="fixed LoginServlet.java cart loading" />
@@ -732,6 +731,7 @@
     <MESSAGE value="fix checkout and added image" />
     <MESSAGE value="fix card duplicate key" />
     <MESSAGE value="Added session controls and renew" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added session controls and renew" />
+    <MESSAGE value="fix session popup timer" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix session popup timer" />
   </component>
 </project>

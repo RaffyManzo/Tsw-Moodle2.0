@@ -12,6 +12,8 @@ import java.util.Date;
 import java.util.UUID;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class OrdineDaoImpl extends AbstractDataAccessObject<Ordine> implements OrdineDao{
 
@@ -179,16 +181,30 @@ public class OrdineDaoImpl extends AbstractDataAccessObject<Ordine> implements O
             }
         } catch (SQLException e) {
             if (e instanceof SQLIntegrityConstraintViolationException && e.getMessage().contains("Duplicate entry")) {
-                String[] parts = e.getMessage().split("'");
-                String courseId = String.valueOf(parts[1].charAt(0));
-                String userId = parts[1].substring(2);
-                logger.log(Level.SEVERE, "Il corso con ID: " + courseId + " è già stato acquistato dall'utente con ID: " + userId, e);
+
+
+                String regex = "'(\\d+)-(\\d+)'";
+
+                Pattern pattern = Pattern.compile(regex);
+                Matcher matcher = pattern.matcher(e.getMessage());
+
+                if (matcher.find()) {
+                    String numberBeforeDash = matcher.group(1);
+                    String numberAfterDash = matcher.group(2);
+
+                    logger.log(Level.SEVERE, "Il corso con ID: " + numberBeforeDash +
+                            " è già stato acquistato dall'utente con ID: " + numberAfterDash, e);
+
+                } else {
+                    System.out.println("No match found");
+                }
+
                 try {
                     connection.rollback();
                 } catch (SQLException ex) {
                     ex.printStackTrace();
                 }
-                throw new SQLException("Il corso con ID: " + courseId + " è già stato acquistato dall'utente con ID: " + userId);
+                throw new SQLException("Il corso con ID: " + matcher.group(1) + " è già stato acquistato dall'utente con ID: " + matcher.group(2));
             } else {
                 logger.log(Level.SEVERE, "Errore durante la transazione, rollback eseguito", e);
                 try {
