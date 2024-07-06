@@ -1,11 +1,8 @@
-<%@ page import="model.beans.Utenza" %>
-<%@ page import="model.beans.Corso" %>
 <%@ page import="model.dao.CartDaoImpl" %>
-<%@ page import="model.beans.Carrello" %>
 <%@ page import="java.util.Map" %>
-<%@ page import="model.beans.Lezione" %>
 <%@ page import="model.dao.LezioneDaoImpl" %>
 <%@ page import="java.util.List" %>
+<%@ page import="model.beans.*" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -37,24 +34,17 @@
             for (Lezione lezione : lezioni) {
                 String titolo = lezione.getTitolo();
                 String descrizione = lezione.getDescrizione();
+                int idLezione=lezione.getId();
     %>
     <div class="lezione-item">
-        <div class="lezione-item-info">
-            <h5><%= titolo %></h5>
-            <p><%= descrizione %></p>
-            <form action="VisualizzaLezioneServlet" method="get" style="display:inline;">
-                <input type="hidden" name="idCorso" value="<%= idCorso %>"/>
-                <input type="hidden" name="titolo" value="<%= titolo %>"/>
+        <div class="button-container">
+            <h3><%= titolo %></h3><br>
+            <p><%= descrizione %></p><br>
+            <form action="VisualizzaLezioni">
+                <input type="hidden" name="idLezione" value="<%= idLezione %>"/>
+                <input type="hidden" name="idCorsoV" value="<%= idCorso %>"/>
                 <button type="submit" value="View" class="view-lezione">
-                    Visualizza
-                </button>
-            </form>
-            <form action="ModificaLezioneServlet" method="post" style="display:inline;">
-                <input type="hidden" name="idCorso" value="<%= idCorso %>"/>
-                <input type="hidden" name="titolo" value="<%= titolo %>"/>
-                <input type="hidden" name="descrizione" value="<%= descrizione %>"/>
-                <button type="submit" value="Modify" class="modify-lezione">
-                    Modifica
+                    Elimina
                 </button>
             </form>
         </div>
