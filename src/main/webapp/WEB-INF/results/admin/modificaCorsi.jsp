@@ -31,28 +31,43 @@
         List<Lezione> lezioni = lDao.findAllByCorsoId(idCorso);
 
         if (lezioni != null && !lezioni.isEmpty()) {
+    %>
+
+    <table>
+        <thead>
+        <tr>
+            <th>Titolo</th>
+            <th>Descrizione</th>
+        </tr>
+        </thead>
+        <tbody>
+        <%
             for (Lezione lezione : lezioni) {
                 String titolo = lezione.getTitolo();
                 String descrizione = lezione.getDescrizione();
                 int idLezione=lezione.getId();
-    %>
-    <div class="lezione-item">
-        <div class="button-container">
-            <h3><%= titolo %></h3><br>
-            <p><%= descrizione %></p><br>
-            <form action="VisualizzaLezioni">
-                <input type="hidden" name="idLezione" value="<%= idLezione %>"/>
-                <input type="hidden" name="idCorsoV" value="<%= idCorso %>"/>
-                <button type="submit" value="View" class="view-lezione">
-                    Elimina
-                </button>
-            </form>
-        </div>
-    </div>
-    <% } } else { %>
-    <p id="empty-list">Nessuna lezione disponibile</p>
-    <% } %>
-
+        %>
+        <tr>
+            <td><%= titolo %></td>
+            <td><%=descrizione%></td>
+            <td>
+                <div class="button-container">
+                    <form action="VisualizzaLezioni">
+                        <input type="hidden" name="idLezione" value="<%= idLezione %>"/>
+                        <input type="hidden" name="idCorsoV" value="<%= idCorso %>"/>
+                        <button type="submit" value="View" class="view-lezione">
+                            Elimina
+                        </button>
+                    </form>
+                </div>
+            </td>
+        </tr>
+        <%
+                }
+            }
+        %>
+        </tbody>
+    </table>
     <form action="ModificaServlet">
         <input type="hidden" name="tipo" value="corso">
         <input type="hidden" name="id" value="<%= idCorso %>">
