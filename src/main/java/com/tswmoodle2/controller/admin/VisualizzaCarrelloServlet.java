@@ -20,7 +20,7 @@ public class VisualizzaCarrelloServlet extends HttpServlet {
         String courseId=request.getParameter("productId");
         if(courseId!=null) {
             CartDaoImpl c=new CartDaoImpl();
-                c.deleteFromCarrello(c.getCartIDByUser(Integer.parseInt(userId)), Integer.parseInt(userId), Integer.parseInt(courseId));
+            c.deleteFromCarrello(c.getCartIDByUser(Integer.parseInt(userId)), Integer.parseInt(userId), Integer.parseInt(courseId));
             RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/results/admin/modificaCarrello.jsp");
             rd.forward(request, response);
         }

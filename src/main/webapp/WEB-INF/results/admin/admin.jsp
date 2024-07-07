@@ -269,6 +269,10 @@
                         <input type="hidden" name="tipo" value="ordine">
                         <input type="submit" value="Elimina">
                     </form>
+                    <form action="VisualizzaOrdine">
+                        <input type="hidden" name="id" value="<%= o.getId() %>">
+                        <input type="submit" value="Dettagli">
+                    </form>
                 </div>
             </td>
         </tr>

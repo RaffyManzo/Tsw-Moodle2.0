@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
     function formatSurname() {
         const nameField = document.getElementById('surname');
-        const value = nameField.value.replace(/[^a-zA-Z]/g, '').replace(/[0-9]/g, '');
+        const value = nameField.value = nameField.value.replace(/[^a-zA-Z\s]/g, '');
         const formattedValue = value.charAt(0).toUpperCase() + value.slice(1).toLowerCase();
         nameField.value = formattedValue;
     }
