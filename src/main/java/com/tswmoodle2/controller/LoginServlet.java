@@ -11,7 +11,6 @@ import model.Util.CarrelloService;
 import model.beans.Carrello;
 import model.beans.Corso;
 import model.beans.Utenza;
-import model.dao.CartDaoImpl;
 import model.dao.UtenzaDaoImpl;
 
 import java.io.IOException;
@@ -80,36 +79,28 @@ public class LoginServlet extends HttpServlet {
             user = utenza.findByUsername(username);
 
 
-
         if (user != null) {
             if (hashPassword.equals(user.getPassword())) {
 
 
-
                 // Creazione o recupero della sessione
-                HttpSession session = request.getSession(true);
-                Carrello carrello = new CartDaoImpl().getCartByUserID(user.getIdUtente());
+                HttpSession session = request.getSession();
+                Map<Corso, Integer> sessionCart = (Map<Corso, Integer>) session.getAttribute("cart");
 
-                if(carrello != null) {
-
-                    Map<Corso, Integer> sessionCart = (Map<Corso, Integer>) session.getAttribute("cart");
-
-                    if(sessionCart != null) {
-                        if (!sessionCart.isEmpty()) {
-                            carrello.setCart(sessionCart);
-                            session.setAttribute("cart", carrello.getCart());
-                            new CarrelloService().saveCarrello(carrello);
-                        }
-                    }
-                    else {
-                            session.setAttribute("cart", carrello.getCart());
-                        }
+                Carrello carrello = new CarrelloService().getOrCreateCarrello(user);
+                if(sessionCart != null) {
+                    carrello.setCart(sessionCart);
+                    new CarrelloService().saveCarrello(carrello);
                 }
+
+
+                if(carrello != null)
+                    session.setAttribute("cart", carrello.getCart());
                 session.setAttribute("user", user);
                 session.setAttribute("isAdmin", user.getTipo().contentEquals("A") ? Boolean.TRUE : Boolean.FALSE);
 
 
-                if(user.getTipo().equals("A")) {
+                if (user.getTipo().equals("A")) {
                     response.sendRedirect("admin");
                     return;
                 } else {
@@ -124,7 +115,7 @@ public class LoginServlet extends HttpServlet {
             errors.add("Utenza non trovata");
         }
 
-        errorOccurs(errors, request,response);
+        errorOccurs(errors, request, response);
     }
 
     public void errorOccurs(ArrayList<String> errors, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

@@ -2,20 +2,22 @@
 <!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
 <properties>
     <!-- Corso -->
-    <entry key="INSERT_CORSO">INSERT INTO Corso (NomeCategoria, Nome, Descrizione, Immagine, Certificazione, DataCreazione, prezzo, creatore) VALUES (?, ?, ?, ?, ?, ?, ?, ?)</entry>
-    <entry key="UPDATE_CORSO">UPDATE Corso SET NomeCategoria = ?, Nome = ?, Descrizione = ?, Immagine = ?, Certificazione = ?, DataCreazione = ?, prezzo = ?,creatore = ? WHERE IDCorso = ?</entry>
+    <entry key="INSERT_CORSO">INSERT INTO Corso (NomeCategoria, Nome, Descrizione, Immagine,
+        Certificazione, DataCreazione, prezzo, creatore) VALUES (?, ?, ?, ?, ?, ?, ?, ?)</entry>
+    <entry key="UPDATE_CORSO">UPDATE Corso SET NomeCategoria = ?, Nome = ?, Descrizione = ?, Immagine = ?, Certificazione = ?, DataCreazione = ?, prezzo = ?,creatore = ?, isDeleted = ? WHERE IDCorso = ?</entry>
+    <entry key="DELETE_CORSO">UPDATE corso SET isDeleted = 0 WHERE IDCorso = ?</entry>
 
-    <entry key="DELETE_CORSO">UPDATE corso SET isDeleted = TRUE WHERE IDCorso = ?</entry>
     <entry key="SEARCH_CORSO_BY_CATEGORIA_NOME">SELECT * FROM Corso WHERE NomeCategoria LIKE ? AND Nome LIKE ?</entry>
-    <entry key="FIND_ALL_CORSI">SELECT * FROM Corso ORDER BY NumeroAcquisti DESC</entry>
-    <entry key="FIND_CORSO_BY_ID">SELECT * FROM Corso WHERE IDCorso = ?</entry>
-    <entry key="FIND_CORSI_BY_CATEGORIA">SELECT * FROM Corso WHERE NomeCategoria = ?</entry>
-    <entry key="SEARCH_CORSI_BY_NOME">SELECT * FROM Corso WHERE Nome LIKE ?</entry>
-    <entry key="SEARCH_CORSI_BY_NOME_LIMIT">SELECT * FROM Corso WHERE Nome LIKE ? LIMIT ?</entry>
-    <entry key="FIND_CORSI_BY_DATE_RANGE">SELECT * FROM Corso WHERE DataCreazione BETWEEN ? AND ?</entry>
-    <entry key="FIND_CORSI_BY_CERTIFICAZIONE">SELECT * FROM Corso WHERE Certificazione = ?</entry>
-    <entry key="FIND_CORSI_BY_PREZZO">SELECT * FROM Corso WHERE prezzo >= ?</entry>
-    <entry key="FIND_CORSI_BY_CREATORE">SELECT * FROM Corso WHERE creatore = ?</entry>
+    <entry key="FIND_ALL_CORSI">SELECT * FROM Corso where isDeleted = 0 ORDER BY NumeroAcquisti DESC</entry>
+    <entry key="FIND_ALL_CORSI_ADMIN">SELECT * FROM Corso ORDER BY NumeroAcquisti DESC</entry>
+    <entry key="FIND_CORSO_BY_ID">SELECT * FROM Corso WHERE isDeleted = 0 AND IDCorso = ?</entry>
+    <entry key="FIND_CORSI_BY_CATEGORIA">SELECT * FROM Corso WHERE NomeCategoria = ? AND isDeleted = 0 </entry>
+    <entry key="SEARCH_CORSI_BY_NOME">SELECT * FROM Corso WHERE Nome LIKE  AND isDeleted = 0 ?</entry>
+    <entry key="SEARCH_CORSI_BY_NOME_LIMIT">SELECT * FROM Corso WHERE Nome LIKE ?  AND isDeleted = 0 LIMIT ?</entry>
+    <entry key="FIND_CORSI_BY_DATE_RANGE">SELECT * FROM Corso WHERE isDeleted = 0  AND DataCreazione BETWEEN ? AND ?</entry>
+    <entry key="FIND_CORSI_BY_CERTIFICAZIONE">SELECT * FROM Corso WHERE Certificazione = ? AND isDeleted = 0 </entry>
+    <entry key="FIND_CORSI_BY_PREZZO">SELECT * FROM Corso WHERE prezzo >= ? AND isDeleted = 0 </entry>
+    <entry key="FIND_CORSI_BY_CREATORE">SELECT * FROM Corso WHERE creatore = ? AND isDeleted = 0 </entry>
 
     <entry key="GET_FAVOURITE_CATEGORY">SELECT
         c.NomeCategoria,
@@ -76,16 +78,7 @@
     <entry key="SEARCH_ORDINE_BY_UTENTE_ID">SELECT * FROM ordine WHERE IDUtente LIKE ? OR idordine LIKE ? ORDER BY idordine</entry>
     <entry key="DETTAGLI_ORDINE">
         SELECT
-        c.IDCorso,
-        c.NomeCategoria,
-        c.Nome,
-        c.Descrizione,
-        c.Immagine,
-        c.Certificazione,
-        c.DataCreazione,
-        c.creatore,
-        c.prezzo,
-        c.numeroAcquisti
+        c.*
         FROM
         corsiacquistati ca
         INNER JOIN
@@ -101,7 +94,7 @@
     <entry key="CLEAR_CART">DELETE FROM inserimento WHERE IDCarrello = ?</entry>
     <entry key="GET_CART_ELEMENT">SELECT * FROM inserimento WHERE IDCorso = ? AND IDCarrello = ? AND IDUtente = ?</entry>
     <entry key="UPDATE_CART_ELEMENT">UPDATE inserimento SET Quantita = ? WHERE IDCorso = ? AND IDCarrello = ? AND IDUtente = ?</entry>
-    <entry key="INSERT_CART_ELEMENT">INSERT INTO inserimento (IDCorso, IDCarrello, IDUtente, Quantita) VALUES (?, ?, ?, ?)</entry>
+    <entry key="INSERT_CART_ELEMENT">INSERT INTO inserimento (IDCorso, IDCarrello, IDUtente, Quantita) VALUES (?, ?, ?, 1)</entry>
     <entry key="INSERT_CART">INSERT INTO carrello (IDUtente) VALUES (?)</entry>
     <entry key="DELETE_CART">DELETE FROM carrello WHERE IDCarrello = ?</entry>
 

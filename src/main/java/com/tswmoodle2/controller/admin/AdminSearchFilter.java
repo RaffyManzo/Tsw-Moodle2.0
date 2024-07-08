@@ -18,7 +18,7 @@ public class AdminSearchFilter extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String table = request.getParameter("table");
-        List<?> filteredData = null;
+        List<?> filteredData = (List<?>) request.getAttribute("data");
 
         switch (table) {
             case "utenza":
@@ -31,22 +31,22 @@ public class AdminSearchFilter extends HttpServlet {
                 String nomeCategoria = request.getParameter("nomeCategoria");
                 String nomeCorso = request.getParameter("nomeCorso");
                 CorsoDaoImpl c = new CorsoDaoImpl();
-                filteredData = c.findByCategoriaCorso(nomeCategoria, nomeCorso);
+                filteredData = c.filteredSearchCourse(nomeCategoria, nomeCorso);
                 break;
             case "categoria":
                 String nomeCategoriaFiltro = request.getParameter("nomeCat");
-                CategoriaDaoImpl cat=new CategoriaDaoImpl();
+                CategoriaDaoImpl cat = new CategoriaDaoImpl();
                 filteredData = cat.findByNome(nomeCategoriaFiltro);
                 break;
             case "ordine":
-                String ordineIdUtenteS =request.getParameter("IDUtente");
+                String ordineIdUtenteS = request.getParameter("IDUtente");
                 String ordineIdS = request.getParameter("IDordine");
-                int ordineIdUtente=0;
-                int ordineId=0;
-                if(!ordineIdS.isEmpty())
+                int ordineIdUtente = 0;
+                int ordineId = 0;
+                if (!ordineIdS.isEmpty())
                     ordineId = Integer.parseInt(request.getParameter("IDordine"));
-                if(!ordineIdUtenteS.isEmpty())
-                    ordineIdUtente =Integer.parseInt(request.getParameter("IDUtente"));
+                if (!ordineIdUtenteS.isEmpty())
+                    ordineIdUtente = Integer.parseInt(request.getParameter("IDUtente"));
                 OrdineDaoImpl o = new OrdineDaoImpl();
                 filteredData = o.findByUtenteId(ordineIdUtente, ordineId);
                 break;

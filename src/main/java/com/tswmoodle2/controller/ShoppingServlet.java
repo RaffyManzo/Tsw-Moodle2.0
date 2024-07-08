@@ -17,15 +17,20 @@ import model.dao.CorsoDaoImpl;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 @WebServlet(name = "shoppingServlet", urlPatterns = "/shop")
-public class ShoppingServlet extends HttpServlet {
+public class
+ShoppingServlet extends HttpServlet {
 
     private Map<Integer, Corso> products;
+    private static final String ERROR_VIEW = "/WEB-INF/results/public/error.jsp";
+
     private static final String KEY_CART = "cart";
     private static final String CART_PAGE = "/WEB-INF/results/public/cart.jsp";
     private static final Logger LOGGER = Logger.getLogger(ShoppingServlet.class.getName());
@@ -49,6 +54,10 @@ public class ShoppingServlet extends HttpServlet {
         HttpSession session = req.getSession(false);
         user = session != null ? (Utenza) session.getAttribute("user") : null;
 
+        if(!user.getTipo().equals("s")) {
+            req.setAttribute("errors", new ArrayList<>(List.of("Questo account non puó accedere a questa funzione")));
+            req.getRequestDispatcher(ERROR_VIEW).forward(req, resp);
+        }
 
         String action = req.getParameter("action");
         if (action == null) {
@@ -106,12 +115,6 @@ public class ShoppingServlet extends HttpServlet {
             session.removeAttribute(KEY_CART);
             LOGGER.info("Carrello emptied.");
             updateCartCount(session);
-
-            if(user != null) {
-                new CartDaoImpl().clearCart(
-                        new CartDaoImpl().getCartIDByUser(user.getIdUtente())
-                );
-            }
         }
         display(req, resp);
     }
@@ -140,14 +143,6 @@ public class ShoppingServlet extends HttpServlet {
                         cart.remove(product);
                         session.setAttribute(KEY_CART, cart);
                         LOGGER.log(Level.INFO, "Product removed from cart: {0}", product.getNome());
-
-                        if(user != null) {
-                            new CartDaoImpl().deleteFromCarrello(
-                                    new CartDaoImpl().getCartIDByUser(user.getIdUtente()),
-                                    user.getIdUtente(),
-                                    productId
-                            );
-                        }
                     }
                 }
                 updateCartCount(session);
@@ -175,13 +170,6 @@ public class ShoppingServlet extends HttpServlet {
 
                 cart.put(product, 1);
                 session.setAttribute(KEY_CART, cart);
-
-                if(user != null) {
-                    Carrello carrello = new Carrello((Map<Corso, Integer>) session.getAttribute(KEY_CART),
-                            user.getIdUtente(),
-                            new CartDaoImpl().getCartIDByUser(user.getIdUtente()));
-                    new CarrelloService().saveCarrello(carrello);
-                }
                 LOGGER.log(Level.INFO, "Product added to cart: {0}", product.getNome());
 
             }
@@ -212,13 +200,6 @@ public class ShoppingServlet extends HttpServlet {
                     cart.remove(product);
                 }
                 session.setAttribute(KEY_CART, cart);
-
-                if(user != null) {
-                    Carrello carrello = new Carrello((Map<Corso, Integer>) session.getAttribute(KEY_CART),
-                            user.getIdUtente(),
-                            new CartDaoImpl().getCartIDByUser(user.getIdUtente()));
-                    new CarrelloService().saveCarrello(carrello);
-                }
 
             }
             updateCartCount(session);

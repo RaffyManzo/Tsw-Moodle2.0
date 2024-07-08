@@ -25,7 +25,7 @@ public class ModificaServlet extends HttpServlet {
         request.setAttribute("tipo", tipo);
         request.setAttribute("elemento", elemento);
         if(nome==null) {
-            RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/results/admin/modificaAdmin.jsp");
+            RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/results/admin/modifica.jsp");
             rd.forward(request, response);
         }
 
@@ -51,7 +51,8 @@ public class ModificaServlet extends HttpServlet {
                     corso = new Corso(Integer.parseInt(elemento), request.getParameter("categoria"), nome,
                             request.getParameter("descrizione"), request.getParameter("immagine"), request.getParameter("certificazione"),
                             parseDate(request.getParameter("creazione")), ut.findByID(Integer.parseInt(request.getParameter("creatore"))),
-                            Double.parseDouble(request.getParameter("prezzo")), Integer.parseInt(request.getParameter("acquisti")));
+                            Double.parseDouble(request.getParameter("prezzo")), Integer.parseInt(request.getParameter("acquisti")),
+                            Boolean.getBoolean(request.getParameter("isDeleted")));
                 } catch (ParseException e) {
                     throw new RuntimeException(e);
                 }

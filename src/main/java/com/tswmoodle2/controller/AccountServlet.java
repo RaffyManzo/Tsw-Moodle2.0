@@ -82,7 +82,7 @@ public class AccountServlet extends HttpServlet {
     }
 
     private void forwardWithError(HttpServletRequest request, HttpServletResponse response, List<String> errors) throws ServletException, IOException {
-        request.setAttribute("errors", errors);
+        request.setAttribute("errors", new ArrayList<>(errors));
         request.getRequestDispatcher(ERROR_VIEW).forward(request, response);
     }
 

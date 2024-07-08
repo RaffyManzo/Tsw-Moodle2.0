@@ -11,7 +11,47 @@
             <label for="idCorso">ID:</label>
             <input type="text" id="idCorso" name="id" value="<%= c.getIdCorso() %>" readonly>
         </div>
-        <!-- Altri campi di input qui -->
+        <div class="form-group">
+            <label for="nomec">Nome:</label>
+            <input type="text" id="nomec" name="nome" value="<%= c.getNome() %>">
+        </div>
+        <div class="form-group">
+            <label for="creatore">Id creatore:</label>
+            <input type="text" id="creatore" name="creatore" value="<%= c.getCreatore().getIdUtente() %>">
+        </div>
+        <div class="form-group">
+            <label for="categoria">Categoria:</label>
+            <input type="text" id="categoria" name="categoria" value="<%= c.getNomeCategoria() %>">
+        </div>
+        <div class="form-group">
+            <label for="descrizione">Descrizione:</label>
+            <input type="text" id="descrizione" name="descrizione" value="<%= c.getDescrizione() %>">
+        </div>
+        <div class="form-group">
+            <label for="prezzo">Prezzo:</label>
+            <input type="number" id="prezzo" name="prezzo" value="<%= c.getPrezzo() %>">
+        </div>
+        <div class="form-group">
+            <label for="certificazione">Certificazione:</label>
+            <input type="text" id="certificazione" name="certificazione" value="<%= c.getCertificazione() %>">
+        </div>
+        <div class="form-group">
+            <label for="creazione">Creazione:</label>
+            <input type="date" id="creazione" name="creazione" value="<%= c.getDataCreazione() %>">
+        </div>
+        <div class="form-group">
+            <label for="acquisti">Numero di acquisti:</label>
+            <input type="number" id="acquisti" name="acquisti" value="<%= c.getNumeroAcquisti() %>" readonly>
+        </div>
+        <div class="form-group">
+            <label for="immagine">Immagine:</label>
+            <input name="immagine" id="immagine" value="<%= c.getImmagine() %>">
+        </div>
+        <div class="form-group">
+            <label for="immagine">Cancellato:</label>
+            <input name="isDeleted" id="isDeleted" value="<%= c.isDeleted() %>" readonly>
+        </div>
+        <input type="hidden" name="tipo" value="corso">
         <div class="button-container">
             <input type="submit" value="Salva Modifiche">
             <form action="admin">

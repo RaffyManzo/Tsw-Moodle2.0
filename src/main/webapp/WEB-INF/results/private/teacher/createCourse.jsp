@@ -111,7 +111,8 @@
 <div class="container">
     <div class="form-box">
     <h1>Crea un Corso</h1>
-    <form>
+    <form action="${pageContext.request.contextPath}/new-course" method="post" enctype="multipart/form-data" >
+        <input type="text" id="action" name="action" value="new" style="display: none">
         <label for="titolo">Titolo del Corso</label>
         <input type="text" id="titolo" name="titolo" placeholder="Inserisci il titolo del corso" required>
 

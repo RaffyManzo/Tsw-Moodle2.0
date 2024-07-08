@@ -219,7 +219,7 @@
         </div>
         <div class="overlayed add-to-cart-container">
             <img src="file?file=<%= corso.getIdCorso() %>/<%= corso.getImmagine()%>&c=course" alt="">
-            <h2>Prezzo: <strong><%= corso.getPrezzo()%> $
+            <h2>Prezzo: <strong><%= corso.getPrezzo()%> €
             </strong></h2>
             <a href="shop?action=addToCart&productId=<%=corso.getIdCorso()%>" class="add-to-cart-button">Aggiungi al
                 carrello</a>
