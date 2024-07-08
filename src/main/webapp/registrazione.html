@@ -12,6 +12,7 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="script/PhoneNumberValidation.js"></script>
+    <script src="script/FormValidation.js"></script>
     <script src="script/toggle.js"></script>
 
     <title>Registrazione</title>
@@ -62,7 +63,7 @@
 
 <div class="container">
     <label class="master-form-label">Compila i seguenti campi per completare la registrazione:</label>
-    <form class="form" action="new" method="post">
+    <form class="form" id="reg-form" action="new" method="post">
         <div class="form-fields">
             <label for="toggle-switch" class="form-label">Seleziona tipo di account:</label>
             <div class="toggle-container">
@@ -80,7 +81,7 @@
                     <div class="input-box">
                         <div class="field-input-box-container">
                             <label>Nome</label>
-                            <input class="input-field" for="name" name="name" required type="text"
+                            <input class="input-field" class="capitalize" for="name" id="name" name="name" required type="text"
                             placeholder="Will">
                         </div>
 
@@ -88,7 +89,7 @@
                     <div class="input-box">
                         <div class="field-input-box-container">
                             <label>Cognome</label>
-                            <input class="input-field" for="surname" name="surname" required type="text"
+                            <input class="input-field" class="capitalize" for="surname" id="surname" name="surname" required type="text"
                                    placeholder="Smith">
                         </div>
                     </div>
@@ -460,7 +461,7 @@
 
                                 </select>
 
-                                <input type="tel" class="input-field" name="phoneNumber"
+                                <input type="tel" class="input-field" id="phoneNumber" name="phoneNumber"
                                 placeholder="333 456 2211">
                             </div>
                         </div>
@@ -493,7 +494,7 @@
                 </div>
             </fieldset>
             <hr>
-            <input type="submit" name="submit" class="button-field" value="Inoltra la registrazione">
+            <input type="submit" name="submit" id="reg" class="button-field" value="Inoltra la registrazione">
 
         </div>
 

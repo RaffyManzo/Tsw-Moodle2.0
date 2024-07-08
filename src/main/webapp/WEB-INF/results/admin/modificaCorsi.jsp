@@ -1,11 +1,8 @@
-<%@ page import="model.beans.Utenza" %>
-<%@ page import="model.beans.Corso" %>
 <%@ page import="model.dao.CartDaoImpl" %>
-<%@ page import="model.beans.Carrello" %>
 <%@ page import="java.util.Map" %>
-<%@ page import="model.beans.Lezione" %>
 <%@ page import="model.dao.LezioneDaoImpl" %>
 <%@ page import="java.util.List" %>
+<%@ page import="model.beans.*" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -34,35 +31,48 @@
         List<Lezione> lezioni = lDao.findAllByCorsoId(idCorso);
 
         if (lezioni != null && !lezioni.isEmpty()) {
+    %>
+
+    <table>
+        <thead>
+        <tr>
+            <th>Titolo</th>
+            <th>Descrizione</th>
+        </tr>
+        </thead>
+        <tbody>
+        <%
             for (Lezione lezione : lezioni) {
                 String titolo = lezione.getTitolo();
                 String descrizione = lezione.getDescrizione();
-    %>
-    <div class="lezione-item">
-        <div class="lezione-item-info">
-            <h5><%= titolo %></h5>
-            <p><%= descrizione %></p>
-            <form action="VisualizzaLezioneServlet" method="get" style="display:inline;">
-                <input type="hidden" name="idCorso" value="<%= idCorso %>"/>
-                <input type="hidden" name="titolo" value="<%= titolo %>"/>
-                <button type="submit" value="View" class="view-lezione">
-                    Visualizza
-                </button>
-            </form>
-            <form action="ModificaLezioneServlet" method="post" style="display:inline;">
-                <input type="hidden" name="idCorso" value="<%= idCorso %>"/>
-                <input type="hidden" name="titolo" value="<%= titolo %>"/>
-                <input type="hidden" name="descrizione" value="<%= descrizione %>"/>
-                <button type="submit" value="Modify" class="modify-lezione">
-                    Modifica
-                </button>
-            </form>
-        </div>
-    </div>
-    <% } } else { %>
-    <p id="empty-list">Nessuna lezione disponibile</p>
-    <% } %>
+                int idLezione=lezione.getId();
+        %>
+        <tr>
+            <td><%= titolo %></td>
+            <td><%=descrizione%></td>
+            <td>
+                <div class="button-container">
+                    <form action="VisualizzaLezioni">
+                        <input type="hidden" name="idLezione" value="<%= idLezione %>"/>
+                        <input type="hidden" name="idCorsoV" value="<%= idCorso %>"/>
+                        <button type="submit" value="View" class="view-lezione">
+                            Elimina
+                        </button>
+                    </form>
+                </div>
+            </td>
+        </tr>
+        <%
+                }
+            }else{
+        %>
+            <p>Non ci sono lezioni per questo corso</p>
+        <%
+            }
 
+        %>
+        </tbody>
+    </table>
     <form action="ModificaServlet">
         <input type="hidden" name="tipo" value="corso">
         <input type="hidden" name="id" value="<%= idCorso %>">

@@ -4,6 +4,7 @@
     <!-- Corso -->
     <entry key="INSERT_CORSO">INSERT INTO Corso (NomeCategoria, Nome, Descrizione, Immagine, Certificazione, DataCreazione, prezzo, creatore) VALUES (?, ?, ?, ?, ?, ?, ?, ?)</entry>
     <entry key="UPDATE_CORSO">UPDATE Corso SET NomeCategoria = ?, Nome = ?, Descrizione = ?, Immagine = ?, Certificazione = ?, DataCreazione = ?, prezzo = ?,creatore = ? WHERE IDCorso = ?</entry>
+
     <entry key="DELETE_CORSO">UPDATE corso SET isDeleted = TRUE WHERE IDCorso = ?</entry>
     <entry key="SEARCH_CORSO_BY_CATEGORIA_NOME">SELECT * FROM Corso WHERE NomeCategoria LIKE ? AND Nome LIKE ?</entry>
     <entry key="FIND_ALL_CORSI">SELECT * FROM Corso ORDER BY NumeroAcquisti DESC</entry>
@@ -37,7 +38,7 @@
     <entry key="UPDATE_UTENZA">UPDATE Utenza SET Nome = ?, Cognome = ?, DataNascita = ?, Indirizzo = ?, Citta = ?, Telefono = ?,
         Email = ?, Password = ?, DataCreazioneAccount = ?, Username = ?, Tipo = ?, Immagine = ? WHERE IDUtente = ?</entry>
     <entry key="DELETE_UTENZA">DELETE FROM Utenza WHERE IDUtente = ?</entry>
-    <entry key="FIND_ALL_UTENZA">SELECT * FROM Utenza</entry>
+    <entry key="FIND_ALL_UTENZA">SELECT * FROM Utenza ORDER BY IDUtente</entry>
     <entry key="GET_COURSE_COUNT_BY_USER_ID">
         SELECT COUNT(c.IDCorso) AS '#corsi',
         u.IDUtente,
@@ -67,12 +68,31 @@
     <entry key="FIND_UTENZA_BY_CITTA">SELECT * FROM Utenza WHERE Citta = ?</entry>
     <entry key="FIND_UTENZA_BY_SURNAME_OR_USERNAME">SELECT * FROM Utenza WHERE Tipo = "D" AND (Cognome LIKE ? OR Username LIKE ?)</entry>
     <entry key="FIND_UTENZA_BY_SURNAME_OR_USERNAME_LIMIT">SELECT * FROM Utenza WHERE Tipo = "D" AND (Cognome LIKE ? OR Username LIKE ?) LIMIT ?</entry>
-    <entry key="SEARCH_UTENZA_BY_TIPO_EMAIL">SELECT * FROM Utenza WHERE (Tipo LIKE ? AND Email LIKE ?)</entry>
+    <entry key="SEARCH_UTENZA_BY_TIPO_EMAIL">SELECT * FROM Utenza WHERE (Tipo LIKE ? AND Email LIKE ?) ORDER BY IDUtente</entry>
 
     <!-- Ordine -->
     <entry key="DELETE_ORDINE">DELETE FROM ordine WHERE idordine = ?</entry>
-    <entry key="FIND_ALL_ORDINI">SELECT * FROM ordine</entry>
-    <entry key="SEARCH_ORDINE_BY_UTENTE_ID">SELECT * FROM ordine WHERE IDUtente LIKE ? OR idordine LIKE ?</entry>
+    <entry key="FIND_ALL_ORDINI">SELECT * FROM ordine ORDER BY idordine</entry>
+    <entry key="SEARCH_ORDINE_BY_UTENTE_ID">SELECT * FROM ordine WHERE IDUtente LIKE ? OR idordine LIKE ? ORDER BY idordine</entry>
+    <entry key="DETTAGLI_ORDINE">
+        SELECT
+        c.IDCorso,
+        c.NomeCategoria,
+        c.Nome,
+        c.Descrizione,
+        c.Immagine,
+        c.Certificazione,
+        c.DataCreazione,
+        c.creatore,
+        c.prezzo,
+        c.numeroAcquisti
+        FROM
+        corsiacquistati ca
+        INNER JOIN
+        corso c ON ca.IDCorso = c.IDCorso
+        WHERE
+        ca.idordine = ?;
+    </entry>
 
     <!-- Carrello -->
     <entry key="GET_CART_ID_BY_USER">SELECT * FROM carrello where IDUtente = ?</entry>
@@ -98,7 +118,7 @@
     <entry key="INSERT_CATEGORIA">INSERT INTO Categoria (Nome) VALUES (?)</entry>
     <entry key="UPDATE_CATEGORIA">UPDATE Categoria SET Nome = ? WHERE Nome = ?</entry>
     <entry key="DELETE_CATEGORIA">DELETE FROM Categoria WHERE Nome = ?</entry>
-    <entry key="FIND_ALL_CATEGORIE">SELECT * FROM Categoria</entry>
+    <entry key="FIND_ALL_CATEGORIE">SELECT * FROM Categoria ORDER BY Nome</entry>
     <entry key="SEARCH_CATEGORIA_BY_NOME">SELECT * FROM Categoria WHERE Nome LIKE ?</entry>
     <entry key="SEARCH_CATEGORIA_BY_NOME_LIMIT">SELECT * FROM Categoria WHERE Nome LIKE ? LIMIT ?</entry>
     <entry key="SELECT_CORSI_BY_CATEGORY_PAGINATED">SELECT * FROM corso WHERE nomecategoria = ? LIMIT ? OFFSET ?</entry>

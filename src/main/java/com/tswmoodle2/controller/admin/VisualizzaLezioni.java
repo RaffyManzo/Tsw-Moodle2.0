@@ -19,8 +19,6 @@ public class VisualizzaLezioni extends HttpServlet {
         if(idLezione!=null) {
             LezioneDaoImpl l=new LezioneDaoImpl();
             l.delete(Integer.parseInt(idLezione));
-            RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/results/admin/modificaCorsi.jsp");
-            rd.forward(request, response);
         }
         RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/results/admin/modificaCorsi.jsp");
         rd.forward(request, response);

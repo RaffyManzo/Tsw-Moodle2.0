@@ -6,6 +6,13 @@ document.addEventListener('DOMContentLoaded', function () {
         cardNumberField.value = formattedValue;
     }
 
+    function formatName() {
+        const nameField = document.getElementById('card-holder');
+        const value = nameField.value = nameField.value.replace(/[^a-zA-Z\s]/g, '');
+        const formattedValue = value.charAt(0).toUpperCase() + value.slice(1).toLowerCase();
+        nameField.value = formattedValue;
+    }
+
     function formatExpiryDate() {
         const expiryDateField = document.getElementById('expiry-date');
         const value = expiryDateField.value.replace(/\D/g, '').substring(0, 4);
@@ -60,6 +67,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const cardNumberField = document.getElementById('card-number');
     cardNumberField.addEventListener('input', formatCardNumber);
+
+    const cardHolderrField = document.getElementById('card-holder');
+    cardHolderrField.addEventListener('input', formatName);
 
     const expiryDateField = document.getElementById('expiry-date');
     expiryDateField.addEventListener('input', formatExpiryDate);

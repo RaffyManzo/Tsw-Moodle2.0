@@ -1,25 +1,17 @@
 package com.tswmoodle2.controller.admin;
 
-import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
-import model.beans.Categoria;
-import model.beans.Corso;
-import model.beans.Utenza;
 import model.dao.CategoriaDaoImpl;
 import model.dao.CorsoDaoImpl;
 import model.dao.OrdineDaoImpl;
 import model.dao.UtenzaDaoImpl;
 
 import java.io.IOException;
-import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 @WebServlet(name = "AdminSearchFilter", value = "/adminSearchFilter")
 public class AdminSearchFilter extends HttpServlet {
@@ -70,26 +62,5 @@ public class AdminSearchFilter extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doGet(request, response);
-    }
-
-    private List<Utenza> filterUtenza(String username, String tipo) {
-        // Implement your database filtering logic here
-        // Example:
-        // return utenzaDao.findByUsernameAndTipo(username, tipo);
-        return null;
-    }
-
-    private List<Corso> filterCorso(String nomeCorso, String nomeCategoria) {
-        // Implement your database filtering logic here
-        // Example:
-        // return corsoDao.findByNomeAndCategoria(nomeCorso, nomeCategoria);
-        return null;
-    }
-
-    private List<Categoria> filterCategoria(String nomeCategoria) {
-        // Implement your database filtering logic here
-        // Example:
-        // return categoriaDao.findByNome(nomeCategoria);
-        return null;
     }
 }

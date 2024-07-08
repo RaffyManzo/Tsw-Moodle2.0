@@ -90,6 +90,19 @@ public class CorsoDaoImpl extends AbstractDataAccessObject<Corso> implements Cor
     }
 
     @Override
+    public ArrayList<Corso> getCorsiOrdine(int id)  {
+        try (Connection connection = getConnection();
+             PreparedStatement ps = prepareStatement(connection, "DETTAGLI_ORDINE");){
+             ps.setInt(1, id);
+            try (ResultSet rs = ps.executeQuery()) {
+                courses.addAll(getResultAsList(rs));
+                return courses;
+            }} catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+    }
+
+    @Override
     public Corso findByID(int id)  {
         try (Connection connection = getConnection();
              PreparedStatement ps = prepareStatement(connection, "FIND_CORSO_BY_ID")) {
