@@ -47,7 +47,6 @@
 
     box-sizing: border-box;
     height: 250px;
-
     display: flex;
     flex-direction: column;
     justify-content: space-between;

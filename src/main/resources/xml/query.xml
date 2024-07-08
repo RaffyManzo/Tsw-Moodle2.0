@@ -4,9 +4,10 @@
     <!-- Corso -->
     <entry key="INSERT_CORSO">INSERT INTO Corso (NomeCategoria, Nome, Descrizione, Immagine, Certificazione, DataCreazione, prezzo, creatore) VALUES (?, ?, ?, ?, ?, ?, ?, ?)</entry>
     <entry key="UPDATE_CORSO">UPDATE Corso SET NomeCategoria = ?, Nome = ?, Descrizione = ?, Immagine = ?, Certificazione = ?, DataCreazione = ?, prezzo = ?,creatore = ? WHERE IDCorso = ?</entry>
-    <entry key="DELETE_CORSO">DELETE FROM Corso WHERE IDCorso = ?</entry>
-    <entry key="SEARCH_CORSO_BY_CATEGORIA_NOME">SELECT * FROM Corso WHERE NomeCategoria LIKE ? AND Nome LIKE ? ORDER BY IDCorso</entry>
-    <entry key="FIND_ALL_CORSI">SELECT * FROM Corso ORDER BY IDCorso</entry>
+
+    <entry key="DELETE_CORSO">UPDATE corso SET isDeleted = TRUE WHERE IDCorso = ?</entry>
+    <entry key="SEARCH_CORSO_BY_CATEGORIA_NOME">SELECT * FROM Corso WHERE NomeCategoria LIKE ? AND Nome LIKE ?</entry>
+    <entry key="FIND_ALL_CORSI">SELECT * FROM Corso ORDER BY NumeroAcquisti DESC</entry>
     <entry key="FIND_CORSO_BY_ID">SELECT * FROM Corso WHERE IDCorso = ?</entry>
     <entry key="FIND_CORSI_BY_CATEGORIA">SELECT * FROM Corso WHERE NomeCategoria = ?</entry>
     <entry key="SEARCH_CORSI_BY_NOME">SELECT * FROM Corso WHERE Nome LIKE ?</entry>
