@@ -77,6 +77,7 @@
             <th>ID</th>
             <th>Nome</th>
             <th>Cognome</th>
+            <th>Città</th>
             <th>Tipo</th>
             <th>Email</th>
             <th>Username</th>
@@ -93,6 +94,7 @@
             <td><%= u.getIdUtente() %></td>
             <td><%= u.getNome() %></td>
             <td><%= u.getCognome() %></td>
+            <td><%= u.getCitta() %></td>
             <td><%= u.getTipo() %></td>
             <td><%= u.getEmail() %></td>
             <td><%= u.getUsername() %></td>

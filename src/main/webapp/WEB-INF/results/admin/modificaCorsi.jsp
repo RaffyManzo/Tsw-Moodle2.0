@@ -64,7 +64,12 @@
         </tr>
         <%
                 }
+            }else{
+        %>
+            <p>Non ci sono lezioni per questo corso</p>
+        <%
             }
+
         %>
         </tbody>
     </table>

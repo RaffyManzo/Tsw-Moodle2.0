@@ -148,7 +148,7 @@
             </div>
             <div class="form-group">
                 <label for="acquisti">Numero di acquisti:</label>
-                <input type="number" id="acquisti" name="acquisti" value="<%= c.getNumeroAcquisti() %>">
+                <input type="number" id="acquisti" name="acquisti" value="<%= c.getNumeroAcquisti() %>" readonly>
             </div>
             <div class="form-group">
                 <label for="immagine">Immagine:</label>
