@@ -30,6 +30,7 @@ public class CorsoDaoImpl extends AbstractDataAccessObject<Corso> implements Cor
             ps.setDate(6, new java.sql.Date(corso.getDataCreazione().getTime()));
             ps.setDouble(8, corso.getPrezzo());
             ps.setInt(9, corso.getCreatore().getIdUtente());
+            ps.setBoolean(10, corso.isDeleted());
 
             int affectedRows = ps.executeUpdate();
 
@@ -59,6 +60,7 @@ public class CorsoDaoImpl extends AbstractDataAccessObject<Corso> implements Cor
             ps.setInt(9, corso.getIdCorso());
             ps.setDouble(7, corso.getPrezzo());
             ps.setInt(8, corso.getCreatore().getIdUtente());
+            ps.setBoolean(10, corso.isDeleted());
             ps.executeUpdate();
         } catch (SQLException exception) {
             throw new RuntimeException(exception);
@@ -174,6 +176,25 @@ public class CorsoDaoImpl extends AbstractDataAccessObject<Corso> implements Cor
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public boolean isDeleted(int id) {
+        try (Connection connection = getConnection();
+             PreparedStatement ps = prepareStatement(connection, "IS_DELETED")) {
+
+            ps.setInt(1, id);
+
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    return rs.getBoolean("isDeleted");
+                }
+            }
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        return Boolean.FALSE;
     }
 
     @Override
@@ -312,8 +333,9 @@ public class CorsoDaoImpl extends AbstractDataAccessObject<Corso> implements Cor
         Utenza creatore = new UtenzaDaoImpl().findByID(rs.getInt("creatore"));
         Double prezzo = rs.getDouble("prezzo");
         int numeroAcquisti = rs.getInt("numeroAcquisti");
+        boolean isDeleted = rs.getBoolean("isDeleted");
 
         return new Corso(idCorso, nomeCategoria, nome, descrizione,
-                immagine, certificazione, dataCreazione, creatore, prezzo, numeroAcquisti);
+                immagine, certificazione, dataCreazione, creatore, prezzo, numeroAcquisti, isDeleted);
     }
 }

@@ -10,8 +10,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aaf64b38-f287-423c-9dbc-41a4353826d6" name="Changes" comment="fix session popup timer">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/teacher/NewCourseServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/admin/modificaCorso.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/admin/modificaUtenza.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/private/teacher/createCourse.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/private/teacher/home.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/images/square-plus.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/css/createcourse.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/css/teacher-home.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/script/imagePicInCreateCourse.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/8d1da4ce-79df-43f7-8a5f-0540fbbb02f0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/8d1da4ce-79df-43f7-8a5f-0540fbbb02f0.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/8d1da4ce-79df-43f7-8a5f-0540fbbb02f0/storage_v2/_src_/schema/learn_hub.elC1XA.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/8d1da4ce-79df-43f7-8a5f-0540fbbb02f0/storage_v2/_src_/schema/learn_hub.elC1XA.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/dao/OrdineDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/dao/OrdineDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/HomeServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/HomeServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/beans/Corso.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/beans/Corso.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/dao/CorsoDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/dao/CorsoDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/xml/query.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/xml/query.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/admin/admin.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/admin/admin.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/admin/modificaAdmin.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/admin/modificaAdmin.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/slider.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/slider.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/registrazione.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/registrazione.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,10 +44,10 @@
         <option value="HTML File" />
         <option value="SCSS File" />
         <option value="Interface" />
-        <option value="Class" />
-        <option value="JavaScript File" />
-        <option value="CSS File" />
         <option value="Jsp File" />
+        <option value="CSS File" />
+        <option value="JavaScript File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -295,15 +315,10 @@
       <workItem from="1719998642882" duration="32645000" />
       <workItem from="1720087398834" duration="26805000" />
       <workItem from="1720174916713" duration="7828000" />
-      <workItem from="1720261044709" duration="2336000" />
-    </task>
-    <task id="LOCAL-00013" summary="Fix getResultAsObject and LoginServlet.java">
-      <option name="closed" value="true" />
-      <created>1718708027839</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1718708027839</updated>
+      <workItem from="1720261044709" duration="7645000" />
+      <workItem from="1720347639092" duration="1351000" />
+      <workItem from="1720349066704" duration="7481000" />
+      <workItem from="1720435039564" duration="6283000" />
     </task>
     <task id="LOCAL-00014" summary="try to add toggle">
       <option name="closed" value="true" />
@@ -689,7 +704,15 @@
       <option name="project" value="LOCAL" />
       <updated>1720261461194</updated>
     </task>
-    <option name="localTasksCounter" value="62" />
+    <task id="LOCAL-00062" summary="fix session popup timer">
+      <option name="closed" value="true" />
+      <created>1720263557329</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1720263557329</updated>
+    </task>
+    <option name="localTasksCounter" value="63" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

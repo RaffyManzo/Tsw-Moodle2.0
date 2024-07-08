@@ -14,6 +14,12 @@ public class Corso {
 
     private Utenza creatore;
 
+    public boolean isDeleted() {
+        return isDeleted;
+    }
+
+    private boolean isDeleted;
+
 
     private final double prezzo;
 
@@ -25,7 +31,9 @@ public class Corso {
 
 
     // Costruttore con argomenti
-    public Corso(int idCorso, String nomeCategoria, String nome, String descrizione, String immagine, String certificazione, Date dataCreazione, Utenza creatore, double prezzo,int numeroAcquisti) {
+    public Corso(int idCorso, String nomeCategoria, String nome, String descrizione,
+                 String immagine, String certificazione, Date dataCreazione, Utenza creatore,
+                 double prezzo,int numeroAcquisti, boolean isDeleted) {
         this.idCorso = idCorso;
         this.nomeCategoria = nomeCategoria;
         this.nome = nome;
@@ -36,6 +44,7 @@ public class Corso {
         this.creatore = creatore;
         this.prezzo = prezzo;
         this.numeroAcquisti = numeroAcquisti;
+        this.isDeleted = isDeleted;
     }
 
     // Getter

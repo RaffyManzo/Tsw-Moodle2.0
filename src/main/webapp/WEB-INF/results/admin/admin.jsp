@@ -23,7 +23,7 @@
 
 <div class="header" id="header">
     <div class="header-main-info" id="header-main-info">
-        <a href="${pageContext.request.contextPath}/home" class="logo-image" id="header-logo-image">
+        <a href="${pageContext.request.contextPath}/admin" class="logo-image" id="header-logo-image">
             <img src="${pageContext.request.contextPath}/assets/images/logo.png">
         </a>
         <h1 class="site-name" id="header-site-name">
