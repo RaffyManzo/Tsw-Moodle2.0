@@ -33,6 +33,8 @@ public class NewCourseServlet extends HttpServlet {
 
     private static final String ERROR_VIEW = "/WEB-INF/results/public/error.jsp";
     private static final String NEW_COURSE_VIEW = "/WEB-INF/results/private/teacher/createCourse.jsp";
+    private static final String HOME_VIEW = "/WEB-INF/results/private/teacher/home.jsp";
+
     private static final String SEPARATOR = "/";
     private String UPLOAD_FOLDER;
 
@@ -69,6 +71,15 @@ public class NewCourseServlet extends HttpServlet {
                 break;
             case "new":
                 createNewCourse(request, response);
+                break;
+            case "search":
+                request.setAttribute("categories", new CategoriaDaoImpl().getAllCategorie());
+                String searchParam = request.getParameter("search-param");
+                if(searchParam == null) {
+                    searchParam = " ";
+                }
+                request.setAttribute("courses", new CorsoDaoImpl().searchCreatorCoursesByName(searchParam, user.getIdUtente()));
+                request.getRequestDispatcher(HOME_VIEW).forward(request, response);
                 break;
             default:
                 forwardWithError(request, response, List.of("Azione non consentita."));

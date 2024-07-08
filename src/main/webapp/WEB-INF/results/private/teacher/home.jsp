@@ -117,13 +117,14 @@
             <p>Crea un corso</p>
         </a>
         <span class="vertical-separator"></span>
-        <div class="search-box">
-            <button id="search-button">
+        <form class="search-box" action="new-course" id="search-form">
+            <input type="hidden" name="action" value="search">
+            <button id="search-button" type="submit">
                 <img id="search-image" src="${pageContext.request.contextPath}/assets/images/lens.png" alt="Cerca">
             </button>
-            <input type="text" id="search-bar" placeholder="Cerca tra i tuoi corsi">
+            <input type="text" id="search-bar" name="search-param" placeholder="Cerca tra i tuoi corsi" required>
 
-        </div>
+        </form>
     </div>
     <div class="course-container">
         <%

@@ -154,6 +154,20 @@ public class CorsoDaoImpl extends AbstractDataAccessObject<Corso> implements Cor
     }
 
     @Override
+    public ArrayList<Corso> searchCreatorCoursesByName(String nome, int creator)  {
+        try (Connection connection = getConnection();
+             PreparedStatement ps = prepareStatement(connection, "SEARCH_CORSI_BY_NOME_AND_CREATOR")) {
+            ps.setString(1, "%" + nome + "%");
+            ps.setInt(2, creator);
+            try (ResultSet rs = ps.executeQuery()) {
+                return getResultAsList(rs);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
     public ArrayList<Corso> searchByNameLimited(String nome, int limit){
         try (Connection connection = getConnection();
              PreparedStatement ps = prepareStatement(connection, "SEARCH_CORSI_BY_NOME_LIMIT")) {

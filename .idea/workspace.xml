@@ -9,32 +9,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aaf64b38-f287-423c-9dbc-41a4353826d6" name="Changes" comment="Modifiche varie">
+    <list default="true" id="aaf64b38-f287-423c-9dbc-41a4353826d6" name="Changes" comment="Finita aggiunta nuovi corsi da parte del docente">
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/private/teacher/manageCourse.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/AccountServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/AccountServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/LoginServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/LoginServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/ShoppingServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/ShoppingServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/admin/AdminSearchFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/admin/AdminSearchFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/admin/AdminServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/admin/AdminServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/admin/ModificaServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/admin/ModificaServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/session/SessionListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/session/SessionListener.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/teacher/NewCourseServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/teacher/NewCourseServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Util/CarrelloService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Util/CarrelloService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/beans/Carrello.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/beans/Carrello.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/dao/CartDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/dao/CartDaoImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/dao/CorsoDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/dao/CorsoDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/dao/CorsoDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/dao/CorsoDaoImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/xml/query.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/xml/query.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/admin/admin.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/admin/admin.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/admin/modificaAdmin.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/admin/modifica.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/admin/modificaCorso.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/admin/modificaCorso.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/private/teacher/createCourse.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/private/teacher/createCourse.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/public/cart.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/public/cart.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/public/category.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/public/category.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/public/course.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/public/course.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/header.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/header.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/private/teacher/home.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/private/teacher/home.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/css/teacher-home.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/teacher-home.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/script/search.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/script/search.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,10 +30,10 @@
         <option value="HTML File" />
         <option value="SCSS File" />
         <option value="Interface" />
-        <option value="Jsp File" />
         <option value="CSS File" />
         <option value="JavaScript File" />
         <option value="Class" />
+        <option value="Jsp File" />
       </list>
     </option>
   </component>
@@ -334,15 +317,7 @@
       <workItem from="1720261044709" duration="7645000" />
       <workItem from="1720347639092" duration="1351000" />
       <workItem from="1720349066704" duration="7481000" />
-      <workItem from="1720435039564" duration="21375000" />
-    </task>
-    <task id="LOCAL-00015" summary="toggle added, choice account replaced">
-      <option name="closed" value="true" />
-      <created>1718721918881</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1718721918881</updated>
+      <workItem from="1720435039564" duration="22530000" />
     </task>
     <task id="LOCAL-00016" summary="home.jsp after login">
       <option name="closed" value="true" />
@@ -728,7 +703,15 @@
       <option name="project" value="LOCAL" />
       <updated>1720445866734</updated>
     </task>
-    <option name="localTasksCounter" value="64" />
+    <task id="LOCAL-00064" summary="Finita aggiunta nuovi corsi da parte del docente">
+      <option name="closed" value="true" />
+      <created>1720462380124</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1720462380124</updated>
+    </task>
+    <option name="localTasksCounter" value="65" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -746,7 +729,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fixed UploadImageServlet.java" />
     <MESSAGE value="fixed LoginServlet.java cart loading" />
     <MESSAGE value="fix search.css" />
     <MESSAGE value="finished search bar" />
@@ -771,6 +753,7 @@
     <MESSAGE value="Added session controls and renew" />
     <MESSAGE value="fix session popup timer" />
     <MESSAGE value="Modifiche varie" />
-    <option name="LAST_COMMIT_MESSAGE" value="Modifiche varie" />
+    <MESSAGE value="Finita aggiunta nuovi corsi da parte del docente" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finita aggiunta nuovi corsi da parte del docente" />
   </component>
 </project>

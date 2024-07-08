@@ -45,6 +45,7 @@
 .search-box {
     width: 40% !important;
     height: 80% !important;
+    margin: 0 !important;
 }
 
 .course-container {

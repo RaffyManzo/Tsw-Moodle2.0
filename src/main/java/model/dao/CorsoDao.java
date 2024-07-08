@@ -23,6 +23,7 @@ public interface CorsoDao {
     public int countByCategory(String categoryId);
     public ArrayList<Corso> findAllPaginated(int page, int itemsPerPage);
     public int countAll();
+    public ArrayList<Corso> searchCreatorCoursesByName(String nome, int creator);
     public ArrayList<Corso> getAllCoursesAdmin();
     ArrayList<Corso> getCorsiOrdine(int id);
 

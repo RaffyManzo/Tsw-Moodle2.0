@@ -12,7 +12,7 @@
     <entry key="FIND_ALL_CORSI_ADMIN">SELECT * FROM Corso ORDER BY NumeroAcquisti DESC</entry>
     <entry key="FIND_CORSO_BY_ID">SELECT * FROM Corso WHERE isDeleted = 0 AND IDCorso = ?</entry>
     <entry key="FIND_CORSI_BY_CATEGORIA">SELECT * FROM Corso WHERE NomeCategoria = ? AND isDeleted = 0 </entry>
-    <entry key="SEARCH_CORSI_BY_NOME">SELECT * FROM Corso WHERE Nome LIKE  AND isDeleted = 0 ?</entry>
+    <entry key="SEARCH_CORSI_BY_NOME">SELECT * FROM Corso WHERE Nome LIKE ? AND isDeleted = 0 </entry>
     <entry key="SEARCH_CORSI_BY_NOME_LIMIT">SELECT * FROM Corso WHERE Nome LIKE ?  AND isDeleted = 0 LIMIT ?</entry>
     <entry key="FIND_CORSI_BY_DATE_RANGE">SELECT * FROM Corso WHERE isDeleted = 0  AND DataCreazione BETWEEN ? AND ?</entry>
     <entry key="FIND_CORSI_BY_CERTIFICAZIONE">SELECT * FROM Corso WHERE Certificazione = ? AND isDeleted = 0 </entry>
@@ -187,5 +187,7 @@
     <entry key="FIND_ALL_ARGOMENTI_COUNT_BY_CORSO_ID">SELECT COUNT(*) FROM argomento a JOIN lezione l ON a.idLezione = l.idargomento WHERE l.idCorso = ?</entry>
 
     <!-- Teacher page -->
+    <entry key="SEARCH_CORSI_BY_NOME_AND_CREATOR">SELECT * FROM Corso WHERE Nome LIKE ? AND creatore = ? AND isDeleted = 0 </entry>
+
     <entry key="COUNT_CATEGORY_COURSE">select corso.nomeCategoria, count(*) AS count from corso inner join utenza on corso.creatore = utenza.IDUtente where IDUtente=? group by corso.nomeCategoria</entry>
 </properties>
