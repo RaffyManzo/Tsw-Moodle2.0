@@ -21,6 +21,10 @@ import java.security.NoSuchAlgorithmException;
 import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 import java.util.regex.Pattern;
 
 @WebServlet(name = "LoginServlet", urlPatterns = {"/login"})
@@ -95,6 +99,7 @@ public class LoginServlet extends HttpServlet {
 
                     if(carrello == null) {
                         errorOccurs(new ArrayList<>(List.of("C'é stato un problema con la generazione del carrello")), request, response);
+
                         return;
                     } else {
 
@@ -104,8 +109,15 @@ public class LoginServlet extends HttpServlet {
                             carrello.setCart(new HashMap<>());
                         }
 
-
                     }
+
+
+                    if (sessionCart != null) {
+                        carrello.setCart(sessionCart);
+                        new CarrelloService().saveCarrello(carrello);
+                    }
+
+                    
 
                     LOGGER.log(Level.INFO, "Il carrello appena creato ha (IDCarrello-IDUtente): {0}-{1}",
                             List.of(carrello.getIDCarrello(), carrello.getIDUtente()));
@@ -114,6 +126,7 @@ public class LoginServlet extends HttpServlet {
                         carrello.setCart(sessionCart);
                         new CarrelloService().saveCarrello(carrello);
                     }
+
 
 
                     if (carrello != null)
@@ -140,6 +153,7 @@ public class LoginServlet extends HttpServlet {
 
         errorOccurs(errors, request, response);
     }
+
 
     public void errorOccurs(ArrayList<String> errors, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         //restituisce gli errori

@@ -28,6 +28,7 @@ public class CarrelloService {
 
         int carrelloID = carrelloDAO.getCartIDByUser(user.getIdUtente());
 
+
         LOGGER.log(Level.INFO, "Id carrello recuperato: {0}", carrelloID);
 
         if (carrelloID < 0) {
@@ -35,9 +36,9 @@ public class CarrelloService {
             if(carrelloID < 0)
                 return null;
             return new Carrello(user.getIdUtente(), carrelloID);
-
         } else {
             return carrelloDAO.getCartByUserID(user.getIdUtente());
         }
     }
+
 }

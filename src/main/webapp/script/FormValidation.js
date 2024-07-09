@@ -4,6 +4,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
     const indirizzoInput = document.querySelector('input[name="address"]');
     const passwordInput = document.querySelector('input[name="password"]');
     const passwordCheckInput = document.querySelector('input[name="password-check"]');
+    const dateInput = document.querySelector('input[name="birth-date"]');
+    dateInput.addEventListener('change', validateDate);
     passwordCheckInput.addEventListener('change', validatePassword);
     passwordInput.addEventListener('change', validatePassword);
     indirizzoInput.addEventListener('change', validateIndirizzo);
@@ -65,6 +67,23 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
         // If all validations pass
         emailInput.reportValidity();
+    }
+
+    function validateDate() {
+        const dateInput = document.getElementById('dateInput');
+        const dateValue = dateInput.value;
+        const inputDate = new Date(dateValue);
+        const currentDate = new Date();
+
+        // Check if the input date is before the current date
+        if (inputDate < currentDate) {
+            dateInput.setCustomValidity('');
+        } else {
+            dateInput.setCustomValidity('Inserisci una data di nascita valida.');
+        }
+
+        // If all validations pass
+        dateInput.reportValidity();
     }
 
     function validateIndirizzo() {

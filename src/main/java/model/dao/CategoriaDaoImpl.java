@@ -104,6 +104,19 @@ public class CategoriaDaoImpl extends AbstractDataAccessObject<Categoria> implem
             throw new RuntimeException(exception);
         }
     }
+
+    @Override
+    public void changeName(String categoria, String nome) {
+        try (Connection connection = getConnection();
+             PreparedStatement ps = prepareStatement(connection, "UPDATE_CATEGORIA")) {
+            ps.setString(1, nome);
+            ps.setString(2, categoria);
+            ps.executeUpdate();
+        } catch (SQLException exception) {
+            throw new RuntimeException(exception);
+        }
+    }
+
     @Override
     public void delete(String nome) {
         try (Connection connection = getConnection();
