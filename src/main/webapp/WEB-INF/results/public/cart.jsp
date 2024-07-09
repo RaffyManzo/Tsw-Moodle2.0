@@ -224,7 +224,7 @@
         <div class="checkout-container">
             <h4>Checkout</h4>
             <h1><% double price = 0 ; if (cart != null) { for (Map.Entry<Corso, Integer> entry : cart.entrySet()){
-                price += entry.getKey().getPrezzo() * entry.getValue();}%> <%}%><%= Math.round(price * 100.0) / 100.0 %> $</h1>
+                price += entry.getKey().getPrezzo() * entry.getValue();}%> <%}%><%= Math.round(price * 100.0) / 100.0 %> €</h1>
             <a href="${pageContext.request.contextPath}/checkout?a=redirect" class="checkout-btn">
                 Completa il pagamento
             </a>

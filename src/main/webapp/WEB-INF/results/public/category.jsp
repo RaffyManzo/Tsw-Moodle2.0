@@ -250,7 +250,7 @@
                 <p class="card-title"><%= corso.getNome() %></p>
                 <p class="card-description"><%= corso.getDescrizione() %></p>
                     <p>Creato da &nbsp;<%= corso.getCreatore().getCognome() + " " + corso.getCreatore().getNome()%></p>
-                    <p><%= corso.getPrezzo()%>$</p>
+                    <p><%= corso.getPrezzo()%>€</p>
                 </div>
             </a>
             <%

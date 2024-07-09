@@ -57,7 +57,7 @@ public class AdminServlet extends HttpServlet {
                 break;
             case "corso":
                 CorsoDaoImpl c = new CorsoDaoImpl();
-                data = c.getAllCourses();
+                data = c.getAllCoursesAdmin();
                 break;
             case "categoria":
                 CategoriaDaoImpl ca = new CategoriaDaoImpl();

@@ -28,7 +28,10 @@ public class CarrelloService {
             int carrelloID = carrelloDAO.getCartIDByUser(user.getIdUtente());
             if (carrelloID < 0) {
                 carrelloID = carrelloDAO.createCartForUser(user.getIdUtente());
+                return new Carrello(user.getIdUtente(), carrelloID);
+
+            } else {
+                return carrelloDAO.getCartByUserID(user.getIdUtente());
             }
-            return new Carrello(user.getIdUtente(), carrelloID);
     }
 }

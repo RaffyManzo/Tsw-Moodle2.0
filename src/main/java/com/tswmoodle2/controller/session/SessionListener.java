@@ -26,10 +26,9 @@ public class SessionListener implements HttpSessionListener {
 
         if (user != null) {
             Carrello carrello = new CarrelloService().getOrCreateCarrello(user);
-            carrello.setCart((Map<Corso, Integer>) session.getAttribute("cart"));
+            carrello.replace((Map<Corso, Integer>) session.getAttribute("cart"));
 
-            CartDaoImpl cartDao = new CartDaoImpl();
-            cartDao.saveOrUpdateCarrello(carrello);
+            new CarrelloService().saveCarrello(carrello);
         }
     }
 }

@@ -1,6 +1,5 @@
 package model.dao;
 
-import com.tswmoodle2.controller.ShoppingServlet;
 import model.beans.Carrello;
 import model.beans.Corso;
 
@@ -9,13 +8,11 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class CartDaoImpl extends AbstractDataAccessObject<Carrello> implements CartDao {
     private static final Logger LOGGER = Logger.getLogger(CartDaoImpl.class.getName());
-
     @Override
     protected Carrello extractFromResultSet(ResultSet rs) throws SQLException {
         if (!rs.next()) {
@@ -62,12 +59,11 @@ public class CartDaoImpl extends AbstractDataAccessObject<Carrello> implements C
 
     }
 
-
     /**
      * Rimuove un elemento specifico dal carrello.
      *
      * @param IDCarrello ID del carrello
-     * @param IDCorso ID del corso da rimuovere
+     * @param IDCorso    ID del corso da rimuovere
      * @throws SQLException
      */
     @Override
@@ -85,7 +81,7 @@ public class CartDaoImpl extends AbstractDataAccessObject<Carrello> implements C
 
     }
 
-    public void deleteCarrello(int IDCarrello) {
+        public void deleteCarrello(int IDCarrello) {
         try (Connection connection = getConnection();
              PreparedStatement ps = prepareStatement(connection, "DELETE_CART")) {
             ps.setInt(1, IDCarrello);
@@ -101,12 +97,12 @@ public class CartDaoImpl extends AbstractDataAccessObject<Carrello> implements C
      * @param idCarrello ID del carrello da svuotare
      * @throws SQLException
      */
-    public void clearCart(int idCarrello){
+    public void clearCart(int idCarrello) {
         try (Connection conn = getConnection();
              PreparedStatement deleteStmt = prepareStatement(conn, "CLEAR_CART")) {
             deleteStmt.setInt(1, idCarrello);
             deleteStmt.executeUpdate();
-        }catch (SQLException e) {
+        } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
@@ -114,50 +110,49 @@ public class CartDaoImpl extends AbstractDataAccessObject<Carrello> implements C
     @Override
     public void saveOrUpdateCarrello(Carrello carrello) {
         LOGGER.log(Level.INFO, "Saving or updating cart: IDCarrello: {0}, IDUtente: {1}", new Object[]{carrello.getIDCarrello(), carrello.getIDUtente()});
-
-        try (Connection conn = getConnection()) {
-            conn.setAutoCommit(false);
-
+        try {
+            Connection conn = null;
             try {
-                for (Map.Entry<Corso, Integer> entry : carrello.getCart().entrySet()) {
-                    Corso corso = entry.getKey();
-                    int quantita = entry.getValue();
+                conn = getConnection();
+                conn.setAutoCommit(false);
 
-                    String selectQuery = "GET_CART_ELEMENT";
-                    try (PreparedStatement selectStmt = prepareStatement(conn, selectQuery)) {
-                        selectStmt.setInt(1, corso.getIdCorso());
-                        selectStmt.setInt(2, carrello.getIDCarrello());
-                        selectStmt.setInt(3, carrello.getIDUtente());
+                ArrayList<Corso> corsiInDB = new ArrayList<>(
+                        getCartByUserID(carrello.getIDUtente()).getCart().keySet()
+                );
 
-                        ResultSet rs = selectStmt.executeQuery();
-
-                        if (rs.next()) {
-                            String updateQuery = "UPDATE_CART_ELEMENT";
-                            try (PreparedStatement updateStmt = prepareStatement(conn, updateQuery)) {
-                                updateStmt.setInt(1, quantita);
-                                updateStmt.setInt(2, corso.getIdCorso());
-                                updateStmt.setInt(3, carrello.getIDCarrello());
-                                updateStmt.setInt(4, carrello.getIDUtente());
-                                updateStmt.executeUpdate();
-                            }
-                        } else {
-                            String insertQuery = "INSERT_CART_ELEMENT";
-                            try (PreparedStatement insertStmt = prepareStatement(conn, insertQuery)) {
-                                insertStmt.setInt(1, corso.getIdCorso());
-                                insertStmt.setInt(2, carrello.getIDCarrello());
-                                insertStmt.setInt(3, carrello.getIDUtente());
-                                insertStmt.setInt(4, quantita);
-                                insertStmt.executeUpdate();
-                            }
+                // Per ogni corso nel carrello
+                for (Corso corso : carrello.getCart().keySet()) {
+                    if (corsiInDB.contains(corso)) {
+                        // Se il corso è già nel DB, non fare nulla
+                        corsiInDB.remove(corso);
+                    } else {
+                        // Se il corso non è nel DB, inseriscilo
+                        String insertQuery = "INSERT_CART_ELEMENT";
+                        try (PreparedStatement insertStmt = prepareStatement(conn, insertQuery)) {
+                            insertStmt.setInt(1, corso.getIdCorso());
+                            insertStmt.setInt(2, carrello.getIDCarrello());
+                            insertStmt.setInt(3, carrello.getIDUtente());
+                            insertStmt.executeUpdate();
                         }
                     }
                 }
+
+                // Elimina gli elementi non presenti nel carrello dal database
+                for (Corso corso : corsiInDB) {
+                    deleteFromCarrello(carrello.getIDCarrello(), carrello.getIDUtente(), corso.getIdCorso());
+                }
+
                 conn.commit();
             } catch (SQLException ex) {
-                conn.rollback();
+                if (conn != null) {
+                    conn.rollback();
+                }
                 throw ex;
             } finally {
-                conn.setAutoCommit(true);
+                if (conn != null) {
+                    conn.setAutoCommit(true);
+                    conn.close();
+                }
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -166,10 +161,7 @@ public class CartDaoImpl extends AbstractDataAccessObject<Carrello> implements C
 
 
 
-
-
-
-    public int createCartForUser(int userID){
+    public int createCartForUser(int userID) {
         try (Connection conn = getConnection();
              PreparedStatement stmt = prepareStatement(conn, "INSERT_CART", PreparedStatement.RETURN_GENERATED_KEYS)) {
             stmt.setInt(1, userID);
@@ -181,13 +173,13 @@ public class CartDaoImpl extends AbstractDataAccessObject<Carrello> implements C
                     throw new SQLException("Creating carrello failed, no ID obtained.");
                 }
             }
-        }catch (SQLException e) {
+        } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
 
 
-    public int getCartIDByUser(int IDUtente)  {
+    public int getCartIDByUser(int IDUtente) {
         try (Connection conn = getConnection()) {
             try (PreparedStatement ps = prepareStatement(conn, "GET_CART_ID_BY_USER")) {
                 ps.setInt(1, IDUtente);
@@ -202,7 +194,7 @@ public class CartDaoImpl extends AbstractDataAccessObject<Carrello> implements C
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }
-        }catch (SQLException e) {
+        } catch (SQLException e) {
             throw new RuntimeException(e);
         }
         return -1;

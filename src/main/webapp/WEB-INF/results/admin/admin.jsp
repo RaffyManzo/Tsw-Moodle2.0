@@ -104,12 +104,12 @@
                     <form action="adminDelete" method="post" style="display:inline;">
                         <input type="hidden" name="id" value="<%= u.getIdUtente() %>">
                         <input type="hidden" name="tipo" value="utenza">
-                        <input type="submit" value="Elimina">
+                        <input type="submit" value="Elimina"  <%if(u.getIdUtente() == 0) {%> disabled <%}%>>
                     </form>
                     <form action="ModificaServlet" method="post" style="display:inline;">
                         <input type="hidden" name="id" value="<%= u.getIdUtente() %>">
                         <input type="hidden" name="tipo" value="utenza">
-                        <input type="submit" value="Modifica">
+                        <input type="submit" value="Modifica"  <%if(u.getIdUtente() == 0) {%> disabled <%}%>>
                     </form>
                 </div>
             </td>
@@ -145,6 +145,7 @@
             <th>Categoria</th>
             <th>Descrizione</th>
             <th>Prezzo</th>
+            <th>Eliminato</th>
             <th>Azioni</th>
         </tr>
         </thead>
@@ -159,12 +160,13 @@
             <td><%= c.getNomeCategoria() %></td>
             <td><%= c.getDescrizione() %></td>
             <td><%= c.getPrezzo() %></td>
+            <td><%= c.isDeleted() %></td>
             <td>
                 <div class="button-container">
                     <form action="adminDelete" method="post" style="display:inline;">
                         <input type="hidden" name="id" value="<%= c.getIdCorso() %>">
                         <input type="hidden" name="tipo" value="corso">
-                        <input type="submit" value="Elimina">
+                        <input type="submit" value="Elimina" <%if(c.isDeleted()) {%>disabled<%}%>>
                     </form>
                     <form action="ModificaServlet" method="post" style="display:inline;">
                         <input type="hidden" name="id" value="<%= c.getIdCorso() %>">
@@ -266,11 +268,6 @@
             <td><%= o.getUuid() %></td>
             <td>
                 <div class="button-container">
-                    <form action="adminDelete" method="post" style="display:inline;">
-                        <input type="hidden" name="id" value="<%= o.getId() %>">
-                        <input type="hidden" name="tipo" value="ordine">
-                        <input type="submit" value="Elimina">
-                    </form>
                     <form action="VisualizzaOrdine">
                         <input type="hidden" name="id" value="<%= o.getId() %>">
                         <input type="submit" value="Dettagli">

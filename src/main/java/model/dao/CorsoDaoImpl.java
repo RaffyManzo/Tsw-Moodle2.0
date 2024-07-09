@@ -28,9 +28,8 @@ public class CorsoDaoImpl extends AbstractDataAccessObject<Corso> implements Cor
             ps.setString(4, corso.getImmagine());
             ps.setString(5, corso.getCertificazione());
             ps.setDate(6, new java.sql.Date(corso.getDataCreazione().getTime()));
-            ps.setDouble(8, corso.getPrezzo());
-            ps.setInt(9, corso.getCreatore().getIdUtente());
-            ps.setBoolean(10, corso.isDeleted());
+            ps.setDouble(7, corso.getPrezzo());
+            ps.setInt(8, corso.getCreatore().getIdUtente());
 
             int affectedRows = ps.executeUpdate();
 
@@ -82,8 +81,18 @@ public class CorsoDaoImpl extends AbstractDataAccessObject<Corso> implements Cor
         try (Connection connection = getConnection();
              PreparedStatement ps = prepareStatement(connection, "FIND_ALL_CORSI");
              ResultSet rs = ps.executeQuery()) {
-            courses.addAll(getResultAsList(rs));
-            return courses;
+           return getResultAsList(rs);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public ArrayList<Corso> getAllCoursesAdmin()  {
+        try (Connection connection = getConnection();
+             PreparedStatement ps = prepareStatement(connection, "FIND_ALL_CORSI_ADMIN");
+             ResultSet rs = ps.executeQuery()) {
+            return getResultAsList(rs);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -145,6 +154,20 @@ public class CorsoDaoImpl extends AbstractDataAccessObject<Corso> implements Cor
     }
 
     @Override
+    public ArrayList<Corso> searchCreatorCoursesByName(String nome, int creator)  {
+        try (Connection connection = getConnection();
+             PreparedStatement ps = prepareStatement(connection, "SEARCH_CORSI_BY_NOME_AND_CREATOR")) {
+            ps.setString(1, "%" + nome + "%");
+            ps.setInt(2, creator);
+            try (ResultSet rs = ps.executeQuery()) {
+                return getResultAsList(rs);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
     public ArrayList<Corso> searchByNameLimited(String nome, int limit){
         try (Connection connection = getConnection();
              PreparedStatement ps = prepareStatement(connection, "SEARCH_CORSI_BY_NOME_LIMIT")) {
@@ -161,7 +184,7 @@ public class CorsoDaoImpl extends AbstractDataAccessObject<Corso> implements Cor
     }
 
     @Override
-    public ArrayList<Corso> findByCategoriaCorso(String nomeCategoria, String nomeCorso){
+    public ArrayList<Corso> filteredSearchCourse(String nomeCategoria, String nomeCorso){
         try (Connection connection = getConnection();
              PreparedStatement ps = prepareStatement(connection, "SEARCH_CORSO_BY_CATEGORIA_NOME")) {
             ps.setString(1, "%" + nomeCategoria + "%");
@@ -336,19 +359,25 @@ public class CorsoDaoImpl extends AbstractDataAccessObject<Corso> implements Cor
 
     @Override
     protected Corso extractFromResultSet(ResultSet rs) throws SQLException {
-        int idCorso = rs.getInt("IDCorso");
-        String nomeCategoria = rs.getString("NomeCategoria");
-        String nome = rs.getString("Nome");
-        String descrizione = rs.getString("Descrizione");
-        String immagine = rs.getString("Immagine");
-        String certificazione = rs.getString("Certificazione");
-        java.sql.Date dataCreazione = rs.getDate("DataCreazione");
-        Utenza creatore = new UtenzaDaoImpl().findByID(rs.getInt("creatore"));
-        Double prezzo = rs.getDouble("prezzo");
-        int numeroAcquisti = rs.getInt("numeroAcquisti");
-        boolean isDeleted = rs.getBoolean("isDeleted");
+        if (rs.getMetaData().getColumnCount() == 1) {
+            return new Corso(rs.getInt(1), null, null, null, null, null,
+                    null, null, 0, 0, Boolean.TRUE);
+        } else {
 
-        return new Corso(idCorso, nomeCategoria, nome, descrizione,
-                immagine, certificazione, dataCreazione, creatore, prezzo, numeroAcquisti, isDeleted);
+            int idCorso = rs.getInt("IDCorso");
+            String nomeCategoria = rs.getString("NomeCategoria");
+            String nome = rs.getString("Nome");
+            String descrizione = rs.getString("Descrizione");
+            String immagine = rs.getString("Immagine");
+            String certificazione = rs.getString("Certificazione");
+            java.sql.Date dataCreazione = rs.getDate("DataCreazione");
+            Utenza creatore = new UtenzaDaoImpl().findByID(rs.getInt("creatore"));
+            Double prezzo = rs.getDouble("prezzo");
+            int numeroAcquisti = rs.getInt("numeroAcquisti");
+            boolean isDeleted = rs.getBoolean("isDeleted");
+
+            return new Corso(idCorso, nomeCategoria, nome, descrizione,
+                    immagine, certificazione, dataCreazione, creatore, prezzo, numeroAcquisti, isDeleted);
+        }
     }
 }

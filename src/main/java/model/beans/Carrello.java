@@ -47,6 +47,11 @@ public class Carrello {
         this.cart.putAll(cart);
     }
 
+    public void replace (Map<Corso, Integer> cart) {
+        this.cart.clear();
+        this.cart.putAll(cart);
+    }
+
 
     public Corso getElementAtIndex(int index) {
         List<Corso> keys = new ArrayList<>(cart.keySet());

@@ -98,7 +98,7 @@ document.addEventListener('DOMContentLoaded', function (){
                         <strong class="search-element-name">${corso.name} (${corso.category})</strong>
                         </div>
                         <div class="search-result-element-details">
-                        <span class="sub-search-element search-bar-price">Prezzo: ${corso.price}$</span>
+                        <span class="sub-search-element search-bar-price">Prezzo: ${corso.price}€</span>
                         </div>
                     `;
 
