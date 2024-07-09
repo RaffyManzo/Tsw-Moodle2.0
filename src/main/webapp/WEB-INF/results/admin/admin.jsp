@@ -104,6 +104,7 @@
                     <form action="adminDelete" method="post" style="display:inline;">
                         <input type="hidden" name="id" value="<%= u.getIdUtente() %>">
                         <input type="hidden" name="tipo" value="utenza">
+                        <input type="hidden" name="nome" value="null">
                         <input type="submit" value="Elimina"  <%if(u.getIdUtente() == 0) {%> disabled <%}%>>
                     </form>
                     <form action="ModificaServlet" method="post" style="display:inline;">

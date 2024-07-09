@@ -2,8 +2,7 @@
 <%@ page import="model.dao.CorsoDaoImpl" %>
 
 <%
-    CorsoDaoImpl corsoDao = new CorsoDaoImpl();
-    Corso c = corsoDao.findByID(Integer.parseInt(request.getAttribute("elemento").toString()));
+    Corso c = (Corso) request.getAttribute("elemento");
 %>
 <div class="form-container">
     <form action="ModificaServlet" method="post">
@@ -46,10 +45,6 @@
         <div class="form-group">
             <label for="immagine">Immagine:</label>
             <input name="immagine" id="immagine" value="<%= c.getImmagine() %>">
-        </div>
-        <div class="form-group">
-            <label for="immagine">Cancellato:</label>
-            <input name="isDeleted" id="isDeleted" value="<%= c.isDeleted() %>" readonly>
         </div>
         <input type="hidden" name="tipo" value="corso">
         <div class="button-container">

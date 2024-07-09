@@ -28,9 +28,7 @@
 
 <div id="table-container">
     <%
-        int idUtente = Integer.parseInt(request.getAttribute("elemento").toString());
-        CartDaoImpl c=new CartDaoImpl();
-        Carrello carrello=c.getCartByUserID(idUtente);
+        Carrello carrello = (Carrello) request.getAttribute("elemento");
         if(carrello!=null){
             Map<Corso, Integer> cart =carrello.getCart();
             if (cart != null && !cart.isEmpty()) {
@@ -48,7 +46,7 @@
                     <p>Quantità: <%= quantity %></p>
                     <p>Totale: <%= totale %>$</p>
                     <form action="VisualizzaCarrelloServlet" method="get" style="display:inline;">
-                        <input type="hidden" name="id" value="<%= idUtente %>"/>
+                        <input type="hidden" name="id" value="<%= carrello.getIDUtente() %>"/>
                         <input type="hidden" name="admin" value="true"/>
                         <input type="hidden" name="productId" value="<%= product.getIdCorso() %>"/>
                         <button type="submit" value="Remove" class="trash-cart-item">
@@ -70,7 +68,7 @@
             %>
         <form action="ModificaServlet">
             <input type="hidden" name="tipo" value="utenza">
-            <input type="hidden" name="id" value="<%= idUtente %>">
+            <input type="hidden" name="id" value="<%= Integer.parseInt(request.getAttribute("userId").toString()) %>">
             <input type="submit" value="Indietro">
         </form>
 </div>

@@ -3,8 +3,7 @@
 <%@ page import="model.dao.UtenzaDaoImpl" %>
 
 <%
-    UtenzaDaoImpl utenzaDao = new UtenzaDaoImpl();
-    Utenza u = utenzaDao.findByID(Integer.parseInt(request.getAttribute("elemento").toString()));
+    Utenza u = (Utenza) request.getAttribute("elemento");
 %>
 
 <div class="form-container">
@@ -62,18 +61,16 @@
         <input type="hidden" name="immagine" value="<%= u.getImg() %>">
         <div class="button-container">
             <input type="submit" value="Salva Modifiche">
-            <form action="VisualizzaCarrelloServlet" method="get">
-                <input type="hidden" name="idUtente" value="<%= u.getIdUtente() %>">
-                <input type="submit" value="Visualizza il carrello dell'utente">
+            <form action="admin">
+                <input type="hidden" name="table-select" value="utenza">
+                <input type="submit" value="Indietro">
             </form>
-            <button type="button" onclick="window.history.back();">Indietro</button>
         </div>
     </form>
     <%
         if(u.getTipo().equals("S")){
     %>
     <form action="VisualizzaCarrelloServlet">
-        <input type="hidden" name="tipo" value="utenza">
         <input type="hidden" name="id" value="<%= u.getIdUtente() %>">
         <input type="submit" value="Visualizza il carrello dell'utente">
     </form>

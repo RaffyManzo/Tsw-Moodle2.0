@@ -23,44 +23,58 @@ public class ModificaServlet extends HttpServlet {
         String elemento=request.getParameter("id");
         String nome=request.getParameter("nome");
         request.setAttribute("tipo", tipo);
-        request.setAttribute("elemento", elemento);
+        request.setAttribute("id", elemento);
+        System.out.println(nome);
         if(nome==null) {
+            switch (tipo) {
+                case "utenza":
+                    UtenzaDaoImpl u = new UtenzaDaoImpl();
+                    Utenza utenza= u.findByID(Integer.parseInt(elemento));
+                    request.setAttribute("elemento", utenza);
+                    break;
+                case "corso":
+                    CorsoDaoImpl c = new CorsoDaoImpl();
+                    Corso corso= c.findByID(Integer.parseInt(elemento));
+                    request.setAttribute("elemento", corso);
+                    break;
+            }
             RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/results/admin/modifica.jsp");
             rd.forward(request, response);
-        }
+        }else {
 
-        switch (tipo) {
-            case "utenza":
-                UtenzaDaoImpl u = new UtenzaDaoImpl();
-                Utenza utenza= null;
-                try {
-                    utenza = new Utenza(Integer.parseInt(elemento), nome, request.getParameter("cognome"), parseDate(request.getParameter("dataNascita")),
-                            request.getParameter("indirizzo"), request.getParameter("citta"), request.getParameter("telefono"),
-                            request.getParameter("email"), request.getParameter("password"), parseDate(request.getParameter("dataCreazioneAccount")),
-                            request.getParameter("username"), request.getParameter("tipoUtente"), request.getParameter("immagine"));
-                } catch (ParseException e) {
-                    throw new RuntimeException(e);
-                }
-                u.update(utenza);
-                break;
-            case "corso":
-                CorsoDaoImpl c = new CorsoDaoImpl();
-                UtenzaDaoImpl ut =new UtenzaDaoImpl();
-                Corso corso= null;
-                try {
-                    corso = new Corso(Integer.parseInt(elemento), request.getParameter("categoria"), nome,
-                            request.getParameter("descrizione"), request.getParameter("immagine"), request.getParameter("certificazione"),
-                            parseDate(request.getParameter("creazione")), ut.findByID(Integer.parseInt(request.getParameter("creatore"))),
-                            Double.parseDouble(request.getParameter("prezzo")), Integer.parseInt(request.getParameter("acquisti")),
-                            Boolean.getBoolean(request.getParameter("isDeleted")));
-                } catch (ParseException e) {
-                    throw new RuntimeException(e);
-                }
-                c.update(corso);
-                break;
-        }
+            switch (tipo) {
+                case "utenza":
+                    UtenzaDaoImpl u = new UtenzaDaoImpl();
+                    Utenza utenza = null;
+                    try {
+                        utenza = new Utenza(Integer.parseInt(elemento), nome, request.getParameter("cognome"), parseDate(request.getParameter("dataNascita")),
+                                request.getParameter("indirizzo"), request.getParameter("citta"), request.getParameter("telefono"),
+                                request.getParameter("email"), request.getParameter("password"), parseDate(request.getParameter("dataCreazioneAccount")),
+                                request.getParameter("username"), request.getParameter("tipoUtente"), request.getParameter("immagine"));
+                    } catch (ParseException e) {
+                        throw new RuntimeException(e);
+                    }
+                    u.update(utenza);
+                    break;
+                case "corso":
+                    CorsoDaoImpl c = new CorsoDaoImpl();
+                    UtenzaDaoImpl ut = new UtenzaDaoImpl();
+                    Corso corso = null;
+                    try {
+                        corso = new Corso(Integer.parseInt(elemento), request.getParameter("categoria"), nome,
+                                request.getParameter("descrizione"), request.getParameter("immagine"), request.getParameter("certificazione"),
+                                parseDate(request.getParameter("creazione")), ut.findByID(Integer.parseInt(request.getParameter("creatore"))),
+                                Double.parseDouble(request.getParameter("prezzo")), Integer.parseInt(request.getParameter("acquisti")),
+                                Boolean.getBoolean(request.getParameter("isDeleted")));
+                    } catch (ParseException e) {
+                        throw new RuntimeException(e);
+                    }
+                    c.update(corso);
+                    break;
+            }
 
-        response.sendRedirect("admin?table-select=" + tipo);
+            response.sendRedirect("admin?table-select=" + tipo);
+        }
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
