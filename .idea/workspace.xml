@@ -9,15 +9,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aaf64b38-f287-423c-9dbc-41a4353826d6" name="Changes" comment="Finita aggiunta nuovi corsi da parte del docente">
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/private/teacher/manageCourse.jsp" afterDir="false" />
+    <list default="true" id="aaf64b38-f287-423c-9dbc-41a4353826d6" name="Changes" comment="Barra di ricerca home docente">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/8d1da4ce-79df-43f7-8a5f-0540fbbb02f0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/8d1da4ce-79df-43f7-8a5f-0540fbbb02f0.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/teacher/NewCourseServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/teacher/NewCourseServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/dao/CorsoDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/dao/CorsoDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/dao/CorsoDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/dao/CorsoDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/xml/query.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/xml/query.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/private/teacher/home.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/private/teacher/home.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/teacher-home.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/teacher-home.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/admin/modificaUtenza.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/admin/modificaUtenza.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -317,15 +312,8 @@
       <workItem from="1720261044709" duration="7645000" />
       <workItem from="1720347639092" duration="1351000" />
       <workItem from="1720349066704" duration="7481000" />
-      <workItem from="1720435039564" duration="22530000" />
-    </task>
-    <task id="LOCAL-00016" summary="home.jsp after login">
-      <option name="closed" value="true" />
-      <created>1718725758992</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1718725758992</updated>
+      <workItem from="1720435039564" duration="23319000" />
+      <workItem from="1720518053122" duration="447000" />
     </task>
     <task id="LOCAL-00017" summary="Added ShoppingServlet.java and cart.jsp">
       <option name="closed" value="true" />
@@ -711,7 +699,15 @@
       <option name="project" value="LOCAL" />
       <updated>1720462380124</updated>
     </task>
-    <option name="localTasksCounter" value="65" />
+    <task id="LOCAL-00065" summary="Barra di ricerca home docente">
+      <option name="closed" value="true" />
+      <created>1720463450989</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1720463450989</updated>
+    </task>
+    <option name="localTasksCounter" value="66" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -729,7 +725,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fixed LoginServlet.java cart loading" />
     <MESSAGE value="fix search.css" />
     <MESSAGE value="finished search bar" />
     <MESSAGE value="set the limit of search bar result" />
@@ -754,6 +749,7 @@
     <MESSAGE value="fix session popup timer" />
     <MESSAGE value="Modifiche varie" />
     <MESSAGE value="Finita aggiunta nuovi corsi da parte del docente" />
-    <option name="LAST_COMMIT_MESSAGE" value="Finita aggiunta nuovi corsi da parte del docente" />
+    <MESSAGE value="Barra di ricerca home docente" />
+    <option name="LAST_COMMIT_MESSAGE" value="Barra di ricerca home docente" />
   </component>
 </project>
