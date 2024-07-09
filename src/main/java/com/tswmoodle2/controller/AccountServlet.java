@@ -60,7 +60,7 @@ public class AccountServlet extends HttpServlet {
         String password = request.getParameter("password");
         String passwordCheck = request.getParameter("password-check");
 
-        List<String> errors = new ArrayList<>();
+        ArrayList<String> errors = new ArrayList<>();
         if (!password.equals(passwordCheck)) {
             errors.add("Le password non corrispondono");
             forwardWithError(request, response, errors);
@@ -77,12 +77,14 @@ public class AccountServlet extends HttpServlet {
             updatePassword(request, response, password);
         } catch (Exception e) {
             LOGGER.log(Level.SEVERE, "Error updating password", e);
-            forwardWithError(request, response, List.of("Errore nell'aggiornamento della password"));
+            ArrayList<String> err = new ArrayList<>();
+            err.add("Errore nell'aggiornamento della password");
+            forwardWithError(request, response, err);
         }
     }
 
-    private void forwardWithError(HttpServletRequest request, HttpServletResponse response, List<String> errors) throws ServletException, IOException {
-        request.setAttribute("errors", new ArrayList<>(errors));
+    private void forwardWithError(HttpServletRequest request, HttpServletResponse response, ArrayList<String> errors) throws ServletException, IOException {
+        request.setAttribute("errors", errors);
         request.getRequestDispatcher(ERROR_VIEW).forward(request, response);
     }
 
@@ -95,7 +97,9 @@ public class AccountServlet extends HttpServlet {
             session.setAttribute("user", user);
             request.getRequestDispatcher(ACCOUNT_VIEW).forward(request, response);
         } else {
-            forwardWithError(request, response, List.of("Non hai i permessi per accedere a questa risorsa"));
+            ArrayList<String> err = new ArrayList<>();
+            err.add("Non hai i permessi per accedere a questa risorsa");
+            forwardWithError(request, response, err);
         }
     }
 
@@ -108,7 +112,9 @@ public class AccountServlet extends HttpServlet {
             session.setAttribute("user", user);
             request.getRequestDispatcher(ACCOUNT_VIEW).forward(request, response);
         } else {
-            forwardWithError(request, response, List.of("Non hai i permessi per accedere a questa risorsa"));
+            ArrayList<String> err = new ArrayList<>();
+            err.add("Non hai i permessi per accedere a questa risorsa");
+            forwardWithError(request, response, err);
         }
     }
 
@@ -117,9 +123,9 @@ public class AccountServlet extends HttpServlet {
     }
 
     private boolean isValidPassword(String password) {
-        String uppercasePattern = ".*[A-Z].*";
-        String digitPattern = ".*[0-9].*";
-        String specialCharacterPattern = ".*[!@#$%^&*(),.?\":{}|<>].*";
+        String uppercasePattern = ".[A-Z].";
+        String digitPattern = ".[0-9].";
+        String specialCharacterPattern = ".[!@#$%^&(),.?\":{}|<>].*";
 
         return password.length() >= 8 && password.length() <= 15 &&
                 Pattern.matches(uppercasePattern, password) &&
@@ -154,10 +160,13 @@ public class AccountServlet extends HttpServlet {
                 request.setAttribute("messages", msgs);
                 request.getRequestDispatcher(SUCCESS_VIEW).forward(request, response);
             } else {
-                forwardWithError(request, response, List.of("Non hai i permessi per accedere a questa risorsa"));
+                ArrayList<String> err = new ArrayList<>();
+                err.add("Non hai i permessi per accedere a questa risorsa");
+                forwardWithError(request, response, err);
             }
         } else {
-            forwardWithError(request, response, List.of("Non hai i permessi per accedere a questa risorsa"));
+            ArrayList<String> err = new ArrayList<>();
+            err.add("Non hai i permessi per accedere a questa risorsa");
         }
     }
 }

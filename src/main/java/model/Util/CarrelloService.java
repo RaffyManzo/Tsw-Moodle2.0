@@ -25,13 +25,16 @@ public class CarrelloService {
             return null;
         }
 
-            int carrelloID = carrelloDAO.getCartIDByUser(user.getIdUtente());
-            if (carrelloID < 0) {
-                carrelloID = carrelloDAO.createCartForUser(user.getIdUtente());
+        int carrelloID = carrelloDAO.getCartIDByUser(user.getIdUtente());
+        if (carrelloID < 0) {
+            carrelloID = carrelloDAO.createCartForUser(user.getIdUtente());
+            if(carrelloID < 0)
                 return new Carrello(user.getIdUtente(), carrelloID);
+            else return null;
 
-            } else {
-                return carrelloDAO.getCartByUserID(user.getIdUtente());
-            }
+        } else {
+            return carrelloDAO.getCartByUserID(user.getIdUtente());
+        }
     }
+
 }

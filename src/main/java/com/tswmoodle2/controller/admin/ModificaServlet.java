@@ -6,12 +6,15 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import model.beans.Categoria;
 import model.beans.Corso;
 import model.beans.Utenza;
+import model.dao.CategoriaDaoImpl;
 import model.dao.CorsoDaoImpl;
 import model.dao.UtenzaDaoImpl;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -36,6 +39,12 @@ public class ModificaServlet extends HttpServlet {
                     CorsoDaoImpl c = new CorsoDaoImpl();
                     Corso corso= c.findByID(Integer.parseInt(elemento));
                     request.setAttribute("elemento", corso);
+                    break;
+                case "categoria":
+                    CategoriaDaoImpl ca = new CategoriaDaoImpl();
+                    ArrayList<Categoria> categorie= ca.findByNome(elemento);
+                    Categoria categoria=categorie.get(0);
+                    request.setAttribute("elemento", categoria);
                     break;
             }
             RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/results/admin/modifica.jsp");
@@ -70,6 +79,13 @@ public class ModificaServlet extends HttpServlet {
                         throw new RuntimeException(e);
                     }
                     c.update(corso);
+                    break;
+                case "categoria":
+                    CategoriaDaoImpl ca = new CategoriaDaoImpl();
+                    ca.changeName(elemento, nome);
+                    ArrayList<Categoria> categorie= ca.findByNome(elemento);
+                    Categoria categoria=categorie.get(0);
+                    categoria.setNome(nome);
                     break;
             }
 

@@ -42,6 +42,13 @@
 
     <%
                 break;
+        case "categoria":
+    %>
+    <jsp:include page="modificaCategoria.jsp"></jsp:include>
+
+
+    <%
+                break;
             default:
                 System.out.println("Errore");
                 break;
