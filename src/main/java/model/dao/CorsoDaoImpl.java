@@ -47,24 +47,25 @@ public class CorsoDaoImpl extends AbstractDataAccessObject<Corso> implements Cor
     }
 
     @Override
-    public void update(Corso corso)  {
+    public void update(Corso corso) {
         try (Connection connection = getConnection();
-             PreparedStatement ps = prepareStatement(connection,"UPDATE_CORSO")) {
+             PreparedStatement ps = prepareStatement(connection, "UPDATE_CORSO")) {
             ps.setString(1, corso.getNomeCategoria());
             ps.setString(2, corso.getNome());
             ps.setString(3, corso.getDescrizione());
             ps.setString(4, corso.getImmagine());
             ps.setString(5, corso.getCertificazione());
             ps.setDate(6, new java.sql.Date(corso.getDataCreazione().getTime()));
-            ps.setInt(9, corso.getIdCorso());
             ps.setDouble(7, corso.getPrezzo());
             ps.setInt(8, corso.getCreatore().getIdUtente());
-            ps.setBoolean(10, corso.isDeleted());
+            ps.setBoolean(9, corso.isDeleted());
+            ps.setInt(10, corso.getIdCorso()); // L'IDCorso deve essere l'ultimo parametro
             ps.executeUpdate();
         } catch (SQLException exception) {
             throw new RuntimeException(exception);
         }
     }
+
 
     public void delete(int id) {
         try (Connection connection = getConnection();

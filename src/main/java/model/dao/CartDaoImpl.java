@@ -16,7 +16,7 @@ public class CartDaoImpl extends AbstractDataAccessObject<Carrello> implements C
     @Override
     protected Carrello extractFromResultSet(ResultSet rs) throws SQLException {
         if (!rs.next()) {
-            return null;
+            return new Carrello(-1, -1);
         }
 
         int idCarrello = rs.getInt("IDCarrello");
@@ -185,13 +185,9 @@ public class CartDaoImpl extends AbstractDataAccessObject<Carrello> implements C
         try (Connection conn = getConnection()) {
             try (PreparedStatement ps = prepareStatement(conn, "GET_CART_ID_BY_USER")) {
                 ps.setInt(1, IDUtente);
-
                 ResultSet rs = ps.executeQuery();
-                if (rs.next()) {
-                    return rs.getInt(
-                            "IDCarrello"
-                    );
-                }
+                if (rs.next())
+                    return rs.getInt("IDCarrello");
 
             } catch (SQLException e) {
                 throw new RuntimeException(e);

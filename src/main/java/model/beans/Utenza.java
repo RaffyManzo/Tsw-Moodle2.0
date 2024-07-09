@@ -67,6 +67,10 @@ public class Utenza {
 
     private String img;
 
+    public Utenza(int idUtente, String tipo) {
+        this.idUtente = idUtente;
+        this.tipo = tipo;
+    }
 
     public Utenza(int idUtente, String nome, String cognome, Date dataNascita, String indirizzo, String citta, String telefono, String email, String password, Date dataCreazioneAccount, String username, String tipo, String img) {
         this.idUtente = idUtente;

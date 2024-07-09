@@ -2,13 +2,15 @@ package model.Util;
 
 import model.beans.Carrello;
 import model.beans.Utenza;
-import model.dao.CartDao;
 import model.dao.CartDaoImpl;
 
-import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class CarrelloService {
     private final CartDaoImpl carrelloDAO = new CartDaoImpl();
+    private static final Logger LOGGER = Logger.getLogger(CarrelloService.class.getName());
+
 
     public void saveCarrello(Carrello carrello) {
         carrelloDAO.saveOrUpdateCarrello(carrello);
@@ -19,19 +21,21 @@ public class CarrelloService {
     }
 
 
-
     public Carrello getOrCreateCarrello(Utenza user) {
         if (user == null) {
             return null;
         }
 
         int carrelloID = carrelloDAO.getCartIDByUser(user.getIdUtente());
+
+
+        LOGGER.log(Level.INFO, "Id carrello recuperato: {0}", carrelloID);
+
         if (carrelloID < 0) {
             carrelloID = carrelloDAO.createCartForUser(user.getIdUtente());
             if(carrelloID < 0)
-                return new Carrello(user.getIdUtente(), carrelloID);
-            else return null;
-
+                return null;
+            return new Carrello(user.getIdUtente(), carrelloID);
         } else {
             return carrelloDAO.getCartByUserID(user.getIdUtente());
         }

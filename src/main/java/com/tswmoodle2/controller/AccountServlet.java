@@ -167,6 +167,7 @@ public class AccountServlet extends HttpServlet {
         } else {
             ArrayList<String> err = new ArrayList<>();
             err.add("Non hai i permessi per accedere a questa risorsa");
+            forwardWithError(request, response, err);
         }
     }
 }

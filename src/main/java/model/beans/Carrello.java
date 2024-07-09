@@ -9,9 +9,16 @@ public class Carrello {
     private final Map<Corso, Integer> cart = new ConcurrentHashMap<>();
 
 
+    public void setIDUtente(int IDUtente) {
+        this.IDUtente = IDUtente;
+    }
 
-    private final int IDUtente;
-    private final int IDCarrello;
+    public void setIDCarrello(int IDCarrello) {
+        this.IDCarrello = IDCarrello;
+    }
+
+    private  int IDUtente;
+    private  int IDCarrello;
 
     public Carrello(Map<Corso, Integer> sessionCart, int idUtente, int idCarrello) {
         IDUtente = idUtente;

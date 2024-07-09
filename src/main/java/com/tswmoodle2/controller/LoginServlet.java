@@ -11,12 +11,17 @@ import model.Util.CarrelloService;
 import model.beans.Carrello;
 import model.beans.Corso;
 import model.beans.Utenza;
+import model.dao.CartDaoImpl;
 import model.dao.UtenzaDaoImpl;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -24,6 +29,7 @@ import java.util.regex.Pattern;
 
 @WebServlet(name = "LoginServlet", urlPatterns = {"/login"})
 public class LoginServlet extends HttpServlet {
+    private static final Logger LOGGER = Logger.getLogger(LoginServlet.class.getName());
 
     RequestDispatcher errorDispatcher;
 
@@ -93,12 +99,34 @@ public class LoginServlet extends HttpServlet {
 
                     if(carrello == null) {
                         errorOccurs(new ArrayList<>(List.of("C'é stato un problema con la generazione del carrello")), request, response);
+
+                        return;
+                    } else {
+
+                        if (carrello.getIDCarrello() == -1) {
+                            carrello.setIDCarrello(new CartDaoImpl().getCartIDByUser(user.getIdUtente()));
+                            carrello.setIDUtente(user.getIdUtente());
+                            carrello.setCart(new HashMap<>());
+                        }
+
                     }
+
 
                     if (sessionCart != null) {
                         carrello.setCart(sessionCart);
                         new CarrelloService().saveCarrello(carrello);
                     }
+
+                    
+
+                    LOGGER.log(Level.INFO, "Il carrello appena creato ha (IDCarrello-IDUtente): {0}-{1}",
+                            List.of(carrello.getIDCarrello(), carrello.getIDUtente()));
+
+                    if (sessionCart != null) {
+                        carrello.setCart(sessionCart);
+                        new CarrelloService().saveCarrello(carrello);
+                    }
+
 
 
                     if (carrello != null)
