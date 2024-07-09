@@ -1,5 +1,8 @@
 <%@ page import="model.beans.Utenza" %>
-<%@ page import="model.beans.Corso" %><%--
+<%@ page import="model.beans.Corso" %>
+<%@ page import="model.beans.Argomento" %>
+<%@ page import="model.beans.Lezione" %>
+<%@ page import="java.util.ArrayList" %><%--
   Created by IntelliJ IDEA.
   User: raffa
   Date: 09/07/2024
@@ -66,6 +69,9 @@
     <link href="${pageContext.request.contextPath}/css/footer.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/css/delete-margin.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/css/courseTeacher.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/css/course.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/css/createcourse.css" rel="stylesheet">
+
 
 
     <!-- Importing google font -->
@@ -76,6 +82,8 @@
     <script src="${pageContext.request.contextPath}/script/accountProfilePicControl.js" defer></script>
     <script src="${pageContext.request.contextPath}/script/imageErrorDetect.js" defer></script>
     <script src="${pageContext.request.contextPath}/script/accountProfilePicControl.js" defer></script>
+    <script src="${pageContext.request.contextPath}/script/lessonsCoursePage.js" defer></script>
+
 </head>
 <body>
 <div class="header" id="header">
@@ -189,6 +197,32 @@
             </div>
         </div>
     </form>
+    <div class="lessons-container">
+        <%if(request.getAttribute("lezioni") != null) {%>
+        <h2>Contenuto del corso</h2>
+        <% for(Lezione lezione : (ArrayList<Lezione>)request.getAttribute("lezioni")) {%>
+        <button class="accordion"><%= lezione.getTitolo()%></button>
+
+        <div class="panel">
+            <% for(Argomento argomento : lezione.getArgomenti()) {%>
+
+            <p><%= argomento.getNome()%></p>
+
+            <%}%>
+        </div>
+        <%}%>
+
+        <%} else {%>
+        <p>Il corso ha né lezioni ne argomenti... <br>
+            Attendi vengano caricati da <%= corso.getCreatore().getNome() + " " + corso.getCreatore().getCognome()%></p>
+        <%}%>
+
+        <h4>Aggiungi una lezione</h4>
+        <div class="new-lesson" id="new-course">
+            <p>+</p>
+        </div>
+    </div>
+
 </div>
 
 <footer class="footer">

@@ -68,6 +68,7 @@ public class UpdateCourseServlet extends HttpServlet {
             if(!corso.equals(updated)) {
 
                 if (imgPart != null && imgPart.getSize() > 0) {
+                    LOGGER.log(Level.INFO, "upload course image");
                     uploadImage(imgPart, corso.getIdCorso(), request, response);
                 }
 
@@ -81,8 +82,6 @@ public class UpdateCourseServlet extends HttpServlet {
         } else {
             forwardWithError(request, response, List.of("Alcuni campi sono nulli"));
         }
-
-
     }
 
     private void uploadImage(Part fileParam, int courseId, HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -93,7 +92,7 @@ public class UpdateCourseServlet extends HttpServlet {
             return;
         }
 
-        String uploadPath = UPLOAD_FOLDER + SEPARATOR + "user" + SEPARATOR + courseId;
+        String uploadPath = UPLOAD_FOLDER + SEPARATOR + "course" + SEPARATOR + courseId;
         LOGGER.log(Level.INFO, "Path for upload: {0}", uploadPath);
 
         File uploadDir = new File(uploadPath);
@@ -101,7 +100,10 @@ public class UpdateCourseServlet extends HttpServlet {
             try {
                 Path createdPath = Files.createDirectories(uploadDir.toPath());
                 LOGGER.log(Level.INFO, "Directory created or already exists at: {0}", createdPath.toString());
-                if (!Files.exists(createdPath)) {
+                // Verifica esistenza directory
+                if (Files.exists(createdPath)) {
+                    LOGGER.log(Level.INFO, "Confirmed: Directory exists at: {0}", createdPath.toString());
+                } else {
                     LOGGER.log(Level.SEVERE, "Directory creation failed: {0}", createdPath.toString());
                     response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Failed to create upload directory.");
                     return;
@@ -118,16 +120,23 @@ public class UpdateCourseServlet extends HttpServlet {
 
         File existingFile = new File(filePath);
         if (existingFile.exists()) {
-            existingFile.delete();
-        }
+            LOGGER.log(Level.INFO, "File already exists: {0}", filePath);
+            // Option 1: Delete the existing file
 
-        try (InputStream input = fileParam.getInputStream()) {
-            Files.copy(input, Path.of(filePath), StandardCopyOption.REPLACE_EXISTING);
-        } catch (IOException ex) {
-            LOGGER.log(Level.SEVERE, "Failed to save uploaded file: " + ex.getMessage(), ex);
-            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Failed to save uploaded file.");
+        } else {
+
+            try (InputStream input = fileParam.getInputStream()) {
+
+                Files.copy(input, Path.of(filePath));
+                LOGGER.log(Level.INFO, "Image saved successfully");
+            } catch (IOException ex) {
+                LOGGER.log(Level.SEVERE, "Failed to save uploaded file: " + ex.getMessage(), ex);
+                response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Failed to save uploaded file.");
+                return;
+            }
         }
     }
+
 
     private boolean checkField(HttpServletRequest request) throws ServletException, IOException {
         return request.getParameter("titolo") != null &&

@@ -1,5 +1,6 @@
 * {
     font-family: "Jura", sans-serif;
+    box-sizing: border-box;
 }
 
 .container {
@@ -34,13 +35,14 @@ input[type="text"], input[type="number"], select, textarea {
     border-radius: 4px;
     box-sizing: border-box;
 }
-.image-upload {
+.image-upload, .new-lesson {
     border: 2px dashed #ccc;
     border-radius: 4px;
     padding: 20px;
     text-align: center;
     cursor: pointer;
     margin-top: 10px;
+    width: 100%;
 }
 .image-upload img {
     max-width: 100%;

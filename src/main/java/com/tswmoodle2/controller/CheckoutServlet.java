@@ -18,10 +18,7 @@ import java.sql.SQLException;
 import java.sql.SQLIntegrityConstraintViolationException;
 import java.time.LocalDate;
 import java.time.temporal.TemporalAdjusters;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
 
 @WebServlet(name = "CheckoutServlet", value = "/checkout")
 public class CheckoutServlet extends HttpServlet {
@@ -170,12 +167,22 @@ public class CheckoutServlet extends HttpServlet {
             Utenza user = (Utenza) session.getAttribute("user");
 
             if (user != null) {
-                Carrello carrello = new CarrelloService().getOrCreateCarrello(user);
+                CarrelloService carrelloService = new CarrelloService();
+                Carrello carrello = carrelloService.getOrCreateCarrello(user);
+
+                if (carrello.getIDCarrello() == -1) {
+                    carrello.setIDCarrello(new CartDaoImpl().getCartIDByUser(user.getIdUtente()));
+                    carrello.setIDUtente(user.getIdUtente());
+                    carrello.setCart(new HashMap<>());
+                }
+
                 carrello.setCart((Map<Corso, Integer>) session.getAttribute("cart"));
 
                 CartDaoImpl cartDao = new CartDaoImpl();
                 cartDao.saveOrUpdateCarrello(carrello);
-                session.setAttribute("cart", carrello.getCart()); // replace session attribute with db cart
+
+                // Aggiorna la sessione con il carrello aggiornato dal database
+                session.setAttribute("cart", carrello.getCart());
 
                 return carrello;
             }

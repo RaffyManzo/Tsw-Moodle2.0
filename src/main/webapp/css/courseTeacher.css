@@ -8,10 +8,19 @@
     display: flex;
     justify-content: center;
     align-content: center;
+    flex-direction: column;
+}
+
+.lessons-container {
+    margin: 5% 0 !important;
+}
+
+.new-lesson {
+    width: 60% !important;
 }
 
 .form-box {
-    width: 50%;
+    width: 60% !important;
     background: white;
     padding: 20px;
     margin: 20px auto;
@@ -96,8 +105,12 @@ input[type="text"], input[type="number"], select, textarea {
 
 
 
-@media screen and (max-width: 1000px) {
-    .form-box {
+@media screen and (max-width: 1100px) {
+    .form-box, .lessons-container {
+        width: 80%;
+    }
+
+    .new-lesson {
         width: 80%;
     }
 }
@@ -105,7 +118,11 @@ input[type="text"], input[type="number"], select, textarea {
 
 
 @media screen and (max-width: 500px) {
-    .form-box {
+    .form-box, .lessons-container {
+        width: 100%;
+    }
+
+    .new-lesson {
         width: 100%;
     }
 }
