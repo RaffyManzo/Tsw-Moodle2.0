@@ -168,7 +168,8 @@ public class CartDaoImpl extends AbstractDataAccessObject<Carrello> implements C
             stmt.executeUpdate();
             try (ResultSet rs = stmt.getGeneratedKeys()) {
                 if (rs.getMetaData().getColumnCount() == 1) {
-                    return rs.getInt(1);
+                    if(rs.next())
+                        return rs.getInt(1);
                 } else {
                     throw new SQLException("Creating carrello failed, no ID obtained.");
                 }
@@ -176,6 +177,7 @@ public class CartDaoImpl extends AbstractDataAccessObject<Carrello> implements C
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+        return -1;
     }
 
 

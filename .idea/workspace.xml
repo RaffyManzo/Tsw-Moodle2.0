@@ -9,10 +9,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aaf64b38-f287-423c-9dbc-41a4353826d6" name="Changes" comment="Barra di ricerca home docente">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/8d1da4ce-79df-43f7-8a5f-0540fbbb02f0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/8d1da4ce-79df-43f7-8a5f-0540fbbb02f0.xml" afterDir="false" />
+    <list default="true" id="aaf64b38-f287-423c-9dbc-41a4353826d6" name="Changes" comment="ripristino pagina di modificaUtenza.jsp">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/teacher/UpdateCourseServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/css/courseTeacher.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/admin/modificaUtenza.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/admin/modificaUtenza.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/AccountServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/AccountServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/CourseServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/CourseServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/LoginServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/LoginServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/ShoppingServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/ShoppingServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/filter/CustomHttpServletRequestWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/filter/CustomHttpServletRequestWrapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Util/CarrelloService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Util/CarrelloService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/beans/Corso.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/beans/Corso.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/beans/Utenza.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/beans/Utenza.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/dao/CartDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/dao/CartDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/private/teacher/manageCourse.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/private/teacher/course.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/script/imagePicInCreateCourse.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/script/imagePicInCreateCourse.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,10 +36,10 @@
         <option value="HTML File" />
         <option value="SCSS File" />
         <option value="Interface" />
-        <option value="CSS File" />
         <option value="JavaScript File" />
-        <option value="Class" />
         <option value="Jsp File" />
+        <option value="CSS File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -313,15 +324,7 @@
       <workItem from="1720347639092" duration="1351000" />
       <workItem from="1720349066704" duration="7481000" />
       <workItem from="1720435039564" duration="23319000" />
-      <workItem from="1720518053122" duration="447000" />
-    </task>
-    <task id="LOCAL-00017" summary="Added ShoppingServlet.java and cart.jsp">
-      <option name="closed" value="true" />
-      <created>1718826584565</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1718826584565</updated>
+      <workItem from="1720518053122" duration="13213000" />
     </task>
     <task id="LOCAL-00018" summary="Finish cart page">
       <option name="closed" value="true" />
@@ -707,7 +710,15 @@
       <option name="project" value="LOCAL" />
       <updated>1720463450989</updated>
     </task>
-    <option name="localTasksCounter" value="66" />
+    <task id="LOCAL-00066" summary="ripristino pagina di modificaUtenza.jsp">
+      <option name="closed" value="true" />
+      <created>1720518663600</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1720518663601</updated>
+    </task>
+    <option name="localTasksCounter" value="67" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -725,7 +736,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fix search.css" />
     <MESSAGE value="finished search bar" />
     <MESSAGE value="set the limit of search bar result" />
     <MESSAGE value="start category page&#10;start purchasing course" />
@@ -750,6 +760,7 @@
     <MESSAGE value="Modifiche varie" />
     <MESSAGE value="Finita aggiunta nuovi corsi da parte del docente" />
     <MESSAGE value="Barra di ricerca home docente" />
-    <option name="LAST_COMMIT_MESSAGE" value="Barra di ricerca home docente" />
+    <MESSAGE value="ripristino pagina di modificaUtenza.jsp" />
+    <option name="LAST_COMMIT_MESSAGE" value="ripristino pagina di modificaUtenza.jsp" />
   </component>
 </project>

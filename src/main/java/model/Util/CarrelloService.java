@@ -2,10 +2,7 @@ package model.Util;
 
 import model.beans.Carrello;
 import model.beans.Utenza;
-import model.dao.CartDao;
 import model.dao.CartDaoImpl;
-
-import java.sql.SQLException;
 
 public class CarrelloService {
     private final CartDaoImpl carrelloDAO = new CartDaoImpl();
@@ -19,19 +16,20 @@ public class CarrelloService {
     }
 
 
-
     public Carrello getOrCreateCarrello(Utenza user) {
         if (user == null) {
             return null;
         }
 
-            int carrelloID = carrelloDAO.getCartIDByUser(user.getIdUtente());
-            if (carrelloID < 0) {
-                carrelloID = carrelloDAO.createCartForUser(user.getIdUtente());
+        int carrelloID = carrelloDAO.getCartIDByUser(user.getIdUtente());
+        if (carrelloID < 0) {
+            carrelloID = carrelloDAO.createCartForUser(user.getIdUtente());
+            if (carrelloID < 0)
                 return new Carrello(user.getIdUtente(), carrelloID);
+            else return null;
 
-            } else {
-                return carrelloDAO.getCartByUserID(user.getIdUtente());
-            }
+        } else {
+            return carrelloDAO.getCartByUserID(user.getIdUtente());
+        }
     }
 }

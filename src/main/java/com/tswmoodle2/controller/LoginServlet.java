@@ -18,6 +18,7 @@ import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.regex.Pattern;
 
@@ -81,21 +82,28 @@ public class LoginServlet extends HttpServlet {
 
         if (user != null) {
             if (hashPassword.equals(user.getPassword())) {
-
-
-                // Creazione o recupero della sessione
                 HttpSession session = request.getSession();
-                Map<Corso, Integer> sessionCart = (Map<Corso, Integer>) session.getAttribute("cart");
 
-                Carrello carrello = new CarrelloService().getOrCreateCarrello(user);
-                if(sessionCart != null) {
-                    carrello.setCart(sessionCart);
-                    new CarrelloService().saveCarrello(carrello);
+                // Sincronizzo il carrello solo se l'utente é uno studente
+                if(user.getTipo().equals("S")) {
+
+                    Map<Corso, Integer> sessionCart = (Map<Corso, Integer>) session.getAttribute("cart");
+
+                    Carrello carrello = new CarrelloService().getOrCreateCarrello(user);
+
+                    if(carrello == null) {
+                        errorOccurs(new ArrayList<>(List.of("C'é stato un problema con la generazione del carrello")), request, response);
+                    }
+
+                    if (sessionCart != null) {
+                        carrello.setCart(sessionCart);
+                        new CarrelloService().saveCarrello(carrello);
+                    }
+
+
+                    if (carrello != null)
+                        session.setAttribute("cart", carrello.getCart());
                 }
-
-
-                if(carrello != null)
-                    session.setAttribute("cart", carrello.getCart());
                 session.setAttribute("user", user);
                 session.setAttribute("isAdmin", user.getTipo().contentEquals("A") ? Boolean.TRUE : Boolean.FALSE);
 

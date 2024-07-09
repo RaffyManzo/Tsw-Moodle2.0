@@ -83,6 +83,21 @@ public class Corso {
         return creatore;
     }
 
+
+    // equals e hashCode (necessario per l'uso come chiave di Map)
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Corso corso = (Corso) o;
+        return idCorso == corso.idCorso &&
+                Double.compare(corso.prezzo, prezzo) == 0 &&
+                Objects.equals(nomeCategoria, corso.nomeCategoria) &&
+                Objects.equals(nome, corso.nome) &&
+                Objects.equals(descrizione, corso.descrizione) &&
+                Objects.equals(immagine, corso.immagine) ;
+    }
+
     @Override
     public String toString() {
         return "Corso{" +
@@ -92,19 +107,12 @@ public class Corso {
                 ", descrizione='" + descrizione + '\'' +
                 ", immagine='" + immagine + '\'' +
                 ", certificazione='" + certificazione + '\'' +
-                ", prezzo='" + prezzo + '\'' +
-                ", creatore='" + creatore + '\'' +
                 ", dataCreazione=" + dataCreazione +
+                ", creatore='" + creatore + '\'' +
+                ", prezzo=" + prezzo +
+                ", numeroAcquisti=" + numeroAcquisti +
+                ", isDeleted=" + isDeleted +
                 '}';
-    }
-
-    // equals e hashCode (necessario per l'uso come chiave di Map)
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Corso corso = (Corso) o;
-        return idCorso == corso.idCorso;
     }
 
     @Override

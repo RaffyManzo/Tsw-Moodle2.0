@@ -54,9 +54,11 @@ ShoppingServlet extends HttpServlet {
         HttpSession session = req.getSession(false);
         user = session != null ? (Utenza) session.getAttribute("user") : null;
 
-        if(!user.getTipo().equals("s")) {
-            req.setAttribute("errors", new ArrayList<>(List.of("Questo account non puó accedere a questa funzione")));
-            req.getRequestDispatcher(ERROR_VIEW).forward(req, resp);
+        if(user != null) {
+            if (!user.getTipo().equals("s")) {
+                req.setAttribute("errors", new ArrayList<>(List.of("Questo account non puó accedere a questa funzione")));
+                req.getRequestDispatcher(ERROR_VIEW).forward(req, resp);
+            }
         }
 
         String action = req.getParameter("action");

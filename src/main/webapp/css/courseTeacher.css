@@ -1,0 +1,111 @@
+* {
+    font-family: "Jura", sans-serif;
+    box-sizing: border-box;
+}
+
+.container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.form-box {
+    width: 50%;
+    background: white;
+    padding: 20px;
+    margin: 20px auto;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.form-content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.text-field-container {
+    flex: 1;
+    margin-right: 20px;
+}
+
+.image-upload-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+input[type="text"], input[type="number"], select, textarea {
+    width: 100%;
+    resize: vertical;
+    font-size: 20px;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.image-upload {
+    border: 2px dashed #ccc;
+    border-radius: 4px;
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+    margin-top: 10px;
+    height: 100%;
+}
+
+.image-upload img {
+    max-width: 100%;
+    max-height: 100%;
+    display: none;
+}
+
+.image-upload p {
+    margin: 0;
+}
+
+.submit-btn {
+    background-color: #4e5690;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.submit-btn:hover {
+    background-color: #6259ef;
+}
+
+
+
+@media screen and (max-width: 1000px) {
+    .form-box {
+        width: 80%;
+    }
+}
+
+
+
+@media screen and (max-width: 500px) {
+    .form-box {
+        width: 100%;
+    }
+}
