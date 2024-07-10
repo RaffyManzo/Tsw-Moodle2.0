@@ -9,17 +9,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aaf64b38-f287-423c-9dbc-41a4353826d6" name="Changes" comment="Aggiunte sulla creazione e medifica lezioni e argomenti (senza file)">
+    <list default="true" id="aaf64b38-f287-423c-9dbc-41a4353826d6" name="Changes" comment="Completata aggiunta di lezioni e argomenti con aggiunta file">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/teacher/LessonsServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/teacher/LessonsServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/dao/ArgomentoDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/dao/ArgomentoDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/dao/ArgomentoDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/dao/ArgomentoDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/xml/query.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/xml/query.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/private/teacher/course.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/private/teacher/course.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/private/teacher/lessons.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/private/teacher/lessons.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/css/course.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/course.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/script/lessonsCoursePage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/script/lessonsCoursePage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/script/newLessons.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/script/newLessons.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -322,15 +316,7 @@
       <workItem from="1720435039564" duration="23319000" />
       <workItem from="1720518053122" duration="24860000" />
       <workItem from="1720560567649" duration="4665000" />
-      <workItem from="1720600415122" duration="38297000" />
-    </task>
-    <task id="LOCAL-00021" summary="Modified FileServlet.java, and added upload folder in resources folder">
-      <option name="closed" value="true" />
-      <created>1719010368222</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1719010368222</updated>
+      <workItem from="1720600415122" duration="38937000" />
     </task>
     <task id="LOCAL-00022" summary="Added checkout.jsp">
       <option name="closed" value="true" />
@@ -716,7 +702,15 @@
       <option name="project" value="LOCAL" />
       <updated>1720649816051</updated>
     </task>
-    <option name="localTasksCounter" value="70" />
+    <task id="LOCAL-00070" summary="Completata aggiunta di lezioni e argomenti con aggiunta file">
+      <option name="closed" value="true" />
+      <created>1720654076524</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1720654076524</updated>
+    </task>
+    <option name="localTasksCounter" value="71" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -746,7 +740,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Some fix" />
     <MESSAGE value="Ho aggiunto i meccanismi di pagamento e di verifica di essi. Implementato gli UUID" />
     <MESSAGE value="Fix paymentValidation.js, and CheckoutServlet user type control" />
     <MESSAGE value="Favourite course selection in home" />
@@ -771,6 +764,7 @@
     <MESSAGE value="Modifiche sulla gestione dei corsi" />
     <MESSAGE value="Fix sul CartDaoImpl" />
     <MESSAGE value="Aggiunte sulla creazione e medifica lezioni e argomenti (senza file)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Aggiunte sulla creazione e medifica lezioni e argomenti (senza file)" />
+    <MESSAGE value="Completata aggiunta di lezioni e argomenti con aggiunta file" />
+    <option name="LAST_COMMIT_MESSAGE" value="Completata aggiunta di lezioni e argomenti con aggiunta file" />
   </component>
 </project>

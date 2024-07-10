@@ -145,6 +145,7 @@
         <%} else {%>
             <button type="submit">Nuova lezione</button>
             <%}%>
+            <button type="button" onclick="window.history.back()">Indietro</button>
         </div>
     </form>
 
@@ -171,7 +172,7 @@
                 <div class="file-details">
                     <span class="file-icon">📄</span>
                     <% if(!argomento.getFilenames().isEmpty()) {%>
-                    <a href="file?file=<%= argomento.getFilenames().get(0)%>&id=<%= corso.getIdCorso()%>&c=course" ><%= argomento.getFilenames().get(0)%></a>
+                    <a target="_blank" href="file?file=<%= argomento.getFilenames().get(0)%>&id=<%= corso.getIdCorso()%>&c=course" ><%= argomento.getFilenames().get(0)%></a>
                     <%}%>
                 </div>
             </div>

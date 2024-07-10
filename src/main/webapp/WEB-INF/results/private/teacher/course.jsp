@@ -202,8 +202,11 @@
         <h2>Contenuto del corso</h2>
         <% for(Lezione lezione : (ArrayList<Lezione>)request.getAttribute("lezioni")) {%>
         <button class="accordion">
+            <p >
+            <%= lezione.getTitolo()%></p>
             <a href="lesson?action=display&courseID=<%=corso.getIdCorso()%>&lezione=<%=lezione.getId()%>">
-            <%= lezione.getTitolo()%></a>
+                Modifica la lezione&nbsp;&nbsp;<img src="${pageContext.request.contextPath}/assets/images/pen-line.png">
+            </a>
         </button>
 
         <div class="panel">
@@ -217,7 +220,7 @@
                 <div class="argomento-content">
                     <p><%= argomento.getDescrizione() %></p>
                     <% if(!argomento.getFilenames().isEmpty()) { %>
-                        <a class="resource"href="file?file=<%= argomento.getFilenames().get(0)%>&id=<%= corso.getIdCorso()%>&c=course">
+                        <a target="_blank"class="resource"href="file?file=<%= argomento.getFilenames().get(0)%>&id=<%= corso.getIdCorso()%>&c=course">
                             <p class="resource-pic">📄</p>
                             <p><%= argomento.getFilenames().get(0)%></p>
                         </a>
