@@ -26,9 +26,7 @@
 </div>
 <div id="table-container">
     <%
-        int idCorso = Integer.parseInt(request.getAttribute("elemento").toString());
-        LezioneDaoImpl lDao = new LezioneDaoImpl();
-        List<Lezione> lezioni = lDao.findAllByCorsoId(idCorso);
+        List<Lezione> lezioni = (List<Lezione>) request.getAttribute("elemento");
 
         if (lezioni != null && !lezioni.isEmpty()) {
     %>
