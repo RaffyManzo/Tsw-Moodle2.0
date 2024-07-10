@@ -1,4 +1,4 @@
-/* General styles for the body and other elements */
+/* General Styles */
 body {
     font-family: Arial, sans-serif;
     margin: 20px;
@@ -10,6 +10,12 @@ body {
     position: relative;
 }
 
+h1 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Header Styles */
 .admin-header {
     position: absolute;
     top: 20px;
@@ -18,14 +24,9 @@ body {
     font-family: "Jura", serif;
     font-size: 25px;
     font-weight: 700;
-    font-style: normal;
 }
 
-h1 {
-    color: #333;
-    margin-bottom: 20px;
-}
-
+/* Control Styles */
 .controls {
     display: flex;
     justify-content: center;
@@ -40,32 +41,36 @@ select {
     width: 200px;
 }
 
+/* Button Styles */
 input[type="submit"], button {
-    background-color: #92A0FF; /* Button color */
-    color: white; /* Text color */
-    border: none; /* Remove default border */
-    border-radius: 12px; /* Rounded corners */
-    padding: 10px 20px; /* Padding */
-    font-size: 16px; /* Font size */
-    cursor: pointer; /* Pointer cursor */
-    transition: background-color 0.3s; /* Smooth transition */
+    background-color: #92A0FF;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
 
-button:hover, input[type="submit"]:hover {
-    background-color: #7582fd; /* Hover color */
+input[type="submit"]:hover, button:hover {
+    background-color: #7582fd;
 }
 
+/* Table Container */
 #table-container {
     margin-top: 20px;
     width: 80%;
 }
 
+/* Button Container */
 .button-container {
     display: flex;
-    gap: 10px; /* Space between buttons */
+    gap: 10px;
     padding-top: 10px;
 }
 
+/* Table Styles */
 table {
     width: 100%;
     border-collapse: collapse;
@@ -89,7 +94,7 @@ tr:nth-child(even) td {
     background-color: #f9f9f9;
 }
 
-/* Styles specific to forms and filters */
+/* Form and Filter Styles */
 .filter-container {
     margin-top: 20px;
 }
@@ -97,39 +102,39 @@ tr:nth-child(even) td {
 .filter-container form {
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap; /* Allow wrapping on smaller screens */
-    gap: 10px; /* Space between form elements */
+    flex-wrap: wrap;
+    gap: 10px;
 }
 
-.filter-container .form-group {
+.form-group {
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 10px; /* Space between label and input */
+    gap: 10px;
 }
 
 .form-group label {
-    margin: 0; /* Remove default margin */
-    width: auto; /* Auto width for labels */
+    margin: 0;
+    width: auto;
 }
 
 .form-group input {
-    padding: 5px; /* Padding inside input boxes */
-    width: 150px; /* Set a fixed width for inputs */
+    padding: 5px;
+    width: 150px;
     margin-top: 5px;
 }
 
-/* Responsive design */
+/* Responsive Design */
 @media (max-width: 768px) {
     .form-group {
         flex-direction: column;
         align-items: flex-start;
-        width: 100%; /* Full width for inputs and labels */
+        width: 100%;
     }
 
     .form-group label, .form-group input {
-        width: 100%; /* Full width for labels and inputs */
-        margin-bottom: 10px; /* Space between label and input */
+        width: 100%;
+        margin-bottom: 10px;
     }
 
     .filter-container form {
@@ -137,7 +142,6 @@ tr:nth-child(even) td {
     }
 
     .filter-container .form-group {
-        flex-direction: column;
-        gap: 5px; /* Space between elements in a column layout */
+        gap: 5px;
     }
 }
