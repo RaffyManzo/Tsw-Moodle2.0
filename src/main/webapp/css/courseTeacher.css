@@ -19,6 +19,12 @@
     width: 60% !important;
 }
 
+.new-lesson > p {
+    font-size: 25px;
+    text-decoration: none;
+    color: black;
+}
+
 .form-box {
     width: 60% !important;
     background: white;
@@ -75,7 +81,8 @@ input[type="text"], input[type="number"], select, textarea {
     text-align: center;
     cursor: pointer;
     margin-top: 10px;
-    height: 100%;
+    width: 100%;
+    aspect-ratio: 1 / 1 ;
 }
 
 .image-upload img {
@@ -106,23 +113,20 @@ input[type="text"], input[type="number"], select, textarea {
 
 
 @media screen and (max-width: 1100px) {
-    .form-box, .lessons-container {
-        width: 80%;
-    }
 
     .new-lesson {
-        width: 80%;
+        width: 80% !important;
     }
 }
 
 
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 600px) {
     .form-box, .lessons-container {
-        width: 100%;
+        width: 100% !important;
     }
 
     .new-lesson {
-        width: 100%;
+        width: 100% !important;
     }
 }

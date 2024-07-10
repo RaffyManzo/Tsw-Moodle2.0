@@ -201,26 +201,45 @@
         <%if(request.getAttribute("lezioni") != null) {%>
         <h2>Contenuto del corso</h2>
         <% for(Lezione lezione : (ArrayList<Lezione>)request.getAttribute("lezioni")) {%>
-        <button class="accordion"><%= lezione.getTitolo()%></button>
+        <button class="accordion">
+            <p >
+            <%= lezione.getTitolo()%></p>
+            <a href="lesson?action=display&courseID=<%=corso.getIdCorso()%>&lezione=<%=lezione.getId()%>">
+                Modifica la lezione&nbsp;&nbsp;<img src="${pageContext.request.contextPath}/assets/images/pen-line.png">
+            </a>
+        </button>
 
         <div class="panel">
             <% for(Argomento argomento : lezione.getArgomenti()) {%>
 
-            <p><%= argomento.getNome()%></p>
+            <div class="argomento">
+                <div class="argomento-header">
+                    <h3><%= argomento.getNome() %></h3>
+
+                </div>
+                <div class="argomento-content">
+                    <p><%= argomento.getDescrizione() %></p>
+                    <% if(!argomento.getFilenames().isEmpty()) { %>
+                        <a target="_blank"class="resource"href="file?file=<%= argomento.getFilenames().get(0)%>&id=<%= corso.getIdCorso()%>&c=course">
+                            <p class="resource-pic">📄</p>
+                            <p><%= argomento.getFilenames().get(0)%></p>
+                        </a>
+                    <% } %>
+                </div>
+            </div>
 
             <%}%>
         </div>
         <%}%>
 
         <%} else {%>
-        <p>Il corso ha né lezioni ne argomenti... <br>
-            Attendi vengano caricati da <%= corso.getCreatore().getNome() + " " + corso.getCreatore().getCognome()%></p>
+        <p>Carica delle lezioni, non ce ne sono</p>
         <%}%>
 
         <h4>Aggiungi una lezione</h4>
-        <div class="new-lesson" id="new-course">
+        <a href="lesson?action=new&courseID=<%= corso.getIdCorso()%>" class="new-lesson">
             <p>+</p>
-        </div>
+        </a>
     </div>
 
 </div>

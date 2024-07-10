@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 panel.style.maxHeight = null;
                 panel.style.padding = "0 15px"
             } else {
-                panel.style.maxHeight = (panel.scrollHeight + 60)+ "px";
+                panel.style.maxHeight = "fit-content";
                 panel.style.padding = "15px"
             }
         });

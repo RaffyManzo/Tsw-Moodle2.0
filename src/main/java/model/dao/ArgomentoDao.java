@@ -10,5 +10,7 @@ public interface ArgomentoDao {
     ArrayList<Argomento> findByNome(String nome);
     ArrayList<Argomento> findAllByLezioneId(int idLezione);
     int countAllByCorsoId(int idCorso);
+    public ArrayList<String> findFiles(int id);
+    public void updateOrInsertFile(String newFilename, int idArgomento);
 }
 
