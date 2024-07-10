@@ -249,6 +249,54 @@
 
 }
 
+.argomento {
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: #fff;
+    width: 100%;
+}
+
+.argomento-header h3 {
+    margin-top: 0;
+}
+
+.argomento-content {
+    margin-top: 20px;
+}
+
+.resource {
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-content: center;
+    text-decoration: none;
+    padding: 10px;
+}
+
+.resource > * {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 10px;
+    text-align: center;
+}
+
+.resource-pic {
+    aspect-ratio: 1 / 1;
+    padding: 5px;
+    border-radius: 12px;
+    background-color: #92A0FF;
+    height: auto;
+    font-size: 1.3rem;
+    width: 50px;
+}
+
+
+
 @media (max-width: 1660px) {
 
     .add-to-cart-container {

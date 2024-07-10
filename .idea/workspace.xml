@@ -9,21 +9,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aaf64b38-f287-423c-9dbc-41a4353826d6" name="Changes" comment="Fix sul CartDaoImpl">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/teacher/LessonsServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/private/teacher/lessons.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/css/lesson.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/script/newLessons.js" afterDir="false" />
+    <list default="true" id="aaf64b38-f287-423c-9dbc-41a4353826d6" name="Changes" comment="Aggiunte sulla creazione e medifica lezioni e argomenti (senza file)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/beans/Argomento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/beans/Argomento.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/beans/Lezione.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/beans/Lezione.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/teacher/LessonsServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/teacher/LessonsServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/dao/ArgomentoDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/dao/ArgomentoDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/dao/ArgomentoDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/dao/ArgomentoDaoImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/xml/query.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/xml/query.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/private/teacher/course.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/private/teacher/course.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/admin.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/admin.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/private/teacher/lessons.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/private/teacher/lessons.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/css/course.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/course.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/courseTeacher.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/courseTeacher.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/script/lessonsCoursePage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/script/lessonsCoursePage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/script/newLessons.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/script/newLessons.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,28 +105,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/raffa/IdeaProjects/Tsw-Moodle2.0/src/main/resources&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.4586207&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "C:/Users/raffa/IdeaProjects/Tsw-Moodle2.0/src/main/resources",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.4586207",
+    "settings.editor.selected.configurable": "vcs.Git",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\raffa\IdeaProjects\Tsw-Moodle2.0\src\main\resources" />
@@ -326,15 +322,7 @@
       <workItem from="1720435039564" duration="23319000" />
       <workItem from="1720518053122" duration="24860000" />
       <workItem from="1720560567649" duration="4665000" />
-      <workItem from="1720600415122" duration="34066000" />
-    </task>
-    <task id="LOCAL-00020" summary="filter done, rewrite request dispatcher forward and sendredirect">
-      <option name="closed" value="true" />
-      <created>1719009754381</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1719009754381</updated>
+      <workItem from="1720600415122" duration="38297000" />
     </task>
     <task id="LOCAL-00021" summary="Modified FileServlet.java, and added upload folder in resources folder">
       <option name="closed" value="true" />
@@ -720,7 +708,15 @@
       <option name="project" value="LOCAL" />
       <updated>1720542296050</updated>
     </task>
-    <option name="localTasksCounter" value="69" />
+    <task id="LOCAL-00069" summary="Aggiunte sulla creazione e medifica lezioni e argomenti (senza file)">
+      <option name="closed" value="true" />
+      <created>1720649816051</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1720649816051</updated>
+    </task>
+    <option name="localTasksCounter" value="70" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -731,14 +727,25 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="start category page&#10;start purchasing course" />
     <MESSAGE value="Some fix" />
     <MESSAGE value="Ho aggiunto i meccanismi di pagamento e di verifica di essi. Implementato gli UUID" />
     <MESSAGE value="Fix paymentValidation.js, and CheckoutServlet user type control" />
@@ -763,6 +770,7 @@
     <MESSAGE value="ripristino pagina di modificaUtenza.jsp" />
     <MESSAGE value="Modifiche sulla gestione dei corsi" />
     <MESSAGE value="Fix sul CartDaoImpl" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix sul CartDaoImpl" />
+    <MESSAGE value="Aggiunte sulla creazione e medifica lezioni e argomenti (senza file)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Aggiunte sulla creazione e medifica lezioni e argomenti (senza file)" />
   </component>
 </project>

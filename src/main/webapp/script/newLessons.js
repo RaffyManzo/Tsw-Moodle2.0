@@ -90,6 +90,7 @@ function createLesson(courseId) {
     var form = document.createElement('form');
     form.className = "lesson-form";
     form.method = "post";
+    form.enctype = "multipart/form-data"
     form.action = "lesson";
 
     var accordion = document.createElement('div');
@@ -141,6 +142,7 @@ function createLesson(courseId) {
     var fileInput = document.createElement("input");
     fileInput.className = "fileInput";
     fileInput.type = "file";
+    fileInput.name = "file"
     fileInput.accept = ".pdf,.txt";
 
     fileInput.addEventListener("change", function () {
@@ -201,4 +203,27 @@ function createLesson(courseId) {
     initializeAccordions();
     initializeForms(courseId);
 
+}
+
+function displayFileDetails(inputElem) {
+    const fileDetailsContainer = inputElem.parentNode.parentNode.querySelector('.fileDetailsContainer');
+    fileDetailsContainer.innerHTML = ''; // Clear any existing file details
+
+    const files = inputElem.files;
+    if (files.length > 0) {
+        const file = files[0];
+        const fileDetails = document.createElement('div');
+        fileDetails.classList.add('file-details');
+
+        const fileIcon = document.createElement('span');
+        fileIcon.classList.add('file-icon');
+        fileIcon.innerHTML = '📄'; // File icon
+
+        const fileName = document.createElement('span');
+        fileName.textContent = `${file.name} (${file.type})`;
+
+        fileDetails.appendChild(fileIcon);
+        fileDetails.appendChild(fileName);
+        fileDetailsContainer.appendChild(fileDetails);
+    }
 }

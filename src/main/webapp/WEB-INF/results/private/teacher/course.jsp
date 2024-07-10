@@ -209,7 +209,21 @@
         <div class="panel">
             <% for(Argomento argomento : lezione.getArgomenti()) {%>
 
-            <p><%= argomento.getNome()%></p>
+            <div class="argomento">
+                <div class="argomento-header">
+                    <h3><%= argomento.getNome() %></h3>
+
+                </div>
+                <div class="argomento-content">
+                    <p><%= argomento.getDescrizione() %></p>
+                    <% if(!argomento.getFilenames().isEmpty()) { %>
+                        <a class="resource"href="file?file=<%= argomento.getFilenames().get(0)%>&id=<%= corso.getIdCorso()%>&c=course">
+                            <p class="resource-pic">📄</p>
+                            <p><%= argomento.getFilenames().get(0)%></p>
+                        </a>
+                    <% } %>
+                </div>
+            </div>
 
             <%}%>
         </div>

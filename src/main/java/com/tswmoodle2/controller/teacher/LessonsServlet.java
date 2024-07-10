@@ -1,6 +1,7 @@
 package com.tswmoodle2.controller.teacher;
 
 import jakarta.servlet.annotation.MultipartConfig;
+import jakarta.servlet.http.Part;
 import model.beans.Argomento;
 import model.beans.Corso;
 import model.beans.Lezione;
@@ -14,7 +15,11 @@ import jakarta.servlet.http.HttpServletResponse;
 import model.dao.CorsoDaoImpl;
 import model.dao.LezioneDaoImpl;
 
+import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Date;
@@ -29,9 +34,17 @@ public class LessonsServlet extends HttpServlet {
 
     private LezioneDaoImpl lezioneDao = new LezioneDaoImpl();
     private ArgomentoDaoImpl argomentoDao = new ArgomentoDaoImpl();
+    private static final String SEPARATOR = "/";
+    private String UPLOAD_FOLDER;
 
     private static final String LESSON_TEACHER_VIEW = "/WEB-INF/results/private/teacher/lessons.jsp";
     private static final String ERROR_VIEW = "/WEB-INF/results/public/error.jsp";
+
+    @Override
+    public void init() {
+        UPLOAD_FOLDER = getServletContext().getInitParameter("upload-path");
+        LOGGER.log(Level.INFO, "Upload folder set to: " + UPLOAD_FOLDER);
+    }
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -134,6 +147,9 @@ public class LessonsServlet extends HttpServlet {
         String lessonID = request.getParameter("lessonID");
         String topicId = request.getParameter("idargomento");
         String courseIdStr = request.getParameter("courseId");
+        Part file = request.getPart("file");
+
+
 
         LOGGER.log(Level.INFO, "Parametri ricevuti: title = {0}, description = {1}, lessonID = {2}, topicId = {3}, courseIdStr = {4}",
                 new Object[]{title, description, lessonID, topicId, courseIdStr});
@@ -148,6 +164,8 @@ public class LessonsServlet extends HttpServlet {
                 argomento.setNome(title);
                 argomento.setDescrizione(description);
                 argomentoDao.update(argomento);
+                replaceORAddImage(courseId, file, request, response);
+                argomentoDao.updateOrInsertFile(getFileName(file), argomento.getId());
             } else {
                 errorOccurs(request, response);
                 return;
@@ -160,6 +178,9 @@ public class LessonsServlet extends HttpServlet {
             argomento.setDataCaricamento(new Timestamp(System.currentTimeMillis()));
             LOGGER.log(Level.INFO, argomento.toString());
             argomentoDao.insertInto(argomento);
+
+            replaceORAddImage(courseId, file, request, response);
+            argomentoDao.updateOrInsertFile(getFileName(file), argomento.getId());
         }
 
         response.sendRedirect("lesson?action=new&courseID=" + courseId + "&lezione=" + lessonIdInt);
@@ -183,6 +204,68 @@ public class LessonsServlet extends HttpServlet {
         }
     }
 
+    private boolean replaceORAddImage(int corsoID, Part filePart, HttpServletRequest request, HttpServletResponse response) throws IOException {
+        if (filePart == null) {
+            LOGGER.log(Level.SEVERE, "No file uploaded or file part name mismatch.");
+            response.sendError(HttpServletResponse.SC_BAD_REQUEST, "No file uploaded.");
+            return false;
+        }
+
+        String fileName = getFileName(filePart);
+        if (fileName == null || fileName.isEmpty()) {
+            LOGGER.log(Level.SEVERE, "File name could not be determined.");
+            response.sendError(HttpServletResponse.SC_BAD_REQUEST, "File name could not be determined.");
+            return false;
+        }
+
+        String uploadPath = UPLOAD_FOLDER + SEPARATOR + "course" + SEPARATOR + corsoID;
+        LOGGER.log(Level.INFO, "Path for upload: {0}", uploadPath);
+
+        File uploadDir = new File(uploadPath);
+        if (!uploadDir.exists()) {
+            try {
+                Path createdPath = Files.createDirectories(uploadDir.toPath());
+                LOGGER.log(Level.INFO, "Directory created or already exists at: {0}", createdPath.toString());
+                // Verifica esistenza directory
+                if (Files.exists(createdPath)) {
+                    LOGGER.log(Level.INFO, "Confirmed: Directory exists at: {0}", createdPath.toString());
+                } else {
+                    LOGGER.log(Level.SEVERE, "Directory creation failed: {0}", createdPath.toString());
+                    response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Failed to create upload directory.");
+                    return false;
+                }
+            } catch (IOException e) {
+                LOGGER.log(Level.SEVERE, "Failed to create directory: " + e.getMessage(), e);
+                response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Failed to create upload directory.");
+                return false;
+            }
+        }
+
+        String filePath = uploadPath + SEPARATOR + fileName;
+        LOGGER.log(Level.INFO, "File path: {0}", filePath);
+
+        // Check if the file already exists
+        File existingFile = new File(filePath);
+        if (existingFile.exists()) {
+            LOGGER.log(Level.INFO, "File already exists: {0}", filePath);
+            // Option 1: Delete the existing file
+
+        } else {
+
+            try (InputStream input = filePart.getInputStream()) {
+
+                Files.copy(input, Path.of(filePath));
+                return true;
+            } catch (IOException ex) {
+                LOGGER.log(Level.SEVERE, "Failed to save uploaded file: " + ex.getMessage(), ex);
+                response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Failed to save uploaded file.");
+                return false;
+            }
+        }
+
+        return false;
+    }
+
     private void deleteLesson(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String lessonID = request.getParameter("lessonID");
 
@@ -197,6 +280,15 @@ public class LessonsServlet extends HttpServlet {
         } else {
             errorOccurs(request, response);
         }
+    }
+
+    private String getFileName(Part part) {
+        for (String content : part.getHeader("content-disposition").split(";")) {
+            if (content.trim().startsWith("filename")) {
+                return content.substring(content.indexOf('=') + 1).trim().replace("\"", "");
+            }
+        }
+        return null;
     }
 
 

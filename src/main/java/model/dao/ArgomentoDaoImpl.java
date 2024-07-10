@@ -48,6 +48,39 @@ public class ArgomentoDaoImpl extends AbstractDataAccessObject<Argomento> implem
     }
 
     @Override
+    public void updateOrInsertFile(String newFilename, int idArgomento) {
+        if(findFiles(idArgomento).isEmpty()) {
+            insertFile(newFilename, idArgomento);
+        } else {
+            updateFile(newFilename, idArgomento);
+        }
+    }
+
+    private void updateFile(String newFilename, int idArgomento) {
+        try (Connection connection = getConnection();
+             PreparedStatement ps = prepareStatement(connection, "UPDATE_FILE")) {
+
+            ps.setString(1, newFilename);
+            ps.setInt(2, idArgomento);
+            ps.executeUpdate();
+        } catch (SQLException exception) {
+            throw new RuntimeException(exception);
+        }
+    }
+
+
+    private void insertFile(String newFilename, int idArgomento) {
+        try (Connection connection = getConnection();
+             PreparedStatement ps = prepareStatement(connection, "INSERT_FILE")) {
+
+            ps.setString(1, newFilename);
+            ps.setInt(2, idArgomento);
+            ps.executeUpdate();
+        } catch (SQLException exception) {
+            throw new RuntimeException(exception);
+        }
+    }
+    @Override
     public void delete(int id) {
         try (Connection connection = getConnection();
              PreparedStatement ps = prepareStatement(connection, "DELETE_ARGOMENTO")) {

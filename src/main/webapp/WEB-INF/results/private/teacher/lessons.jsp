@@ -153,7 +153,7 @@
         <%if(lezione != null) {
             System.out.println(lezione.getId());
         for(Argomento argomento : lezione.getArgomenti()) {%>
-        <form class="lesson-form" method="post" action="lesson">
+        <form class="lesson-form" method="post" action="lesson" enctype="multipart/form-data">
         <div class="accordion">
             <input type="hidden" name="courseId" value="<%= lezione.getIdCorso() %>">
             <input type="hidden" name="lessonID" value="<%= lezione.getId() %>">
@@ -163,38 +163,18 @@
         </div>
         <div class="panel">
             <textarea name="topicDescription"><%= argomento.getDescrizione()%></textarea>
-            <!-- Qui vanno inseriti i file-->
-
-            <div class="file-upload" onclick="document.getElementById('fileInput').click();">
-                <input type="file" id="fileInput" style="display: none;" accept=".pdf,.txt" onchange="displayFileDetails()">
+            <div class="file-upload" onclick="this.querySelector('.fileInput').click();">
+                <input type="file" name="file" class="fileInput" style="display: none;" accept=".pdf,.txt" onchange="displayFileDetails(this)">
                 <p>+</p>
             </div>
-            <div id="fileDetailsContainer"></div>
-            <% if (!argomento.getFilenames().isEmpty()) { %>
-            <script>
-                document.addEventListener("DOMContentLoaded", function () {
-
-                    const fileDetailsContainer = document.getElementById('fileDetailsContainer');
-                    const fileIcon = document.createElement('span');
-                    fileIcon.classList.add('file-icon');
-                    fileIcon.innerHTML = '📄'; // File icon
-
-                    let redirect = document.createElement("a")
-                    redirect.href = 'file?file=<%= argomento.getFilenames().get(0)%>&id=<%= corso.getIdCorso()%>&c=course'
-                    redirect.textContent = "<%= argomento.getFilenames().get(0) %>"
-
-                    const fileName = document.createElement('span');
-                    fileName.appendChild(redirect)
-
-                    const fileDetails = document.createElement('div');
-                    fileDetails.classList.add('file-details');
-                    fileDetails.appendChild(fileIcon);
-                    fileDetails.appendChild(fileName);
-                    fileDetailsContainer.appendChild(fileDetails);
-                    document.querySelector('.file-upload p').innerText = "Scegli un altro file";
-                });
-            </script>
-            <% } %>
+            <div class="fileDetailsContainer">
+                <div class="file-details">
+                    <span class="file-icon">📄</span>
+                    <% if(!argomento.getFilenames().isEmpty()) {%>
+                    <a href="file?file=<%= argomento.getFilenames().get(0)%>&id=<%= corso.getIdCorso()%>&c=course" ><%= argomento.getFilenames().get(0)%></a>
+                    <%}%>
+                </div>
+            </div>
             <div class="button-container">
                 <button type="submit" class="save-topic">Salva modifiche</button>
                 <button type="button" class="delete-topic">Elimina lezione</button>
