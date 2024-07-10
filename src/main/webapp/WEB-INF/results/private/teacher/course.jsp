@@ -201,7 +201,10 @@
         <%if(request.getAttribute("lezioni") != null) {%>
         <h2>Contenuto del corso</h2>
         <% for(Lezione lezione : (ArrayList<Lezione>)request.getAttribute("lezioni")) {%>
-        <button class="accordion"><%= lezione.getTitolo()%></button>
+        <button class="accordion">
+            <a href="lesson?action=display&courseID=<%=corso.getIdCorso()%>&lezione=<%=lezione.getId()%>">
+            <%= lezione.getTitolo()%></a>
+        </button>
 
         <div class="panel">
             <% for(Argomento argomento : lezione.getArgomenti()) {%>
@@ -213,14 +216,13 @@
         <%}%>
 
         <%} else {%>
-        <p>Il corso ha né lezioni ne argomenti... <br>
-            Attendi vengano caricati da <%= corso.getCreatore().getNome() + " " + corso.getCreatore().getCognome()%></p>
+        <p>Carica delle lezioni, non ce ne sono</p>
         <%}%>
 
         <h4>Aggiungi una lezione</h4>
-        <div class="new-lesson" id="new-course">
+        <a href="lesson?action=new&courseID=<%= corso.getIdCorso()%>" class="new-lesson">
             <p>+</p>
-        </div>
+        </a>
     </div>
 
 </div>

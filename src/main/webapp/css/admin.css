@@ -1,6 +1,9 @@
+* {
+    font-family: "Jura", sans-serif;
+}
+
 /* General styles for the body and other elements */
 body {
-    font-family: Arial, sans-serif;
     margin: 20px;
     padding: 20px;
     background-color: #f4f4f4;

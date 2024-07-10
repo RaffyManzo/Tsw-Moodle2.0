@@ -1,23 +1,21 @@
 package model.dao;
 
 import model.beans.Argomento;
+import model.beans.Lezione;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
 import java.sql.*;
 import java.util.ArrayList;
 
 
-public class ArgomentoDaoImpl extends AbstractDataAccessObject<Argomento> implements ArgomentoDao{
+public class ArgomentoDaoImpl extends AbstractDataAccessObject<Argomento> implements ArgomentoDao {
     @Override
     public Argomento insertInto(Argomento argomento) {
         try (Connection connection = getConnection();
-             PreparedStatement ps = prepareStatement(connection, "INSERT_ARGOMENTO")) {
+             PreparedStatement ps = prepareStatement(connection, "INSERT_ARGOMENTO", Statement.RETURN_GENERATED_KEYS)) {
             ps.setDate(1, new java.sql.Date(argomento.getDataCaricamento().getTime()));
             ps.setString(2, argomento.getNome());
             ps.setString(3, argomento.getDescrizione());
-            ps.setInt(4, argomento.getId());
+            ps.setInt(4, argomento.getLezione());
 
             int affectedRows = ps.executeUpdate();
 
@@ -41,7 +39,7 @@ public class ArgomentoDaoImpl extends AbstractDataAccessObject<Argomento> implem
             ps.setDate(1, new java.sql.Date(argomento.getDataCaricamento().getTime()));
             ps.setString(2, argomento.getNome());
             ps.setString(3, argomento.getDescrizione());
-            ps.setInt(4, argomento.getId());
+            ps.setInt(4, argomento.getLezione());
             ps.setInt(5, argomento.getId());
             ps.executeUpdate();
         } catch (SQLException exception) {
@@ -67,13 +65,31 @@ public class ArgomentoDaoImpl extends AbstractDataAccessObject<Argomento> implem
             ps.setInt(1, id);
             try (ResultSet rs = ps.executeQuery()) {
                 if (rs.next()) {
-                    return extractFromResultSet(rs);
+                    return getResultAsObject(rs);
                 }
             }
         } catch (SQLException exception) {
             throw new RuntimeException(exception);
         }
         return null;
+    }
+
+    @Override
+    public ArrayList<String> findFiles(int id) {
+        try (Connection connection = getConnection();
+             PreparedStatement ps = prepareStatement(connection, "FIND_ALL_FILES")) {
+            ps.setInt(1, id);
+            try (ResultSet rs = ps.executeQuery()) {
+                ArrayList<String> fileNames = new ArrayList<>();
+                while (rs.next()) {
+                    fileNames.add(rs.getString("filename"));
+                }
+
+                return fileNames;
+            }
+        } catch (SQLException exception) {
+            throw new RuntimeException(exception);
+        }
     }
 
     public ArrayList<Argomento> findByNome(String nome) {
@@ -117,11 +133,20 @@ public class ArgomentoDaoImpl extends AbstractDataAccessObject<Argomento> implem
 
     @Override
     protected Argomento extractFromResultSet(ResultSet rs) throws SQLException {
-        int id = rs.getInt("IDArgomento");
-        Date dataCaricamento = rs.getDate("dataCaricamento");
-        String nome = rs.getString("nome");
-        String descrizione = rs.getString("descrizione");
-        int idLezione = rs.getInt("idLezione");
-        return new Argomento(id, dataCaricamento, nome, descrizione, idLezione);
+
+        if (rs.getMetaData().getColumnCount() == 1) {
+            return new Argomento(rs.getInt(1), null, null, null, 0);
+        } else {
+            int id = rs.getInt("IDArgomento");
+            Timestamp dataCaricamento = rs.getTimestamp("dataCaricamento");
+            String nome = rs.getString("nome");
+            String descrizione = rs.getString("descrizione");
+            int idLezione = rs.getInt("idLezione");
+            Argomento arg = new Argomento(id, dataCaricamento, nome, descrizione, idLezione);
+
+            arg.setFilenames(findFiles(id));
+
+            return arg;
+        }
     }
 }

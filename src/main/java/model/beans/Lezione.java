@@ -18,6 +18,10 @@ public class Lezione {
         this.argomenti = argomenti;
     }
 
+    public Lezione() {
+
+    }
+
     // Getters e Setters
     public int getId() {
         return id;

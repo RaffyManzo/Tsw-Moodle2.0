@@ -1,0 +1,183 @@
+* {
+    font-family: "Jura", sans-serif;
+    box-sizing: border-box;
+}
+
+.content-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3%;
+    flex-direction: column;
+}
+
+#courseForm {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.button-container {
+    display: grid;
+    width: 100%;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+
+    margin: 20px 0;
+}
+
+.lesson-form {
+    width: 100%;
+    justify-content: center;
+    align-content: center;
+    display: grid;
+    flex-direction: column;
+    grid-template-columns: 1fr;
+    margin: 0;
+    align-items: center;
+    justify-items: center;
+
+}
+
+.accordion {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin: 0;
+}
+
+.new-lesson-wrapper {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-start;
+}
+
+.lessons-wrapper {
+    width: 100%;
+    margin: 8% 3% 3% 3%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+input[type="text"], textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    resize: vertical;
+    outline: none;
+    min-height: 50px;
+}
+
+button {
+    background-color: #4e5690;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+}
+
+.accordion > input {
+    margin: 0 10px;
+}
+
+button:hover {
+    background-color: #3c4475;
+}
+
+.delete-lesson, .delete-topic {
+    background-color: #ff4d4d;
+}
+
+.delete-lesson:hover, .delete-topic:hover{
+    background-color: #df4848 !important;
+}
+
+.topic {
+    border: 1px solid #d1d7dc;
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 20px;
+    position: relative;
+}
+
+.delete-topic {
+    width: auto;
+}
+
+.file-upload {
+    border: 2px dashed #ccc;
+    border-radius: 5px;
+    text-align: center;
+    padding: 20px;
+    cursor: pointer;
+    width: 100%;
+    box-sizing: border-box;
+}
+.file-details {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+.file-icon {
+    font-size: 24px;
+    margin-right: 10px;
+}
+input[type="file"] {
+    display: none;
+}
+
+.save-all {
+    background-color: #4e5690;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    display: block;
+    margin: 20px auto;
+    max-width: 600px;
+}
+
+@media screen and (max-width: 1100px) {
+    .accordion, .panel, .new-lesson-wrapper {
+        width: 80%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .accordion, .panel, .new-lesson-wrapper {
+        width: 100%;
+    }
+
+    .new-lesson-wrapper, .lessons-wrapper {
+        padding: 15px;
+    }
+
+    input[type="text"], textarea {
+        width: calc(100% - 10px);
+        padding: 8px;
+    }
+
+    .button-container {
+        grid-template-columns: 1fr;
+    }
+}

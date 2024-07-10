@@ -184,6 +184,7 @@
     <entry key="FIND_ARGOMENTO_BY_ID">SELECT * FROM argomento WHERE idargomento = ?</entry>
     <entry key="FIND_ARGOMENTO_BY_NOME">SELECT * FROM argomento WHERE nome LIKE ?</entry>
     <entry key="FIND_ALL_ARGOMENTI_BY_LEZIONE_ID">SELECT * FROM argomento WHERE idLezione = ?</entry>
+    <entry key="FIND_ALL_FILES">SELECT * FROM file WHERE idargomento = ?</entry>
     <entry key="FIND_ALL_ARGOMENTI_COUNT_BY_CORSO_ID">SELECT COUNT(*) FROM argomento a JOIN lezione l ON a.idLezione = l.idargomento WHERE l.idCorso = ?</entry>
 
     <!-- Teacher page -->

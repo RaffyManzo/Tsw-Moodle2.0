@@ -1,21 +1,37 @@
 package model.beans;
 
+import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.Date;
 
 public class Argomento {
     private int id;
-    private Date dataCaricamento;
+    private Timestamp dataCaricamento;
     private String nome;
     private String descrizione;
     private int lezione;
 
+    public ArrayList<String> getFilenames() {
+        return filenames;
+    }
+
+    public void setFilenames(ArrayList<String> filenames) {
+        this.filenames = filenames;
+    }
+
+    private ArrayList<String> filenames;
+
     // Costruttore
-    public Argomento(int id, Date dataCaricamento, String nome, String descrizione, int lezione) {
+    public Argomento(int id, Timestamp dataCaricamento, String nome, String descrizione, int lezione) {
         this.id = id;
         this.dataCaricamento = dataCaricamento;
         this.nome = nome;
         this.descrizione = descrizione;
         this.lezione = lezione;
+    }
+
+    public Argomento() {
+
     }
 
     // Getters e Setters
@@ -27,11 +43,11 @@ public class Argomento {
         this.id = id;
     }
 
-    public Date getDataCaricamento() {
+    public Timestamp getDataCaricamento() {
         return dataCaricamento;
     }
 
-    public void setDataCaricamento(Date dataCaricamento) {
+    public void setDataCaricamento(Timestamp dataCaricamento) {
         this.dataCaricamento = dataCaricamento;
     }
 
@@ -57,5 +73,9 @@ public class Argomento {
 
     public void setLezione(int lezione) {
         this.lezione = lezione;
+    }
+
+    public void setIdLezione(int lessonId) {
+        this.lezione = lessonId;
     }
 }

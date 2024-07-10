@@ -9,19 +9,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aaf64b38-f287-423c-9dbc-41a4353826d6" name="Changes" comment="Modifiche sulla gestione dei corsi">
+    <list default="true" id="aaf64b38-f287-423c-9dbc-41a4353826d6" name="Changes" comment="Fix sul CartDaoImpl">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/teacher/LessonsServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/private/teacher/lessons.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/css/lesson.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/script/newLessons.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/CheckoutServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/CheckoutServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/LoginServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/LoginServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/ShoppingServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/ShoppingServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/teacher/UpdateCourseServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/teacher/UpdateCourseServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Util/CarrelloService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Util/CarrelloService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/beans/Carrello.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/beans/Carrello.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/dao/CartDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/dao/CartDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/beans/Argomento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/beans/Argomento.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/beans/Lezione.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/beans/Lezione.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/dao/ArgomentoDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/dao/ArgomentoDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/dao/ArgomentoDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/dao/ArgomentoDaoImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/xml/query.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/xml/query.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/private/teacher/course.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/private/teacher/course.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/admin.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/admin.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/course.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/course.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/css/courseTeacher.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/courseTeacher.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/createcourse.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/createcourse.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,10 +36,10 @@
         <option value="HTML File" />
         <option value="SCSS File" />
         <option value="Interface" />
-        <option value="JavaScript File" />
         <option value="Jsp File" />
         <option value="CSS File" />
         <option value="Class" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -322,15 +324,9 @@
       <workItem from="1720347639092" duration="1351000" />
       <workItem from="1720349066704" duration="7481000" />
       <workItem from="1720435039564" duration="23319000" />
-      <workItem from="1720518053122" duration="20494000" />
-    </task>
-    <task id="LOCAL-00019" summary="Fix cart.jsp">
-      <option name="closed" value="true" />
-      <created>1718896122097</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1718896122097</updated>
+      <workItem from="1720518053122" duration="24860000" />
+      <workItem from="1720560567649" duration="4665000" />
+      <workItem from="1720600415122" duration="34066000" />
     </task>
     <task id="LOCAL-00020" summary="filter done, rewrite request dispatcher forward and sendredirect">
       <option name="closed" value="true" />
@@ -716,7 +712,15 @@
       <option name="project" value="LOCAL" />
       <updated>1720534801944</updated>
     </task>
-    <option name="localTasksCounter" value="68" />
+    <task id="LOCAL-00068" summary="Fix sul CartDaoImpl">
+      <option name="closed" value="true" />
+      <created>1720542296050</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1720542296050</updated>
+    </task>
+    <option name="localTasksCounter" value="69" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -734,7 +738,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="set the limit of search bar result" />
     <MESSAGE value="start category page&#10;start purchasing course" />
     <MESSAGE value="Some fix" />
     <MESSAGE value="Ho aggiunto i meccanismi di pagamento e di verifica di essi. Implementato gli UUID" />
@@ -759,6 +762,7 @@
     <MESSAGE value="Barra di ricerca home docente" />
     <MESSAGE value="ripristino pagina di modificaUtenza.jsp" />
     <MESSAGE value="Modifiche sulla gestione dei corsi" />
-    <option name="LAST_COMMIT_MESSAGE" value="Modifiche sulla gestione dei corsi" />
+    <MESSAGE value="Fix sul CartDaoImpl" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix sul CartDaoImpl" />
   </component>
 </project>
