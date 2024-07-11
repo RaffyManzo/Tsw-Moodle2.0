@@ -230,6 +230,7 @@
             </button>
 
             <div class="panel">
+                <p><strong>Descizione della lezione: </strong><%= lezione.getDescrizione()%></p>
                 <% for(Argomento argomento : lezione.getArgomenti()) {%>
 
                 <div class="argomento">
