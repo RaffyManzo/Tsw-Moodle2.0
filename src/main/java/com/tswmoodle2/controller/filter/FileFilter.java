@@ -109,6 +109,11 @@ public class FileFilter implements Filter {
             return false;
         }
 
+        if(user.getTipo().equals("D")) {
+            if(course.getCreatore().getIdUtente() == user.getIdUtente())
+                return true;
+        }
+
         if (filename.equals(course.getImmagine())) {
             return true;
         } else {
