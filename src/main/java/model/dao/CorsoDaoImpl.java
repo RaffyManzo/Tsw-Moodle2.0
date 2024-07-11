@@ -77,6 +77,16 @@ public class CorsoDaoImpl extends AbstractDataAccessObject<Corso> implements Cor
         }
     }
 
+    public void restore(int id) {
+        try (Connection connection = getConnection();
+             PreparedStatement ps = prepareStatement(connection, "RESTORE_CORSO")) {
+            ps.setInt(1, id);
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     @Override
     public ArrayList<Corso> getAllCourses()  {
         try (Connection connection = getConnection();
@@ -248,7 +258,6 @@ public class CorsoDaoImpl extends AbstractDataAccessObject<Corso> implements Cor
     public boolean isDeleted(int id) {
         try (Connection connection = getConnection();
              PreparedStatement ps = prepareStatement(connection, "IS_DELETED")) {
-
             ps.setInt(1, id);
 
             try (ResultSet rs = ps.executeQuery()) {

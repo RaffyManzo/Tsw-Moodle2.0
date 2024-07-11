@@ -173,7 +173,8 @@ public class ModificaServlet extends HttpServlet {
 
     private boolean isValidPhone(String phoneNumber) {
         String phoneRegex = "^\\+[0-9]{2} [0-9]{3} [0-9]{3} [0-9]{4}$";
-        return phoneNumber != null && phoneNumber.matches(phoneRegex);
+        String phoneRegex2 = "^(\\d{10})$";
+        return phoneNumber != null && (phoneNumber.matches(phoneRegex) || phoneNumber.matches(phoneRegex2));
     }
 
     private boolean usernameAlreadyUsed(String username){

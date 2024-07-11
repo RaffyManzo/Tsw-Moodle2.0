@@ -1,6 +1,3 @@
-<%@ page import="model.dao.CartDaoImpl" %>
-<%@ page import="java.util.Map" %>
-<%@ page import="model.dao.LezioneDaoImpl" %>
 <%@ page import="java.util.List" %>
 <%@ page import="model.beans.*" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -26,54 +23,51 @@
 </div>
 <div id="table-container">
     <%
-        List<Lezione> lezioni = (List<Lezione>) request.getAttribute("elemento");
+        List<String> files = (List<String>) request.getAttribute("elemento");
 
-        if (lezioni != null && !lezioni.isEmpty()) {
+        if (files != null && !files.isEmpty()) {
     %>
 
     <table>
         <thead>
         <tr>
-            <th>Titolo</th>
-            <th>Descrizione</th>
+            <th>Nome</th>
+            <th>Action</th>
         </tr>
         </thead>
         <tbody>
         <%
-            for (Lezione lezione : lezioni) {
-                String titolo = lezione.getTitolo();
-                String descrizione = lezione.getDescrizione();
-                int idLezione=lezione.getId();
+            for (String file : files) {
+                System.out.println(file + "awa\n");
         %>
         <tr>
-            <td><%= titolo %></td>
-            <td><%=descrizione%></td>
+            <td><%= file %></td>
             <td>
                 <div class="button-container">
-                    <form action="VisualizzaLezioni">
-                        <input type="hidden" name="idLezione" value="<%= idLezione %>"/>
-                        <input type="hidden" name="idCorsoV" value="<%= idCorso %>"/>
-                        <button type="submit" value="View" class="view-lezione">
-                            Elimina
-                        </button>
+                    <form action="VisualizzaFile">
+                        <input type="hidden" name="idCorsoV" value="<%= Integer.parseInt(request.getAttribute("corso").toString()) %>">
+                        <input type="hidden" name="idArgomento" value="<%= Integer.parseInt(request.getAttribute("idArgomento").toString())  %>"/>
+                        <input type="hidden" name="idLezione" value="<%= Integer.parseInt(request.getAttribute("idLezione").toString()) %>"/>
+                        <input type="hidden" name="type" value="<%= file %>"/>
+                        <input type="submit" value="Elimina">
                     </form>
                 </div>
             </td>
         </tr>
         <%
-                }
-            }else{
+            }
+        } else {
         %>
-            <p>Non ci sono lezioni per questo corso</p>
+        <p>Non ci sono file per questo argomento</p>
         <%
             }
-
         %>
         </tbody>
     </table>
-    <form action="ModificaServlet">
-        <input type="hidden" name="tipo" value="corso">
-        <input type="hidden" name="id" value="<%= idCorso %>">
+    <form action="VisualizzaArgomenti">
+        <input type="hidden" name="type" value="view"/>
+        <input type="hidden" name="idCorsoV" value="<%= Integer.parseInt(request.getAttribute("corso").toString()) %>">
+        <input type="hidden" name="idLezione" value="<%= Integer.parseInt(request.getAttribute("idLezione").toString()) %>"/>
         <input type="submit" value="Indietro">
     </form>
 </div>

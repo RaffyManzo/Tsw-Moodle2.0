@@ -5,10 +5,6 @@
 
 <%@ page import="model.beans.Categoria" %>
 <%@ page import="model.beans.Ordine" %>
-<%
-    //da spostare in privato ma ora è qui per vedere se funziona e non fare il login ogni volta
-    Utenza user = (Utenza) request.getSession(false).getAttribute("user");
-%>
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
@@ -100,19 +96,21 @@
             <td><%= u.getUsername() %></td>
             <td><%= u.getDataCreazioneAccount() %></td>
             <td>
-                <div class="button-container">
-                    <form action="adminDelete" method="post" style="display:inline;">
-                        <input type="hidden" name="id" value="<%= u.getIdUtente() %>">
-                        <input type="hidden" name="tipo" value="utenza">
-                        <input type="hidden" name="nome" value="null">
-                        <input type="submit" value="Elimina"  <%if(u.getIdUtente() == 0) {%> disabled <%}%>>
-                    </form>
-                    <form action="ModificaServlet" method="post" style="display:inline;">
-                        <input type="hidden" name="id" value="<%= u.getIdUtente() %>">
-                        <input type="hidden" name="tipo" value="utenza">
-                        <input type="submit" value="Modifica"  <%if(u.getIdUtente() == 0) {%> disabled <%}%>>
-                    </form>
-                </div>
+                <%if(u.getIdUtente() != 0) {%>
+                    <div class="button-container">
+                        <form action="adminDelete" method="post" style="display:inline;">
+                            <input type="hidden" name="id" value="<%= u.getIdUtente() %>">
+                            <input type="hidden" name="tipo" value="utenza">
+                            <input type="hidden" name="nome" value="null">
+                            <input type="submit" value="Elimina">
+                        </form>
+                        <form action="ModificaServlet" method="post" style="display:inline;">
+                            <input type="hidden" name="id" value="<%= u.getIdUtente() %>">
+                            <input type="hidden" name="tipo" value="utenza">
+                            <input type="submit" value="Modifica">
+                        </form>
+                    </div>
+                <%}%>
             </td>
         </tr>
         <%
@@ -164,16 +162,24 @@
             <td><%= c.isDeleted() %></td>
             <td>
                 <div class="button-container">
-                    <form action="adminDelete" method="post" style="display:inline;">
-                        <input type="hidden" name="id" value="<%= c.getIdCorso() %>">
-                        <input type="hidden" name="tipo" value="corso">
-                        <input type="submit" value="Elimina" <%if(c.isDeleted()) {%>disabled<%}%>>
-                    </form>
-                    <form action="ModificaServlet" method="post" style="display:inline;">
-                        <input type="hidden" name="id" value="<%= c.getIdCorso() %>">
-                        <input type="hidden" name="tipo" value="corso">
-                        <input type="submit" value="Modifica">
-                    </form>
+                    <%if(!c.isDeleted()) {%>
+                        <form action="adminDelete" method="post" style="display:inline;">
+                            <input type="hidden" name="id" value="<%= c.getIdCorso() %>">
+                            <input type="hidden" name="tipo" value="corso">
+                            <input type="submit" value="Elimina">
+                        </form>
+                        <form action="ModificaServlet" method="post" style="display:inline;">
+                            <input type="hidden" name="id" value="<%= c.getIdCorso() %>">
+                            <input type="hidden" name="tipo" value="corso">
+                            <input type="submit" value="Modifica">
+                        </form>
+                    <%}else{%>
+                        <form action="adminDelete" method="post" style="display:inline;">
+                            <input type="hidden" name="id" value="<%= c.getIdCorso() %>">
+                            <input type="hidden" name="tipo" value="corso">
+                            <input type="submit" value="Ripristina">
+                        </form>
+                    <%}%>
                 </div>
             </td>
         </tr>
@@ -201,7 +207,6 @@
         <thead>
         <tr>
             <th>Nome</th>
-            <th>Azioni</th>
         </tr>
         </thead>
         <tbody>
@@ -210,15 +215,6 @@
         %>
         <tr>
             <td><%= c.getNome() %></td>
-            <td>
-                <div class="button-container">
-                    <form action="ModificaServlet" method="post" style="display:inline;">
-                        <input type="hidden" name="id" value="<%= c.getNome() %>">
-                        <input type="hidden" name="tipo" value="categoria">
-                        <input type="submit" value="Modifica">
-                    </form>
-                </div>
-            </td>
         </tr>
         <%
             }

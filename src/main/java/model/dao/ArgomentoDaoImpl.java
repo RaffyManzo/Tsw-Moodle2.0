@@ -242,6 +242,18 @@ public class ArgomentoDaoImpl extends AbstractDataAccessObject<Argomento> implem
         }
     }
 
+    @Override
+    public void deleteFile(String name, int id) {
+        try (Connection connection = getConnection();
+             PreparedStatement ps = prepareStatement(connection, "DELETE_FILE")) {
+            ps.setString(1, name);
+            ps.setInt(2, id);
+            ps.executeUpdate();
+        } catch (SQLException exception) {
+            throw new RuntimeException(exception);
+        }
+    }
+
     public ArrayList<Argomento> findByNome(String nome) {
         try (Connection connection = getConnection();
              PreparedStatement ps = prepareStatement(connection, "FIND_ARGOMENTO_BY_NOME")) {

@@ -20,12 +20,15 @@ public class AdminDeleteObjectServlet extends HttpServlet {
             case "utenza":
                 UtenzaDaoImpl u = new UtenzaDaoImpl();
                 int idu = Integer.parseInt(request.getParameter("id"));
-                u.delete(idu);
                 break;
             case "corso":
                 CorsoDaoImpl c = new CorsoDaoImpl();
                 int idc = Integer.parseInt(request.getParameter("id"));
-                c.delete(idc);
+                if(c.isDeleted(idc)){
+                    c.restore(idc);
+                }else{
+                    c.delete(idc);
+                }
                 break;
             case "categoria":
                 CategoriaDaoImpl ca = new CategoriaDaoImpl();
