@@ -1,6 +1,11 @@
 /*
 Header banner on top of each pages
 */
+* {
+    font-family: "Jura", sans-serif;
+    box-sizing: border-box;
+}
+
 .header {
     background-color: #4E5690;
     position: fixed;

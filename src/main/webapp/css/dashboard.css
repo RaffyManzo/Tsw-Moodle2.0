@@ -150,6 +150,36 @@
     width: 100%;
 }
 
+
+.pagination {
+    display: flex;
+    justify-content: flex-start;
+    margin: 20px 0;
+    width: 100%;
+    padding: 0 10%;
+}
+
+.pagination a {
+    padding: 10px 20px;
+    margin: 0 5px;
+    text-decoration: none;
+    color: #4E569F;
+    border: 1px solid #4E5680;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.pagination a:hover {
+    background-color: #3c4475;
+    color: #fff;
+}
+
+.pagination a.disabled {
+    pointer-events: none;
+    color: #ccc;
+    border-color: #ccc;
+}
+
 .redirect {
     font-family: "Jura", sans-serif;
     background-color: #4E569F;
