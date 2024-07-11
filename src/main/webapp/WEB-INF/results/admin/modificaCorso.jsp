@@ -56,7 +56,6 @@
         </div>
     </form>
     <form action="VisualizzaLezioni">
-        <input type="hidden" name="tipo" value="corso">
         <input type="hidden" name="idCorsoV" value="<%= c.getIdCorso() %>">
         <input type="submit" value="Visualizza lezioni del corso">
     </form>

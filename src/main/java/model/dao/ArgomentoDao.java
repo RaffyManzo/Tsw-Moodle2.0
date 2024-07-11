@@ -13,5 +13,6 @@ public interface ArgomentoDao {
     int countAllByCorsoId(int idCorso);
     public ArrayList<String> findFiles(int id);
     public void updateOrInsertFile(Connection conn, String newFilename, int idArgomento);
+    void deleteFile(String name, int id);
 }
 

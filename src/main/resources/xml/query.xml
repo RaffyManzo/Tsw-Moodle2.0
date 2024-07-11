@@ -6,6 +6,8 @@
         Certificazione, DataCreazione, prezzo, creatore) VALUES (?, ?, ?, ?, ?, ?, ?, ?)</entry>
     <entry key="UPDATE_CORSO">UPDATE Corso SET NomeCategoria = ?, Nome = ?, Descrizione = ?, Immagine = ?, Certificazione = ?, DataCreazione = ?, prezzo = ?,creatore = ?, isDeleted = ? WHERE IDCorso = ?</entry>
     <entry key="DELETE_CORSO">UPDATE corso SET isDeleted = 1 WHERE IDCorso = ?</entry>
+    <entry key="RESTORE_CORSO">UPDATE corso SET isDeleted = 0 WHERE IDCorso = ?</entry>
+    <entry key="IS_DELETED">SELECT isDeleted FROM corso WHERE IDCorso = ?</entry>
 
     <entry key="SEARCH_CORSO_BY_CATEGORIA_NOME">SELECT * FROM Corso WHERE NomeCategoria LIKE ? AND Nome LIKE ?</entry>
     <entry key="FIND_ALL_CORSI">SELECT * FROM Corso where isDeleted = 0 ORDER BY NumeroAcquisti DESC</entry>
@@ -187,6 +189,7 @@
     <entry key="FIND_ARGOMENTO_BY_NOME">SELECT * FROM argomento WHERE nome LIKE ?</entry>
     <entry key="FIND_ALL_ARGOMENTI_BY_LEZIONE_ID">SELECT * FROM argomento WHERE idLezione = ?</entry>
     <entry key="FIND_ALL_FILES">SELECT * FROM file WHERE idargomento = ?</entry>
+    <entry key="DELETE_FILE">DELETE FROM file WHERE filename = ? AND idargomento = ?</entry>
     <entry key="FIND_ALL_ARGOMENTI_COUNT_BY_CORSO_ID">SELECT COUNT(*) FROM argomento a JOIN lezione l ON a.idLezione = l.idargomento WHERE l.idCorso = ?</entry>
 
     <!-- Teacher page -->

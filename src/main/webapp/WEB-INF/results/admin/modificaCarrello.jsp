@@ -59,10 +59,11 @@
                 </div>
             </div>
         </div>
-            <% }}} else {
+            <% }} else {
             %>
         <p id="empty-cart">Il carrello è vuoto</p>
             <%
+                }
                 }
 
             %>

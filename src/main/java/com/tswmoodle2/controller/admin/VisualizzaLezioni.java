@@ -16,6 +16,7 @@ import java.util.List;
 public class VisualizzaLezioni extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String id=request.getParameter("idCorsoV");
+        request.setAttribute("corso", id);
         String idLezione=request.getParameter("idLezione");
         LezioneDaoImpl l = new LezioneDaoImpl();
         List<Lezione> lezioni = l.findAllByCorsoId(Integer.parseInt(id));
@@ -23,7 +24,7 @@ public class VisualizzaLezioni extends HttpServlet {
         if(idLezione!=null) {
             l.delete(Integer.parseInt(idLezione));
         }
-        RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/results/admin/modificaCorsi.jsp");
+        RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/results/admin/modificaLezioni.jsp");
         rd.forward(request, response);
     }
 
