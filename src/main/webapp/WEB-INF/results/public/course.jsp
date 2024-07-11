@@ -218,8 +218,8 @@
             </div>
         </div>
         <div class="overlayed add-to-cart-container">
-            <img src="file?file=<%= corso.getIdCorso() %>/<%= corso.getImmagine()%>&c=course" alt="">
-            <h2>Prezzo: <strong><%= corso.getPrezzo()%> €
+            <img src="file?file=<%= corso.getImmagine() %>&id=<%= corso.getIdCorso()%>&c=course" alt="">
+            <h2>Prezzo: <strong><%= corso.getPrezzo()%> € <%if(request.getAttribute("isPurchased") != null) {%><%= (Boolean)request.getAttribute("isPurchased") ? "(Acquistato)": ""%><%}%>
             </strong></h2>
             <a href="shop?action=addToCart&productId=<%=corso.getIdCorso()%>" class="add-to-cart-button">Aggiungi al
                 carrello</a>

@@ -128,9 +128,7 @@ public class LoginServlet extends HttpServlet {
                     }
 
 
-
-                    if (carrello != null)
-                        session.setAttribute("cart", carrello.getCart());
+                    session.setAttribute("cart", carrello.getCart());
                 }
                 session.setAttribute("user", user);
                 session.setAttribute("isAdmin", user.getTipo().contentEquals("A") ? Boolean.TRUE : Boolean.FALSE);

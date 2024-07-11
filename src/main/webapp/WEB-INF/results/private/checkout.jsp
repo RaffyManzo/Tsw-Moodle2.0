@@ -48,7 +48,7 @@
                 <table class='order-table'>
                     <tbody>
                     <tr>
-                        <td><img src="file?file=<%= product.getIdCorso() + "/" + product.getImmagine() %>&c=course"
+                        <td><img src="file?file=<%= product.getImmagine() %>&id=<%= product.getIdCorso()%>&c=course"
                                  alt="/" class='full-width'></img>
                         </td>
                         <td>

@@ -157,7 +157,7 @@ function createLesson(courseId) {
 
                 const fileIcon = document.createElement('span');
                 fileIcon.classList.add('file-icon');
-                fileIcon.innerHTML = '📄'; // File icon
+                fileIcon.innerHTML = "<img src=\"${pageContext.request.contextPath}/assets/images/file-text.png\" alt=\"📄\">"; // File icon
                 p.innerText = "Scegli un altro file"
 
                 const fileName = document.createElement('span');
@@ -217,7 +217,7 @@ function displayFileDetails(inputElem) {
 
         const fileIcon = document.createElement('span');
         fileIcon.classList.add('file-icon');
-        fileIcon.innerHTML = '📄'; // File icon
+        fileIcon.innerHTML = "<img src=\"${pageContext.request.contextPath}/assets/images/file-text.png\" alt=\"📄\">"; // File icon
 
         const fileName = document.createElement('span');
         fileName.textContent = `${file.name} (${file.type})`;

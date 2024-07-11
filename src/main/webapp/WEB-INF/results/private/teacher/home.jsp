@@ -1,6 +1,8 @@
 <%@ page import="model.beans.Utenza" %>
 <%@ page import="java.util.ArrayList" %>
-<%@ page import="model.beans.Corso" %><%--
+<%@ page import="model.beans.Corso" %>
+<%@ include file="../session.jsp" %>
+<%--
   Created by IntelliJ IDEA.
   User: raffa
   Date: 06/07/2024
@@ -60,10 +62,6 @@
         <nav id="sidebar-menu">
             <div class="ul">
                 <div class="link-container">
-                    <a href="${pageContext.request.contextPath}/dashboard" class="header-redirect-btn"
-                       id="li-header-redirect-to-dashboard">Vai alla tua dashboard</a>
-                </div>
-                <div class="link-container">
                     <a href="${pageContext.request.contextPath}/account" class="header-redirect-btn"
                        id="li-header-redirect-to-profile">My account</a>
                 </div>
@@ -76,13 +74,6 @@
         </nav>
     </label>
     <div class="header-links" id="header-links">
-
-        <span class="vertical-separator"></span>
-        <div class="link-container header-button dashboard-button">
-            <a href="${pageContext.request.contextPath}/dashboard" class="header-redirect-btn"
-               id="header-redirect-to-dashboard">Vai alla tua dashboard</a>
-
-        </div>
         <span class="vertical-separator"></span>
         <% String initials = "";
             if (user.getNome() != null && user.getCognome() != null) {
@@ -135,7 +126,7 @@
 
                 <a href="course?courseID=<%= corso.getIdCorso()%>" class="course-box">
                     <div class="master-course-info">
-                        <img src='file?file=<%= corso.getIdCorso() + "/" + corso.getImmagine() + "&c=course"%>' alt=''>
+                        <img src='file?id=<%= corso.getIdCorso() + "&file=" + corso.getImmagine() + "&c=course"%>' alt=''>
                         <label><%= corso.getNome() + " (" + corso.getNomeCategoria() + ")"%></label>
                         <span></span>
                     </div>

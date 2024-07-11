@@ -41,9 +41,16 @@ public class CustomHttpServletRequestWrapper extends HttpServletRequestWrapper {
                     errors.add("Non hai i permessi per accedere a questa risorsa, prova ad effettuare l'accesso come docente.");
                     getRequest().setAttribute("errors", errors);
                     path = "/WEB-INF/results/public/error.jsp";
-                } else {
-                    return super.getRequestDispatcher(path);
                 }
+            }
+        }
+        if(user != null) {
+            LOGGER.log(Level.INFO, "Check the path for dashboard account match {0} - {1}", new Object[]{path, path.endsWith("dashboard.jsp")});
+            if (path.endsWith("dashboard.jsp") && user.getTipo().equals("D")) {
+                List<String> errors = new ArrayList<>();
+                errors.add("Non hai i permessi per accedere a questa risorsa, prova ad effettuare l'accesso come docente.");
+                getRequest().setAttribute("errors", errors);
+                path = "/WEB-INF/results/public/error.jsp";
             }
         }
 

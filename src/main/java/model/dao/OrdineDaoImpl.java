@@ -6,10 +6,8 @@ import model.beans.*;
 import java.sql.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Calendar;
+import java.util.*;
 import java.util.Date;
-import java.util.UUID;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.regex.Matcher;
@@ -25,7 +23,7 @@ public class OrdineDaoImpl extends AbstractDataAccessObject<Ordine> implements O
         if (rs.getMetaData().getColumnCount() == 1) {
             return new Ordine(rs.getInt(1), null, 0, null, 0.0);
         } else {
-            return new Ordine(
+            Ordine or = new Ordine(
                     rs.getInt(1),
                     rs.getString(2),
                     rs.getInt(3),
@@ -34,6 +32,10 @@ public class OrdineDaoImpl extends AbstractDataAccessObject<Ordine> implements O
                     rs.getTimestamp(6),
                     UUID.fromString(rs.getString(7))
             );
+            Set<Corso> corsi = new HashSet<>(new CorsoDaoImpl().getCorsiOrdine(rs.getInt(1)));
+            or.setCorsiAcquistati(corsi);
+
+            return or;
         }
     }
 

@@ -189,7 +189,7 @@
 
 
             <div class="cart-item">
-                <img src="file?file=<%= product.getIdCorso() + "/" + product.getImmagine() %>&c=course" alt="/" class="product-image"/>
+                <img src="file?file=<%= product.getImmagine() %>&id=<%= product.getIdCorso()%>&c=course" alt="/" class="product-image"/>
                 <div class="cart-item-info">
                     <h5><%= product.getNome() %></h5>
                     <p><%= product.getDescrizione() %></p>

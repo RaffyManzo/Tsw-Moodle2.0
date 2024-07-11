@@ -280,6 +280,16 @@
     padding: 10px;
 }
 
+.redirect-to-lesson {
+    background-color: #4e5690;
+    color: #ffffff !important;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px
+}
+
 .resource > * {
     display: flex;
     justify-content: center;
