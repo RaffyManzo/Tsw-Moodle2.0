@@ -2,6 +2,7 @@ package model.dao;
 
 import model.beans.Argomento;
 
+import java.sql.Connection;
 import java.util.ArrayList;
 
 public interface ArgomentoDao {
@@ -11,6 +12,6 @@ public interface ArgomentoDao {
     ArrayList<Argomento> findAllByLezioneId(int idLezione);
     int countAllByCorsoId(int idCorso);
     public ArrayList<String> findFiles(int id);
-    public void updateOrInsertFile(String newFilename, int idArgomento);
+    public void updateOrInsertFile(Connection conn, String newFilename, int idArgomento);
 }
 

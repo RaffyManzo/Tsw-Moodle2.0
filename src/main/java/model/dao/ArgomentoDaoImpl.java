@@ -5,54 +5,168 @@ import model.beans.Lezione;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 public class ArgomentoDaoImpl extends AbstractDataAccessObject<Argomento> implements ArgomentoDao {
+
+    private static final Logger LOGGER = Logger.getLogger(ArgomentoDaoImpl.class.getName());
+
     @Override
     public Argomento insertInto(Argomento argomento) {
-        try (Connection connection = getConnection();
-             PreparedStatement ps = prepareStatement(connection, "INSERT_ARGOMENTO", Statement.RETURN_GENERATED_KEYS)) {
+        Connection connection = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        Argomento newArg = null;
+
+        try {
+            LOGGER.log(Level.INFO, "Establishing connection...");
+            connection = getConnection();
+            connection.setAutoCommit(false);
+
+            LOGGER.log(Level.INFO, "Preparing statement...");
+            ps = prepareStatement(connection, "INSERT_ARGOMENTO", Statement.RETURN_GENERATED_KEYS);
+
+            LOGGER.log(Level.INFO, "Setting parameters...");
             ps.setDate(1, new java.sql.Date(argomento.getDataCaricamento().getTime()));
             ps.setString(2, argomento.getNome());
             ps.setString(3, argomento.getDescrizione());
             ps.setInt(4, argomento.getLezione());
 
+            LOGGER.log(Level.INFO, "Executing update...");
             int affectedRows = ps.executeUpdate();
 
             if (affectedRows > 0) {
-                try (ResultSet rs = ps.getGeneratedKeys()) {
-                    if (rs.next()) {
-                        return getResultAsObject(rs);
-                    }
+                LOGGER.log(Level.INFO, "Fetching generated keys...");
+                rs = ps.getGeneratedKeys();
+                if (rs.next()) {
+                    newArg = getResultAsObject(rs);
+                    LOGGER.log(Level.INFO, "Generated key obtained: " + newArg.getId());
+                }
+
+                LOGGER.log(Level.INFO, "Updating or inserting file {0}", argomento.getFilenames().get(0));
+                if(!argomento.getFilenames().isEmpty()) {
+                    PreparedStatement newfile = prepareStatement(connection, "INSERT_FILE");
+
+                    newfile.setString(1, argomento.getFilenames().get(0));
+                    newfile.setInt(2, newArg.getId());
+                    newfile.executeUpdate();
+                }
+
+                LOGGER.log(Level.INFO, "Committing transaction...");
+                connection.commit();
+                return newArg;
+            } else {
+                LOGGER.log(Level.WARNING, "No rows affected, rolling back...");
+                connection.rollback();
+            }
+        } catch (SQLException e) {
+            LOGGER.log(Level.SEVERE, "SQLException occurred, rolling back...", e);
+            if (connection != null) {
+                try {
+                    connection.rollback();
+                } catch (SQLException rollbackEx) {
+                    LOGGER.log(Level.SEVERE, "Error during rollback", rollbackEx);
+                    throw new RuntimeException(rollbackEx);
                 }
             }
-        } catch (SQLException exception) {
-            throw new RuntimeException(exception);
+            throw new RuntimeException(e);
+        } finally {
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (SQLException e) {
+                    LOGGER.log(Level.WARNING, "Error closing ResultSet", e);
+                }
+            }
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (SQLException e) {
+                    LOGGER.log(Level.WARNING, "Error closing PreparedStatement", e);
+                }
+            }
+            if (connection != null) {
+                try {
+                    connection.setAutoCommit(true);
+                    connection.close();
+                } catch (SQLException e) {
+                    LOGGER.log(Level.WARNING, "Error closing Connection", e);
+                }
+            }
         }
         return argomento;
     }
 
+
+
     @Override
     public void update(Argomento argomento) {
-        try (Connection connection = getConnection();
-             PreparedStatement ps = prepareStatement(connection, "UPDATE_ARGOMENTO")) {
+        Connection connection = null;
+        try {
+            connection = getConnection();
+
+            PreparedStatement ps = prepareStatement(connection, "UPDATE_ARGOMENTO");
+
+            connection.setAutoCommit(false);
+
+
             ps.setDate(1, new java.sql.Date(argomento.getDataCaricamento().getTime()));
             ps.setString(2, argomento.getNome());
             ps.setString(3, argomento.getDescrizione());
             ps.setInt(4, argomento.getLezione());
             ps.setInt(5, argomento.getId());
             ps.executeUpdate();
-        } catch (SQLException exception) {
-            throw new RuntimeException(exception);
+
+            if(!argomento.getFilenames().isEmpty())
+                updateOrInsertFile(connection, argomento.getFilenames().get(0), argomento.getId());
+
+
+            connection.commit();
+
+
+        } catch (SQLException e) {
+            try {
+                connection.rollback();
+                throw e;
+            }catch (SQLException ex) {
+                throw new RuntimeException(ex);
+            }
+
+        }finally {
+            try {
+                connection.setAutoCommit(true);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
     }
 
     @Override
-    public void updateOrInsertFile(String newFilename, int idArgomento) {
+    public void updateOrInsertFile(Connection conn, String newFilename, int idArgomento) {
         if(findFiles(idArgomento).isEmpty()) {
-            insertFile(newFilename, idArgomento);
+            try {
+                PreparedStatement ps = prepareStatement(conn, "INSERT_FILE");
+
+                ps.setString(1, newFilename);
+                ps.setInt(2, idArgomento);
+                ps.executeUpdate();
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+
         } else {
-            updateFile(newFilename, idArgomento);
+
+            try {
+                PreparedStatement ps = prepareStatement(conn, "UPDATE_FILE");
+
+                ps.setString(1, newFilename);
+                ps.setInt(2, idArgomento);
+                ps.executeUpdate();
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
         }
     }
 

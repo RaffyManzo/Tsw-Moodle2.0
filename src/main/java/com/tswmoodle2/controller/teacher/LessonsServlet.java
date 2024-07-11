@@ -20,11 +20,11 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.StandardCopyOption;
 import java.sql.Timestamp;
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.Enumeration;
 import java.util.List;
+import java.util.Objects;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 @WebServlet("/lesson")
@@ -163,9 +163,15 @@ public class LessonsServlet extends HttpServlet {
             if (argomento != null) {
                 argomento.setNome(title);
                 argomento.setDescrizione(description);
+
+
+                if(file != null) {
+                    argomento.setFilenames(new ArrayList<>(List.of(Objects.requireNonNull(getFileName(file)))));
+                    replaceORAddImage(courseId, file, request, response);
+
+                }
+
                 argomentoDao.update(argomento);
-                replaceORAddImage(courseId, file, request, response);
-                argomentoDao.updateOrInsertFile(getFileName(file), argomento.getId());
             } else {
                 errorOccurs(request, response);
                 return;
@@ -177,10 +183,14 @@ public class LessonsServlet extends HttpServlet {
             argomento.setIdLezione(lessonIdInt);
             argomento.setDataCaricamento(new Timestamp(System.currentTimeMillis()));
             LOGGER.log(Level.INFO, argomento.toString());
-            argomentoDao.insertInto(argomento);
 
-            replaceORAddImage(courseId, file, request, response);
-            argomentoDao.updateOrInsertFile(getFileName(file), argomento.getId());
+
+            if(file != null) {
+                argomento.setFilenames(new ArrayList<>(List.of(Objects.requireNonNull(getFileName(file)))));
+                replaceORAddImage(courseId, file, request, response);
+
+            }
+            argomentoDao.insertInto(argomento);
         }
 
         response.sendRedirect("lesson?action=new&courseID=" + courseId + "&lezione=" + lessonIdInt);
@@ -204,18 +214,18 @@ public class LessonsServlet extends HttpServlet {
         }
     }
 
-    private boolean replaceORAddImage(int corsoID, Part filePart, HttpServletRequest request, HttpServletResponse response) throws IOException {
+    private void replaceORAddImage(int corsoID, Part filePart, HttpServletRequest request, HttpServletResponse response) throws IOException {
         if (filePart == null) {
             LOGGER.log(Level.SEVERE, "No file uploaded or file part name mismatch.");
             response.sendError(HttpServletResponse.SC_BAD_REQUEST, "No file uploaded.");
-            return false;
+            return;
         }
 
         String fileName = getFileName(filePart);
         if (fileName == null || fileName.isEmpty()) {
             LOGGER.log(Level.SEVERE, "File name could not be determined.");
             response.sendError(HttpServletResponse.SC_BAD_REQUEST, "File name could not be determined.");
-            return false;
+            return;
         }
 
         String uploadPath = UPLOAD_FOLDER + SEPARATOR + "course" + SEPARATOR + corsoID;
@@ -232,12 +242,12 @@ public class LessonsServlet extends HttpServlet {
                 } else {
                     LOGGER.log(Level.SEVERE, "Directory creation failed: {0}", createdPath.toString());
                     response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Failed to create upload directory.");
-                    return false;
+                    return;
                 }
             } catch (IOException e) {
                 LOGGER.log(Level.SEVERE, "Failed to create directory: " + e.getMessage(), e);
                 response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Failed to create upload directory.");
-                return false;
+                return;
             }
         }
 
@@ -254,16 +264,13 @@ public class LessonsServlet extends HttpServlet {
 
             try (InputStream input = filePart.getInputStream()) {
 
-                Files.copy(input, Path.of(filePath));
-                return true;
+                Files.copy(input, Path.of(filePath), StandardCopyOption.REPLACE_EXISTING);
             } catch (IOException ex) {
                 LOGGER.log(Level.SEVERE, "Failed to save uploaded file: " + ex.getMessage(), ex);
                 response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Failed to save uploaded file.");
-                return false;
             }
         }
 
-        return false;
     }
 
     private void deleteLesson(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
