@@ -17,6 +17,8 @@
     Corso corso = (Corso) request.getAttribute("course");
     Utenza user = (Utenza) request.getSession(false).getAttribute("user");
 %>
+<%@ include file="../session.jsp" %>
+
 <html>
 <head>
 
@@ -71,10 +73,6 @@
         <nav id="sidebar-menu">
             <div class="ul">
                 <div class="link-container">
-                    <a href="${pageContext.request.contextPath}/dashboard" class="header-redirect-btn"
-                       id="li-header-redirect-to-dashboard">Vai alla tua dashboard</a>
-                </div>
-                <div class="link-container">
                     <a href="${pageContext.request.contextPath}/account" class="header-redirect-btn"
                        id="li-header-redirect-to-profile">My account</a>
                 </div>
@@ -87,13 +85,6 @@
         </nav>
     </label>
     <div class="header-links" id="header-links">
-
-        <span class="vertical-separator"></span>
-        <div class="link-container header-button dashboard-button">
-            <a href="${pageContext.request.contextPath}/dashboard" class="header-redirect-btn"
-               id="header-redirect-to-dashboard">Vai alla tua dashboard</a>
-
-        </div>
         <span class="vertical-separator"></span>
         <% String initials = "";
             if (user.getNome() != null && user.getCognome() != null) {
@@ -142,10 +133,12 @@
         <button type="submit" id="save">Salva modifiche</button>
             <button type="button" id="delete-lesson" class="delete-lesson">Elimina lezione</button>
         <input type="hidden" name="lessonID" id="lessonid" value="<%= lezione.getId() %>">
+            <button type="button" onclick="window.location = '${pageContext.request.contextPath}/course?courseID=<%= corso.getIdCorso()%>'">Indietro</button>
         <%} else {%>
             <button type="submit">Nuova lezione</button>
-            <%}%>
             <button type="button" onclick="window.history.back()">Indietro</button>
+            <%}%>
+
         </div>
     </form>
 
@@ -170,7 +163,7 @@
             </div>
             <div class="fileDetailsContainer">
                 <div class="file-details">
-                    <span class="file-icon">📄</span>
+                    <span class="file-icon"><img src="${pageContext.request.contextPath}/assets/images/file-text.png" alt="📄"></span>
                     <% if(!argomento.getFilenames().isEmpty()) {%>
                     <a target="_blank" href="file?file=<%= argomento.getFilenames().get(0)%>&id=<%= corso.getIdCorso()%>&c=course" ><%= argomento.getFilenames().get(0)%></a>
                     <%}%>

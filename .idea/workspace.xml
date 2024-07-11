@@ -9,13 +9,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aaf64b38-f287-423c-9dbc-41a4353826d6" name="Changes" comment="Alcune fix grafiche">
+    <list default="true" id="aaf64b38-f287-423c-9dbc-41a4353826d6" name="Changes" comment="Fix varie e jstl per visualizzazione studenti">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/DisplayOrdersList.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/private/orders.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/css/orders.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/teacher/LessonsServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/teacher/LessonsServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/dao/ArgomentoDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/dao/ArgomentoDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/dao/ArgomentoDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/dao/ArgomentoDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/private/teacher/lessons.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/private/teacher/lessons.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/lesson.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/lesson.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/admin/AdminSearchFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/admin/AdminSearchFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/dao/OrdineDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/dao/OrdineDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/dao/OrdineDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/dao/OrdineDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/xml/query.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/xml/query.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/private/dashboard.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/private/dashboard.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/private/teacher/course.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/private/teacher/course.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/course.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/course.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/dashboard.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/dashboard.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/students.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/students.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,10 +35,10 @@
         <option value="HTML File" />
         <option value="SCSS File" />
         <option value="Interface" />
-        <option value="Jsp File" />
-        <option value="CSS File" />
-        <option value="Class" />
         <option value="JavaScript File" />
+        <option value="CSS File" />
+        <option value="Jsp File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -109,7 +116,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "master",
-    "last_opened_file_path": "C:/Users/raffa/IdeaProjects/Tsw-Moodle2.0/src/main/resources",
+    "last_opened_file_path": "C:/Users/raffa/IdeaProjects/Tsw-Moodle2.0/src/main/webapp/assets/images",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -125,11 +132,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\raffa\IdeaProjects\Tsw-Moodle2.0\src\main\webapp\assets\images" />
       <recent name="C:\Users\raffa\IdeaProjects\Tsw-Moodle2.0\src\main\resources" />
       <recent name="C:\Users\raffa\IdeaProjects\Tsw-Moodle2.0\src\main\java\com\tswmoodle2\controller" />
       <recent name="C:\Users\raffa\IdeaProjects\Tsw-Moodle2.0\src\main\java\model\dao" />
       <recent name="C:\Users\raffa\IdeaProjects\Tsw-Moodle2.0\src\main\java\model\beans" />
-      <recent name="C:\Users\raffa\IdeaProjects\Tsw-Moodle2.0\.mvn\wrapper" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\raffa\IdeaProjects\Tsw-Moodle2.0\src\main\webapp\assets\images" />
@@ -318,23 +325,8 @@
       <workItem from="1720435039564" duration="23319000" />
       <workItem from="1720518053122" duration="24860000" />
       <workItem from="1720560567649" duration="4665000" />
-      <workItem from="1720600415122" duration="42406000" />
-    </task>
-    <task id="LOCAL-00023" summary="Fix db cart">
-      <option name="closed" value="true" />
-      <created>1719401693681</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1719401693681</updated>
-    </task>
-    <task id="LOCAL-00024" summary="first attempt to make a generic course request">
-      <option name="closed" value="true" />
-      <created>1719445517560</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1719445517560</updated>
+      <workItem from="1720600415122" duration="42650000" />
+      <workItem from="1720687691331" duration="37660000" />
     </task>
     <task id="LOCAL-00025" summary="fix color">
       <option name="closed" value="true" />
@@ -712,7 +704,23 @@
       <option name="project" value="LOCAL" />
       <updated>1720654962334</updated>
     </task>
-    <option name="localTasksCounter" value="72" />
+    <task id="LOCAL-00072" summary="Fix caricamento file">
+      <option name="closed" value="true" />
+      <created>1720658172152</created>
+      <option name="number" value="00072" />
+      <option name="presentableId" value="LOCAL-00072" />
+      <option name="project" value="LOCAL" />
+      <updated>1720658172153</updated>
+    </task>
+    <task id="LOCAL-00073" summary="Fix varie e jstl per visualizzazione studenti">
+      <option name="closed" value="true" />
+      <created>1720734468408</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1720734468408</updated>
+    </task>
+    <option name="localTasksCounter" value="74" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -742,8 +750,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fix paymentValidation.js, and CheckoutServlet user type control" />
-    <MESSAGE value="Favourite course selection in home" />
     <MESSAGE value="fix query" />
     <MESSAGE value="teacher profile page finished" />
     <MESSAGE value="Start category.jsp" />
@@ -767,6 +773,8 @@
     <MESSAGE value="Aggiunte sulla creazione e medifica lezioni e argomenti (senza file)" />
     <MESSAGE value="Completata aggiunta di lezioni e argomenti con aggiunta file" />
     <MESSAGE value="Alcune fix grafiche" />
-    <option name="LAST_COMMIT_MESSAGE" value="Alcune fix grafiche" />
+    <MESSAGE value="Fix caricamento file" />
+    <MESSAGE value="Fix varie e jstl per visualizzazione studenti" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix varie e jstl per visualizzazione studenti" />
   </component>
 </project>

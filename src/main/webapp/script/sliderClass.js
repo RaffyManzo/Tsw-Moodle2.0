@@ -4,7 +4,7 @@ class CourseSlider {
         this.sliderEl =
             "<a class='course-box' href='course?courseID={0}'> " +
             "<div class='master-course-info'>" +
-            "<img src='file?file={0}/{2}&c=course' alt=''>" +
+            "<img src='file?file={2}&id={0}&c=course' alt=''>" +
             "<label>{1}</label>" +
             "<label style='font-size: 70%; color: #515151'>Docente: {5} {6}</label>" +
             "</div>" +

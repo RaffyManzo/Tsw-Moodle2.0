@@ -2,7 +2,9 @@
 <%@ page import="model.beans.Corso" %>
 <%@ page import="model.beans.Argomento" %>
 <%@ page import="model.beans.Lezione" %>
-<%@ page import="java.util.ArrayList" %><%--
+<%@ page import="java.util.ArrayList" %>
+<%@ include file="../session.jsp" %>
+<%--
   Created by IntelliJ IDEA.
   User: raffa
   Date: 09/07/2024
@@ -112,10 +114,6 @@
         <nav id="sidebar-menu">
             <div class="ul">
                 <div class="link-container">
-                    <a href="${pageContext.request.contextPath}/dashboard" class="header-redirect-btn"
-                       id="li-header-redirect-to-dashboard">Vai alla tua dashboard</a>
-                </div>
-                <div class="link-container">
                     <a href="${pageContext.request.contextPath}/account" class="header-redirect-btn"
                        id="li-header-redirect-to-profile">My account</a>
                 </div>
@@ -128,13 +126,6 @@
         </nav>
     </label>
     <div class="header-links" id="header-links">
-
-        <span class="vertical-separator"></span>
-        <div class="link-container header-button dashboard-button">
-            <a href="${pageContext.request.contextPath}/dashboard" class="header-redirect-btn"
-               id="header-redirect-to-dashboard">Vai alla tua dashboard</a>
-
-        </div>
         <span class="vertical-separator"></span>
         <% String initials = "";
             if (user.getNome() != null && user.getCognome() != null) {
@@ -197,15 +188,19 @@
             </div>
         </div>
     </form>
+    <p class="students-link-a">
+        <button  onclick="window.location.href = 'students?courseID=<%= corso.getIdCorso()%>'"class="redirect">
+            Visualizza l'elenco degli studenti che hanno acquistato il corso</button>
+    </p>
     <div class="lessons-container">
         <%if(request.getAttribute("lezioni") != null) {%>
         <h2>Contenuto del corso</h2>
         <% for(Lezione lezione : (ArrayList<Lezione>)request.getAttribute("lezioni")) {%>
         <button class="accordion">
-            <p >
-            <%= lezione.getTitolo()%></p>
-            <a href="lesson?action=display&courseID=<%=corso.getIdCorso()%>&lezione=<%=lezione.getId()%>">
-                Modifica la lezione&nbsp;&nbsp;<img src="${pageContext.request.contextPath}/assets/images/pen-line.png">
+            <p><%= lezione.getTitolo()%></p>
+
+            <a class="redirect-to-lesson" href="lesson?action=display&courseID=<%=corso.getIdCorso()%>&lezione=<%=lezione.getId()%>">
+                Modifica la lezione&nbsp;&nbsp;<img src="${pageContext.request.contextPath}/assets/images/square-arrow-out-up-right.png">
             </a>
         </button>
 
@@ -220,8 +215,10 @@
                 <div class="argomento-content">
                     <p><%= argomento.getDescrizione() %></p>
                     <% if(!argomento.getFilenames().isEmpty()) { %>
-                        <a target="_blank"class="resource"href="file?file=<%= argomento.getFilenames().get(0)%>&id=<%= corso.getIdCorso()%>&c=course">
-                            <p class="resource-pic">📄</p>
+                    <p style="display: none" class="lessonid"><%= argomento.getLezione()%></p>
+                    <p style="display: none" class="topicid"><%= argomento.getId()%></p>
+                        <a target="_blank" class="resource" href="file?file=<%= argomento.getFilenames().get(0)%>&id=<%= corso.getIdCorso()%>&c=course">
+                            <p class="resource-pic"><img src="${pageContext.request.contextPath}/assets/images/file-text.png" alt="📄"></p>
                             <p><%= argomento.getFilenames().get(0)%></p>
                         </a>
                     <% } %>

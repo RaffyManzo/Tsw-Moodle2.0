@@ -47,10 +47,17 @@ ShoppingServlet extends HttpServlet {
 
     }
 
+    private void updateCart() {
+        for (Corso c : new CorsoDaoImpl().getAllCourses()) {
+            products.put(c.getIdCorso(), c);
+        }
+    }
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
 
+        updateCart();
         HttpSession session = req.getSession(false);
         user = session != null ? (Utenza) session.getAttribute("user") : null;
 

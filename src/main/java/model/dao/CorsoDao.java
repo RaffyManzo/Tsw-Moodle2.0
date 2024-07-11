@@ -1,6 +1,7 @@
 package model.dao;
 
 import model.beans.Corso;
+import model.beans.Utenza;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -17,6 +18,8 @@ public interface CorsoDao {
     ArrayList<Corso> findByDateRange(Date startDate, Date endDate) throws SQLException;
     ArrayList<Corso> findByCertificazione(String certificazione) throws SQLException;
     public ArrayList<Corso> findByPrezzo(double prezzo);
+    public ArrayList<Utenza> getUtentiAcquistati(int id);
+    public ArrayList<Corso> getCorsiAcquistati(int id);
     public ArrayList<Corso> findByCreatore(int IDUtente);
 
     public ArrayList<Corso> findByCategoryPaginated(String categoryId, int page, int itemsPerPage);

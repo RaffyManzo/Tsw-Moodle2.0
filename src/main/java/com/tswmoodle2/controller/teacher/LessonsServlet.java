@@ -165,10 +165,11 @@ public class LessonsServlet extends HttpServlet {
                 argomento.setDescrizione(description);
 
 
-                if(file != null) {
-                    argomento.setFilenames(new ArrayList<>(List.of(Objects.requireNonNull(getFileName(file)))));
+                if (checkFile(file)) {
+                    String fileName = getFileName(file);
+                    LOGGER.log(Level.INFO, "File is not null and file name is valid");
+                    argomento.setFilenames(new ArrayList<>(List.of(fileName)));
                     replaceORAddImage(courseId, file, request, response);
-
                 }
 
                 argomentoDao.update(argomento);
@@ -184,12 +185,13 @@ public class LessonsServlet extends HttpServlet {
             argomento.setDataCaricamento(new Timestamp(System.currentTimeMillis()));
             LOGGER.log(Level.INFO, argomento.toString());
 
-
-            if(file != null) {
-                argomento.setFilenames(new ArrayList<>(List.of(Objects.requireNonNull(getFileName(file)))));
+            if (checkFile(file)) {
+                String fileName = getFileName(file);
+                LOGGER.log(Level.INFO, "File is not null and file name is valid");
+                argomento.setFilenames(new ArrayList<>(List.of(fileName)));
                 replaceORAddImage(courseId, file, request, response);
-
             }
+
             argomentoDao.insertInto(argomento);
         }
 
@@ -224,7 +226,7 @@ public class LessonsServlet extends HttpServlet {
         String fileName = getFileName(filePart);
         if (fileName == null || fileName.isEmpty()) {
             LOGGER.log(Level.SEVERE, "File name could not be determined.");
-            response.sendError(HttpServletResponse.SC_BAD_REQUEST, "File name could not be determined.");
+            //response.sendError(HttpServletResponse.SC_BAD_REQUEST, "File name could not be determined.");
             return;
         }
 
@@ -268,6 +270,7 @@ public class LessonsServlet extends HttpServlet {
             } catch (IOException ex) {
                 LOGGER.log(Level.SEVERE, "Failed to save uploaded file: " + ex.getMessage(), ex);
                 response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Failed to save uploaded file.");
+                return;
             }
         }
 
@@ -290,12 +293,23 @@ public class LessonsServlet extends HttpServlet {
     }
 
     private String getFileName(Part part) {
-        for (String content : part.getHeader("content-disposition").split(";")) {
-            if (content.trim().startsWith("filename")) {
-                return content.substring(content.indexOf('=') + 1).trim().replace("\"", "");
+        String contentDisposition = part.getHeader("content-disposition");
+        if (contentDisposition == null) {
+            return null;
+        }
+        for (String cd : contentDisposition.split(";")) {
+            if (cd.trim().startsWith("filename")) {
+                String fileName = cd.substring(cd.indexOf('=') + 1).trim().replace("\"", "");
+                return fileName.isEmpty() ? null : fileName;
             }
         }
         return null;
+    }
+
+    private boolean checkFile(Part file) {
+        String fileName = getFileName(file);
+        LOGGER.log(Level.INFO, "File name: {0}", fileName);
+        return file != null && fileName != null && !fileName.isEmpty();
     }
 
 

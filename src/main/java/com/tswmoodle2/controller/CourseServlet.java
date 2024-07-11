@@ -83,13 +83,30 @@ public class CourseServlet extends HttpServlet {
         }
     }
 
+    private boolean isPurchased(Corso corso, Utenza user) {
+        ArrayList<Corso> corsiAcquistati = new CorsoDaoImpl().
+                getCorsiAcquistati(user.getIdUtente());
+
+        for (Corso c : corsiAcquistati) {
+            if(c.getIdCorso() == corso.getIdCorso())
+                return true;
+        }
+
+        return false;
+    }
+
     private void serveGeneric(HttpServletRequest request, HttpServletResponse response, String param) throws ServletException, IOException {
         Corso corso =  new CorsoDaoImpl().findByID(Integer.parseInt(param));
 
         if(corso == null) {
             errorOccurs(request, response);
         } else {
+            Utenza user = (Utenza) request.getSession().getAttribute("user");
 
+            if(user != null){
+                request.setAttribute("isPurchased",
+                        isPurchased(corso, user));
+            }
             setLezioniAttribute(request, corso);
         }
 

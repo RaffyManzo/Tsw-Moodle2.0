@@ -1,0 +1,226 @@
+* {
+    font-family: "Jura", sans-serif;
+    box-sizing: border-box;
+}
+
+
+.container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 170px 5%;
+}
+
+.last-course-header {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    border-radius: 12px;
+    padding: 20px;
+    background: #4e5690;
+}
+
+.last-course {
+    margin: 20px auto;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 65%;
+    height: 100%;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.order-info {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.order-info a {
+    text-align: center;
+}
+
+.last-course > * {
+    margin-bottom: 2%;
+}
+
+.course-info {
+    display: flex;
+    width: 100%;
+    height: auto;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.container h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2em;
+    color: #333;
+}
+
+.dashboard-header {
+    width: 65%;
+    height: 100%;
+    border: 1px solid #efefef;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
+}
+
+.last-course{
+    margin-bottom: 20px;
+}
+
+.teacher-info {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 100%;
+}
+
+.last-course h2{
+    font-size: 1.5em;
+    color: #fff;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    text-align: left;
+    align-items: flex-start;
+    margin: 0;
+}
+
+.course-info {
+    display: flex;
+    justify-content: space-between;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: #fff;
+    height: 100%;
+}
+
+.left, .right {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    min-height: 100px;
+
+}
+
+.right {
+    width: 30% !important;
+}
+
+.teacher-info img {
+    width: 50px;
+    aspect-ratio: 1 / 1;
+    height: auto;
+    border-radius: 50%;
+
+}
+
+.resource {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    width: 100%;
+}
+
+.resource-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #333;
+    width: 100%;
+}
+
+.redirect {
+    font-family: "Jura", sans-serif;
+    background-color: #4E569F;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+    font-size: 1.2rem;
+}
+
+.redirect:hover {
+    background-color: #3c4475;
+    cursor: pointer;
+
+}
+
+.redirect:disabled {
+    background-color: #ccc;
+    color: #4E569F;
+    pointer-events: none;
+}
+
+
+
+.resource-name {
+    font-weight: bold;
+    width: 100%;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.course-details {
+    color: black !important;
+    font-size: 1.2rem !important;
+}
+
+.course-details {
+    display: flex;
+    flex-direction: column;
+}
+
+@keyframes skeleton-loading {
+    0% {
+        background-position: -200px 0;
+    }
+    100% {
+        background-position: calc(200px + 100%) 0;
+    }
+}
+
+.skeleton {
+    display: inline-block;
+    height: 1em;
+    width: 100%;
+    background: linear-gradient(90deg, #f0f0f0, #e0e0e0, #f0f0f0);
+    background-size: 200px 100%;
+    background-repeat: no-repeat;
+    border-radius: 5px;
+    animation: skeleton-loading 1.5s infinite linear;
+}
+
+.hidden {
+    display: none;
+}
+
+@media screen and (max-width: 650px) {
+    .last-course, .dashboard-header {
+        width: 95%;
+    }
+}

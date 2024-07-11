@@ -57,6 +57,15 @@ h1 {
     color: #333;
 }
 
+.students-link-a {
+    width: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2%;
+}
+
 label {
     display: block;
     margin-top: 10px;

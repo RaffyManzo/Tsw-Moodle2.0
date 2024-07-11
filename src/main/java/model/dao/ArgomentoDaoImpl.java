@@ -45,13 +45,16 @@ public class ArgomentoDaoImpl extends AbstractDataAccessObject<Argomento> implem
                     LOGGER.log(Level.INFO, "Generated key obtained: " + newArg.getId());
                 }
 
-                LOGGER.log(Level.INFO, "Updating or inserting file {0}", argomento.getFilenames().get(0));
-                if(!argomento.getFilenames().isEmpty()) {
-                    PreparedStatement newfile = prepareStatement(connection, "INSERT_FILE");
 
-                    newfile.setString(1, argomento.getFilenames().get(0));
-                    newfile.setInt(2, newArg.getId());
-                    newfile.executeUpdate();
+                if(argomento.getFilenames() != null) {
+                    if (!argomento.getFilenames().isEmpty()) {
+                        LOGGER.log(Level.INFO, "Updating or inserting file {0}", argomento.getFilenames().get(0));
+                        PreparedStatement newfile = prepareStatement(connection, "INSERT_FILE");
+
+                        newfile.setString(1, argomento.getFilenames().get(0));
+                        newfile.setInt(2, newArg.getId());
+                        newfile.executeUpdate();
+                    }
                 }
 
                 LOGGER.log(Level.INFO, "Committing transaction...");
