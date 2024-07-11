@@ -28,7 +28,7 @@ public class UtenzaDaoImpl extends AbstractDataAccessObject<Utenza> implements U
             ps.setDate(3,
                     new java.sql.Date(utenza.getDataNascita().getTime()));
             ps.setString(4, utenza.getIndirizzo());
-            ps.setString(5, utenza.getCitta());
+            ps.setString(5, utenza.getNazione());
             ps.setString(6, utenza.getTelefono());
             ps.setString(7, utenza.getEmail());
             ps.setString(8, utenza.getPassword());
@@ -65,7 +65,7 @@ public class UtenzaDaoImpl extends AbstractDataAccessObject<Utenza> implements U
             ps.setDate(3,
                     new java.sql.Date(utenza.getDataNascita().getTime()));
             ps.setString(4, utenza.getIndirizzo());
-            ps.setString(5, utenza.getCitta());
+            ps.setString(5, utenza.getNazione());
             ps.setString(6, utenza.getTelefono());
             ps.setString(7, utenza.getEmail());
             ps.setString(8, utenza.getPassword());
@@ -287,10 +287,10 @@ public class UtenzaDaoImpl extends AbstractDataAccessObject<Utenza> implements U
     }
 
     @Override
-    public ArrayList<Utenza> findByCitta(String citta) {
+    public ArrayList<Utenza> findByNazione(String nazione) {
         try (Connection connection = getConnection();
-             PreparedStatement ps = prepareStatement(connection, "FIND_UTENZA_BY_CITTA")) {
-            ps.setString(1, citta);
+             PreparedStatement ps = prepareStatement(connection, "FIND_UTENZA_BY_NAZIONE")) {
+            ps.setString(1, nazione);
             try (ResultSet rs = ps.executeQuery()) {
                 if (rs.next()) {
                     return getResultAsList(rs);
@@ -330,7 +330,7 @@ public class UtenzaDaoImpl extends AbstractDataAccessObject<Utenza> implements U
                 String cognome = rs.getString("Cognome");
                 Date dataNascita = rs.getDate("DataNascita");
                 String indirizzo = rs.getString("Indirizzo");
-                String citta = rs.getString("Citta");
+                String nazione = rs.getString("nazione");
                 String telefono = rs.getString("Telefono");
                 String email = rs.getString("Email");
                 String password = rs.getString("Password");
@@ -339,7 +339,7 @@ public class UtenzaDaoImpl extends AbstractDataAccessObject<Utenza> implements U
                 String tipo = rs.getString("Tipo");
                 String img = rs.getString("Immagine");
 
-                return new Utenza(idUtente, nome, cognome, dataNascita, indirizzo, citta, telefono, email, password, dataCreazioneAccount, username, tipo, img);
+                return new Utenza(idUtente, nome, cognome, dataNascita, indirizzo, nazione, telefono, email, password, dataCreazioneAccount, username, tipo, img);
             }
         }
     }

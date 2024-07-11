@@ -25,7 +25,7 @@ public interface UtenzaDao {
 
     ArrayList<Utenza> findByTelefono(String telefono);
 
-    ArrayList<Utenza> findByCitta(String citta);
+    ArrayList<Utenza> findByNazione(String nazione);
 
     ArrayList<Utenza> searchByCognomeOrUsername(String tipo);
     ArrayList<Utenza> searchByCognomeOrUsernameLimited(String nome, int limit);

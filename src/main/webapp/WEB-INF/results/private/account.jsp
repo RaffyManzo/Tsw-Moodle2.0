@@ -179,7 +179,7 @@
                 <div class="input-box">
                     <div class="field-input-box-container ">
                         <label>Nazione</label>
-                        <input class="input-field" readonly type="text" value="<%= user.getCitta()%>">
+                        <input class="input-field" readonly type="text" value="<%= user.getNazione()%>">
                     </div>
                 </div>
 

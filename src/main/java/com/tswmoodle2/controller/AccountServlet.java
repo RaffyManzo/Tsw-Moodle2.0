@@ -157,7 +157,7 @@ public class AccountServlet extends HttpServlet {
                 request.setAttribute("operation", "cancellazione account");
                 request.setAttribute("message-header", "Addio " + user.getNome());
                 List<String> msgs = List.of("Il tuo account é stato eliminato in modo corretto", "I tuoi dati sono stati eliminati");
-                request.setAttribute("messages", msgs);
+                request.setAttribute("messages", new ArrayList<>(msgs));
                 request.getRequestDispatcher(SUCCESS_VIEW).forward(request, response);
             } else {
                 ArrayList<String> err = new ArrayList<>();
