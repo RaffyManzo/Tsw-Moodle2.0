@@ -178,7 +178,7 @@
             </div>
             <div class="button-container">
                 <button type="submit" class="save-topic">Salva modifiche</button>
-                <button type="button" class="delete-topic">Elimina lezione</button>
+                <button type="button" class="delete-topic">Elimina argomento</button>
             </div>
         </div>
         </form>
