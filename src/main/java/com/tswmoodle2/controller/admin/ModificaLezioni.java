@@ -12,19 +12,28 @@ import model.dao.LezioneDaoImpl;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "VisualizzaLezioni", value = "/VisualizzaLezioni")
-public class VisualizzaLezioni extends HttpServlet {
+@WebServlet(name = "ModificaLezioni", value = "/ModificaLezioni")
+public class ModificaLezioni extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String idLezione=request.getParameter("idLezione");
         String id=request.getParameter("idCorsoV");
         request.setAttribute("corso", id);
-        String idLezione=request.getParameter("idLezione");
+        System.out.println(idLezione);
         LezioneDaoImpl l = new LezioneDaoImpl();
+        Lezione lez=l.findById(Integer.parseInt(idLezione));
+        request.setAttribute("lezione", lez);
+
+        String titolo=request.getParameter("titolo");
+        if(titolo==null){
+            RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/results/admin/modificaLezioni.jsp");
+            rd.forward(request, response);
+        }else {
+            lez.setDescrizione(request.getParameter("descrizione"));
+            lez.setTitolo(titolo);
+            l.update(lez);
+        }
         List<Lezione> lezioni = l.findAllByCorsoId(Integer.parseInt(id));
         request.setAttribute("elemento", lezioni);
-        String type=request.getParameter("type");
-        if(type!=null){
-            l.delete(Integer.parseInt(idLezione));
-        }
 
         RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/results/admin/visualizzaLezioni.jsp");
         rd.forward(request, response);

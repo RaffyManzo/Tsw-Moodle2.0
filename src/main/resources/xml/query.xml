@@ -175,7 +175,7 @@
     <entry key="INSERT_LEZIONE">INSERT INTO lezione (descrizione, titolo, idCorso) VALUES (?, ?, ?)</entry>
     <entry key="UPDATE_LEZIONE">UPDATE lezione SET descrizione = ?, titolo = ?, idCorso = ? WHERE idlezione = ?</entry>
     <entry key="DELETE_LEZIONE">DELETE FROM lezione WHERE idlezione = ?</entry>
-    <entry key="FIND_LEZIONE_BY_ID">SELECT * FROM lezione WHERE idlezione = ?</entry>
+    <entry key="FIND_LEZIONE_BY_ID">SELECT * FROM lezione WHERE IDLezione = ?</entry>
     <entry key="FIND_LEZIONE_BY_TITOLO">SELECT * FROM lezione WHERE titolo LIKE ?</entry>
     <entry key="FIND_ALL_LEZIONI_BY_CORSO_ID">SELECT * FROM lezione WHERE idCorso = ?</entry>
 

@@ -207,7 +207,6 @@
         <thead>
         <tr>
             <th>Nome</th>
-            <th>Azioni</th>
         </tr>
         </thead>
         <tbody>
@@ -216,15 +215,6 @@
         %>
         <tr>
             <td><%= c.getNome() %></td>
-            <td>
-                <div class="button-container">
-                    <form action="ModificaServlet" method="post" style="display:inline;">
-                        <input type="hidden" name="id" value="<%= c.getNome() %>">
-                        <input type="hidden" name="tipo" value="categoria">
-                        <input type="submit" value="Modifica">
-                    </form>
-                </div>
-            </td>
         </tr>
         <%
             }
