@@ -12,5 +12,5 @@ public interface OrdineDao {
     public void purchaseCoursesFromCart(Carrello carrello, CreditCard card) throws SQLException;
     void delete(int id);
     ArrayList<Ordine> getAllOrdini() throws SQLException;
-    ArrayList<Ordine> findByUtenteId(int idUtente, int IdOrdine) throws SQLException;
+    ArrayList<Ordine> findByUtenteId(int idUtente) throws SQLException;
 }

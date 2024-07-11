@@ -263,7 +263,7 @@
             <%}%>
         </div>
         <div class="order-info">
-            <a href="orders">Visualizza i tuoi ordini</a>
+            <button class="redirect" onclick="window.location.href = 'orders'">Visualizza i tuoi ordini</button>
         </div>
     </div>
 

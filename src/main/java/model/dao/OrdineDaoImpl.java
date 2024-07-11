@@ -40,11 +40,10 @@ public class OrdineDaoImpl extends AbstractDataAccessObject<Ordine> implements O
     }
 
     @Override
-    public ArrayList<Ordine> findByUtenteId(int idUtente, int IdOrdine)  {
+    public ArrayList<Ordine> findByUtenteId(int idUtente)  {
         try (Connection connection = getConnection();
              PreparedStatement ps = prepareStatement(connection, "SEARCH_ORDINE_BY_UTENTE_ID")) {
-            ps.setString(1, "%" + idUtente + "%");
-            ps.setString(2, "%" + IdOrdine + "%");
+            ps.setInt(1, idUtente);
 
             try (ResultSet rs = ps.executeQuery()) {
                 return getResultAsList(rs);

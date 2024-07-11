@@ -27,6 +27,31 @@
 
 }
 
+.redirect {
+        font-family: "Jura", sans-serif;
+        background-color: #4E569F;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        text-decoration: none;
+        transition: background-color 0.3s;
+    font-size: 1.2rem;
+    }
+
+.redirect:hover {
+        background-color: #3c4475;
+    cursor: pointer;
+    }
+
+.redirect:disabled {
+        background-color: #ccc;
+        color: #4E569F;
+        pointer-events: none;
+    }
+
+
+
 .dark-link {
     color: #596cff !important;
 }

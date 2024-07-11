@@ -188,7 +188,10 @@
             </div>
         </div>
     </form>
-    <a class="students-link-a" href="students?courseID=<%= corso.getIdCorso()%>">Visualizza l'elenco degli studenti che hanno acquistato il corso</a>
+    <p class="students-link-a">
+        <button  onclick="window.location.href = 'students?courseID=<%= corso.getIdCorso()%>'"class="redirect">
+            Visualizza l'elenco degli studenti che hanno acquistato il corso</button>
+    </p>
     <div class="lessons-container">
         <%if(request.getAttribute("lezioni") != null) {%>
         <h2>Contenuto del corso</h2>

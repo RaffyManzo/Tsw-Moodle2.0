@@ -76,7 +76,7 @@
     <!-- Ordine -->
     <entry key="DELETE_ORDINE">DELETE FROM ordine WHERE idordine = ?</entry>
     <entry key="FIND_ALL_ORDINI">SELECT * FROM ordine ORDER BY idordine</entry>
-    <entry key="SEARCH_ORDINE_BY_UTENTE_ID">SELECT * FROM ordine WHERE IDUtente LIKE ? OR idordine LIKE ? ORDER BY idordine</entry>
+    <entry key="SEARCH_ORDINE_BY_UTENTE_ID">SELECT * FROM ordine WHERE IDUtente = ? ORDER BY idordine</entry>
     <entry key="DETTAGLI_ORDINE">
         SELECT
         c.*
