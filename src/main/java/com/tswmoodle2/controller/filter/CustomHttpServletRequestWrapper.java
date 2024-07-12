@@ -3,8 +3,6 @@ package com.tswmoodle2.controller.filter;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.http.*;
 import model.beans.Utenza;
-
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;

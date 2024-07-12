@@ -3,9 +3,9 @@ package model.dao;
 import model.beans.Corso;
 import model.beans.Utenza;
 
-import java.sql.*;
+import java.sql.Date;
+import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.List;
 
 public interface CorsoDao {
     ArrayList<Corso> getAllCourses() throws SQLException;

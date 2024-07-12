@@ -1,11 +1,13 @@
 package com.tswmoodle2.controller.teacher;
 
 
-import com.tswmoodle2.controller.AccountServlet;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.MultipartConfig;
 import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.*;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.Part;
 import model.beans.Corso;
 import model.beans.Utenza;
 import model.dao.CategoriaDaoImpl;
@@ -22,7 +24,6 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
-import java.util.logging.Level;
 import java.util.logging.Logger;
 
 @WebServlet("/new-course")

@@ -26,7 +26,8 @@
     <script src="${pageContext.request.contextPath}/script/lessonsCoursePage.js"></script>
     <link href="${pageContext.request.contextPath}/css/slider.css" rel="stylesheet">
     <script src="${pageContext.request.contextPath}/script/search.js"></script>
-    <link href="${pageContext.request.contextPath}/css/search.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/css/search.css" rel="stylesheet">    <script src="${pageContext.request.contextPath}/script/sessionPopUp.js"></script>
+
 
     <script src="${pageContext.request.contextPath}/script/imageErrorDetect.js" defer></script>
 

@@ -1,14 +1,14 @@
-$(document).ready(() => {
-    const images = $('img:not(#profile-pic)');
-    images.each(function(k) {
-        $(this).on("error", function() {
+document.addEventListener('DOMContentLoaded', () => {
+    const images = document.querySelectorAll('img:not(#profile-pic)');
+    images.forEach((img) => {
+        img.onerror = () => {
             const newSrc = `file?file=default.png&c=course&cache_bust=${new Date().getTime()}`;
-            $(this).attr('src', newSrc);
+            img.src = newSrc;
             imageNotFound();
-        });
+        };
 
-        if (this.complete && this.naturalWidth === 0) {
-            $(this).trigger('error');
+        if (img.complete && img.naturalWidth === 0) {
+            img.dispatchEvent(new Event('error'));
         }
     });
 });

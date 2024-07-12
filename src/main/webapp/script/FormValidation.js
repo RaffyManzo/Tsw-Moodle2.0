@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
     function validateIndirizzo() {
         const indirizzo = indirizzoInput.value;
-        const indirizzoPattern = /^(Via|Viale|Piazza|Corso)\s[a-zA-Z\s]*\s\d+$/;
+        const indirizzoPattern = /^(Via|Viale|Piazza|Corso)\s+[a-zA-Z\s]+\s*,\s*[a-zA-Z\s]+,\s*\d+$/;
 
         // Check if the input is valid
         if (indirizzoPattern.test(indirizzo)) {

@@ -45,8 +45,8 @@
             <input type="text" id="indirizzo" name="indirizzo" value="<%= u.getIndirizzo() %>">
         </div>
         <div class="form-group">
-            <label for="citta">Città:</label>
-            <input type="text" id="citta" name="citta" value="<%= u.getCitta() %>">
+            <label for="nazione">Nazione:</label>
+            <input type="text" id="nazione" name="nazione" value="<%= u.getNazione() %>">
         </div>
         <div class="form-group">
             <label for="telefono">Telefono:</label>

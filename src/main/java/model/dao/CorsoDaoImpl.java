@@ -5,7 +5,6 @@ import model.beans.Utenza;
 
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.Set;
 
 public class CorsoDaoImpl extends AbstractDataAccessObject<Corso> implements CorsoDao{
 
@@ -133,6 +132,25 @@ public class CorsoDaoImpl extends AbstractDataAccessObject<Corso> implements Cor
             }} catch (SQLException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public int countFileUsage(int topicID, int courseID, String filename) {
+        try (Connection conn = getConnection();
+             PreparedStatement ps = prepareStatement(conn, "COUNT_NUMBER_OF_FILE_USAGE")) {
+            ps.setInt(1, courseID);
+            ps.setInt(2, topicID);
+            ps.setString(3, filename);
+
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) {
+                return rs.getInt(1);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return 0;
     }
 
     public ArrayList<Utenza> getUtentiAcquistati(int id)  {

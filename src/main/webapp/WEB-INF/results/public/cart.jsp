@@ -26,7 +26,6 @@
     <script src="${pageContext.request.contextPath}/script/imageErrorDetect.js"></script>
 
     <script src="${pageContext.request.contextPath}/script/profilepic.js"></script>
-
     <script src="${pageContext.request.contextPath}/script/search.js"></script>
     <link href="${pageContext.request.contextPath}/css/search.css" rel="stylesheet">
     <title>Shopping Cart - Learn hub</title>

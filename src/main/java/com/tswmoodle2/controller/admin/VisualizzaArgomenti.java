@@ -7,7 +7,6 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import model.beans.Argomento;
-import model.beans.Lezione;
 import model.dao.*;
 
 import java.io.IOException;

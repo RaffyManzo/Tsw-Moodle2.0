@@ -1,7 +1,7 @@
 package model;
 
-import java.io.*;
-import java.net.MalformedURLException;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.Properties;
 
 public class QueryPool {

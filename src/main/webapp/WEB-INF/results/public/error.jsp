@@ -15,6 +15,7 @@
     <meta charset="UTF-8">
     <title>Error - Learn Hub</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/error.css">
+
 </head>
 <body>
 <header class="header">

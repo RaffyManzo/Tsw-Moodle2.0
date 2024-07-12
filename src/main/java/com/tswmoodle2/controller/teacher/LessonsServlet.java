@@ -18,13 +18,15 @@ import model.dao.LezioneDaoImpl;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.RandomAccessFile;
+import java.nio.channels.FileChannel;
+import java.nio.channels.FileLock;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 @WebServlet("/lesson")
@@ -169,7 +171,7 @@ public class LessonsServlet extends HttpServlet {
                     String fileName = getFileName(file);
                     LOGGER.log(Level.INFO, "File is not null and file name is valid");
                     argomento.setFilenames(new ArrayList<>(List.of(fileName)));
-                    replaceORAddImage(courseId, file, request, response);
+                    replaceFileIntoFolder(courseId, file, response, argomento.getId());
                 }
 
                 argomentoDao.update(argomento);
@@ -189,7 +191,7 @@ public class LessonsServlet extends HttpServlet {
                 String fileName = getFileName(file);
                 LOGGER.log(Level.INFO, "File is not null and file name is valid");
                 argomento.setFilenames(new ArrayList<>(List.of(fileName)));
-                replaceORAddImage(courseId, file, request, response);
+                replaceFileIntoFolder(courseId, file, response, -1);
             }
 
             argomentoDao.insertInto(argomento);
@@ -204,6 +206,7 @@ public class LessonsServlet extends HttpServlet {
         if (topicId != null) {
             Argomento argomento = argomentoDao.findById(Integer.parseInt(topicId));
             if (argomento != null) {
+                deleteTopicFile(Integer.parseInt(topicId), Integer.parseInt(request.getParameter("courseId")));
                 argomentoDao.delete(Integer.parseInt(topicId));
                 response.sendRedirect("lesson?action=display&courseID=" +
                         request.getParameter("courseId") + "&lezione=" +
@@ -216,7 +219,23 @@ public class LessonsServlet extends HttpServlet {
         }
     }
 
-    private void replaceORAddImage(int corsoID, Part filePart, HttpServletRequest request, HttpServletResponse response) throws IOException {
+    private void deleteTopicFile(int topicID, int courseID) {
+        String uploadPath = UPLOAD_FOLDER + SEPARATOR + "course" + SEPARATOR + courseID;
+        String fileToDeleteName = new ArgomentoDaoImpl().findFiles(topicID).get(0);
+        String fileToDeletePath = uploadPath + SEPARATOR + fileToDeleteName;
+        File deleteFile = new File(fileToDeletePath);
+        LOGGER.log(Level.INFO, "Check if fileToDelete exists: {0}", deleteFile.exists());
+
+        if(!checkIfFileIsUsedFromAnotherTopicOfCourse(topicID, courseID)) {
+            if(fileToDeleteName != null) {
+                if(!fileToDeleteName.isEmpty() && deleteFile.exists()) {
+                    deleteFileFromFolder(deleteFile);
+                }
+            }
+        }
+    }
+
+    private void replaceFileIntoFolder(int corsoID, Part filePart, HttpServletResponse response, int argomentoID) throws IOException {
         if (filePart == null) {
             LOGGER.log(Level.SEVERE, "No file uploaded or file part name mismatch.");
             response.sendError(HttpServletResponse.SC_BAD_REQUEST, "No file uploaded.");
@@ -263,6 +282,8 @@ public class LessonsServlet extends HttpServlet {
             // Option 1: Delete the existing file
 
         } else {
+            if(argomentoID > 0)
+                deleteTopicFile(argomentoID, corsoID);
 
             try (InputStream input = filePart.getInputStream()) {
 
@@ -276,12 +297,62 @@ public class LessonsServlet extends HttpServlet {
 
     }
 
+    private boolean checkIfFileIsUsedFromAnotherTopicOfCourse(int topicid, int courseid) {
+        String fileToCheck = new ArgomentoDaoImpl().findFiles(topicid).get(0);
+
+        return new CorsoDaoImpl().countFileUsage(topicid, courseid, fileToCheck) > 0;
+    }
+
+    private void deleteFileFromFolder(File deleteFile) {
+        try {
+            // Chiudere eventuali risorse ancora aperte
+            closeFileResources(deleteFile);
+
+            // Attendi prima di tentare di eliminare
+            try {
+                Thread.sleep(100); // Attendi 100 ms
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+                LOGGER.log(Level.WARNING, "Thread interrupted", e);
+            }
+
+            // Tentativo di eliminazione del file
+            if (deleteFile.delete()) {
+                LOGGER.log(Level.INFO, "Previous file successfully eliminated");
+            } else {
+                LOGGER.log(Level.WARNING, "Failed to delete the previous file");
+            }
+        } catch (IOException e) {
+            LOGGER.log(Level.SEVERE, "Error deleting the previous file", e);
+            throw new RuntimeException(e);
+        }
+    }
+
+    private void closeFileResources(File file) throws IOException {
+        System.gc();
+
+        try (RandomAccessFile raf = new RandomAccessFile(file, "rw");
+             FileChannel channel = raf.getChannel();
+             FileLock lock = channel.lock()) {
+            // Forzare il rilascio del lock
+            lock.release();
+            LOGGER.log(Level.INFO, "File resources successfully closed for: {0}", file.getAbsolutePath());
+        } catch (IOException e) {
+            LOGGER.log(Level.SEVERE, "Error closing file resources for: {0} {1}", new Object[]{file.getAbsolutePath(), e});
+            throw e;
+        }
+    }
+
+
     private void deleteLesson(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String lessonID = request.getParameter("lessonID");
 
         if (lessonID != null) {
             Lezione lezione = lezioneDao.findById(Integer.parseInt(lessonID));
             if (lezione != null) {
+                for(Argomento arg : new ArgomentoDaoImpl().findAllByLezioneId(Integer.parseInt(lessonID))) {
+                    deleteTopicFile(arg.getId(), lezione.getIdCorso());
+                }
                 lezioneDao.delete(Integer.parseInt(lessonID));
                 response.sendRedirect("lesson?action=new&courseID=" + lezione.getIdCorso());
             } else {

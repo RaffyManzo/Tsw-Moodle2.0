@@ -13,9 +13,11 @@ import model.dao.CorsoDaoImpl;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.RandomAccessFile;
+import java.nio.channels.FileChannel;
+import java.nio.channels.FileLock;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -124,6 +126,17 @@ public class UpdateCourseServlet extends HttpServlet {
             // Option 1: Delete the existing file
 
         } else {
+            String previusImg = new CorsoDaoImpl().findByID(courseId).getImmagine();
+            String fileToDeletePath = uploadPath + SEPARATOR + previusImg;
+
+            File deleteFile = new File(fileToDeletePath);
+            LOGGER.log(Level.INFO, "Check if fileToDelete exists: {0}", deleteFile.exists());
+
+            if(previusImg != null) {
+                if (deleteFile.exists() && !previusImg.isEmpty()) {
+                    deleteFileFromFolder(deleteFile);
+                }
+            }
 
             try (InputStream input = fileParam.getInputStream()) {
 
@@ -134,6 +147,46 @@ public class UpdateCourseServlet extends HttpServlet {
                 response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Failed to save uploaded file.");
                 return;
             }
+        }
+    }
+
+    private void deleteFileFromFolder(File deleteFile) {
+        try {
+            // Chiudere eventuali risorse ancora aperte
+            closeFileResources(deleteFile);
+
+            // Attendi prima di tentare di eliminare
+            try {
+                Thread.sleep(100); // Attendi 100 ms
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+                LOGGER.log(Level.WARNING, "Thread interrupted", e);
+            }
+
+            // Tentativo di eliminazione del file
+            if (deleteFile.delete()) {
+                LOGGER.log(Level.INFO, "Previous file successfully eliminated");
+            } else {
+                LOGGER.log(Level.WARNING, "Failed to delete the previous file");
+            }
+        } catch (IOException e) {
+            LOGGER.log(Level.SEVERE, "Error deleting the previous file", e);
+            throw new RuntimeException(e);
+        }
+    }
+
+    private void closeFileResources(File file) throws IOException {
+        System.gc();
+
+        try (RandomAccessFile raf = new RandomAccessFile(file, "rw");
+             FileChannel channel = raf.getChannel();
+             FileLock lock = channel.lock()) {
+            // Forzare il rilascio del lock
+            lock.release();
+            LOGGER.log(Level.INFO, "File resources successfully closed for: {0}", file.getAbsolutePath());
+        } catch (IOException e) {
+            LOGGER.log(Level.SEVERE, "Error closing file resources for: {0} {1}", new Object[]{file.getAbsolutePath(), e});
+            throw e;
         }
     }
 

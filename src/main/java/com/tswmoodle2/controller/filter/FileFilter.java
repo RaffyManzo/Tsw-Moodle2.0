@@ -109,6 +109,7 @@ public class FileFilter implements Filter {
             return false;
         }
 
+
         if (filename.equals(course.getImmagine())) {
             return true;
         } else {
@@ -116,6 +117,11 @@ public class FileFilter implements Filter {
                 LOGGER.log(Level.WARNING, "User not logged in");
                 return false;
             } else {
+
+                if(user.getTipo().equals("D")) {
+                    if(course.getCreatore().getIdUtente() == user.getIdUtente())
+                        return true;
+                }
                 boolean isPurchased = isPurchased(course, user);
                 if (!isPurchased) {
                     LOGGER.log(Level.WARNING, "User has not purchased the course: userID={0}, courseID={1}", new Object[]{user.getIdUtente(), courseId});

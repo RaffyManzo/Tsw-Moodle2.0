@@ -5,25 +5,14 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
-import model.Util.CarrelloScheduler;
-import model.Util.CarrelloService;
-import model.beans.Carrello;
-import model.beans.Corso;
 import model.beans.Utenza;
 import model.dao.CartDaoImpl;
 import model.dao.CategoriaDaoImpl;
-import model.dao.CorsoDaoImpl;
 import model.dao.UtenzaDaoImpl;
 
 import java.io.IOException;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 @WebServlet(name = "TeacherProfileServlet", urlPatterns = "/profile")
 public class TeacherProfileServlet extends HttpServlet {

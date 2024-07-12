@@ -55,7 +55,7 @@ public class ModificaServlet extends HttpServlet {
                     String accountType = request.getParameter("tipoUtente");
                     String surname = request.getParameter("cognome");
                     String address = request.getParameter("indirizzo");
-                    String nation = request.getParameter("citta");
+                    String nation = request.getParameter("nazione");
                     String birthDate = request.getParameter("dataNascita");
                     String username = request.getParameter("username");
                     String email = request.getParameter("email");
@@ -82,7 +82,7 @@ public class ModificaServlet extends HttpServlet {
                         utenza.setNome(nome);
                         utenza.setCognome(surname);
                         utenza.setTipo(accountType);
-                        utenza.setCitta(nation);
+                        utenza.setNazione(nation);
                         utenza.setIndirizzo(address);
                         utenza.setDataNascita(parseDate(birthDate));
                         utenza.setUsername(username);

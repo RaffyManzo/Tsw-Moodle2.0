@@ -10,7 +10,7 @@ public class Utenza {
     private  String cognome;
     private  Date dataNascita;
     private  String indirizzo;
-    private  String citta;
+    private  String nazione;
     private String telefono;
     private  String email;
 
@@ -38,8 +38,8 @@ public class Utenza {
         this.indirizzo = indirizzo;
     }
 
-    public void setCitta(String citta) {
-        this.citta = citta;
+    public void setNazione(String nazione) {
+        this.nazione = nazione;
     }
 
     public void setEmail(String email) {
@@ -72,13 +72,13 @@ public class Utenza {
         this.tipo = tipo;
     }
 
-    public Utenza(int idUtente, String nome, String cognome, Date dataNascita, String indirizzo, String citta, String telefono, String email, String password, Date dataCreazioneAccount, String username, String tipo, String img) {
+    public Utenza(int idUtente, String nome, String cognome, Date dataNascita, String indirizzo, String nazione, String telefono, String email, String password, Date dataCreazioneAccount, String username, String tipo, String img) {
         this.idUtente = idUtente;
         this.nome = nome;
         this.cognome = cognome;
         this.dataNascita = dataNascita;
         this.indirizzo = indirizzo;
-        this.citta = citta;
+        this.nazione = nazione;
         this.telefono = telefono;
         this.email = email;
         this.password = password;
@@ -109,8 +109,8 @@ public class Utenza {
         return indirizzo;
     }
 
-    public String getCitta() {
-        return citta;
+    public String getNazione() {
+        return nazione;
     }
 
     public String getTelefono() {
@@ -145,7 +145,7 @@ public class Utenza {
                 ", cognome='" + cognome + '\'' +
                 ", dataNascita=" + dataNascita +
                 ", indirizzo='" + indirizzo + '\'' +
-                ", citta='" + citta + '\'' +
+                ", Nazione='" + nazione + '\'' +
                 ", telefono='" + telefono + '\'' +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +

@@ -9,13 +9,40 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aaf64b38-f287-423c-9dbc-41a4353826d6" name="Changes" comment="qualche fix grafico e di funzionalita, aggiunta sezione ordini">
+    <list default="true" id="aaf64b38-f287-423c-9dbc-41a4353826d6" name="Changes" comment="Aggiunto replacing dei file ed eliminazione di essi">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/private/course.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/private/course.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/private/dashboard.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/private/dashboard.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/course.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/course.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/dashboard.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/dashboard.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/header.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/header.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/CategoryServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/CategoryServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/CheckoutServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/CheckoutServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/DisplayFieldTestServlet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/DisplayOrdersList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/DisplayOrdersList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/FileServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/FileServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/GetCourseInfoServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/GetCourseInfoServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/OpenCourseServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/OpenCourseServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/ShoppingServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/ShoppingServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/TeacherProfileServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/TeacherProfileServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/UploadImageServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/UploadImageServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/UserDashboardServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/UserDashboardServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/admin/VisualizzaArgomenti.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/admin/VisualizzaArgomenti.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/admin/VisualizzaFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/admin/VisualizzaFile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/filter/AccessControlFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/filter/AccessControlFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/filter/AccountOperationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/filter/AccountOperationFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/filter/CustomHttpServletRequestWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/filter/CustomHttpServletRequestWrapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/teacher/DisplayStudentList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/teacher/DisplayStudentList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/teacher/NewCourseServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/teacher/NewCourseServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/teacher/UpdateCourseServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tswmoodle2/controller/teacher/UpdateCourseServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/DBManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/DBManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/QueryPool.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/QueryPool.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/beans/Argomento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/beans/Argomento.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/beans/Ordine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/beans/Ordine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/dao/ArgomentoDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/dao/ArgomentoDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/dao/CorsoDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/dao/CorsoDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/dao/CorsoDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/dao/CorsoDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/dao/UtenzaDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/dao/UtenzaDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/public/test.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/testImage.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/script/bannerSize.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/script/bannerSize.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/script/imageErrorDetect.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/script/imageErrorDetect.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/script/sliderClass.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/script/sliderClass.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,28 +128,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "C:/Users/raffa/IdeaProjects/Tsw-Moodle2.0/src/main/webapp/assets/images",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.4586207",
-    "settings.editor.selected.configurable": "vcs.Git",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/raffa/IdeaProjects/Tsw-Moodle2.0/src/main/webapp/assets/images&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.4586207&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;vcs.Git&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\raffa\IdeaProjects\Tsw-Moodle2.0\src\main\webapp\assets\images" />
@@ -319,39 +346,8 @@
       <workItem from="1720518053122" duration="24860000" />
       <workItem from="1720560567649" duration="4665000" />
       <workItem from="1720600415122" duration="42650000" />
-      <workItem from="1720687691331" duration="39559000" />
-    </task>
-    <task id="LOCAL-00026" summary="Responsive course.css">
-      <option name="closed" value="true" />
-      <created>1719447582714</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1719447582714</updated>
-    </task>
-    <task id="LOCAL-00027" summary="Add an image in resources&#10;Start with category.jsp&#10;Fix conflict with session cart and db cart&#10;Start with account.jsp">
-      <option name="closed" value="true" />
-      <created>1719503134375</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1719503134375</updated>
-    </task>
-    <task id="LOCAL-00028" summary="account.jsp in progress">
-      <option name="closed" value="true" />
-      <created>1719507848588</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1719507848588</updated>
-    </task>
-    <task id="LOCAL-00029" summary="account.jsp: left delete account">
-      <option name="closed" value="true" />
-      <created>1719510089939</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1719510089939</updated>
+      <workItem from="1720687691331" duration="43198000" />
+      <workItem from="1720777403761" duration="10215000" />
     </task>
     <task id="LOCAL-00030" summary="account.jsp: implemented change profile pic &#10;modified FileServlet.java file pick. Upload folder now is outside webapp, in CATALINA.HOME Folder">
       <option name="closed" value="true" />
@@ -713,7 +709,39 @@
       <option name="project" value="LOCAL" />
       <updated>1720736889015</updated>
     </task>
-    <option name="localTasksCounter" value="75" />
+    <task id="LOCAL-00075" summary="convertito i corsi in jstl nella dashboard">
+      <option name="closed" value="true" />
+      <created>1720739046977</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1720739046977</updated>
+    </task>
+    <task id="LOCAL-00076" summary="convertito i corsi in jstl nella dashboard">
+      <option name="closed" value="true" />
+      <created>1720739706776</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1720739706776</updated>
+    </task>
+    <task id="LOCAL-00077" summary="Alcune fix">
+      <option name="closed" value="true" />
+      <created>1720742378455</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1720742378455</updated>
+    </task>
+    <task id="LOCAL-00078" summary="Aggiunto replacing dei file ed eliminazione di essi">
+      <option name="closed" value="true" />
+      <created>1720790646282</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1720790646282</updated>
+    </task>
+    <option name="localTasksCounter" value="79" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -743,9 +771,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="teacher profile page finished" />
-    <MESSAGE value="Start category.jsp" />
-    <MESSAGE value="finished category.jsp and fix imageErrorDetect.js" />
     <MESSAGE value="fix category.css image size" />
     <MESSAGE value="fix cart error and add remove account image" />
     <MESSAGE value="fix header bar in admin page" />
@@ -768,6 +793,9 @@
     <MESSAGE value="Fix caricamento file" />
     <MESSAGE value="Fix varie e jstl per visualizzazione studenti" />
     <MESSAGE value="qualche fix grafico e di funzionalita, aggiunta sezione ordini" />
-    <option name="LAST_COMMIT_MESSAGE" value="qualche fix grafico e di funzionalita, aggiunta sezione ordini" />
+    <MESSAGE value="convertito i corsi in jstl nella dashboard" />
+    <MESSAGE value="Alcune fix" />
+    <MESSAGE value="Aggiunto replacing dei file ed eliminazione di essi" />
+    <option name="LAST_COMMIT_MESSAGE" value="Aggiunto replacing dei file ed eliminazione di essi" />
   </component>
 </project>

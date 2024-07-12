@@ -7,13 +7,11 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import model.beans.Utenza;
-import model.dao.CorsoDaoImpl;
 import model.dao.OrdineDaoImpl;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @WebServlet("/orders")
 @MultipartConfig
