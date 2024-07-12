@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: raffa
-  Date: 05/07/2024
-  Time: 16:29
-  To change this template use File | Settings | File Templates.
---%>
 <%
     HttpSession checkSession = request.getSession(false);
     if (checkSession != null) {

@@ -40,11 +40,7 @@ public class AdminSearchFilter extends HttpServlet {
                 break;
             case "ordine":
                 String ordineIdUtenteS = request.getParameter("IDUtente");
-                String ordineIdS = request.getParameter("IDordine");
                 int ordineIdUtente = 0;
-                int ordineId = 0;
-                if (!ordineIdS.isEmpty())
-                    ordineId = Integer.parseInt(request.getParameter("IDordine"));
                 if (!ordineIdUtenteS.isEmpty())
                     ordineIdUtente = Integer.parseInt(request.getParameter("IDUtente"));
                 OrdineDaoImpl o = new OrdineDaoImpl();

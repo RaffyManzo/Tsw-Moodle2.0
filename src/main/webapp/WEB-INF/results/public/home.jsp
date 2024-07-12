@@ -2,8 +2,6 @@
 <%@ page import="model.beans.Carrello" %>
 <%@ page import="java.util.Map" %>
 <%@ page import="model.beans.Corso" %>
-<%@ page import="model.dao.CartDaoImpl" %>
-<%@ page import="java.sql.SQLException" %>
 <%@ page import="model.dao.UtenzaDaoImpl" %>
 <%@ page import="model.dao.CategoriaDaoImpl" %>
 <%@ page import="model.beans.Categoria" %>
@@ -72,11 +70,6 @@
 <body>
 
 <div class="header" id="header">
-  <!-- <div class="link-container">
-        <a href="${pageContext.request.contextPath}/AdminServlet"
-           class="header-redirect-btn" >admin </a>
-    </div>!-->
-
     <div class="header-main-info" id="header-main-info">
         <a href="${pageContext.request.contextPath}/home" class="logo-image" id="header-logo-image">
             <img src="${pageContext.request.contextPath}/assets/images/logo.png">

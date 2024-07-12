@@ -2,11 +2,11 @@
 <%@ page import="model.beans.Corso" %>
 <%@ page import="java.util.List" %>
 <%@ include file="../private/session.jsp" %>
-
 <%@ page import="model.beans.Categoria" %>
 <%@ page import="model.beans.Ordine" %>
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <html>
 <head>
     <meta charset="UTF-8">
@@ -236,8 +236,6 @@
         <div class="filter-container">
             <label for="IDUtente">Id utente:</label>
             <input type="number" id="IDUtente" name="IDUtente">
-            <label for="IDordine">Id ordine:</label>
-            <input type="number" id="IDordine" name="IDordine">
             <input type="submit" value="Filtra">
         </div>
     </form>
