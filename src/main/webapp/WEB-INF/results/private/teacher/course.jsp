@@ -19,7 +19,7 @@
 <html>
 <head>
 
-
+    <link rel="icon" type="image/x-icon" href="${pageContext.request.contextPath}/assets/images/logo.ico">
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             const defaultImagePath = 'file?file=<%= corso.getImmagine()%>&id=<%= corso.getIdCorso()%>&c=course';

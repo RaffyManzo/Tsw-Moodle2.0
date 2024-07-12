@@ -43,7 +43,7 @@
 
         })
     </script>
-
+    <link rel="icon" type="image/x-icon" href="${pageContext.request.contextPath}/assets/images/logo.ico">
     <link href="${pageContext.request.contextPath}/css/header.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/css/delete-margin.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/css/slider.css" rel="stylesheet">

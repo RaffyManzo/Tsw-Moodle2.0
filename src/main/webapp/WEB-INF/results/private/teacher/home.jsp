@@ -25,7 +25,7 @@
     <link href="${pageContext.request.contextPath}/css/slider.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/css/teacher-home.css" rel="stylesheet">
 
-
+    <link rel="icon" type="image/x-icon" href="${pageContext.request.contextPath}/assets/images/logo.ico">
     <!-- Importing google font -->
     <link href="https://fonts.googleapis.com" rel="preconnect">
     <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">

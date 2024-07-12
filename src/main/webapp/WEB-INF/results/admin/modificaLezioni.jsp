@@ -7,6 +7,7 @@
     <title>Learn Hub - Area admin</title>
     <link href="${pageContext.request.contextPath}/css/header.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/css/admin.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="${pageContext.request.contextPath}/assets/images/logo.ico">
 </head>
 <body>
 <div class="header" id="header">

@@ -39,7 +39,7 @@
 <html>
 <head>
     <title>Categoria: <%= categoria.getNome()%></title>
-
+    <link rel="icon" type="image/x-icon" href="${pageContext.request.contextPath}/assets/images/logo.ico">
     <meta charset="UTF-8">
     <link href="${pageContext.request.contextPath}/css/header.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/css/delete-margin.css" rel="stylesheet">

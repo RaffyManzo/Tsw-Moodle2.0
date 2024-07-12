@@ -21,7 +21,7 @@
     <link href="${pageContext.request.contextPath}/css/footer.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/css/delete-margin.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/css/createcourse.css" rel="stylesheet">
-
+    <link rel="icon" type="image/x-icon" href="${pageContext.request.contextPath}/assets/images/logo.ico">
 
 
     <!-- Importing google font -->

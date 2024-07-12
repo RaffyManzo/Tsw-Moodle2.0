@@ -9,15 +9,39 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aaf64b38-f287-423c-9dbc-41a4353826d6" name="Changes" comment="Correzione finale">
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/FAQ.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/css/FAQ.css" afterDir="false" />
+    <list default="true" id="aaf64b38-f287-423c-9dbc-41a4353826d6" name="Changes" comment="Aggiunta FAQ page e Aggiunto un href al pulsante contattaci">
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/images/logo.ico" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dashchuk-manzo_pj/src/main/webapp/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/dashchuk-manzo_pj/src/main/webapp/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dashchuk-manzo_pj/src/main/webapp/registrazione.html" beforeDir="false" afterPath="$PROJECT_DIR$/dashchuk-manzo_pj/src/main/webapp/registrazione.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/FAQ.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/FAQ.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/admin/admin.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/admin/admin.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/admin/modifica.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/admin/modifica.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/admin/modificaArgomenti.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/admin/modificaArgomenti.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/admin/modificaCarrello.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/admin/modificaCarrello.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/admin/modificaFiles.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/admin/modificaFiles.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/admin/modificaLezioni.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/admin/modificaLezioni.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/admin/visualizzaLezioni.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/admin/visualizzaLezioni.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/admin/visualizzaOrdini.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/admin/visualizzaOrdini.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/private/account.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/private/account.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/private/checkout.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/private/checkout.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/private/course.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/private/course.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/private/dashboard.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/private/dashboard.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/private/orders.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/private/orders.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/private/session.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/private/session.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/private/teacher/course.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/private/teacher/course.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/private/teacher/createCourse.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/private/teacher/createCourse.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/private/teacher/home.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/private/teacher/home.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/private/teacher/lessons.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/private/teacher/lessons.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/private/teacher/students.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/private/teacher/students.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/public/cart.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/public/cart.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/public/category.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/public/category.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/public/course.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/public/course.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/public/error.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/public/error.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/public/home.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/public/home.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/public/profile.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/public/profile.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/public/success.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/results/public/success.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/login.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/registrazione.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/registrazione.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/script/sliderClass.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/script/sliderClass.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/script/bannerSize.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/script/bannerSize.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -322,15 +346,7 @@
       <workItem from="1720560567649" duration="4665000" />
       <workItem from="1720600415122" duration="42650000" />
       <workItem from="1720687691331" duration="43198000" />
-      <workItem from="1720777403761" duration="13477000" />
-    </task>
-    <task id="LOCAL-00032" summary="Implement AccountOperationFilter.java and delete option in AccountServlet.java">
-      <option name="closed" value="true" />
-      <created>1719583376640</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
-      <option name="project" value="LOCAL" />
-      <updated>1719583376640</updated>
+      <workItem from="1720777403761" duration="16467000" />
     </task>
     <task id="LOCAL-00033" summary="Implements RegistrationServlet">
       <option name="closed" value="true" />
@@ -716,7 +732,15 @@
       <option name="project" value="LOCAL" />
       <updated>1720793172814</updated>
     </task>
-    <option name="localTasksCounter" value="81" />
+    <task id="LOCAL-00081" summary="Aggiunta FAQ page e Aggiunto un href al pulsante contattaci">
+      <option name="closed" value="true" />
+      <created>1720795461449</created>
+      <option name="number" value="00081" />
+      <option name="presentableId" value="LOCAL-00081" />
+      <option name="project" value="LOCAL" />
+      <updated>1720795461449</updated>
+    </task>
+    <option name="localTasksCounter" value="82" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -746,7 +770,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fix header bar in admin page" />
     <MESSAGE value="fix card storage on payment" />
     <MESSAGE value="start lessons and Arguments" />
     <MESSAGE value="finish lessons and topic in course" />
@@ -771,6 +794,7 @@
     <MESSAGE value="Aggiunto replacing dei file ed eliminazione di essi" />
     <MESSAGE value="Ottimizzato gli import, sostituito jquery con js puro, fixato loadLastResource.js fallimento request" />
     <MESSAGE value="Correzione finale" />
-    <option name="LAST_COMMIT_MESSAGE" value="Correzione finale" />
+    <MESSAGE value="Aggiunta FAQ page e Aggiunto un href al pulsante contattaci" />
+    <option name="LAST_COMMIT_MESSAGE" value="Aggiunta FAQ page e Aggiunto un href al pulsante contattaci" />
   </component>
 </project>

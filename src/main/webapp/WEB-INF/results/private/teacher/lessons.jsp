@@ -21,7 +21,7 @@
 
 <html>
 <head>
-
+    <link rel="icon" type="image/x-icon" href="${pageContext.request.contextPath}/assets/images/logo.ico">
 
 <title>Aggiungi una lezione</title>
 

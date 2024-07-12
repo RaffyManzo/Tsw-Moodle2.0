@@ -15,7 +15,7 @@
     <meta charset="UTF-8">
     <title>Error - Learn Hub</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/error.css">
-
+    <link rel="icon" type="image/x-icon" href="${pageContext.request.contextPath}/assets/images/logo.ico">
 </head>
 <body>
 <header class="header">

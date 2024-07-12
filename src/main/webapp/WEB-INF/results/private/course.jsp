@@ -40,7 +40,7 @@
     <link href="${pageContext.request.contextPath}/css/delete-margin.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/css/search.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/css/course.css" rel="stylesheet">
-
+    <link rel="icon" type="image/x-icon" href="${pageContext.request.contextPath}/assets/images/logo.ico">
     <!-- Importing google font -->
     <link href="https://fonts.googleapis.com" rel="preconnect">
     <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">

@@ -14,7 +14,7 @@
 <head>
     <title>Account - <%= user.getNome()%>
     </title>
-
+    <link rel="icon" type="image/x-icon" href="${pageContext.request.contextPath}/assets/images/logo.ico">
     <link href="${pageContext.request.contextPath}/css/header.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/css/reg.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/css/account.css" rel="stylesheet">

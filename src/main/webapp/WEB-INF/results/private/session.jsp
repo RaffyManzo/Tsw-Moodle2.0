@@ -13,6 +13,7 @@
 <html>
 <head>
     <title></title>
+    <link rel="icon" type="image/x-icon" href="${pageContext.request.contextPath}/assets/images/logo.ico">
     <script src="${pageContext.request.contextPath}/script/sessionPopUp.js"></script>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/sessionPopUp.css">
 </head>

@@ -46,7 +46,7 @@
     <link href="${pageContext.request.contextPath}/css/profile.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/css/search.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/css/slider.css" rel="stylesheet">
-
+    <link rel="icon" type="image/x-icon" href="${pageContext.request.contextPath}/assets/images/logo.ico">
     <link href="https://fonts.googleapis.com" rel="preconnect">
     <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
     <link href="https://fonts.googleapis.com/css2?family=Jura:wght@300..700&display=swap" rel="stylesheet">

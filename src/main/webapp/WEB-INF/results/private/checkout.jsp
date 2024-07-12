@@ -19,7 +19,7 @@
 <html>
 <head>
     <title>Pagamento</title>
-
+    <link rel="icon" type="image/x-icon" href="${pageContext.request.contextPath}/assets/images/logo.ico">
     <link href="${pageContext.request.contextPath}/css/footer.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com" rel="preconnect">
     <link href="${pageContext.request.contextPath}/css/delete-margin.css" rel="stylesheet">

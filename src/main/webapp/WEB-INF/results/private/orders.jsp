@@ -24,7 +24,7 @@
     <link href="https://fonts.googleapis.com" rel="preconnect">
     <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
     <link href="https://fonts.googleapis.com/css2?family=Jura:wght@300..700&display=swap" rel="stylesheet">
-
+    <link rel="icon" type="image/x-icon" href="${pageContext.request.contextPath}/assets/images/logo.ico">
     <link href="${pageContext.request.contextPath}/css/header.css" rel="stylesheet">
     <script src="${pageContext.request.contextPath}/script/imageErrorDetect.js" defer></script>
     <script src="${pageContext.request.contextPath}/script/accountProfilePicControl.js" defer></script>

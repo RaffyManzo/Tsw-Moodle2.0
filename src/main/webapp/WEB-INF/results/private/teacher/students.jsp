@@ -18,7 +18,7 @@
 <head>
     <title>Lista degli studenti</title>
     <link href="${pageContext.request.contextPath}/css/students.css" rel="stylesheet">
-
+    <link rel="icon" type="image/x-icon" href="${pageContext.request.contextPath}/assets/images/logo.ico">
 
     <!-- Importing google font -->
     <link href="https://fonts.googleapis.com" rel="preconnect">
