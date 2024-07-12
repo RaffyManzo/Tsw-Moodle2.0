@@ -1,5 +1,4 @@
 <%@ page import="model.beans.Corso" %>
-<%@ page import="model.dao.CorsoDaoImpl" %>
 
 <%
     Corso c = (Corso) request.getAttribute("elemento");
