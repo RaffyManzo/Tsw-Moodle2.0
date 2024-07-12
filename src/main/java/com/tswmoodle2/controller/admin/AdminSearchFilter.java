@@ -42,7 +42,7 @@ public class AdminSearchFilter extends HttpServlet {
                 String ordineIdUtenteS = request.getParameter("IDUtente");
                 int ordineIdUtente = 0;
                 if (!ordineIdUtenteS.isEmpty())
-                    ordineIdUtente = Integer.parseInt(request.getParameter("IDUtente"));
+                    ordineIdUtente = Integer.parseInt(ordineIdUtenteS);
                 OrdineDaoImpl o = new OrdineDaoImpl();
                 filteredData = o.findByUtenteId(ordineIdUtente);
                 break;
