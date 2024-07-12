@@ -2,13 +2,31 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Login</title>
+    <title>FAQ</title>
+
     <link href="css/header.css" rel="stylesheet">
-    <link href="css/login.css" rel="stylesheet" >
+    <link href="css/FAQ.css" rel="stylesheet">
+
     <link href="css/delete-margin.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com" rel="preconnect">
     <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
     <link href="https://fonts.googleapis.com/css2?family=Jura:wght@300..700&display=swap" rel="stylesheet">
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const faqQuestions = document.querySelectorAll('.faq-question');
+
+            faqQuestions.forEach(question => {
+                question.addEventListener('click', () => {
+                    const answer = question.nextElementSibling;
+                    if (answer.style.display === 'block') {
+                        answer.style.display = 'none';
+                    } else {
+                        answer.style.display = 'block';
+                    }
+                });
+            });
+        });
+    </script>
 
 </head>
 <body>
@@ -54,30 +72,24 @@
         </div>
     </div>
 </div>
+<div class="faq-container">
+    <h1>Domande Frequenti</h1>
 
-<div class="container">
-    <div class="blob-container">
-        <form class="field-container" action="login" method="post">
-            <label id="login-form-title">Effettua il login</label>
-            <div class="input-text-box">
-                <div class="display-vertical-container">
-                    <label class="input-text-box-title">Email o username</label>
-                    <input class="input-text-box-content" type="text" placeholder="Inserisci qui..." name="username">
-                </div>
-            </div>
-            <div class="input-text-box">
-                <div class="display-vertical-container">
-                    <label class="input-text-box-title">Password</label>
-                    <input class="input-text-box-content" type="password" placeholder="Inserisci qui..." name="password">
-                </div>
-            </div>
-            <input type="submit" value="Login">
-            <div class="register-container">
-                <label>Non hai un account?</label>
-                <a href="registrazione.html" class="redirect-btn">Registrati</a>
-            </div>
-        </form>
+    <div class="faq-item">
+        <div class="faq-question">Domanda 1: Che tipi di corsi offrite?</div>
+        <div class="faq-answer">Risposta 1: Offriamo una vasta gamma di corsi online che coprono vari argomenti come tecnologia, business, arti e sviluppo personale. Ogni corso è composto da lezioni testuali e argomenti progettati per fornire conoscenze e competenze approfondite.</div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-question">Domanda 2: È sicuro acquistare corsi sulla vostra piattaforma?</div>
+        <div class="faq-answer">Risposta 2: Sì, è completamente sicuro acquistare corsi sulla nostra piattaforma. Utilizziamo gateway di pagamento sicuri per garantire che le tue informazioni finanziarie siano protette. La tua privacy e sicurezza sono le nostre massime priorità.</div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-question">Domanda 3: Offrite assistenza clienti?</div>
+        <div class="faq-answer">Risposta 3: Sì, offriamo assistenza clienti 24/7. Il nostro team di supporto dedicato è sempre disponibile per aiutarti con qualsiasi domanda o problema. Puoi contattarci via email o chat dal vivo per un'assistenza rapida.</div>
     </div>
 </div>
+
 </body>
 </html>

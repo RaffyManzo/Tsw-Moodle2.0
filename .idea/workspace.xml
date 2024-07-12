@@ -9,8 +9,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aaf64b38-f287-423c-9dbc-41a4353826d6" name="Changes" comment="Ottimizzato gli import, sostituito jquery con js puro, fixato loadLastResource.js fallimento request">
+    <list default="true" id="aaf64b38-f287-423c-9dbc-41a4353826d6" name="Changes" comment="Correzione finale">
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/FAQ.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/css/FAQ.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashchuk-manzo_pj/src/main/webapp/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/dashchuk-manzo_pj/src/main/webapp/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashchuk-manzo_pj/src/main/webapp/registrazione.html" beforeDir="false" afterPath="$PROJECT_DIR$/dashchuk-manzo_pj/src/main/webapp/registrazione.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/registrazione.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/registrazione.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/script/sliderClass.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/script/sliderClass.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,13 +27,13 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="SCSS File" />
         <option value="Interface" />
         <option value="JavaScript File" />
-        <option value="CSS File" />
         <option value="Jsp File" />
         <option value="Class" />
+        <option value="HTML File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -315,15 +322,7 @@
       <workItem from="1720560567649" duration="4665000" />
       <workItem from="1720600415122" duration="42650000" />
       <workItem from="1720687691331" duration="43198000" />
-      <workItem from="1720777403761" duration="11357000" />
-    </task>
-    <task id="LOCAL-00031" summary="non mi ricordo">
-      <option name="closed" value="true" />
-      <created>1719580874332</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1719580874332</updated>
+      <workItem from="1720777403761" duration="13477000" />
     </task>
     <task id="LOCAL-00032" summary="Implement AccountOperationFilter.java and delete option in AccountServlet.java">
       <option name="closed" value="true" />
@@ -709,7 +708,15 @@
       <option name="project" value="LOCAL" />
       <updated>1720792148251</updated>
     </task>
-    <option name="localTasksCounter" value="80" />
+    <task id="LOCAL-00080" summary="Correzione finale">
+      <option name="closed" value="true" />
+      <created>1720793172814</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1720793172814</updated>
+    </task>
+    <option name="localTasksCounter" value="81" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -739,7 +746,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fix cart error and add remove account image" />
     <MESSAGE value="fix header bar in admin page" />
     <MESSAGE value="fix card storage on payment" />
     <MESSAGE value="start lessons and Arguments" />
@@ -764,6 +770,7 @@
     <MESSAGE value="Alcune fix" />
     <MESSAGE value="Aggiunto replacing dei file ed eliminazione di essi" />
     <MESSAGE value="Ottimizzato gli import, sostituito jquery con js puro, fixato loadLastResource.js fallimento request" />
-    <option name="LAST_COMMIT_MESSAGE" value="Ottimizzato gli import, sostituito jquery con js puro, fixato loadLastResource.js fallimento request" />
+    <MESSAGE value="Correzione finale" />
+    <option name="LAST_COMMIT_MESSAGE" value="Correzione finale" />
   </component>
 </project>
