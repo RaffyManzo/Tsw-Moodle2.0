@@ -202,6 +202,10 @@
             <input type="submit" value="Filtra">
         </div>
     </form>
+    <form action="ModificaServlet" method="post" style="display:inline;">
+        <input type="hidden" name="tipo" value="categoria">
+        <input type="submit" value="Nuova categoria">
+    </form>
 
     <table>
         <thead>

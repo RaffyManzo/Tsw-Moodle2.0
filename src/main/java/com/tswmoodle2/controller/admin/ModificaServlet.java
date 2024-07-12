@@ -43,12 +43,6 @@ public class ModificaServlet extends HttpServlet {
                     Corso corso= c.findByID(Integer.parseInt(elemento));
                     request.setAttribute("elemento", corso);
                     break;
-                case "categoria":
-                    CategoriaDaoImpl ca = new CategoriaDaoImpl();
-                    ArrayList<Categoria> categorie= ca.findByNome(elemento);
-                    Categoria categoria=categorie.get(0);
-                    request.setAttribute("elemento", categoria);
-                    break;
             }
             RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/results/admin/modifica.jsp");
             rd.forward(request, response);
@@ -114,12 +108,11 @@ public class ModificaServlet extends HttpServlet {
                     }
                     c.update(corso);
                     break;
+
                 case "categoria":
                     CategoriaDaoImpl ca = new CategoriaDaoImpl();
-                    ca.changeName(elemento, nome);
-                    ArrayList<Categoria> categorie= ca.findByNome(elemento);
-                    Categoria categoria=categorie.get(0);
-                    categoria.setNome(nome);
+                    Categoria categoria=new Categoria(nome);
+                    ca.insertInto(categoria);
                     break;
             }
 
