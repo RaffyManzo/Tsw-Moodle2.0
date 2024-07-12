@@ -21,7 +21,16 @@
     <entry key="FIND_CORSI_BY_PREZZO">SELECT * FROM Corso WHERE prezzo >= ? AND isDeleted = 0 </entry>
     <entry key="FIND_CORSI_BY_CREATORE">SELECT * FROM Corso WHERE creatore = ? AND isDeleted = 0 </entry>
     <entry key="FIND_UTENTI_BY_ACQUISTO_CORSO">select u.* from utenza as u INNER JOIN corsiacquistati as ca on u.IDUtente = ca.IDUtente WHERE ca.IDCorso = ?</entry>
+    <entry key="COUNT_NUMBER_OF_FILE_USAGE">
+        SELECT COUNT(*)
+        FROM learn_hub.argomento a
+        JOIN learn_hub.lezione l ON a.IDLezione = l.IDLezione
+        JOIN learn_hub.file f ON a.IDArgomento = f.idargomento
+        WHERE l.idCorso = ?
+        AND a.IDArgomento &lt;&gt; ?
+        AND f.filename = ?
 
+    </entry>
     <entry key="GET_FAVOURITE_CATEGORY">SELECT
         c.NomeCategoria,
         COUNT(ca.IDCorso) AS numeroAcquisti
@@ -74,6 +83,8 @@
     <entry key="FIND_UTENZA_BY_SURNAME_OR_USERNAME">SELECT * FROM Utenza WHERE Tipo = "D" AND (Cognome LIKE ? OR Username LIKE ?)</entry>
     <entry key="FIND_UTENZA_BY_SURNAME_OR_USERNAME_LIMIT">SELECT * FROM Utenza WHERE Tipo = "D" AND (Cognome LIKE ? OR Username LIKE ?) LIMIT ?</entry>
     <entry key="SEARCH_UTENZA_BY_TIPO_EMAIL">SELECT * FROM Utenza WHERE (Tipo LIKE ? AND Email LIKE ?) ORDER BY IDUtente</entry>
+
+
 
     <!-- Ordine -->
     <entry key="DELETE_ORDINE">DELETE FROM ordine WHERE idordine = ?</entry>

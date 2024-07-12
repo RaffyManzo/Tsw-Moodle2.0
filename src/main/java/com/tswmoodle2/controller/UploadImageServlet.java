@@ -3,6 +3,9 @@ package com.tswmoodle2.controller;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.RandomAccessFile;
+import java.nio.channels.FileChannel;
+import java.nio.channels.FileLock;
 import java.nio.file.FileAlreadyExistsException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -44,7 +47,7 @@ public class UploadImageServlet extends HttpServlet {
             return;
         }
 
-        if(deletePic(request, response)) {
+        if (deletePic(request, response)) {
             response.sendRedirect("account");
         } else {
 
@@ -86,7 +89,9 @@ public class UploadImageServlet extends HttpServlet {
             }
 
             String filePath = uploadPath + SEPARATOR + fileName;
-            LOGGER.log(Level.INFO, "File path: {0}", filePath);
+            String fileToDeletePath = uploadPath + SEPARATOR + user.getImg();
+            LOGGER.log(Level.INFO, "File path: {0} - IFExists deleting {1}",
+                    new Object[]{filePath, fileToDeletePath});
 
             // Check if the file already exists
             File existingFile = new File(filePath);
@@ -95,6 +100,14 @@ public class UploadImageServlet extends HttpServlet {
                 // Option 1: Delete the existing file
 
             } else {
+                File deleteFile = new File(fileToDeletePath);
+                LOGGER.log(Level.INFO, "Check if fileToDelete exists: {0}", deleteFile.exists());
+
+                if(user.getImg() != null) {
+                    if (deleteFile.exists() && !user.getImg().isEmpty()) {
+                        deleteFileFromFolder(deleteFile);
+                    }
+                }
 
                 try (InputStream input = filePart.getInputStream()) {
 
@@ -114,6 +127,21 @@ public class UploadImageServlet extends HttpServlet {
         }
     }
 
+    private void closeFileResources(File file) throws IOException {
+        System.gc();
+
+        try (RandomAccessFile raf = new RandomAccessFile(file, "rw");
+             FileChannel channel = raf.getChannel();
+             FileLock lock = channel.lock()) {
+            // Forzare il rilascio del lock
+            lock.release();
+            LOGGER.log(Level.INFO, "File resources successfully closed for: {0}", file.getAbsolutePath());
+        } catch (IOException e) {
+            LOGGER.log(Level.SEVERE, "Error closing file resources for: {0} {1}", new Object[]{file.getAbsolutePath(), e});
+            throw e;
+        }
+    }
+
     private String getFileName(Part part) {
         for (String content : part.getHeader("content-disposition").split(";")) {
             if (content.trim().startsWith("filename")) {
@@ -125,8 +153,20 @@ public class UploadImageServlet extends HttpServlet {
 
     private boolean deletePic(HttpServletRequest request, HttpServletResponse response) {
         String delete = request.getParameter("delete");
-        if(delete.equals("TRUE")) {
+        if (delete.equals("TRUE")) {
             Utenza user = (Utenza) request.getSession().getAttribute("user");
+            String uploadPath = UPLOAD_FOLDER + SEPARATOR + "user" + SEPARATOR + user.getIdUtente();
+            String fileToDeletePath = uploadPath + SEPARATOR + user.getImg();
+
+
+            File deleteFile = new File(fileToDeletePath);
+            LOGGER.log(Level.INFO, "Check if fileToDelete exists: {0}", deleteFile.exists());
+
+            if(user.getImg() != null) {
+                if (deleteFile.exists() && !user.getImg().isEmpty()) {
+                    deleteFileFromFolder(deleteFile);
+                }
+            }
 
             user.setImage("");
             new UtenzaDaoImpl().update(user);
@@ -135,5 +175,31 @@ public class UploadImageServlet extends HttpServlet {
             return true;
         } else
             return false;
+    }
+
+
+    private void deleteFileFromFolder(File deleteFile) {
+        try {
+            // Chiudere eventuali risorse ancora aperte
+            closeFileResources(deleteFile);
+
+            // Attendi prima di tentare di eliminare
+            try {
+                Thread.sleep(100); // Attendi 100 ms
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+                LOGGER.log(Level.WARNING, "Thread interrupted", e);
+            }
+
+            // Tentativo di eliminazione del file
+            if (deleteFile.delete()) {
+                LOGGER.log(Level.INFO, "Previous file successfully eliminated");
+            } else {
+                LOGGER.log(Level.WARNING, "Failed to delete the previous file");
+            }
+        } catch (IOException e) {
+            LOGGER.log(Level.SEVERE, "Error deleting the previous file", e);
+            throw new RuntimeException(e);
+        }
     }
 }

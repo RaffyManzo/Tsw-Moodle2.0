@@ -59,6 +59,7 @@
     <script src="${pageContext.request.contextPath}/script/profilepic.js"></script>
     <script src="${pageContext.request.contextPath}/script/search.js"></script>
     <script src="${pageContext.request.contextPath}/script/sliderClass.js"></script>
+
 </head>
 <body>
 <div class="header" id="header">
