@@ -228,7 +228,7 @@
                 </a>
                 <div class="creator-info">
                     <p><strong>Docente:</strong> <%= profile.getNome() + " " + profile.getCognome()%></p>
-                    <p><strong>Data di nascita:</strong> <%= profile.getDataCreazioneAccount()%></p>
+                    <p><strong>Data di nascita:</strong> <%= profile.getDataNascita()%></p>
                     <h6 class="line-divider"></h6>
                     <p><strong>Data creazione account:</strong> <%= profile.getDataCreazioneAccount()%></p>
                 </div>
