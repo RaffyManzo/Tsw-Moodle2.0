@@ -2,7 +2,6 @@ package model.beans;
 
 import java.sql.Timestamp;
 import java.util.ArrayList;
-import java.util.Date;
 
 public class Argomento {
     private int id;

@@ -5,7 +5,6 @@ import model.beans.Utenza;
 
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.Set;
 
 public class CorsoDaoImpl extends AbstractDataAccessObject<Corso> implements CorsoDao{
 

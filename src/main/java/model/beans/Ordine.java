@@ -1,7 +1,6 @@
 package model.beans;
 
 import java.sql.Timestamp;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.Set;
 import java.util.UUID;

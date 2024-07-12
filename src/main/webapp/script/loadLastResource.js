@@ -35,6 +35,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 // Rimuovi le classi skeleton
                 document.querySelectorAll('.skeleton').forEach(el => el.classList.remove('skeleton'));
+            } else {
+                document.getElementsByClassName('last-course')[0].style.display = 'none';
             }
         };
 

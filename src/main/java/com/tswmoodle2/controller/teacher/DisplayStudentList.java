@@ -1,35 +1,17 @@
 package com.tswmoodle2.controller.teacher;
 
-import jakarta.servlet.annotation.MultipartConfig;
-import jakarta.servlet.http.Part;
-import model.beans.Argomento;
-import model.beans.Corso;
-import model.beans.Lezione;
-import model.beans.Utenza;
-import model.dao.ArgomentoDaoImpl;
-
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.MultipartConfig;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import model.beans.Utenza;
 import model.dao.CorsoDaoImpl;
-import model.dao.LezioneDaoImpl;
-import model.dao.UtenzaDaoImpl;
 
-import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.StandardCopyOption;
-import java.sql.Timestamp;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
-import java.util.Objects;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
 @WebServlet("/students")

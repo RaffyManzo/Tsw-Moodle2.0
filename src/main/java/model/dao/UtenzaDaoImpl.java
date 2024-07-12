@@ -1,17 +1,11 @@
 package model.dao;
 
-import model.DBManager;
-import model.beans.Carrello;
-import model.beans.Corso;
-import model.beans.Ordine;
 import model.beans.Utenza;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class UtenzaDaoImpl extends AbstractDataAccessObject<Utenza> implements UtenzaDao {
 

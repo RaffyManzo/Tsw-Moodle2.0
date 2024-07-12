@@ -6,15 +6,12 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import model.beans.Categoria;
-import model.beans.Corso;
 import model.beans.Utenza;
 import model.dao.CartDaoImpl;
 import model.dao.CategoriaDaoImpl;
 import model.dao.CorsoDaoImpl;
 
 import java.io.IOException;
-import java.util.List;
 
 @WebServlet(name = "UserDashboardServlet", urlPatterns = "/dashboard")
 

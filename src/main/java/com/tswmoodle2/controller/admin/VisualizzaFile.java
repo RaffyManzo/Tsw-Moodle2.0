@@ -6,10 +6,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import model.beans.Argomento;
 import model.dao.ArgomentoDaoImpl;
-
-import java.io.File;
 import java.io.IOException;
 import java.util.List;
 

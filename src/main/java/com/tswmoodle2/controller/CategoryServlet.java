@@ -11,10 +11,8 @@ import model.beans.Utenza;
 import model.dao.CartDaoImpl;
 import model.dao.CategoriaDaoImpl;
 import model.dao.CorsoDaoImpl;
-import model.dao.UtenzaDaoImpl;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 @WebServlet(name = "CategoryServlet", value = "/category")
