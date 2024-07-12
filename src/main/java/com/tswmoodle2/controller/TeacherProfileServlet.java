@@ -33,7 +33,7 @@ public class TeacherProfileServlet extends HttpServlet {
             request.setAttribute("countcourse", new UtenzaDaoImpl().getNumeroCorsi(profile.getIdUtente()));
             request.getSession().setAttribute("c", Integer.parseInt(profileID));
 
-            Utenza user = (Utenza) request.getSession().getAttribute("profile");
+            Utenza user = (Utenza) request.getSession().getAttribute("user");
             if(user != null)
                 request.setAttribute("cartID", new CartDaoImpl().getCartIDByUser(user.getIdUtente()));
 
