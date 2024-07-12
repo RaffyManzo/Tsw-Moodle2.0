@@ -44,7 +44,7 @@
                 break;
         case "categoria":
     %>
-    <jsp:include page="modificaCategoria.jsp"></jsp:include>
+    <jsp:include page="aggiungiCategoria.jsp"></jsp:include>
 
 
     <%
