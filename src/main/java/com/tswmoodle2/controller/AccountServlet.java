@@ -123,9 +123,9 @@ public class AccountServlet extends HttpServlet {
     }
 
     private boolean isValidPassword(String password) {
-        String uppercasePattern = ".[A-Z].";
-        String digitPattern = ".[0-9].";
-        String specialCharacterPattern = ".[!@#$%^&(),.?\":{}|<>].*";
+        String uppercasePattern = ".*[A-Z].*";
+        String digitPattern = ".*[0-9].*";
+        String specialCharacterPattern = ".*[!@#$%^&(),.?\":{}|<>].*";
 
         return password.length() >= 8 && password.length() <= 15 &&
                 Pattern.matches(uppercasePattern, password) &&

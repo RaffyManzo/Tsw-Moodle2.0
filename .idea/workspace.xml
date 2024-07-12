@@ -9,8 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aaf64b38-f287-423c-9dbc-41a4353826d6" name="Changes" comment="FIX FINALI">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/8d1da4ce-79df-43f7-8a5f-0540fbbb02f0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/8d1da4ce-79df-43f7-8a5f-0540fbbb02f0.xml" afterDir="false" />
+    <list default="true" id="aaf64b38-f287-423c-9dbc-41a4353826d6" name="Changes" comment="Fixed TeacherProfileServlet.java">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -317,15 +316,7 @@
       <workItem from="1720600415122" duration="42650000" />
       <workItem from="1720687691331" duration="43198000" />
       <workItem from="1720777403761" duration="16895000" />
-      <workItem from="1720800373905" duration="314000" />
-    </task>
-    <task id="LOCAL-00034" summary="fix RegistrationServlet">
-      <option name="closed" value="true" />
-      <created>1719612812178</created>
-      <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL-00034" />
-      <option name="project" value="LOCAL" />
-      <updated>1719612812178</updated>
+      <workItem from="1720800373905" duration="837000" />
     </task>
     <task id="LOCAL-00035" summary="added success.jsp">
       <option name="closed" value="true" />
@@ -711,7 +702,15 @@
       <option name="project" value="LOCAL" />
       <updated>1720798146126</updated>
     </task>
-    <option name="localTasksCounter" value="83" />
+    <task id="LOCAL-00083" summary="Fixed TeacherProfileServlet.java">
+      <option name="closed" value="true" />
+      <created>1720801038714</created>
+      <option name="number" value="00083" />
+      <option name="presentableId" value="LOCAL-00083" />
+      <option name="project" value="LOCAL" />
+      <updated>1720801038714</updated>
+    </task>
+    <option name="localTasksCounter" value="84" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -741,7 +740,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="start lessons and Arguments" />
     <MESSAGE value="finish lessons and topic in course" />
     <MESSAGE value="fix checkout and added image" />
     <MESSAGE value="fix card duplicate key" />
@@ -766,6 +764,7 @@
     <MESSAGE value="Correzione finale" />
     <MESSAGE value="Aggiunta FAQ page e Aggiunto un href al pulsante contattaci" />
     <MESSAGE value="FIX FINALI" />
-    <option name="LAST_COMMIT_MESSAGE" value="FIX FINALI" />
+    <MESSAGE value="Fixed TeacherProfileServlet.java" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed TeacherProfileServlet.java" />
   </component>
 </project>
