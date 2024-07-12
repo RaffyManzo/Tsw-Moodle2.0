@@ -1,7 +1,3 @@
-<%@ page import="model.beans.Utenza" %>
-<%@ page import="model.beans.Corso" %>
-<%@ page import="model.dao.UtenzaDaoImpl" %>
-<%@ page import="model.dao.CorsoDaoImpl" %>
 <%@ include file="../private/session.jsp" %>
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -44,7 +40,7 @@
                 break;
         case "categoria":
     %>
-    <jsp:include page="modificaCategoria.jsp"></jsp:include>
+    <jsp:include page="aggiungiCategoria.jsp"></jsp:include>
 
 
     <%
